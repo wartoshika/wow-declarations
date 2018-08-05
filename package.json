@@ -1,0 +1,21 @@
+{
+  "name": "@wartoshika/wow-declarations",
+  "version": "0.0.2",
+  "description": "Typescript declarations for the current live World of Warcraft LUA API",
+  "main": "declarations/index.d.ts",
+  "types": "declarations/index.d.ts",
+  "publishConfig": {
+    "registry":"http://npm-registry.qhun.de"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wow",
+    "lua",
+    "wartoshika",
+    "qhun"
+  ],
+  "author": "wartoshika <dev@qhun.de>",
+  "license": "MIT"
+}
