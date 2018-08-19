@@ -1,3 +1,3 @@
 import "./declarations";
 
-const a = GetArchaeologyRaceInfoByID(350);
+const [a, b, c, d] = GetBackpackCurrencyInfo(1);

@@ -1,3 +1,4 @@
+import "./constants";
 import "./global";
 
 import "./account";
@@ -7,8 +8,12 @@ import "./activity";
 import "./addon";
 import "./archaeology";
 import "./arena";
+import "./container";
+import "./currency";
+import "./gossip";
 import "./debug";
-import "./gameClient";
+import "./security";
+import "./system";
 
 import "./ui";
 import "./unit";
