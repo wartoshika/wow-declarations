@@ -1,11 +1,11 @@
 {
   "name": "@wartoshika/wow-declarations",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Typescript declarations for the current live World of Warcraft LUA API",
   "main": "declarations/index.d.ts",
   "types": "declarations/index.d.ts",
   "publishConfig": {
-    "registry":"http://npm-registry.qhun.de"
+    "registry": "http://npm-registry.qhun.de"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
