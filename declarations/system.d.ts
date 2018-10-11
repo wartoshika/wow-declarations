@@ -19,7 +19,7 @@ declare function DetectWowMouse(): WowUnknown;
  * @returns version, build, date, tocversion
  * @see https://wow.gamepedia.com/API_GetBuildInfo
  */
-declare function GetBuildInfo(): MultipleReturnValues<string, string, string, number>;
+declare function GetBuildInfo(): [string, string, string, number];
 
 /**
  * Returns the currently set error handler
@@ -43,7 +43,7 @@ declare function GetFramerate(): number;
  * @returns hours, minutes
  * @see https://wow.gamepedia.com/API_GetGameTime
  */
-declare function GetGameTime(): MultipleReturnValues<number, number>;
+declare function GetGameTime(): [number, number];
 
 /**
  * Returns information about the client locale
@@ -64,3 +64,9 @@ declare function GetGameTime(): MultipleReturnValues<number, number>;
  * - zhTW: Chinese (Traditional, Taiwan)
  */
 declare function GetLocale(): string;
+
+/**
+ * Returns the name of the character's realm
+ * @see https://wow.gamepedia.com/API_GetRealmName
+ */
+declare function GetRealmName(): string;

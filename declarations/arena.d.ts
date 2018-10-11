@@ -15,7 +15,7 @@ declare type ARENA_ID = ARENA_ID_2VS2 | ARENA_ID_3VS3;
  * @returns teamName, oldTeamRating, newTeamRating, teamRating
  * @see https://wow.gamepedia.com/API_GetBattlefieldTeamInfo
  */
-declare function GetBattlefieldTeamInfo(index: ARENA_TEAM): MultipleReturnValues<string, number, number, number>;
+declare function GetBattlefieldTeamInfo(index: ARENA_TEAM): [string, number, number, number];
 
 /**
  * Returns the current arena season. Returns 0 when there is no active season
@@ -38,7 +38,7 @@ declare function GetPreviousArenaSeason(): WowUnknown;
  * @returns isArena, isRegistered
  * @see https://wow.gamepedia.com/API_IsActiveBattlefieldArena
  */
-declare function IsActiveBattlefieldArena(): MultipleReturnValues<boolean, boolean>;
+declare function IsActiveBattlefieldArena(): [boolean, boolean];
 
 /**
  * Returns a value based on whether the player is the arena team captain

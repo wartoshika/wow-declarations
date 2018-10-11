@@ -1,21 +1,51 @@
 {
-  "name": "@wartoshika/wow-declarations",
-  "version": "0.0.3",
+  "_from": "@wartoshika/wow-declarations",
+  "_id": "@wartoshika/wow-declarations@0.0.3",
+  "_inBundle": false,
+  "_integrity": "sha512-gPx+wsQYnCl9+t31Bo9htXJFDhJMwdoo+MIB95Jd1XdA2JpP13EdgMDQ/dpcP1HnH98dXp3h5SHw3AkjMLupjQ==",
+  "_location": "/@wartoshika/wow-declarations",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@wartoshika/wow-declarations",
+    "name": "@wartoshika/wow-declarations",
+    "escapedName": "@wartoshika%2fwow-declarations",
+    "scope": "@wartoshika",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "http://npm-registry.qhun.de/@wartoshika%2fwow-declarations/-/wow-declarations-0.0.3.tgz",
+  "_shasum": "856be1af6c03450bb443c7c44ad9be3717307458",
+  "_spec": "@wartoshika/wow-declarations",
+  "_where": "H:\\Prog\\Typescript\\WoW-Addons\\QhunCoreTS",
+  "author": {
+    "name": "wartoshika",
+    "email": "dev@qhun.de"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "Typescript declarations for the current live World of Warcraft LUA API",
-  "main": "declarations/index.d.ts",
-  "types": "declarations/index.d.ts",
-  "publishConfig": {
-    "registry": "http://npm-registry.qhun.de"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "wow",
     "lua",
     "wartoshika",
     "qhun"
   ],
-  "author": "wartoshika <dev@qhun.de>",
-  "license": "MIT"
+  "license": "MIT",
+  "main": "declarations/index.d.ts",
+  "name": "@wartoshika/wow-declarations",
+  "publishConfig": {
+    "registry": "http://npm-registry.qhun.de"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "declarations/index.d.ts",
+  "version": "0.0.3"
 }

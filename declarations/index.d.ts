@@ -17,3 +17,7 @@ import "./system";
 
 import "./ui";
 import "./unit";
+
+import "./chatWindow";
+
+import "./chatInfo";

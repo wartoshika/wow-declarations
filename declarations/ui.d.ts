@@ -16,6 +16,7 @@ declare type WowAlign = "HORIZONTAL" | "VERTICAL";
  */
 declare const _G: { [prop: string]: any };
 declare const InterfaceOptionsFramePanelContainer: WowRegion;
+declare const UIParent: WowFrame;
 
 // EVENTS
 declare type WowEventOnEvent = "OnEvent";
@@ -48,7 +49,11 @@ declare type WowEventUnitExitedVehicle = "UNIT_EXITED_VEHICLE";
 // -----
 declare type WowEvent = WowEventPlayerLogin | WowEventPlayerLogout | WowEventUnitHealth | WowEventUnitPowerUpdate |
     WowEventUnitDisplaypower | WowEventPlayerTargetChanged | WowEventUnitMaxhealth | WowEventUnitMaxpower | WowEventGroupRosterUpdate |
-    WowEventPlayerEnteringWorld | WowEventPlayerFocusChanged | WowEventUnitEnteredVehicle | WowEventUnitExitedVehicle;
+    WowEventPlayerEnteringWorld | WowEventPlayerFocusChanged | WowEventUnitEnteredVehicle | WowEventUnitExitedVehicle
+    | "PLAYER_EQUIPMENT_CHANGED";
+
+
+
 declare type WowEventOnAny = WowEventOnEvent | WowEventOnLoad | WowEventOnUpdate | WowEventOnClick | WowEventOnEnter |
     WowEventOnLeave | WowEventOnHide | WowEventOnShow | WowEventOnMouseDown | WowEventOnMouseUp | WowEventOnMouseWheel |
     WowEventOnValueChanged | WowEventOnTextChanged;
@@ -143,6 +148,11 @@ declare interface WowUiObject {
     GetName(): string;
 
     /**
+     * Gets the children of a frame
+     */
+    GetChildren(): [...WowUiObject[]];
+
+    /**
      * Returns whether insecure interaction with a widget is forbidden.
      */
     IsForbidden(): boolean;
@@ -175,7 +185,7 @@ declare interface WowFontInstance extends WowUiObject {
      *  fontHeight: Font height in pixels. Due to internal graphics engine workings, this will be ridiculously close to an integer number, but not quite ever fully.
      *  fontFlags: See FontInstance:SetFont().
      */
-    GetFont(): MultipleReturnValues<string, number, string>;
+    GetFont(): [string, number, string];
 
     /**
      * Gets the text color of of a Font Instance.
@@ -185,7 +195,7 @@ declare interface WowFontInstance extends WowUiObject {
      *  b: The blue color
      *  a?: the alpha (opacity)
      */
-    GetTextColor(): MultipleReturnValues<number, number, number, number | undefined>;
+    GetTextColor(): [number, number, number, number?];
 
     /**
      * The function is used to set the font to use for displaying text.
@@ -439,6 +449,12 @@ declare interface WowFontString extends WowFontInstance, WowLayeredRegion {
      * @param text The text to set
      */
     SetText(text: string): void;
+
+    /**
+     * Returns how wide the string would be, in pixels, without wrapping
+     * @see https://wow.gamepedia.com/API_FontString_GetStringWidth
+     */
+    GetStringWidth(): number;
 }
 
 /**
@@ -483,7 +499,8 @@ declare interface WowObjectSetScript<T extends WowUiObject> {
     SetScript(event: "OnEvent", handler: (frame: T, eventName: WowEventOnAny | WowEvent, ...args: any[]) => void): void
     SetScript(event: "OnHide" | "OnShow" | "OnLoad", handler: (frame: T) => void): void
     SetScript(event: "OnLeave", handler: (frame: T, motion: WowUnknown) => void): void
-    SetScript(event: "OnMouseDown" | "OnMouseUp", handler: (frame: T, button: WowMouseButton) => void): void;
+    SetScript(event: "OnMouseDown", handler: (frame: T, button: WowMouseButton) => void): void;
+    SetScript(event: "OnMouseUp", handler: (frame: T, button: WowMouseButton) => void): void;
     SetScript(event: "OnMouseWheel", handler: (frame: T, delta: WowMouseWheelDelta) => void): void;
     SetScript(event: "OnUpdate", handler: (frame: T, elapsed: number) => void): void;
     SetScript(event: "OnValueChanged", handler: (frame: T, changed: any) => void): void;
@@ -596,6 +613,91 @@ declare interface WowFrame extends WowRegion, WowObjectHookScript<WowFrame>, Wow
      * Unregisters all events that the object is currently monitoring.
      */
     UnregisterAllEvents(): void;
+
+    /**
+     * Applies a tint to the background component of a frame's backdrop
+     * @param red red tint component, from 0 to 1 (red)
+     * @param green green tint component, from 0 to 1 (green).
+     * @param blue blue tint component, from 0 to 1 (blue)
+     * @param alpha alpha value to apply to the backdrop's background, from 0 to 1 (opaque)
+     * @see https://wow.gamepedia.com/API_Frame_SetBackdropColor
+     */
+    SetBackdropColor(red: number, green: number, blue: number, alpha: number): void;
+
+    /**
+     * Using 'nil' as the only parameter will remove the backdrop on the indicated frame
+     * @param options 
+     */
+    SetBackdrop(options: {
+        /**
+         * Which texture file to use as frame background (.blp or .tga format)
+         */
+        bgFile?: string,
+
+        /**
+         * Which texture file to use as frame edge blp or .tga format)
+         */
+        edgeFile?: string,
+
+        /**
+         * whether background texture is tiled or streched
+         */
+        tile?: boolean,
+
+        /**
+         * Control how large each copy of the bgFile becomes on-screen
+         */
+        tileSize?: number,
+
+        /**
+         * Control how large each copy of the edgeFile becomes on-screen (i.e. border thickness and corner size)
+         */
+        edgeSize?: number,
+
+        /**
+         * Controls how far into the frame the background will be drawn (use higher values the thicker the edges are)
+         */
+        insets: {
+            left: number,
+            right: number,
+            top: number,
+            bottom: number
+        }
+    } | void): void;
+
+    /**
+     * Sets whether a frame widget can be moved
+     * @param movable true to allow the frame to be moved using Frame:StartMoving(), false to disallow
+     * @see https://wow.gamepedia.com/API_Frame_SetMovable
+     */
+    SetMovable(movable: boolean): void;
+
+    /**
+     * Starts moving the frame-inheriting widget as the user moves the mouse cursor
+     * @see https://wow.gamepedia.com/API_Frame_StartMoving
+     */
+    StartMoving(): void;
+
+    /**
+     * Stops moving or resizing the widget
+     * @see https://wow.gamepedia.com/API_Frame_StopMovingOrSizing
+     */
+    StopMovingOrSizing(): void;
+
+    /**
+     * Sets the Frame Level of the frame, within its Frame Strata
+     * @param level the new strata level
+     * @see https://wow.gamepedia.com/API_Frame_SetFrameLevel
+     */
+    SetFrameLevel(level: number): void;
+}
+
+/**
+ * a normal WowFrame but with all given E properties
+ */
+declare type AdvancedWowFrame<F extends WowUiObject, E extends Object> = {
+
+    [P in keyof (E & F)]: (E & F)[P]
 }
 
 /**
@@ -653,7 +755,7 @@ declare interface WowSlider extends WowFrame {
     /**
      * Returns the minimum and maximum values of a slider
      */
-    GetMinMaxValues(): MultipleReturnValues<number, number>
+    GetMinMaxValues(): [number, number];
 
     /**
      * Get the current value of the slider

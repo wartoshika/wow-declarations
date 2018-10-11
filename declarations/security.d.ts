@@ -24,7 +24,7 @@ declare function forceinsecure(): void;
  * @returns isSecure, taint
  * @see https://wow.gamepedia.com/API_issecurevariable
  */
-declare function issecurevariable(table?: Object, variableName?: string): MultipleReturnValues<boolean, string>;
+declare function issecurevariable(table?: Object, variableName?: string): [boolean, string];
 
 /**
  * Calls the specified function without propagating taint to the caller

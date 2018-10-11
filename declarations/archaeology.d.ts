@@ -94,7 +94,7 @@ declare function CloseResearch(): WowUnknown;
  * @see https://wow.gamepedia.com/API_GetActiveArtifactByRace
  * @since 4.0.0
  */
-declare function GetActiveArtifactByRace(raceIndex: number): MultipleReturnValues<string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath>;
+declare function GetActiveArtifactByRace(raceIndex: number): [string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath];
 
 /**
  * Returns the localized name for Archaeology
@@ -113,7 +113,7 @@ declare function GetArchaeologyInfo(): string;
  * @see https://wow.gamepedia.com/API_GetArchaeologyRaceInfo
  * @since 4.0.0
  */
-declare function GetArchaeologyRaceInfo(raceIndex: number): MultipleReturnValues<string, WowTexturePath, number, number, number, number>;
+declare function GetArchaeologyRaceInfo(raceIndex: number): [string, WowTexturePath, number, number, number, number];
 
 /**
  * Returns information about a branch of Archaeology
@@ -123,7 +123,7 @@ declare function GetArchaeologyRaceInfo(raceIndex: number): MultipleReturnValues
  * @see https://wow.gamepedia.com/API_GetArchaeologyRaceInfoByID
  * @since 5.4.0
  */
-declare function GetArchaeologyRaceInfoByID(branchId: ARCHAELOLOGY_BRANCH): MultipleReturnValues<string, WowTexturePath, number, number, number, number>;
+declare function GetArchaeologyRaceInfoByID(branchId: ARCHAELOLOGY_BRANCH): [string, WowTexturePath, number, number, number, number];
 
 /**
  * Returns the information for a specific race's artifact
@@ -134,7 +134,7 @@ declare function GetArchaeologyRaceInfoByID(branchId: ARCHAELOLOGY_BRANCH): Mult
  * @see https://wow.gamepedia.com/API_GetArtifactInfoByRace
  * @since 4.0.0
  */
-declare function GetArtifactInfoByRace(raceIndex: number, artifactIndex: number): MultipleReturnValues<string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath, number, number>;
+declare function GetArtifactInfoByRace(raceIndex: number, artifactIndex: number): [string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath, number, number];
 
 /**
  * Returns the number of Archaeology races in the game
@@ -162,7 +162,7 @@ declare function GetNumArtifactsByRace(raceIndex: number): number;
  * @see https://wow.gamepedia.com/API_GetSelectedArtifactInfo
  * @since 4.0.0
  */
-declare function GetSelectedArtifactInfo(): MultipleReturnValues<string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath, number>;
+declare function GetSelectedArtifactInfo(): [string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath, number];
 
 /**
  * Returns information about current used fragments for the selected artifact
@@ -171,7 +171,7 @@ declare function GetSelectedArtifactInfo(): MultipleReturnValues<string, string,
  * @see https://wow.gamepedia.com/API_GetArtifactProgress
  * @since 4.0.0
  */
-declare function GetArtifactProgress(): MultipleReturnValues<number, number, number>;
+declare function GetArtifactProgress(): [number, number, number];
 
 /**
  * Unknown

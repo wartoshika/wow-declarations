@@ -11,3 +11,50 @@ declare type WowUnitIdParty = "party1" | "party2" | "party3" | "party4";
 declare type WowUnitIdPartyPet = "partypet1" | "partypet2" | "partypet3" | "partypet4";
 declare type WowUnitIdOther = "player" | "pet" | "focus" | "mouseover" | "vehicle" | "target" | "none" | "npc" | "targettarget";
 declare type WowUnitId = WowUnitIdOther | WowUnitIdArena | WowUnitIdRaidPlayer | WowUnitIdRaidPlayerPet | WowUnitIdParty | WowUnitIdPartyPet;
+
+declare type WowGuid = string;
+
+/**
+ * Returns the GUID of the specified unit
+ * @param unitId unit to look up the GUID of
+ * @see https://wow.gamepedia.com/API_UnitGUID
+ * @since 2.4.0
+ */
+declare function UnitGUID(unitId: WowUnitId): WowGuid;
+
+/**
+ * Returns basic information about another player from their GUID
+ * @param unitGUID The GUID of the player you're querying about
+ * @see https://wow.gamepedia.com/API_GetPlayerInfoByGUID
+ * @since 3.2.0
+ */
+declare function GetPlayerInfoByGUID(unitGUID: WowGuid): [string, number, string, number, number, string, string];
+
+/**
+ * Returns the name and realm of the specified unit
+ * @param unitId The UnitId to query (e.g. "player", "party2", "pet", "target" etc.)
+ * @see https://wow.gamepedia.com/API_GetUnitName
+ */
+declare function GetUnitName(unitId: WowUnitId, showServerName: boolean): string;
+
+/**
+ * Determines if the unit exists
+ * @param unitId The unit to query (e.g. "player", "party2", "pet", "target" etc.)
+ * @see https://wow.gamepedia.com/API_UnitExists
+ */
+declare function UnitExists(unitId: WowUnitId): 1 | null;
+
+/**
+ * Checks if a specified unit is a player
+ * @param unitId UnitId of the unit to check.
+ * @see https://wow.gamepedia.com/API_UnitIsPlayer
+ */
+declare function UnitIsPlayer(unitId: WowUnitId): boolean;
+
+/**
+ * Returns the unit's level
+ * @param unitId The unitId to get information from. (e.g. "player", "target")
+ * @return The unit level. Returns -1 for bosses, or players more than 10 levels above the player
+ * @see https://wow.gamepedia.com/API_UnitEffectiveLevel
+ */
+declare function UnitLevel(unitId: WowUnitId): number;

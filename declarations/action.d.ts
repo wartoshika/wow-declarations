@@ -68,7 +68,7 @@ declare function GetActionBarPage(): ActionBarPage;
  * @returns bottomLeftState, bottomRightState, sideRightState, sideRight2State
  * @see https://wow.gamepedia.com/API_GetActionBarToggles
  */
-declare function GetActionBarToggles(): MultipleReturnValues<boolean, boolean, boolean, boolean>;
+declare function GetActionBarToggles(): [boolean, boolean, boolean, boolean];
 
 /**
  * Returns information about the charges of a charge-accumulating player ability
@@ -77,7 +77,7 @@ declare function GetActionBarToggles(): MultipleReturnValues<boolean, boolean, b
  * @returns currentCharges, maxCharges, cooldownStart, cooldownDuration, chargeModRate 
  * @see https://wow.gamepedia.com/API_GetActionCharges
  */
-declare function GetActionCharges(slotId: ActionBarSlotId): MultipleReturnValues<number, number, number, number, number>;
+declare function GetActionCharges(slotId: ActionBarSlotId): [number, number, number, number, number];
 
 /**
  * Retrieves the cooldown data of the action specified
@@ -86,7 +86,7 @@ declare function GetActionCharges(slotId: ActionBarSlotId): MultipleReturnValues
  * @returns start, duration, enable, modRate
  * @see https://wow.gamepedia.com/API_GetActionCooldown
  */
-declare function GetActionCooldown(slotId: ActionBarSlotId): MultipleReturnValues<number, number, number, number>;
+declare function GetActionCooldown(slotId: ActionBarSlotId): [number, number, number, number];
 
 /**
  * Gets the available count for an action, if applicable
@@ -104,7 +104,7 @@ declare function GetActionCount(slotId: ActionBarSlotId): string | number;
  * @returns actionType, id, subType
  * @see https://wow.gamepedia.com/API_GetActionInfo
  */
-declare function GetActionInfo(slotId: ActionBarSlotId): MultipleReturnValues<string, WowUnknown, WowUnknown>;
+declare function GetActionInfo(slotId: ActionBarSlotId): [string, WowUnknown, WowUnknown];
 
 /**
  * Gets the text label for an action
@@ -210,7 +210,7 @@ declare function IsEquippedAction(slotId: ActionBarSlotId): WowFlag | null;
  * @returns isUsable, notEnoughMana
  * @see https://wow.gamepedia.com/API_IsUsableAction
  */
-declare function IsUsableAction(slotId: ActionBarSlotId): MultipleReturnValues<boolean, boolean>;
+declare function IsUsableAction(slotId: ActionBarSlotId): [boolean, boolean];
 
 /**
  * Determine if player has a pet with an action bar.

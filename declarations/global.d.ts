@@ -40,18 +40,6 @@ declare type SlotActionBarPossess = 121 | 122 | 123 | 124 | 125 | 126 | 127 | 12
 declare type ActionBarSlotId = SlotActionBarPage1 | SlotActionBarPage2 | SlotActionBarPage3 | SlotActionBarPage4 |
     SlotActionBarPage5 | SlotActionBarPage6 | SlotActionBarMisc | SlotActionBarPossess;
 
-declare type MultipleReturnValues<
-    A extends Object = undefined, B extends Object = undefined, C extends Object = undefined,
-    D extends Object = undefined, E extends Object = undefined, F extends Object = undefined,
-    G extends Object = undefined, H extends Object = undefined, I extends Object = undefined,
-    J extends Object = undefined, K extends Object = undefined, L extends Object = undefined,
-    M extends Object = undefined, N extends Object = undefined, O extends Object = undefined,
-    P extends Object = undefined, Q extends Object = undefined, R extends Object = undefined,
-    S extends Object = undefined, T extends Object = undefined, U extends Object = undefined,
-    V extends Object = undefined, W extends Object = undefined
-    > = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W];
-
-
 /**
  * the base type for all clickable ingame links in the chat
  */

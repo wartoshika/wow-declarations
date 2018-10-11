@@ -118,7 +118,7 @@ declare function EnableAllAddOns(): void;
  * @returns Name of an addon the specified addon lists as a required dependency
  * @see https://wow.gamepedia.com/API_GetAddOnDependencies
  */
-declare function GetAddOnDependencies(indexOrName: number | string): MultipleReturnValues<string, string, string, string, string, string, string, string, string, string>;
+declare function GetAddOnDependencies(indexOrName: number | string): [...string[]]
 
 /**
  * Unknown
@@ -136,7 +136,7 @@ declare function GetAddOnEnableState(character: WowUnknown, addonIndex: WowUnkno
  * @returns name, title, notes, loadable, reason, security, newVersion
  * @see https://wow.gamepedia.com/API_GetAddOnInfo
  */
-declare function GetAddOnInfo(indexOrName: number | string): MultipleReturnValues<string, string, string, boolean, ADDON_LOAD_REASON, string, boolean>;
+declare function GetAddOnInfo(indexOrName: number | string): [string, string, string, boolean, ADDON_LOAD_REASON, string, boolean];
 
 /**
  * get addon metadata from the toc file
@@ -154,7 +154,7 @@ declare function GetAddOnMetadata(addonNameOrIndex: string | number, field: stri
  * @param indexOrName The index of the AddOn in the user's AddOn list. Note that you cannot access Blizzard-provided AddOns through this mechanism. OR The name of the AddOn to be queries. You can access Blizzard-provided AddOns through this mechanism
  * @see https://wow.gamepedia.com/API_GetAddOnOptionalDependencies
  */
-declare function GetAddOnOptionalDependencies(indexOrName: number | string): MultipleReturnValues<string, string, string, string, string, string, string, string, string, string>;
+declare function GetAddOnOptionalDependencies(indexOrName: number | string): [...string[]];
 
 /**
  * Get the number of user supplied AddOns
@@ -170,7 +170,7 @@ declare function GetNumAddOns(): number;
  * @returns loaded, finished
  * @see https://wow.gamepedia.com/API_IsAddOnLoaded
  */
-declare function IsAddOnLoaded(indexOrName: number | string): MultipleReturnValues<WowFlag, WowFlag>;
+declare function IsAddOnLoaded(indexOrName: number | string): [WowFlag, WowFlag];
 
 /**
  * Determine if an AddOn is loaded on demand (via .toc file dependencies or LoadAddOn) rather than at startup
@@ -188,4 +188,4 @@ declare function IsAddOnLoadOnDemand(indexOrName: number | string): WowFlag;
  * @returns loaded, reason
  * @see https://wow.gamepedia.com/API_LoadAddOn
  */
-declare function LoadAddOn(indexOrName: number | string): MultipleReturnValues<WowFlag, ADDON_LOAD_REASON>;
+declare function LoadAddOn(indexOrName: number | string): [WowFlag, ADDON_LOAD_REASON];
