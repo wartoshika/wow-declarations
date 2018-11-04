@@ -16,6 +16,7 @@ import "./blackMarket";
 import "./buff";
 import "./container";
 import "./currency";
+import "./character";
 import "./gossip";
 import "./debug";
 import "./security";
