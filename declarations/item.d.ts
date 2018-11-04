@@ -17,4 +17,4 @@ declare type ITEM_QUALITY = ITEM_QUALITY_GENERIC | ITEM_QUALITY_POOR | ITEM_QUAL
 /**
  * a clickable ingame item link
  */
-declare type ItemLink = Hyperlink;
+declare type ItemLink = WowHyperlink;

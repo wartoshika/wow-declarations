@@ -1,4 +1,4 @@
-declare type CurrencyLink = Hyperlink;
+declare type CurrencyLink = WowHyperlink;
 
 /**
  * Breaks down an amount of money into gold/silver/copper, inserts separator strings, and returns the resulting string

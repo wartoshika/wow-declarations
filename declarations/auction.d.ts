@@ -59,7 +59,7 @@ declare type AUCTION_TYPE = AUCTION_TYPE_LIST | AUCTION_TYPE_BIDDER | AUCTION_TY
 /**
  * The itemLink of one item in the current retrieved list of items from the Auction House
  */
-declare type AuctionLink = Hyperlink;
+declare type AuctionLink = WowHyperlink;
 
 /**
  * Returns the required deposit for the current selling item given the specified duration (1=12h, 2=24h, 3=48h).

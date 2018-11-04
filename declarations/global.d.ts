@@ -43,4 +43,4 @@ declare type ActionBarSlotId = SlotActionBarPage1 | SlotActionBarPage2 | SlotAct
 /**
  * the base type for all clickable ingame links in the chat
  */
-declare type Hyperlink = string;
+declare type WowHyperlink = string;

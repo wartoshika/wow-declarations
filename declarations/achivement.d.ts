@@ -5,7 +5,7 @@
  * Achievement links are returned by GetAchievementLink().
  * @example |cffffff00|Hachievement:2186:00000000002FDDE9:1:12:19:8:4294967295:4294967295:4294967295:4294967295|h[The Immortal]|h|r
  */
-declare type AchivementLink = Hyperlink;
+declare type AchivementLink = WowHyperlink;
 
 /**
  * Marks an achievement for tracking in the WatchFrame.
