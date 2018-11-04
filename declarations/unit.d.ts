@@ -12,6 +12,8 @@ declare type WowUnitIdPartyPet = "partypet1" | "partypet2" | "partypet3" | "part
 declare type WowUnitIdOther = "player" | "pet" | "focus" | "mouseover" | "vehicle" | "target" | "none" | "npc" | "targettarget";
 declare type WowUnitId = WowUnitIdOther | WowUnitIdArena | WowUnitIdRaidPlayer | WowUnitIdRaidPlayerPet | WowUnitIdParty | WowUnitIdPartyPet;
 
+declare type WowUnitRoleType = "TANK" | "DAMAGER" | "HEALER";
+
 declare type WowGuid = string;
 
 /**
@@ -58,3 +60,31 @@ declare function UnitIsPlayer(unitId: WowUnitId): boolean;
  * @see https://wow.gamepedia.com/API_UnitEffectiveLevel
  */
 declare function UnitLevel(unitId: WowUnitId): number;
+
+/**
+ * Get the name of the faction (Horde/Alliance) a unit belongs to
+ * @param unitId unit you want to get the faction for
+ * @see https://wow.gamepedia.com/API_UnitFactionGroup
+ */
+declare function UnitFactionGroup(unitId: WowUnitId): [string, string];
+
+/**
+ * Returns the class of the specified unit
+ * @param unitId unit to query, e.g. "player"
+ * @see https://wow.gamepedia.com/API_UnitClass
+ */
+declare function UnitClass(unitId: WowUnitId): [string, string, number];
+
+/**
+ * Returns the current health of the specified unit
+ * @param unitId identifies the unit to query health for
+ * @see https://wow.gamepedia.com/API_UnitHealth
+ */
+declare function UnitHealth(unitId: WowUnitId): number;
+
+/**
+ * Returns the maximum health of the specified unit
+ * @param unitId the unit whose max health to query
+ * @see https://wow.gamepedia.com/API_UnitHealthMax
+ */
+declare function UnitHealthMax(unitId: WowUnitId): number;

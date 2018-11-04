@@ -46,13 +46,15 @@ declare type WowEventPlayerEnteringWorld = "PLAYER_ENTERING_WORLD";
 declare type WowEventPlayerFocusChanged = "PLAYER_FOCUS_CHANGED";
 declare type WowEventUnitEnteredVehicle = "UNIT_ENTERED_VEHICLE";
 declare type WowEventUnitExitedVehicle = "UNIT_EXITED_VEHICLE";
+
+declare type TypedWowEvents = {
+    PLAYER_TARGET_CHANGED: null,
+    PLAYER_EQUIPMENT_CHANGED: [WowInventoryId, boolean],
+    UNIT_HEALTH: [WowUnitId]
+};
+
 // -----
-declare type WowEvent = WowEventPlayerLogin | WowEventPlayerLogout | WowEventUnitHealth | WowEventUnitPowerUpdate |
-    WowEventUnitDisplaypower | WowEventPlayerTargetChanged | WowEventUnitMaxhealth | WowEventUnitMaxpower | WowEventGroupRosterUpdate |
-    WowEventPlayerEnteringWorld | WowEventPlayerFocusChanged | WowEventUnitEnteredVehicle | WowEventUnitExitedVehicle
-    | "PLAYER_EQUIPMENT_CHANGED";
-
-
+declare type WowEvent = keyof TypedWowEvents;
 
 declare type WowEventOnAny = WowEventOnEvent | WowEventOnLoad | WowEventOnUpdate | WowEventOnClick | WowEventOnEnter |
     WowEventOnLeave | WowEventOnHide | WowEventOnShow | WowEventOnMouseDown | WowEventOnMouseUp | WowEventOnMouseWheel |
@@ -520,7 +522,7 @@ declare interface WowFrame extends WowRegion, WowObjectHookScript<WowFrame>, Wow
      * @param layer The layer the font should be drawn in, e.g. "ARTWORK".
      * @param inheritsFrom The name of a virtual font string, created in XML, to inherit from. if nil, the font string does not inherit any properties.
      */
-    CreateFontString(name: string, layer: WowLayer, inheritsFrom?: string): WowFontString;
+    CreateFontString(name?: string, layer?: WowLayer, inheritsFrom?: string): WowFontString;
 
     /**
      * Creates a Texture object within the specified widget.
