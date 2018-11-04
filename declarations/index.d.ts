@@ -13,6 +13,7 @@ import "./barber";
 import "./battlefield";
 import "./binding";
 import "./blackMarket";
+import "./buff";
 import "./container";
 import "./currency";
 import "./gossip";
