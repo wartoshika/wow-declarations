@@ -15,7 +15,7 @@ interface C_BlackMarket {
      * @since 5.0.4
      * @see https://wow.gamepedia.com/API_C_BlackMarket.GetItemInfoByID
      */
-    GetItemInfoByID(marketId: number): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, ItemLink, number];
+    GetItemInfoByID(marketId: number): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, WowItemLink, number];
 
     /**
      * Returns information about a specific black market auction
@@ -23,7 +23,7 @@ interface C_BlackMarket {
      * @since 5.0.4
      * @see https://wow.gamepedia.com/API_C_BlackMarket.GetItemInfoByID
      */
-    GetHotItem(): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, ItemLink, number];
+    GetHotItem(): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, WowItemLink, number];
 
     /**
      * Returns information about a specific black market auction
@@ -32,7 +32,7 @@ interface C_BlackMarket {
      * @since 5.0.4
      * @see https://wow.gamepedia.com/API_C_BlackMarket.GetItemInfoByID
      */
-    GetItemInfoByIndex(index: number): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, ItemLink, number];
+    GetItemInfoByIndex(index: number): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, WowItemLink, number];
 
     /**
      * Returns the number of auctions on the Black Market Auction House

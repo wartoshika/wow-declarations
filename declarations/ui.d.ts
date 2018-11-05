@@ -47,14 +47,7 @@ declare type WowEventPlayerFocusChanged = "PLAYER_FOCUS_CHANGED";
 declare type WowEventUnitEnteredVehicle = "UNIT_ENTERED_VEHICLE";
 declare type WowEventUnitExitedVehicle = "UNIT_EXITED_VEHICLE";
 
-declare type TypedWowEvents = {
-    PLAYER_TARGET_CHANGED: null,
-    PLAYER_EQUIPMENT_CHANGED: [WowInventoryId, boolean],
-    UNIT_HEALTH: [WowUnitId]
-};
-
 // -----
-declare type WowEvent = keyof TypedWowEvents;
 
 declare type WowEventOnAny = WowEventOnEvent | WowEventOnLoad | WowEventOnUpdate | WowEventOnClick | WowEventOnEnter |
     WowEventOnLeave | WowEventOnHide | WowEventOnShow | WowEventOnMouseDown | WowEventOnMouseUp | WowEventOnMouseWheel |

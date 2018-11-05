@@ -4,7 +4,7 @@
  * @param isBag 1 if buttonID is a bag, nil otherwise. Same result as ContainerIDToInventoryID, except this one only works for bank bags and is more awkward to use
  * @see https://wow.gamepedia.com/API_BankButtonIDToInvSlotID
  */
-declare function BankButtonIDToInvSlotID(buttodId: number, isBag: WowFlag): INVENTORY_SLOT_ID;
+declare function BankButtonIDToInvSlotID(buttodId: number, isBag: WowFlag): WOW_INVENTORY_SLOT_ID;
 
 /**
  * Will Close the Bank Frame if opened

@@ -1,4 +1,9 @@
 declare type WowAddonMessageType = "PARTY" | "RAID" | "GUILD" | "BATTLEGROUND" | "WHISPER" | "CHANNEL";
+declare type WowChatFlag = "AFK" | "DND" | "GM";
+declare type WowChatJoinLeftType = "YOU_JOINED" | "YOU_LEFT" | "THROTTLED";
+declare type WowChatUserNoticeType = "ANNOUNCEMENTS_OFF" | "ANNOUNCEMENTS_ON" | "BANNED" |
+    "OWNER_CHANGED" | "INVALID_NAME" | "INVITE" | "MODERATION_OFF" | "MODERATION_ON" |
+    "MUTED" | "NOT_MEMBER" | "NOT_MODERATED" | "SET_MODERATOR" | "UNSET_MODERATOR";
 
 interface C_ChatInfo {
 

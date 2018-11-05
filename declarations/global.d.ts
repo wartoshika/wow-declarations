@@ -44,3 +44,31 @@ declare type ActionBarSlotId = SlotActionBarPage1 | SlotActionBarPage2 | SlotAct
  * the base type for all clickable ingame links in the chat
  */
 declare type WowHyperlink = string;
+
+
+
+
+
+
+/**
+ * TYPES THAT SHOULD BE STORED SEPERATLY!!!!
+ */
+
+declare type WowCombatTextType = "DAMAGE" | "SPELL_DAMAGE" | "DAMAGE_CRIT" | "HEAL" | "PERIODIC_HEAL" | "HEAL_CRIT" | "MISS" |
+    "DODGE" | "PARRY" | "BLOCK" | "RESIST" | "SPELL_RESISTED" | "ABSORB" | "SPELL_ABSORBED" | "MANA" | "ENERGY" | "RAGE" | "FOCUS" |
+    "SPELL_ACTIVE" | "COMBO_POINTS" | "AURA_START" | "AURA_END" | "AURA_START_HARMFUL" | "AURA_END_HARMFUL" | "HONOR_GAINED" | "FACTION";
+
+declare type WowCombatCriticalIndicator = "CRITICAL" | "CRUSHING" | "GLANCING";
+
+declare type WowCombatDamageType = 1 | 2 | 4 | 8 | 16 | 32 | 64;
+
+declare type WowDisenchantRollType = 1 | 2 | 3;
+
+declare type WowDifficulty = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22
+    | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34;
+
+declare type WowStreamingState = 0 | 1 | 2 | 3;
+
+declare type WowVehicleType = "Natural" | "Mechanical" | "VehicleMount" | "VehicleMount_Organic" | "";
+
+declare type WowUnitPowerType = "MANA" | "RAGE" | "ENERGY" | "FOCUS" | "HAPPINESS" | "RUNIC_POWER" | "HOLY_POWER";

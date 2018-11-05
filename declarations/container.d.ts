@@ -3,27 +3,27 @@
 /// <reference path="ui.d.ts" />
 /// <reference path="unit.d.ts" />
 
-declare type CONTAINER_ID_BACKPACK = 0;
-declare type CONTAINER_ID_BAG_1 = 1;
-declare type CONTAINER_ID_BAG_2 = 2;
-declare type CONTAINER_ID_BAG_3 = 3;
-declare type CONTAINER_ID_BAG_4 = 4;
-declare type CONTAINER_ID_BANK_GLOBAL = -1;
-declare type CONTAINER_ID_BANK_BAG_1 = 5;
-declare type CONTAINER_ID_BANK_BAG_2 = 6;
-declare type CONTAINER_ID_BANK_BAG_3 = 7;
-declare type CONTAINER_ID_BANK_BAG_4 = 8;
-declare type CONTAINER_ID_BANK_BAG_5 = 9;
-declare type CONTAINER_ID_BANK_BAG_6 = 10;
-declare type CONTAINER_ID_BANK_BAG_7 = 11;
-declare type CONTAINER_ID_REAGENTBANK = -3;
-declare type CONTAINER_ID_BANK_BAG_WRAPPER = -4;
+declare type WOW_CONTAINER_ID_BACKPACK = 0;
+declare type WOW_CONTAINER_ID_BAG_1 = 1;
+declare type WOW_CONTAINER_ID_BAG_2 = 2;
+declare type WOW_CONTAINER_ID_BAG_3 = 3;
+declare type WOW_CONTAINER_ID_BAG_4 = 4;
+declare type WOW_CONTAINER_ID_BANK_GLOBAL = -1;
+declare type WOW_CONTAINER_ID_BANK_BAG_1 = 5;
+declare type WOW_CONTAINER_ID_BANK_BAG_2 = 6;
+declare type WOW_CONTAINER_ID_BANK_BAG_3 = 7;
+declare type WOW_CONTAINER_ID_BANK_BAG_4 = 8;
+declare type WOW_CONTAINER_ID_BANK_BAG_5 = 9;
+declare type WOW_CONTAINER_ID_BANK_BAG_6 = 10;
+declare type WOW_CONTAINER_ID_BANK_BAG_7 = 11;
+declare type WOW_CONTAINER_ID_REAGENTBANK = -3;
+declare type WOW_CONTAINER_ID_BANK_BAG_WRAPPER = -4;
 
-declare type CONTAINER_ID_BANK = CONTAINER_ID_BANK_GLOBAL | CONTAINER_ID_BANK_BAG_1 | CONTAINER_ID_BANK_BAG_2 | CONTAINER_ID_BANK_BAG_3 |
-    CONTAINER_ID_BANK_BAG_4 | CONTAINER_ID_BANK_BAG_5 | CONTAINER_ID_BANK_BAG_6 | CONTAINER_ID_BANK_BAG_7 | CONTAINER_ID_REAGENTBANK |
-    CONTAINER_ID_BANK_BAG_WRAPPER;
-declare type CONTAINER_ID_BAG = CONTAINER_ID_BACKPACK | CONTAINER_ID_BAG_1 | CONTAINER_ID_BAG_2 | CONTAINER_ID_BAG_3 | CONTAINER_ID_BAG_4;
-declare type CONTAINER_ID = CONTAINER_ID_BAG | CONTAINER_ID_BANK;
+declare type WOW_CONTAINER_ID_BANK = WOW_CONTAINER_ID_BANK_GLOBAL | WOW_CONTAINER_ID_BANK_BAG_1 | WOW_CONTAINER_ID_BANK_BAG_2 | WOW_CONTAINER_ID_BANK_BAG_3 |
+    WOW_CONTAINER_ID_BANK_BAG_4 | WOW_CONTAINER_ID_BANK_BAG_5 | WOW_CONTAINER_ID_BANK_BAG_6 | WOW_CONTAINER_ID_BANK_BAG_7 | WOW_CONTAINER_ID_REAGENTBANK |
+    WOW_CONTAINER_ID_BANK_BAG_WRAPPER;
+declare type WOW_CONTAINER_ID_BAG = WOW_CONTAINER_ID_BACKPACK | WOW_CONTAINER_ID_BAG_1 | WOW_CONTAINER_ID_BAG_2 | WOW_CONTAINER_ID_BAG_3 | WOW_CONTAINER_ID_BAG_4;
+declare type WOW_CONTAINER_ID = WOW_CONTAINER_ID_BAG | WOW_CONTAINER_ID_BANK;
 
 declare type BAG_TYPE_UNSPECIFIED = 0;
 declare type BAG_TYPE_QUIVER = 1;
@@ -40,16 +40,16 @@ declare type BAG_TYPE_MINING = 1024;
 declare type BAG_TYPE_UNKNOWN = 2048;
 declare type BAG_TYPE_VANTY_PETS = 4096;
 
-declare type INVENTORY_SLOT_CONTAINER_1 = 20;
-declare type INVENTORY_SLOT_CONTAINER_2 = 21;
-declare type INVENTORY_SLOT_CONTAINER_3 = 22;
-declare type INVENTORY_SLOT_CONTAINER_4 = 23;
+declare type WOW_INVENTORY_SLOT_WOW_CONTAINER_1 = 20;
+declare type WOW_INVENTORY_SLOT_WOW_CONTAINER_2 = 21;
+declare type WOW_INVENTORY_SLOT_WOW_CONTAINER_3 = 22;
+declare type WOW_INVENTORY_SLOT_WOW_CONTAINER_4 = 23;
 
-declare type INVENTORY_SLOT_ID_CONTAINERS = INVENTORY_SLOT_CONTAINER_1 | INVENTORY_SLOT_CONTAINER_2 | INVENTORY_SLOT_CONTAINER_3 | INVENTORY_SLOT_CONTAINER_4;
-declare type INVENTORY_SLOT_ID = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST |
+declare type WOW_INVENTORY_SLOT_ID_CONTAINERS = WOW_INVENTORY_SLOT_WOW_CONTAINER_1 | WOW_INVENTORY_SLOT_WOW_CONTAINER_2 | WOW_INVENTORY_SLOT_WOW_CONTAINER_3 | WOW_INVENTORY_SLOT_WOW_CONTAINER_4;
+declare type WOW_INVENTORY_SLOT_ID = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST |
     INVSLOT_WAIST | INVSLOT_LEGS | INVSLOT_FEET | INVSLOT_WRIST | INVSLOT_HAND | INVSLOT_FINGER1 | INVSLOT_FINGER2 |
     INVSLOT_TRINKET1 | INVSLOT_TRINKET2 | INVSLOT_BACK | INVSLOT_MAINHAND | INVSLOT_OFFHAND | INVSLOT_RANGED | INVSLOT_TABARD |
-    INVENTORY_SLOT_ID_CONTAINERS;
+    WOW_INVENTORY_SLOT_ID_CONTAINERS;
 
 /**
  * all currently known bag types
@@ -62,10 +62,10 @@ declare type BAG_TYPE = BAG_TYPE_UNSPECIFIED | BAG_TYPE_QUIVER | BAG_TYPE_AMMO_P
  * convert a bagId to an inventoryId
  * 
  * @param bagId number of the bag ( between 1 and NUM_BAG_SLOTS + NUM_BANKBAGSLOTS ) to get the inventoryID for
- * @returns the bag's inventory ID used in functions like PutItemInBag(inventoryId) and GetInventoryItemLink("player",inventoryId)
+ * @returns the bag's inventory ID used in functions like PutItemInBag(inventoryId) and GetInventoryWowItemLink("player",inventoryId)
  * @see https://wow.gamepedia.com/API_ContainerIDToInventoryID
  */
-declare function ContainerIDToInventoryID(bagId: CONTAINER_ID): number;
+declare function ContainerIDToInventoryID(bagId: WOW_CONTAINER_ID): number;
 
 /**
  * bagName will contain the name of the specified bag if the bag number is 0-4 otherwise it will be nil, unless when the bank is opened, in which case GetBagName(-1) (for the bank) is nil and GetBagName(6) will give the name of the first bank bag, GetBagName(7) the name of the second bank bag, etc ...
@@ -74,7 +74,7 @@ declare function ContainerIDToInventoryID(bagId: CONTAINER_ID): number;
  * @returns the name of the specified bag (example "Green Woolen Bag")
  * @see https://wow.gamepedia.com/API_GetBagName
  */
-declare function GetBagName(bagId: CONTAINER_ID): string;
+declare function GetBagName(bagId: WOW_CONTAINER_ID): string;
 
 /**
  * Returns cooldown information for an item in your inventory
@@ -84,7 +84,7 @@ declare function GetBagName(bagId: CONTAINER_ID): string;
  * @returns startTime, duration, isEnabled
  * @see https://wow.gamepedia.com/API_GetContainerItemCooldown
  */
-declare function GetContainerItemCooldown(bagId: CONTAINER_ID, slot: number): [number, number, WowFlag];
+declare function GetContainerItemCooldown(bagId: WOW_CONTAINER_ID, slot: number): [number, number, WowFlag];
 
 /**
  * Returns current and maximum durability of an item in the character's bags
@@ -94,7 +94,7 @@ declare function GetContainerItemCooldown(bagId: CONTAINER_ID, slot: number): [n
  * @returns current, maximum
  * @see https://wow.gamepedia.com/API_GetContainerItemDurability
  */
-declare function GetContainerItemDurability(bagId: CONTAINER_ID, slot: number): [number, number];
+declare function GetContainerItemDurability(bagId: WOW_CONTAINER_ID, slot: number): [number, number];
 
 /**
  * Returns the item id of the item in a particular container slot.
@@ -104,7 +104,7 @@ declare function GetContainerItemDurability(bagId: CONTAINER_ID, slot: number): 
  * @returns item ID of the item held in the container slot, nil if there is no item in the container slot
  * @see https://wow.gamepedia.com/API_GetContainerItemID
  */
-declare function GetContainerItemID(bagId: CONTAINER_ID, slot: number): number | null;
+declare function GetContainerItemID(bagId: WOW_CONTAINER_ID, slot: number): number | null;
 
 /**
  * Get information about a specific item in your container
@@ -114,17 +114,17 @@ declare function GetContainerItemID(bagId: CONTAINER_ID, slot: number): number |
  * @returns texture, itemCount, locked, quality, readable, lootable, itemLink, isFiltered, noValue, itemID
  * @see https://wow.gamepedia.com/API_GetContainerItemInfo
  */
-declare function GetContainerItemInfo(bagId: CONTAINER_ID, slot: number): [WowTexturePath, number, boolean, ITEM_QUALITY, boolean, boolean, ItemLink, boolean, boolean, number];
+declare function GetContainerItemInfo(bagId: WOW_CONTAINER_ID, slot: number): [WowTexturePath, number, boolean, ITEM_QUALITY, boolean, boolean, WowItemLink, boolean, boolean, number];
 
 /**
  * Returns a link of the object located in the specified slot of a specified bag
  * 
  * @param bagId number of the bag the item is in, e.g. 0 for your backpack
  * @param slot Slot index within the specified bag, ascending from 1. Slot 1 is typically the leftmost topmost slot
- * @returns a chat link for the object in the specified bag slot; nil if there is no such object. This is typically, but not always an ItemLink.
- * @see https://wow.gamepedia.com/API_GetContainerItemLink
+ * @returns a chat link for the object in the specified bag slot; nil if there is no such object. This is typically, but not always an WowItemLink.
+ * @see https://wow.gamepedia.com/API_GetContainerWowItemLink
  */
-declare function GetContainerItemLink(bagId: CONTAINER_ID, slot: number): ItemLink;
+declare function GetContainerWowItemLink(bagId: WOW_CONTAINER_ID, slot: number): WowItemLink;
 
 /**
  * Returns the total number of slots in the bag specified by the index
@@ -133,7 +133,7 @@ declare function GetContainerItemLink(bagId: CONTAINER_ID, slot: number): ItemLi
  * @returns the number of slots in the specified bag, or 0 if there is no bag in the given slot
  * @see https://wow.gamepedia.com/API_GetContainerNumSlots
  */
-declare function GetContainerNumSlots(bagId: CONTAINER_ID): number;
+declare function GetContainerNumSlots(bagId: WOW_CONTAINER_ID): number;
 
 /**
  * Returns whether the item in the slot is a quest item
@@ -143,7 +143,7 @@ declare function GetContainerNumSlots(bagId: CONTAINER_ID): number;
  * @returns isQuestItem, questId, isActive
  * @see https://wow.gamepedia.com/API_GetContainerItemQuestInfo
  */
-declare function GetContainerItemQuestInfo(bagId: CONTAINER_ID, slot: number): [WowFlag, number | null, WowFlag];
+declare function GetContainerItemQuestInfo(bagId: WOW_CONTAINER_ID, slot: number): [WowFlag, number | null, WowFlag];
 
 /**
  * Returns the total number of free slots in the bag an the type of items that can go into it specified by the index
@@ -152,7 +152,7 @@ declare function GetContainerItemQuestInfo(bagId: CONTAINER_ID, slot: number): [
  * @returns numberOfFreeSlots, BagType
  * @see https://wow.gamepedia.com/API_GetContainerNumFreeSlots
  */
-declare function GetContainerNumFreeSlots(bagId: CONTAINER_ID): [number, BAG_TYPE];
+declare function GetContainerNumFreeSlots(bagId: WOW_CONTAINER_ID): [number, BAG_TYPE];
 
 /**
  * Open all bag frames
@@ -175,7 +175,7 @@ declare function CloseAllBags(): void;
  * @param inventorySlotId the slot containing the bag.
  * @see https://wow.gamepedia.com/API_PickupBagFromSlot
  */
-declare function PickupBagFromSlot(inventorySlotId: INVENTORY_SLOT_ID_CONTAINERS): void;
+declare function PickupBagFromSlot(inventorySlotId: WOW_INVENTORY_SLOT_ID_CONTAINERS): void;
 
 /**
  * The function behaves differently depending on what is currently on the cursor:
@@ -188,7 +188,7 @@ declare function PickupBagFromSlot(inventorySlotId: INVENTORY_SLOT_ID_CONTAINERS
  * @event ITEM_LOCK_CHANGED
  * @see https://wow.gamepedia.com/API_PickupContainerItem
  */
-declare function PickupContainerItem(bagId: CONTAINER_ID, slot: number): void;
+declare function PickupContainerItem(bagId: WOW_CONTAINER_ID, slot: number): void;
 
 /**
  * Places the item currently on the cursor into the player's backpack otherwise it has no effect. If there is already a partial stack of the item in the backpack, it will attempt to stack them together
@@ -203,7 +203,7 @@ declare function PutItemInBackpack(): void;
  * @param inventorySlotId Inventory slot id containing the bag in which you wish to put the item. Values 20 to 23 correspond to the player's bag slots, right-to-left from the first bag after the backpack
  * @see https://wow.gamepedia.com/API_PutItemInBag
  */
-declare function PutItemInBag(inventorySlotId: INVENTORY_SLOT_ID_CONTAINERS): void;
+declare function PutItemInBag(inventorySlotId: WOW_INVENTORY_SLOT_ID_CONTAINERS): void;
 
 /**
  * Picks up part of a stack of items from a container, placing them on the cursor
@@ -213,7 +213,7 @@ declare function PutItemInBag(inventorySlotId: INVENTORY_SLOT_ID_CONTAINERS): vo
  * @param count Quantity to pick up
  * @see https://wow.gamepedia.com/API_SplitContainerItem
  */
-declare function SplitContainerItem(bagId: CONTAINER_ID, slot: number, count: number): void;
+declare function SplitContainerItem(bagId: WOW_CONTAINER_ID, slot: number, count: number): void;
 
 /**
  * Toggles your backpage open/closed
@@ -227,7 +227,7 @@ declare function ToggleBackpack(): void;
  * 
  * @param bagId the bagId you want to toggle open or close
  */
-declare function ToggleBag(bagId: CONTAINER_ID): void;
+declare function ToggleBag(bagId: WOW_CONTAINER_ID): void;
 
 /**
  * Use an item from a container. If Merchant window is open, this will sell the item
@@ -239,4 +239,4 @@ declare function ToggleBag(bagId: CONTAINER_ID): void;
  * @see https://wow.gamepedia.com/API_UseContainerItem
  * @private PROTECTED (situational)
  */
-declare function UseContainerItem(bagId: CONTAINER_ID, slot: number, target?: WowUnitId, reagentBankAccessible?: boolean): void;
+declare function UseContainerItem(bagId: WOW_CONTAINER_ID, slot: number, target?: WowUnitId, reagentBankAccessible?: boolean): void;

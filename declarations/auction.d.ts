@@ -143,9 +143,9 @@ declare function GetAuctionItemInfo(type: AUCTION_TYPE, index: number): [string,
  * 
  * @param type the type to query
  * @param index The index of the item in the list to retrieve info from (normally 1-50, inclusive)
- * @see https://wow.gamepedia.com/API_GetAuctionItemLink
+ * @see https://wow.gamepedia.com/API_GetAuctionWowItemLink
  */
-declare function GetAuctionItemLink(type: AUCTION_TYPE, index: number): AuctionLink;
+declare function GetAuctionWowItemLink(type: AUCTION_TYPE, index: number): AuctionLink;
 
 /**
  * Gets a list of the sub-classes for an Auction House item class

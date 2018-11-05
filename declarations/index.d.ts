@@ -19,6 +19,7 @@ import "./currency";
 import "./character";
 import "./gossip";
 import "./debug";
+import "./event";
 import "./security";
 import "./system";
 
