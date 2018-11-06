@@ -9,6 +9,11 @@ declare type WowTypedEvents = {
     ACHIEVEMENT_EARNED: [number];
 
     /**
+     * unknown
+     */
+    ACHIEVEMENT_SEARCH_UPDATED: WowUnknown[];
+
+    /**
      * Fired when the actionbar numbers disappear, typically when you finish dragging something to the actionbar
      * - **arg1**: the mouse button used to click the button. Known values: "LeftButton", "RightButton"
      * - **arg2**: true or false for unknown reason
@@ -29,6 +34,11 @@ declare type WowTypedEvents = {
      * @see https://wow.gamepedia.com/ACTIONBAR_SHOWGRID
      */
     ACTIONBAR_SHOWGRID: null;
+
+    /**
+     * unknown
+     */
+    ACTIONBAR_SHOW_BOTTOMLEFT: WowUnknown[];
 
     /**
      * Fired when any actionbar slot's contents change; typically the picking up and dropping of buttons
@@ -59,6 +69,16 @@ declare type WowTypedEvents = {
     ACTIONBAR_UPDATE_USABLE: null;
 
     /**
+     * unknown
+     */
+    ACTION_WILL_BIND_ITEM: WowUnknown[];
+
+    /**
+     * unknown
+     */
+    ACTIVATE_GLYPH: WowUnknown[];
+
+    /**
      * Fired when a player switches changes which talent group (dual specialization) is active
      * - **arg1**: Index of the talent group that is now active
      * - **arg2**: Index of the talent group that was active before changing. Upon logging in this returns 0.
@@ -85,6 +105,12 @@ declare type WowTypedEvents = {
      * @see https://wow.gamepedia.com/ADDON_ACTION_FORBIDDEN
      */
     ADDON_ACTION_FORBIDDEN: [string, string];
+
+    /**
+     * Fires when one addon load
+     * - **arg1**: addon name that has been loaded
+     */
+    ADDON_LOADED: [string];
 
     /**
      * unknown
