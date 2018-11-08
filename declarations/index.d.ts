@@ -15,6 +15,7 @@ import "./binding";
 import "./blackMarket";
 import "./buff";
 import "./camera";
+import "./channel";
 import "./container";
 import "./currency";
 import "./character";
