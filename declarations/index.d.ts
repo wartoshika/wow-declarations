@@ -14,6 +14,7 @@ import "./battlefield";
 import "./binding";
 import "./blackMarket";
 import "./buff";
+import "./camera";
 import "./container";
 import "./currency";
 import "./character";
