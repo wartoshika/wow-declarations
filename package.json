@@ -14,7 +14,8 @@
   "main": "declarations/index.d.ts",
   "name": "@wartoshika/wow-declarations",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postversion": "git push github --follow-tags"
   },
   "types": "declarations/index.d.ts",
   "version": "0.0.6"
