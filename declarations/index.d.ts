@@ -19,6 +19,7 @@ import "./channel";
 import "./container";
 import "./currency";
 import "./character";
+import "./characterStatistics";
 import "./gossip";
 import "./debug";
 import "./event";

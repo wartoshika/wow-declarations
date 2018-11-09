@@ -72,3 +72,5 @@ declare type WowStreamingState = 0 | 1 | 2 | 3;
 declare type WowVehicleType = "Natural" | "Mechanical" | "VehicleMount" | "VehicleMount_Organic" | "";
 
 declare type WowUnitPowerType = "MANA" | "RAGE" | "ENERGY" | "FOCUS" | "HAPPINESS" | "RUNIC_POWER" | "HOLY_POWER";
+
+declare type WowSpellTreeId = 1 | 2 | 3 | 4 | 5 | 6 | 7;
