@@ -1,6 +1,8 @@
+// global and constants
 import "./constants";
 import "./global";
 
+// A
 import "./account";
 import "./achivement";
 import "./action";
@@ -8,12 +10,14 @@ import "./activity";
 import "./addon";
 import "./archaeology";
 import "./arena";
+// B
 import "./bank";
 import "./barber";
 import "./battlefield";
 import "./binding";
 import "./blackMarket";
 import "./buff";
+// C
 import "./camera";
 import "./channel";
 import "./container";
@@ -22,16 +26,20 @@ import "./character";
 import "./characterStatistics";
 import "./communication";
 import "./companion";
+import "./chatWindow";
+import "./chatInfo";
 import "./cursor";
-import "./gossip";
+// D
 import "./debug";
+// E
 import "./event";
+// G
+import "./gossip";
+// Q
+import "./quest";
+// S
 import "./security";
 import "./system";
-
+// U
 import "./ui";
 import "./unit";
-
-import "./chatWindow";
-
-import "./chatInfo";
