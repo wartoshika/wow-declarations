@@ -1,5 +1,5 @@
 /// <reference path="global.d.ts" />
-/// <reference path="ui.d.ts" />
+/// <reference path="ui/ui.d.ts" />
 
 declare type ARCHAELOLOGY_RARITY_COMMON = 0;
 declare type ARCHAELOLOGY_RARITY_RARE = 1;

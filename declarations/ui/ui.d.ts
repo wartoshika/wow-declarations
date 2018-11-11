@@ -1,8 +1,9 @@
-/// <reference path="global.d.ts" />
+/// <reference path="../global.d.ts" />
 
 declare type WowHorizontalAlign = "LEFT" | "CENTER" | "RIGHT";
 declare type WowVerticalAlign = "TOP" | "MIDDLE" | "BUTTOM";
 declare type WowPoint = "TOP" | "RIGHT" | "BOTTOM" | "LEFT" | "TOPRIGHT" | "TOPLEFT" | "BOTTOMLEFT" | "BOTTOMRIGHT" | "CENTER";
+declare type WowAnchorPoint = "ANCHOR_TOPRIGHT" | "ANCHOR_RIGHT" | "ANCHOR_BOTTOMRIGHT" | "ANCHOR_TOPLEFT" | "ANCHOR_LEFT" | "ANCHOR_BOTTOMLEFT" | "ANCHOR_CURSOR" | "ANCHOR_PRESERVE" | "ANCHOR_NONE";
 declare type WowLayer = "BACKGROUND" | "ARTWORK";
 declare type WowFrameStrata = "WORLD" | "BACKGROUND" | "LOW" | "MEDIUM" | "HIGH" | "DIALOG" | "FULLSCREEN" | "FULLSCREEN_DIALOG" | "TOOLTIP";
 declare type WowWrap = "CLAMP" | "CLAMPTOBLACK" | "CLAMPTOBLACKADDITIVE" | "CLAMPTOSHITE" | "REPEAT" | true | "MIRROR";

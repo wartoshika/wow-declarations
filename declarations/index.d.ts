@@ -41,5 +41,6 @@ import "./quest";
 import "./security";
 import "./system";
 // U
-import "./ui";
+import "./ui/ui";
+import "./ui/tooltip";
 import "./unit";
