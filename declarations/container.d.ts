@@ -45,6 +45,8 @@ declare type WOW_INVENTORY_SLOT_WOW_CONTAINER_2 = 21;
 declare type WOW_INVENTORY_SLOT_WOW_CONTAINER_3 = 22;
 declare type WOW_INVENTORY_SLOT_WOW_CONTAINER_4 = 23;
 
+declare type WOW_INVENTORY_SLOT_WOW_CONTAINER = WOW_INVENTORY_SLOT_WOW_CONTAINER_1 | WOW_INVENTORY_SLOT_WOW_CONTAINER_2 | WOW_INVENTORY_SLOT_WOW_CONTAINER_3 | WOW_INVENTORY_SLOT_WOW_CONTAINER_4;
+
 declare type WOW_INVENTORY_SLOT_ID_CONTAINERS = WOW_INVENTORY_SLOT_WOW_CONTAINER_1 | WOW_INVENTORY_SLOT_WOW_CONTAINER_2 | WOW_INVENTORY_SLOT_WOW_CONTAINER_3 | WOW_INVENTORY_SLOT_WOW_CONTAINER_4;
 declare type WOW_INVENTORY_SLOT_ID = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST |
     INVSLOT_WAIST | INVSLOT_LEGS | INVSLOT_FEET | INVSLOT_WRIST | INVSLOT_HAND | INVSLOT_FINGER1 | INVSLOT_FINGER2 |
@@ -237,6 +239,6 @@ declare function ToggleBag(bagId: WOW_CONTAINER_ID): void;
  * @param target unit the item should be used on. If omitted, defaults to "target" if a the item must target someone.
  * @param reagentBankAccessible This indicates, for cases where no target is given, if the item reagent bank is accessible (so bank frame is shown and switched to the reagent bank tab).
  * @see https://wow.gamepedia.com/API_UseContainerItem
- * @private PROTECTED (situational)
+ * @protected PROTECTED (situational)
  */
 declare function UseContainerItem(bagId: WOW_CONTAINER_ID, slot: number, target?: WowUnitId, reagentBankAccessible?: boolean): void;
