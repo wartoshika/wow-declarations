@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 interface C_BlackMarket {
 
     /**

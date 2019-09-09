@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare const MAX_PLAYER_LEVEL_TABLE: {
     LE_EXPANSION_CLASSIC: 60,
     LE_EXPANSION_BURNING_CRUSADE: 70,

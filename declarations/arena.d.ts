@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /// <reference path="global.d.ts" />
 
 declare type ARENA_TEAM_GREEN = 0;

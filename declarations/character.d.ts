@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type WowCharacterTotemElementType = 1 | 2 | 3 | 4;
 declare type WowCharacterRestState = 0 | 1;
 declare type WowCharacterDeathkightRuneType = 0 | 1 | 2 | 3 | 4 | 5 | 6;

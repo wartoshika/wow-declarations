@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Begin "Left click" in the 3D world
  * @protected

@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type WowBattlefieldStatusType = "queued" | "confirm" | "active" | "none" | "error";
 declare type WowBattlefieldTeamSize = 0 | 2 | 3 | 5;
 declare type WowBattlefieldType = "ARENA" | "BATTLEGROUND" | "WARGAME";

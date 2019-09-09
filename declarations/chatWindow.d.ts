@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare const AUTOCOMPLETE_FLAG_NONE = 0x00000000;
 declare const AUTOCOMPLETE_FLAG_IN_GROUP = 0x00000001;
 declare const AUTOCOMPLETE_FLAG_IN_GUILD = 0x00000002;
