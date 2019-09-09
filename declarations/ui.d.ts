@@ -305,6 +305,7 @@ declare interface WowRegion extends WowUiObject {
     /**
      * Sets an object to be positioned and sized exactly the same as another object.
      */
+    SetAllPoints(): void;
     SetAllPoints(relativeRegion: WowRegion | string): void;
 
     /**
