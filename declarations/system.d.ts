@@ -46,6 +46,15 @@ declare function GetFramerate(): number;
 declare function GetGameTime(): [number, number];
 
 /**
+ * Returns the system uptime of your computer in seconds, with millisecond
+ * precision.
+ *
+ * @returns hours, minutes
+ * @see https://wow.gamepedia.com/API_GetTime
+ */
+declare function GetTime(): number;
+
+/**
  * Returns information about the client locale
  * 
  * @returns 
