@@ -284,8 +284,13 @@ declare interface WowRegion extends WowUiObject {
     GetHeight(): number;
 
     /**
+     * Set the parent UIObject
+     */
+    SetParent(parent: WowUiObject | null): void;
+
+    /**
      * Sets an attachment point of an UI component.
-     * 
+     *
      * @param point Point of the object to adjust based on the anchor.
      * @param relativeTo Name or reference to a Region to attach obj to. If not specified in the call's signature, defaults to obj's parent (or, if obj has no parent, the entire screen), or if specified in the signature and passed nil, defaults to the entire screen.
      * @param relativePoint point of the relativeTo Region to attach point of obj to. If not specified, defaults to the value of point.
