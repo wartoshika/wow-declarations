@@ -508,6 +508,43 @@ declare interface WowObjectSetScript<T extends WowUiObject> {
     SetScript(event: WowEventOnAny, handler: undefined | null): void;
 }
 
+declare interface WowBackdrop {
+    /**
+     * Which texture file to use as frame background (.blp or .tga format)
+     */
+    bgFile?: string;
+
+    /**
+     * Which texture file to use as frame edge blp or .tga format)
+     */
+    edgeFile?: string;
+
+    /**
+     * whether background texture is tiled or streched
+     */
+    tile?: boolean;
+
+    /**
+     * Control how large each copy of the bgFile becomes on-screen
+     */
+    tileSize?: number;
+
+    /**
+     * Control how large each copy of the edgeFile becomes on-screen (i.e. border thickness and corner size)
+     */
+    edgeSize?: number;
+
+    /**
+     * Controls how far into the frame the background will be drawn (use higher values the thicker the edges are)
+     */
+    insets: {
+        left: number;
+        right: number;
+        top: number;
+        bottom: number;
+    }
+}
+
 /**
  * The main wow frame object
  */
@@ -626,44 +663,9 @@ declare interface WowFrame extends WowRegion, WowObjectHookScript<WowFrame>, Wow
 
     /**
      * Using 'nil' as the only parameter will remove the backdrop on the indicated frame
-     * @param options 
+     * @param options
      */
-    SetBackdrop(options: {
-        /**
-         * Which texture file to use as frame background (.blp or .tga format)
-         */
-        bgFile?: string,
-
-        /**
-         * Which texture file to use as frame edge blp or .tga format)
-         */
-        edgeFile?: string,
-
-        /**
-         * whether background texture is tiled or streched
-         */
-        tile?: boolean,
-
-        /**
-         * Control how large each copy of the bgFile becomes on-screen
-         */
-        tileSize?: number,
-
-        /**
-         * Control how large each copy of the edgeFile becomes on-screen (i.e. border thickness and corner size)
-         */
-        edgeSize?: number,
-
-        /**
-         * Controls how far into the frame the background will be drawn (use higher values the thicker the edges are)
-         */
-        insets: {
-            left: number,
-            right: number,
-            top: number,
-            bottom: number
-        }
-    } | void): void;
+    SetBackdrop(options: WowBackdrop | void): void;
 
     /**
      * Sets whether a frame widget can be moved
