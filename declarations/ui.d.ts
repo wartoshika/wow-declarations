@@ -3,7 +3,7 @@
 declare type WowHorizontalAlign = "LEFT" | "CENTER" | "RIGHT";
 declare type WowVerticalAlign = "TOP" | "MIDDLE" | "BUTTOM";
 declare type WowPoint = "TOP" | "RIGHT" | "BOTTOM" | "LEFT" | "TOPRIGHT" | "TOPLEFT" | "BOTTOMLEFT" | "BOTTOMRIGHT" | "CENTER";
-declare type WowLayer = "BACKGROUND" | "ARTWORK";
+declare type WowLayer = "BACKGROUND" | "ARTWORK" | "OVERLAY";
 declare type WowFrameStrata = "WORLD" | "BACKGROUND" | "LOW" | "MEDIUM" | "HIGH" | "DIALOG" | "FULLSCREEN" | "FULLSCREEN_DIALOG" | "TOOLTIP";
 declare type WowWrap = "CLAMP" | "CLAMPTOBLACK" | "CLAMPTOBLACKADDITIVE" | "CLAMPTOSHITE" | "REPEAT" | true | "MIRROR";
 declare type WowMouseButton = "LeftButton" | "RightButton" | "Middle" | "Button4" | "Button5";
