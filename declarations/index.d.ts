@@ -18,6 +18,7 @@ import "./binding";
 import "./blackMarket";
 import "./buff";
 // C
+import "./calendar";
 import "./camera";
 import "./channel";
 import "./container";
