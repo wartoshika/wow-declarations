@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type WowCursorInfoType = "item" | "spell" | "macro" | "mount" | "money" | "merchant" | "battlepet";
 
 /**

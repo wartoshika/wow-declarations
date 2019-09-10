@@ -1,1 +1,3 @@
+/** @noSelfInFile */
+
 // @todo: write declarations!

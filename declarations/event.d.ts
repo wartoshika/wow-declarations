@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type WowTypedEvents = {
 
     /**

@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare const CR_DEFENSE_SKILL = 2;
 declare const CR_DODGE = 3;
 declare const CR_PARRY = 4;
