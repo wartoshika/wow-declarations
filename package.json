@@ -18,5 +18,5 @@
     "postversion": "git push github --follow-tags"
   },
   "types": "declarations/index.d.ts",
-  "version": "0.0.8"
+  "version": "0.0.9"
 }
