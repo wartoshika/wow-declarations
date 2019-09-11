@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type WowBuffFilterType = "HELPFUL" | "HARMFUL" | "PLAYER" | "RAID" | "CANCELABLE" | "NOT_CANCELABLE";
 declare type WowBuffWeaponHandType = 1 | 2;
 declare type WowDebuffType = "Magic" | "Disease" | "Poison" | "Curse" | "";

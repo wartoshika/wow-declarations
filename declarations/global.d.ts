@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type EXPANSION_CLASSIC = 0;
 declare type EXPANSION_BURNING_CRUSADE = 1;
 declare type EXPANSION_WRATH_OF_THE_LICH_KING = 2;

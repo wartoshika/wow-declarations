@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /// <reference path="global.d.ts" />
 /// <reference path="ui/ui.d.ts" />
 

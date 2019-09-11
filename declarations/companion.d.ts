@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type WowCompanionType = "CRITTER" | "MOUNT";
 declare type WowMointType = 0x1 | 0x2 | 0x4 | 0x8 | 0x10;
 

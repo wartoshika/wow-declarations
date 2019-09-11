@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Map a bank item button or bag to an inventory slot button for use in inventory functions
  * @param buttodId bank item/bag ID.

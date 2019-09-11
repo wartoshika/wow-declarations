@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type QUEST_FREQUENCY_NORMAL = 1;
 declare type QUEST_FREQUENCY_DAILY = 2;
 declare type QUEST_FREQUENCY_WEEKLY = 3;

@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type WowCurrentBindingWhich = 1 | 2;
 declare type WowBindingSetType = 0 | WowCurrentBindingWhich;
 

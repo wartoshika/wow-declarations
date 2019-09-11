@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type WowQuestType = "required" | "reward" | "choice";
 declare type WowQuestState = "OFFER" | "COMPLETE";
 
@@ -113,11 +115,6 @@ declare function GetAbandonQuestItems(): WowUnknown;
  * @see https://wow.gamepedia.com/API_GetAbandonQuestName
  */
 declare function GetAbandonQuestName(): string;
-
-
-
-
-
 
 /**
  * Returns true if a quest is possible to complete

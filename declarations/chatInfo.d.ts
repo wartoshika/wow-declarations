@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 declare type WowAddonMessageType = "PARTY" | "RAID" | "GUILD" | "BATTLEGROUND" | "WHISPER" | "CHANNEL";
 declare type WowChatFlag = "AFK" | "DND" | "GM";
 declare type WowChatJoinLeftType = "YOU_JOINED" | "YOU_LEFT" | "THROTTLED";
