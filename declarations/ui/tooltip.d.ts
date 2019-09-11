@@ -404,6 +404,11 @@ declare interface GameTooltip {
      * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetUnitAura
      */
     SetUnitDebuff(unitId: WowUnitId, buffIndex: number, filter?: WowBuffFilterType): WowUnknown;
+
+    /**
+     * shows the configured tooltip
+     */
+    Show(): void;
 }
 
 declare const GameTooltip: GameTooltip;

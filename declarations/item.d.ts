@@ -14,6 +14,17 @@ declare type ITEM_QUALITY_HEIRLOOM = 7;
 declare type ITEM_QUALITY = ITEM_QUALITY_GENERIC | ITEM_QUALITY_POOR | ITEM_QUALITY_COMMON | ITEM_QUALITY_UNCOMMON |
     ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_ARTIFACT | ITEM_QUALITY_HEIRLOOM;
 
+declare type BIND_TYPE_NONE = 0;
+declare type BIND_TYPE_PICKUP = 1;
+declare type BIND_TYPE_EQUIP = 2;
+declare type BIND_TYPE_USE = 3;
+declare type BIND_TYPE_QUEST = 4;
+
+/**
+ * all currently known bind types
+ */
+declare type BIND_TYPE = BIND_TYPE_NONE | BIND_TYPE_PICKUP | BIND_TYPE_EQUIP | BIND_TYPE_USE | BIND_TYPE_QUEST;
+
 declare type WowEquippableItemType = "Miscellaneous" | "Cloth" | "Leather" | "Mail" | "Plate" | "Shields" | "Librams" | "Idols" | "Totems" | "Sigils";
 
 /**
@@ -127,7 +138,7 @@ declare function GetItemIcon(itemId: number): WowTexturePath;
  * - **isCraftingReagent**: unknown
  * @see https://wow.gamepedia.com/API_GetItemInfo
  */
-declare function GetItemInfo(itemIdentifier: string | number | WowItemLink): [string, WowItemLink, ITEM_QUALITY, number, number, string, string, number, WOW_INVENTORY_SLOT_ID, WowTexturePath, number, number, number, number, number, number, boolean];
+declare function GetItemInfo(itemIdentifier: string | number | WowItemLink): [string, WowItemLink, ITEM_QUALITY, number, number, string, string, number, WOW_INVENTORY_SLOT_ID, WowTexturePath, number, number, number, BIND_TYPE, number, number, boolean];
 
 /**
  * Returns instantly-available information about a specific item
