@@ -3,7 +3,7 @@
 declare const BOOKTYPE_SPELL = 'spell';
 declare const BOOKTYPE_PET = 'pet';
 
-declare type WowBookType = 'spell' | 'pet';
+declare type WowBookType = typeof BOOKTYPE_SPELL | typeof BOOKTYPE_PET;
 
 /**
  * Retrieves the spell name and spell rank for a spell in the player's spell book.
