@@ -4,7 +4,7 @@ import "./global";
 
 // A
 import "./account";
-import "./achivement";
+import "./achievement";
 import "./action";
 import "./activity";
 import "./addon";
@@ -36,10 +36,13 @@ import "./debug";
 import "./event";
 // G
 import "./gossip";
+// I
+import "./inventory";
 // Q
 import "./quest";
 // S
 import "./security";
+import "./spell";
 import "./system";
 // U
 import "./ui/ui";
