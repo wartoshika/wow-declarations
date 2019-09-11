@@ -96,6 +96,7 @@ declare function DisplayChannelOwner(channelName: string): void;
  * Retrieves all available server channels (zone dependent).
  * @returns channel1, channel2, ...
  * @see https://wow.gamepedia.com/API_EnumerateServerChannels
+ * @tupleReturn
  */
 declare function EnumerateServerChannels(): [...string[]];
 
@@ -103,6 +104,7 @@ declare function EnumerateServerChannels(): [...string[]];
  * Retrieves joined channels
  * @returns id1, name1, disabled1, ...
  * @see https://wow.gamepedia.com/API_GetChannelList
+ * @tupleReturn
  */
 declare function GetChannelList(): [number, string, boolean, number, string, boolean, number, string, boolean, number, string, boolean, number, string, boolean, number, string, boolean];
 
@@ -113,6 +115,7 @@ declare function GetChannelList(): [number, string, boolean, number, string, boo
  * - **return3**: ?, usually 0
  * @param channelIdOrName Channel id to query, e.g. 1 for the chat channel currently addressable using /1 or Name of the channel to query, e.g. "Trade - City".
  * @see https://wow.gamepedia.com/API_GetChannelName
+ * @tupleReturn
  */
 declare function GetChannelName(channelIdOrName: number | string): [number, string, number];
 
@@ -121,6 +124,7 @@ declare function GetChannelName(channelIdOrName: number | string): [number, stri
  * @param frameId The frame number of the chat frame to be queried (starts at 1).
  * @returns name1, zone1, name2, zone2, ...
  * @see https://wow.gamepedia.com/API_GetChatWindowChannels
+ * @tupleReturn
  */
 declare function GetChatWindowChannels(frameId: number): [string, number, string, number, string, number, string, number, string, number, string, number, string, number];
 
@@ -147,6 +151,7 @@ declare function JoinChannelByName(channelName: string, password?: string, frame
  *  - The type of channel. 0 for a undefined channel, 1 for the zone General channel, etc
  *  - The name of the channel (Ohklus: seems to be nil for most channels)
  * @see https://wow.gamepedia.com/API_JoinPermanentChannel
+ * @tupleReturn
  */
 declare function JoinPermanentChannel(channelName: string, password?: string, frameId?: number, hasVoice?: boolean): [number, string];
 
@@ -160,6 +165,7 @@ declare function JoinPermanentChannel(channelName: string, password?: string, fr
  *  - The type of channel. 0 for a undefined channel, 1 for the zone General channel, etc
  *  - The name of the channel (Ohklus: seems to be nil for most channels)
  * @see https://wow.gamepedia.com/API_JoinTemporaryChannel
+ * @tupleReturn
  */
 declare function JoinTemporaryChannel(channelName: string, password?: string, frameId?: number, hasVoice?: boolean): [number, string];
 

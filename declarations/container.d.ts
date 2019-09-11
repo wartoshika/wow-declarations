@@ -87,6 +87,7 @@ declare function GetBagName(bagId: WOW_CONTAINER_ID): string;
  * @param slot slot number of the bag item you want the info for
  * @returns startTime, duration, isEnabled
  * @see https://wow.gamepedia.com/API_GetContainerItemCooldown
+ * @tupleReturn
  */
 declare function GetContainerItemCooldown(bagId: WOW_CONTAINER_ID, slot: number): [number, number, WowFlag];
 
@@ -97,6 +98,7 @@ declare function GetContainerItemCooldown(bagId: WOW_CONTAINER_ID, slot: number)
  * @param slot Index of the bag slot containing the item to query durability of
  * @returns current, maximum
  * @see https://wow.gamepedia.com/API_GetContainerItemDurability
+ * @tupleReturn
  */
 declare function GetContainerItemDurability(bagId: WOW_CONTAINER_ID, slot: number): [number, number];
 
@@ -117,6 +119,7 @@ declare function GetContainerItemID(bagId: WOW_CONTAINER_ID, slot: number): numb
  * @param slot index of the slot inside the bag to look up
  * @returns texture, itemCount, locked, quality, readable, lootable, itemLink, isFiltered, noValue, itemID
  * @see https://wow.gamepedia.com/API_GetContainerItemInfo
+ * @tupleReturn
  */
 declare function GetContainerItemInfo(bagId: WOW_CONTAINER_ID, slot: number): [WowTexturePath, number, boolean, ITEM_QUALITY, boolean, boolean, WowItemLink, boolean, boolean, number];
 
@@ -146,6 +149,7 @@ declare function GetContainerNumSlots(bagId: WOW_CONTAINER_ID): number;
  * @param slot Index of the slot within the bag (ascending from 1) to query
  * @returns isQuestItem, questId, isActive
  * @see https://wow.gamepedia.com/API_GetContainerItemQuestInfo
+ * @tupleReturn
  */
 declare function GetContainerItemQuestInfo(bagId: WOW_CONTAINER_ID, slot: number): [WowFlag, number | null, WowFlag];
 
@@ -155,6 +159,7 @@ declare function GetContainerItemQuestInfo(bagId: WOW_CONTAINER_ID, slot: number
  * @param bagId the slot containing the bag, e.g. 0 for backpack, etc.
  * @returns numberOfFreeSlots, BagType
  * @see https://wow.gamepedia.com/API_GetContainerNumFreeSlots
+ * @tupleReturn
  */
 declare function GetContainerNumFreeSlots(bagId: WOW_CONTAINER_ID): [number, BAG_TYPE];
 

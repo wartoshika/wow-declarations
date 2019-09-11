@@ -16,6 +16,7 @@ declare type ARENA_ID = ARENA_ID_2VS2 | ARENA_ID_3VS3;
  * @param index Which team to get information on, 0 is Green team and 1 is Gold Team
  * @returns teamName, oldTeamRating, newTeamRating, teamRating
  * @see https://wow.gamepedia.com/API_GetBattlefieldTeamInfo
+ * @tupleReturn
  */
 declare function GetBattlefieldTeamInfo(index: ARENA_TEAM): [string, number, number, number];
 
@@ -39,6 +40,7 @@ declare function GetPreviousArenaSeason(): WowUnknown;
  * 
  * @returns isArena, isRegistered
  * @see https://wow.gamepedia.com/API_IsActiveBattlefieldArena
+ * @tupleReturn
  */
 declare function IsActiveBattlefieldArena(): [boolean, boolean];
 

@@ -25,5 +25,6 @@ declare function GetBankSlotCost(numSlot: number): number;
 /**
  * Returns information about the number of purchased bank bag slots
  * @see https://wow.gamepedia.com/API_GetNumBankSlots
+ * @tupleReturn
  */
 declare function GetNumBankSlots(): [number, WowFlag];

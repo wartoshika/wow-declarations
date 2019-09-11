@@ -24,6 +24,7 @@ declare function CancelBarberShop(): void;
 /**
  * Returns information about the current selection for a barber shop customization
  * @see https://wow.gamepedia.com/API_GetBarberShopStyleInfo
+ * @tupleReturn
  */
 declare function GetBarberShopStyleInfo(catId: number): [string, WowUnknown, WowUnknown, WowFlag];
 

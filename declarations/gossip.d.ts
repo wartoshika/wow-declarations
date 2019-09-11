@@ -46,6 +46,7 @@ declare function ForceGossip(): WowFlag;
  * @returns title1, level1, isLowLevel1, isComplete1, isLegendary1, isIgnored1, title2, level2, isLowLevel2, isComplete2, isLegendary2, isIgnored2
  * @see https://wow.gamepedia.com/API_GetGossipActiveQuests
  * @description The number of returned values per quest has increased again to 6
+ * @tupleReturn
  */
 declare function GetGossipActiveQuests(): [string, string, boolean, boolean, boolean];
 
@@ -54,6 +55,7 @@ declare function GetGossipActiveQuests(): [string, string, boolean, boolean, boo
  * 
  * @returns title1, level1, isTrivial1, frequency1, isRepeatable1, isLegendary1, isIgnored1 ...
  * @see https://wow.gamepedia.com/API_GetGossipAvailableQuests
+ * @tupleReturn
  */
 declare function GetGossipAvailableQuests(): [string, number, boolean, QUEST_FREQUENCY, boolean, boolean, boolean];
 
@@ -62,6 +64,7 @@ declare function GetGossipAvailableQuests(): [string, number, boolean, QUEST_FRE
  * 
  * @returns title1, gossip1, ...
  * @see https://wow.gamepedia.com/API_GetGossipOptions
+ * @tupleReturn
  */
 declare function GetGossipOptions(): [string, GOSSIP_TYPE];
 

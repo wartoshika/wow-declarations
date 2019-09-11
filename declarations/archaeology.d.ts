@@ -95,6 +95,7 @@ declare function CloseResearch(): WowUnknown;
  * @returns artifactName, artifactDescription, artifactRarity, artifactIcon, hoverDescription, keystoneCount, bgTexture
  * @see https://wow.gamepedia.com/API_GetActiveArtifactByRace
  * @since 4.0.0
+ * @tupleReturn
  */
 declare function GetActiveArtifactByRace(raceIndex: number): [string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath];
 
@@ -114,6 +115,7 @@ declare function GetArchaeologyInfo(): string;
  * @returns raceName, raceTexture, raceItemID, numFragmentsCollected, numFragmentsRequired, maxFragments
  * @see https://wow.gamepedia.com/API_GetArchaeologyRaceInfo
  * @since 4.0.0
+ * @tupleReturn
  */
 declare function GetArchaeologyRaceInfo(raceIndex: number): [string, WowTexturePath, number, number, number, number];
 
@@ -124,6 +126,7 @@ declare function GetArchaeologyRaceInfo(raceIndex: number): [string, WowTextureP
  * @returns raceName, raceTextureID, raceItemID, numFragmentsCollected, numFragmentsRequired, maxFragments
  * @see https://wow.gamepedia.com/API_GetArchaeologyRaceInfoByID
  * @since 5.4.0
+ * @tupleReturn
  */
 declare function GetArchaeologyRaceInfoByID(branchId: ARCHAELOLOGY_BRANCH): [string, WowTexturePath, number, number, number, number];
 
@@ -135,6 +138,7 @@ declare function GetArchaeologyRaceInfoByID(branchId: ARCHAELOLOGY_BRANCH): [str
  * @returns artifactName, artifactDescription, artifactRarity, artifactIcon, hoverDescription, keystoneCount, bgTexture, firstCompletionTime, completionCount
  * @see https://wow.gamepedia.com/API_GetArtifactInfoByRace
  * @since 4.0.0
+ * @tupleReturn
  */
 declare function GetArtifactInfoByRace(raceIndex: number, artifactIndex: number): [string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath, number, number];
 
@@ -163,6 +167,7 @@ declare function GetNumArtifactsByRace(raceIndex: number): number;
  * @returns artifactName, artifactDescription, artifactRarity, artifactIcon, hoverDescription, keystoneCount, bgTexture, spellId
  * @see https://wow.gamepedia.com/API_GetSelectedArtifactInfo
  * @since 4.0.0
+ * @tupleReturn
  */
 declare function GetSelectedArtifactInfo(): [string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath, number];
 
@@ -172,6 +177,7 @@ declare function GetSelectedArtifactInfo(): [string, string, ARCHAELOLOGY_RARITY
  * @returns numFragmentsCollected, numFragmentsAdded, numFragmentsRequired
  * @see https://wow.gamepedia.com/API_GetArtifactProgress
  * @since 4.0.0
+ * @tupleReturn
  */
 declare function GetArtifactProgress(): [number, number, number];
 

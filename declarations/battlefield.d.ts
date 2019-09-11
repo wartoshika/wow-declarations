@@ -53,6 +53,7 @@ declare function GetBattlefieldEstimatedWaitTime(): number;
  * Used to position the flag icon on the world map and the battlefield minimap
  * @param index Index to get the flag position from
  * @see https://wow.gamepedia.com/API_GetBattlefieldFlagPosition
+ * @tupleReturn
  */
 declare function GetBattlefieldFlagPosition(index: number): [number, number, string];
 
@@ -82,6 +83,7 @@ declare function GetBattlefieldPortExpiration(index: number): number;
  * Returns information about a player's score in battlegrounds
  * @param playerIndex The characters index in battlegrounds, going from 1 to GetNumBattlefieldScores().
  * @see https://wow.gamepedia.com/API_GetBattlefieldScore
+ * @tupleReturn
  */
 declare function GetBattlefieldScore(playerIndex: number): [string, number, number, number, number, number, string, string, string, number, number, string];
 
@@ -98,6 +100,7 @@ declare function GetBattlefieldStatData(playerIndex: number, columnIndex: number
  * Get list of battleground specific columns on the scoreboard
  * @param columnIndex Column to get data for
  * @see https://wow.gamepedia.com/API_GetBattlefieldStatInfo
+ * @tupleReturn
  */
 declare function GetBattlefieldStatInfo(columnIndex: number): [string, string, string];
 
@@ -105,6 +108,7 @@ declare function GetBattlefieldStatInfo(columnIndex: number): [string, string, s
  * Get the status of the arena, battleground, or wargame that the player is either queued for or inside
  * @param battlefieldIndex Index of the battlefield you wish to view, in the range of 1 to GetMaxBattlefieldID()
  * @see https://wow.gamepedia.com/API_GetBattlefieldStatus
+ * @tupleReturn
  */
 declare function GetBattlefieldStatus(battlefieldIndex: number): [WowBattlefieldStatusType, string, WowBattlefieldTeamSize, number, WowUnknown, WowBattlefieldType, WowUnknown, WowUnitRoleType];
 
@@ -126,6 +130,7 @@ declare function GetBattlefieldWinner(): WowBattlefieldWinType;
  * Returns information about a battleground type
  * @param battlegroundTypeIndex battleground type index, 1 to GetNumBattlegroundTypes().
  * @see https://wow.gamepedia.com/API_GetBattlegroundInfo
+ * @tupleReturn
  */
 declare function GetBattlegroundInfo(battlegroundTypeIndex: number): [string, WowFlag, WowFlag, WowFlag, number, string];
 
@@ -160,6 +165,7 @@ declare function GetNumWorldStateUI(): number;
  * Get score and flag status within a battlefield
  * @param worldUiStateIndex between 1 and GetNumWorldStateUI().
  * @see https://wow.gamepedia.com/API_GetWorldStateUIInfo
+ * @tupleReturn
  */
 declare function GetWorldStateUIInfo(worldUiStateIndex: number): [number, WowBattlefieldUiStateType, boolean, string, string, string, string, string, string, number, number, number];
 

@@ -39,6 +39,7 @@ declare function DismissCompanion(type: WowCompanionType): void;
  * @deprecated use C_MountJournal.GetMountInfoByID()
  * @see https://wow.gamepedia.com/API_GetCompanionInfo
  * @since 3.0.2
+ * @tupleReturn
  */
 declare function GetCompanionInfo(type: WowCompanionType, companionIndex: number): [number, string, number, WowTexturePath, WowFlag, WowMointType];
 

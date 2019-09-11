@@ -78,6 +78,7 @@ declare function GetDodgeChance(): number;
  * - **arg3**: Expertise percentage for your ranged weapon
  * @description Expertise reduces the chance that the player's attacks are dodged or parried by an enemy. This function returns the amount of percentage points Experise reduces the dodge/parry chance by (e.g. a return value of 3.5 means a 3.5% reduction to both dodge and parry probabilities).
  * @see https://wow.gamepedia.com/API_GetExpertise
+ * @tupleReturn
  */
 declare function GetExpertise(): [number, number, number];
 
@@ -98,6 +99,7 @@ declare function GetHitModifier(): number;
  * - **arg1**: mana regeneration when not casting spells
  * - **arg2**: mana regeneration while casting spells
  * @see https://wow.gamepedia.com/API_GetManaRegen
+ * @tupleReturn
  */
 declare function GetManaRegen(): [number, number];
 
@@ -115,6 +117,7 @@ declare function GetMastery(): number;
  * - **arg2**: A spec-dependent coefficient multiplied onto the player's raw mastery effect (as returned by GetMastery) to yield the actual effect of the mastery
  * @see https://wow.gamepedia.com/API_GetMasteryEffect
  * @since 5.0.4
+ * @tupleReturn
  */
 declare function GetMasteryEffect(): [number, number];
 

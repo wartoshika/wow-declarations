@@ -16,6 +16,7 @@ interface C_BlackMarket {
      * @description These functions will only return information when the black market UI is open (according to the server, i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since)
      * @since 5.0.4
      * @see https://wow.gamepedia.com/API_C_BlackMarket.GetItemInfoByID
+     * @tupleReturn
      */
     GetItemInfoByID(marketId: number): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, WowItemLink, number];
 
@@ -24,6 +25,7 @@ interface C_BlackMarket {
      * @description These functions will only return information when the black market UI is open (according to the server, i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since)
      * @since 5.0.4
      * @see https://wow.gamepedia.com/API_C_BlackMarket.GetItemInfoByID
+     * @tupleReturn
      */
     GetHotItem(): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, WowItemLink, number];
 
@@ -33,6 +35,7 @@ interface C_BlackMarket {
      * @description These functions will only return information when the black market UI is open (according to the server, i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since)
      * @since 5.0.4
      * @see https://wow.gamepedia.com/API_C_BlackMarket.GetItemInfoByID
+     * @tupleReturn
      */
     GetItemInfoByIndex(index: number): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, WowItemLink, number];
 

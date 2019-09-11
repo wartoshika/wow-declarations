@@ -119,6 +119,7 @@ declare function EnableAllAddOns(): void;
  * @param indexOrName The index of the AddOn in the user's AddOn list. Note that you cannot access Blizzard-provided AddOns through this mechanism. OR The name of the AddOn to be queries. You can access Blizzard-provided AddOns through this mechanism
  * @returns Name of an addon the specified addon lists as a required dependency
  * @see https://wow.gamepedia.com/API_GetAddOnDependencies
+ * @tupleReturn
  */
 declare function GetAddOnDependencies(indexOrName: number | string): [...string[]]
 
@@ -137,6 +138,7 @@ declare function GetAddOnEnableState(character: WowUnknown, addonIndex: WowUnkno
  * @param indexOrName The index of the AddOn in the user's AddOn list. Note that you cannot access Blizzard-provided AddOns through this mechanism OR The name of the AddOn to be queried. You can access Blizzard-provided AddOns through this mechanism
  * @returns name, title, notes, loadable, reason, security, newVersion
  * @see https://wow.gamepedia.com/API_GetAddOnInfo
+ * @tupleReturn
  */
 declare function GetAddOnInfo(indexOrName: number | string): [string, string, string, boolean, ADDON_LOAD_REASON, string, boolean];
 
@@ -155,6 +157,7 @@ declare function GetAddOnMetadata(addonNameOrIndex: string | number, field: stri
  * 
  * @param indexOrName The index of the AddOn in the user's AddOn list. Note that you cannot access Blizzard-provided AddOns through this mechanism. OR The name of the AddOn to be queries. You can access Blizzard-provided AddOns through this mechanism
  * @see https://wow.gamepedia.com/API_GetAddOnOptionalDependencies
+ * @tupleReturn
  */
 declare function GetAddOnOptionalDependencies(indexOrName: number | string): [...string[]];
 
@@ -171,6 +174,7 @@ declare function GetNumAddOns(): number;
  * @param indexOrName The index of the addon in the user's addon list. You cannot query Blizzard-provided AddOns using this parameter OR The name of the addon to be queried. You can query Blizzard-provided addon using this parameter
  * @returns loaded, finished
  * @see https://wow.gamepedia.com/API_IsAddOnLoaded
+ * @tupleReturn
  */
 declare function IsAddOnLoaded(indexOrName: number | string): [WowFlag, WowFlag];
 
@@ -189,5 +193,6 @@ declare function IsAddOnLoadOnDemand(indexOrName: number | string): WowFlag;
  * @param indexOrName The index of the AddOn in the user's AddOn list. Note that you cannot access Blizzard-provided AddOns through this mechanism. OR The name of the AddOn to be queries. You can access Blizzard-provided AddOns through this mechanism
  * @returns loaded, reason
  * @see https://wow.gamepedia.com/API_LoadAddOn
+ * @tupleReturn
  */
 declare function LoadAddOn(indexOrName: number | string): [WowFlag, ADDON_LOAD_REASON];
