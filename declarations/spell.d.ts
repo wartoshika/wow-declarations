@@ -9,6 +9,7 @@ declare type WowBookType = 'spell' | 'pet';
  * Retrieves the spell name and spell rank for a spell in the player's spell book.
  * 
  * @see https://wow.gamepedia.com/API_GetSpellBookItemName
+ * @since 4.0.1
  * @returns spellName, spellSubName
  * @tupleReturn
  */
