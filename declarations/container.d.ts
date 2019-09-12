@@ -2,7 +2,7 @@
 
 /// <reference path="global.d.ts" />
 /// <reference path="item.d.ts" />
-/// <reference path="ui.d.ts" />
+/// <reference path="ui/ui.d.ts" />
 /// <reference path="unit.d.ts" />
 
 declare type WOW_CONTAINER_ID_BACKPACK = 0;
