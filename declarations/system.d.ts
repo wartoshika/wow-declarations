@@ -20,6 +20,7 @@ declare function DetectWowMouse(): WowUnknown;
  * 
  * @returns version, build, date, tocversion
  * @see https://wow.gamepedia.com/API_GetBuildInfo
+ * @tupleReturn
  */
 declare function GetBuildInfo(): [string, string, string, number];
 
@@ -44,6 +45,7 @@ declare function GetFramerate(): number;
  * 
  * @returns hours, minutes
  * @see https://wow.gamepedia.com/API_GetGameTime
+ * @tupleReturn
  */
 declare function GetGameTime(): [number, number];
 

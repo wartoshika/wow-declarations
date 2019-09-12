@@ -146,6 +146,7 @@ declare interface WowUiObject {
 
     /**
      * Gets the children of a frame
+     * @tupleReturn
      */
     GetChildren(): [...WowUiObject[]];
 
@@ -181,6 +182,7 @@ declare interface WowFontInstance extends WowUiObject {
      *  fontName: Path to font file
      *  fontHeight: Font height in pixels. Due to internal graphics engine workings, this will be ridiculously close to an integer number, but not quite ever fully.
      *  fontFlags: See FontInstance:SetFont().
+     * @tupleReturn
      */
     GetFont(): [string, number, string];
 
@@ -191,6 +193,7 @@ declare interface WowFontInstance extends WowUiObject {
      *  g: The green color
      *  b: The blue color
      *  a?: the alpha (opacity)
+     * @tupleReturn
      */
     GetTextColor(): [number, number, number, number?];
 
@@ -759,6 +762,7 @@ declare interface WowSlider extends WowFrame {
 
     /**
      * Returns the minimum and maximum values of a slider
+     * @tupleReturn
      */
     GetMinMaxValues(): [number, number];
 

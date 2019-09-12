@@ -68,6 +68,7 @@ declare function EquipCursorItem(inventorySlot: WOW_INVENTORY_SLOT_ID): void;
 /**
  * Returns information about what the mouse cursor is holding
  * @see https://wow.gamepedia.com/API_GetCursorInfo
+ * @tupleReturn
  */
 declare function GetCursorInfo(): [WowCursorInfoType, ...WowUnknown[]];
 
@@ -75,6 +76,7 @@ declare function GetCursorInfo(): [WowCursorInfoType, ...WowUnknown[]];
  * @returns **item**
  * - **itemId**: Item ID of the item on the cursor
  * - **itemLink**: ItemLink of the item on the cursor
+ * @tupleReturn
  */
 declare function GetCursorInfo(): ["item", number, WowItemLink];
 
@@ -83,18 +85,21 @@ declare function GetCursorInfo(): ["item", number, WowItemLink];
  * - **spellIndex**: The index of the spell in the spell book
  * - **bookType**: The spell book id. Only works for player spells, so this always returns BOOKTYPE_SPELL
  * - **spellId**: Spell ID of the spell on the cursor
+ * @tupleReturn
  */
 declare function GetCursorInfo(): ["spell", number, string, number];
 
 /**
  * @returns **macro**
  * - **index**: The index of the macro on the cursor
+ * @tupleReturn
  */
 declare function GetCursorInfo(): ["macro", number];
 
 /**
  * @returns **money**
  * - **amount**: The amount of money in copper
+ * @tupleReturn
  */
 declare function GetCursorInfo(): ["money", number];
 
@@ -102,24 +107,28 @@ declare function GetCursorInfo(): ["money", number];
  * @returns **mount**
  * - **useless_index**: this index is not useful since no other API receives it as a parameter
  * - **C_MountJournal index**: index in the C_MountJournal (used by C_MountJournal API functions). These indexes varies with game locale
+ * @tupleReturn
  */
 declare function GetCursorInfo(): ["mount", number, number];
 
 /**
  * @returns **merchant**
  * - **index**: The index of the merchant item
+ * @tupleReturn
  */
 declare function GetCursorInfo(): ["merchant", number];
 
 /**
  * @returns **battlepet**
  * - **petGUID**: GUID of a battle pet in your collection
+ * @tupleReturn
  */
 declare function GetCursorInfo(): ["battlepet", WowGuid];
 
 /**
  * Returns the amount of copper held on the cursor
  * @see https://wow.gamepedia.com/API_GetCursorMoney
+ * @tupleReturn
  */
 declare function GetCursorMoney(): number;
 
@@ -130,6 +139,7 @@ declare function GetCursorMoney(): number;
  * - y coordinate unaffected by UI scale; 0 at the bottom edge of the screen.
  * @description Returns scale-independent coordinates similar to Cursor:GetCenter() if 'Cursor' was a valid frame not affected by scaling. Assuming UIParent spans the entire screen, you can convert these coordinates to UIParent offsets by dividing by its effective scale. The following snippet positions a small texture at the cursor's location.
  * @see https://wow.gamepedia.com/API_GetCursorPosition
+ * @tupleReturn
  */
 declare function GetCursorPosition(): [number, number];
 

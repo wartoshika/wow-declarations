@@ -77,6 +77,7 @@ declare const WowChatTypeInfo: WowChatTypeInfo;
  * Retrieves configuration information about a chat window
  * @param frameIndex The index of the chat window to get information for (starts at 1 to NUM_CHAT_WINDOWS).
  * @see https://wow.gamepedia.com/API_GetChatWindowInfo
+ * @tupleReturn
  */
 declare function GetChatWindowInfo(frameIndex: number): [string, number, number, number, number, WowFlag, WowFlag, number];
 
@@ -84,6 +85,7 @@ declare function GetChatWindowInfo(frameIndex: number): [string, number, number,
  * Get the channels received by a chat window.
  * @param frameIndex The frame number of the chat frame to be queried (starts at 1).
  * @see https://wow.gamepedia.com/API_GetChatWindowChannels
+ * @tupleReturn
  */
 declare function GetChatWindowChannels(frameIndex: number): [string, number, string, number, string, number];
 
@@ -99,6 +101,7 @@ declare function RemoveChatWindowChannel(frameIndex: number, channelName: string
  * Returns chat types received by a chat window
  * @param frameIndex Chat window index, ascending from 1
  * @see https://wow.gamepedia.com/API_GetChatWindowMessages
+ * @tupleReturn
  */
 declare function GetChatWindowMessages(frameIndex: number): [...string[]];
 
@@ -127,6 +130,7 @@ declare function ChangeChatColor(channelName: string, red: number, green: number
  * @param maxResults number of results desired
  * @param cursorPosition position of the cursor within the editbox (i.e. how much of the text string should be matching)
  * @see https://wow.gamepedia.com/API_GetAutoCompleteResults
+ * @tupleReturn
  */
 declare function GetAutoCompleteResults(text: string, include: number, exclude: number, maxResults: number, cursorPosition?: number): [...string[]];
 

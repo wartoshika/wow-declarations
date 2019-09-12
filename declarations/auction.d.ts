@@ -93,6 +93,7 @@ declare function CancelSell(): void;
  * 
  * @returns canQuery, canQueryAll
  * @see https://wow.gamepedia.com/API_CanSendAuctionQuery
+ * @tupleReturn
  */
 declare function CanSendAuctionQuery(): [boolean, boolean];
 
@@ -127,6 +128,7 @@ declare function CloseAuctionHouse(): void;
  * @returns creatureID, displayID
  * @see https://wow.gamepedia.com/API_GetAuctionItemBattlePetInfo
  * @since 5.0.4
+ * @tupleReturn
  */
 declare function GetAuctionItemBattlePetInfo(type: AUCTION_TYPE, index: number): [number, number];
 
@@ -137,6 +139,7 @@ declare function GetAuctionItemBattlePetInfo(type: AUCTION_TYPE, index: number):
  * @param index The index of the item in the list to retrieve info from (normally 1-50, inclusive)
  * @returns name, texture, count, quality, canUse, level, levelColHeader, minBid, minIncrement, buyoutPrice, bidAmount, highBidder, bidderFullName, owner, ownerFullName, saleStatus, itemId, hasAllInfo
  * @see https://wow.gamepedia.com/API_GetAuctionItemInfo
+ * @tupleReturn
  */
 declare function GetAuctionItemInfo(type: AUCTION_TYPE, index: number): [string, WowTexturePath, number, ITEM_QUALITY, boolean, number, string, number, number, number, number, boolean, string, string, string, AUCTION_SALE_STATUS, number, WowUnknown];
 
@@ -155,6 +158,7 @@ declare function GetAuctionWowItemLink(type: AUCTION_TYPE, index: number): Aucti
  * @param categoryIndex Index of the major category to look into, ascending from 1 to #GetAuctionItemClasses
  * @see https://wow.gamepedia.com/API_GetAuctionItemSubClasses
  * @returns subClass1, subClass2, subClass3, ... 
+ * @tupleReturn
  */
 declare function GetAuctionItemSubClasses(categoryIndex: number): [...string[]];
 
@@ -172,6 +176,7 @@ declare function GetAuctionItemTimeLeft(type: AUCTION_TYPE, index: number): AUCT
  * 
  * @returns name, texture, count, quality, canUse, price, pricePerUnit, stackCount, totalCount
  * @see https://wow.gamepedia.com/API_GetAuctionSellItemInfo
+ * @tupleReturn
  */
 declare function GetAuctionSellItemInfo(): [string, WowTexturePath, number, ITEM_QUALITY, number, number, number, number];
 

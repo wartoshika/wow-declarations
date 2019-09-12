@@ -31,6 +31,7 @@ declare function UnitGUID(unitId: WowUnitId): WowGuid;
  * @param unitGUID The GUID of the player you're querying about
  * @see https://wow.gamepedia.com/API_GetPlayerInfoByGUID
  * @since 3.2.0
+ * @tupleReturn
  */
 declare function GetPlayerInfoByGUID(unitGUID: WowGuid): [string, number, string, number, number, string, string];
 
@@ -67,6 +68,7 @@ declare function UnitLevel(unitId: WowUnitId): number;
  * Get the name of the faction (Horde/Alliance) a unit belongs to
  * @param unitId unit you want to get the faction for
  * @see https://wow.gamepedia.com/API_UnitFactionGroup
+ * @tupleReturn
  */
 declare function UnitFactionGroup(unitId: WowUnitId): [string, string];
 
@@ -74,6 +76,7 @@ declare function UnitFactionGroup(unitId: WowUnitId): [string, string];
  * Returns the class of the specified unit
  * @param unitId unit to query, e.g. "player"
  * @see https://wow.gamepedia.com/API_UnitClass
+ * @tupleReturn
  */
 declare function UnitClass(unitId: WowUnitId): [string, string, number];
 

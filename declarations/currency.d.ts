@@ -31,6 +31,7 @@ declare function GetCoinTextureString(amount: number, fontHeight?: number): stri
  * @returns name, currentAmount, texture, earnedThisWeek, weeklyMax, totalMax, isDiscovered, rarity
  * @see https://wow.gamepedia.com/API_GetCurrencyInfo
  * @since 3.0.2
+ * @tupleReturn
  */
 declare function GetCurrencyInfo(currencyId: number): [string, number, WowTexturePath, number, number, number, boolean, ITEM_QUALITY];
 
@@ -41,6 +42,7 @@ declare function GetCurrencyInfo(currencyId: number): [string, number, WowTextur
  * @returns name, currentAmount, texture, earnedThisWeek, weeklyMax, totalMax, isDiscovered, rarity
  * @see https://wow.gamepedia.com/API_GetCurrencyInfo
  * @since 3.0.2
+ * @tupleReturn
  */
 declare function GetCurrencyInfo(currencyLinkOrString: CurrencyLink | string): [string, number, WowTexturePath, number, number, number, boolean, ITEM_QUALITY];
 
@@ -71,6 +73,7 @@ declare function GetCurrencyListSize(): number;
  * @returns name, isHeader, isExpanded, isUnused, isWatched, count, icon, maximum, hasWeeklyLimit, currentWeeklyAmount, unknown, itemID
  * @see https://wow.gamepedia.com/API_GetCurrencyListInfo
  * @since 3.0.2
+ * @tupleReturn
  */
 declare function GetCurrencyListInfo(currencyIndex: number): [string, boolean, boolean, boolean, boolean, number, WowTexturePath, number, number, number, WowUnknown, number];
 
@@ -110,6 +113,7 @@ declare function GetNumWatchedTokens(): number;
  * @returns name, count, icon, currencyID
  * @see https://wow.gamepedia.com/API_GetBackpackCurrencyInfo
  * @since 3.0.2
+ * @tupleReturn
  */
 declare function GetBackpackCurrencyInfo(watchedIndex: number): [string, number, WowTexturePath, number];
 

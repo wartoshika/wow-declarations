@@ -69,6 +69,7 @@ declare function GetActionBarPage(): ActionBarPage;
  * 
  * @returns bottomLeftState, bottomRightState, sideRightState, sideRight2State
  * @see https://wow.gamepedia.com/API_GetActionBarToggles
+ * @tupleReturn
  */
 declare function GetActionBarToggles(): [boolean, boolean, boolean, boolean];
 
@@ -78,6 +79,7 @@ declare function GetActionBarToggles(): [boolean, boolean, boolean, boolean];
  * @param slotId The action slot to retrieve data from
  * @returns currentCharges, maxCharges, cooldownStart, cooldownDuration, chargeModRate 
  * @see https://wow.gamepedia.com/API_GetActionCharges
+ * @tupleReturn
  */
 declare function GetActionCharges(slotId: ActionBarSlotId): [number, number, number, number, number];
 
@@ -87,6 +89,7 @@ declare function GetActionCharges(slotId: ActionBarSlotId): [number, number, num
  * @param slotId The action slot to retrieve data from
  * @returns start, duration, enable, modRate
  * @see https://wow.gamepedia.com/API_GetActionCooldown
+ * @tupleReturn
  */
 declare function GetActionCooldown(slotId: ActionBarSlotId): [number, number, number, number];
 
@@ -105,6 +108,7 @@ declare function GetActionCount(slotId: ActionBarSlotId): string | number;
  * @param slotId Action slot to retrieve information about.
  * @returns actionType, id, subType
  * @see https://wow.gamepedia.com/API_GetActionInfo
+ * @tupleReturn
  */
 declare function GetActionInfo(slotId: ActionBarSlotId): [string, WowUnknown, WowUnknown];
 
@@ -211,6 +215,7 @@ declare function IsEquippedAction(slotId: ActionBarSlotId): WowFlag | null;
  * @param slotId Action slot to query
  * @returns isUsable, notEnoughMana
  * @see https://wow.gamepedia.com/API_IsUsableAction
+ * @tupleReturn
  */
 declare function IsUsableAction(slotId: ActionBarSlotId): [boolean, boolean];
 

@@ -69,6 +69,7 @@ declare interface GameTooltip {
      * - **itemName**: Plain text item name (e.g. "Broken Fang")
      * - **itemLink**: Formatted item link (e.g. "|cff9d9d9d|Hitem:7073:0:0:0:0:0:0:0|h[Broken Fang]|h|r")
      * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_GetItem
+     * @tupleReturn
      */
     GetItem(): [string, WowItemLink];
 
@@ -83,16 +84,21 @@ declare interface GameTooltip {
      * - **spellName**: Plain text spell name (e.g. "Explosive Shot")
      * - **spellId**: Integer spell ID (e.g. "60053")
      * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_GetSpell
+     * @tupleReturn
      */
     GetSpell(): [string, number];
 
     /**
      * Returns owner frame, anchor
+     * 
+     * @tupleReturn
      */
     GetOwner(): [WowUiObject, WowPoint];
 
     /**
      * Returns unit name, unit id
+     * 
+     * @tupleReturn
      */
     GetUnit(): [string, WowUnitId];
 
@@ -150,6 +156,7 @@ declare interface GameTooltip {
      * - **hasCooldown**: if the item currently has a cooldown
      * - **repairCost**: the cost to repair the item, may be 0 or nil if the item cannot be repaired
      * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetBagItem
+     * @tupleReturn
      */
     SetBagItem(bag: WOW_CONTAINER_ID, slot: number): [boolean, number];
 
@@ -216,6 +223,7 @@ declare interface GameTooltip {
      * - **hasCooldown**: unknown
      * - **repairCost**: cost of repairing item
      * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetInventoryItem
+     * @tupleReturn
      */
     SetInventoryItem(unit: WowUnitId, slot: number, nameOnly?: WowUnknown): [boolean, boolean, number];
 

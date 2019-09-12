@@ -8,6 +8,7 @@ declare type WowBindingSetType = 0 | WowCurrentBindingWhich;
  * @param bindingIndex index of the binding to query, from 1 to GetNumBindings().
  * @param mode Unknown, defaults to 1
  * @see https://wow.gamepedia.com/API_GetBinding
+ * @tupleReturn
  */
 declare function GetBinding(bindingIndex: number, mode?: WowUnknown): [string, string, string];
 
@@ -25,6 +26,7 @@ declare function GetBindingAction(binding: string, checkOverride?: boolean): str
  * @param command The name of the command to get key bindings for (e.g. MOVEFORWARD, TOGGLEFRIENDSTAB)
  * @returns The string representation(s) of all the key(s) bound to this command (e.g. W, CTRL-F)
  * @see https://wow.gamepedia.com/API_GetBindingKey
+ * @tupleReturn
  */
 declare function GetBindingKey(command: string): [...string[]];
 

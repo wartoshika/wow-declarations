@@ -60,6 +60,7 @@ declare function GetCurrentTitle(): number;
  * Gives information about the mirror bar. (Spirit release, exhaustion/fatigue, etc)
  * @param timerIndex timer index, from 1 to MIRRORTIMER_NUMTIMERS (3 as of 3.2). In general, the following correspondence holds: 1 = Fatigue, 2 = Breath, 3 = Feign Death
  * @see https://wow.gamepedia.com/API_GetMirrorTimerInfo
+ * @tupleReturn
  */
 declare function GetMirrorTimerInfo(timerIndex: number): [string, number, number, number, WowFlag, string];
 
@@ -102,6 +103,7 @@ declare function GetRangedCritChance(): number;
 /**
  * Returns whether the player is in a rested (earning double XP for kills) or normal state
  * @see https://wow.gamepedia.com/API_GetRestState
+ * @tupleReturn
  */
 declare function GetRestState(): [WowCharacterRestState, string, number];
 
@@ -109,6 +111,7 @@ declare function GetRestState(): [WowCharacterRestState, string, number];
  * Gets the cooldown information about a Death Knight's Rune
  * @param runeId A number between 1 and 6 denoting which rune to be queried
  * @see https://wow.gamepedia.com/API_GetRuneCooldown
+ * @tupleReturn
  */
 declare function GetRuneCooldown(runeId: WowCharacterDeathkightRuneType): [number, number, boolean];
 
@@ -117,6 +120,7 @@ declare function GetRuneCooldown(runeId: WowCharacterDeathkightRuneType): [numbe
  * @param titleId Title ID to return the name of
  * @since 2.0.1
  * @see https://wow.gamepedia.com/API_GetTitleName
+ * @tupleReturn
  */
 declare function GetTitleName(titleId: number): [string, boolean];
 

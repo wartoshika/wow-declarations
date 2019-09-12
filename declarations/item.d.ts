@@ -77,6 +77,7 @@ declare function GetContainerItemLink(bagId: WOW_CONTAINER_ID, slotIndex: number
  * - **baseLevel**: base item level
  * @since 7.1.0
  * @see https://wow.gamepedia.com/API_GetDetailedItemLevelInfo
+ * @tupleReturn
  */
 declare function GetDetailedItemLevelInfo(itemIdentifier: string | number | WowItemLink): [number, boolean, number];
 
@@ -88,6 +89,7 @@ declare function GetDetailedItemLevelInfo(itemIdentifier: string | number | WowI
  * - **duration**: The number of seconds the cooldown will last, or zero if no cooldown
  * - **enable**: 1 if the item is ready or on cooldown, 0 if the item is used, but the cooldown didn't start yet (e.g. potion in combat)
  * @see https://wow.gamepedia.com/API_GetItemCooldown
+ * @tupleReturn
  */
 declare function GetItemCooldown(itemId: number): [number, number, WowFlag];
 
@@ -139,6 +141,7 @@ declare function GetItemIcon(itemId: number): WowTexturePath;
  * - **itemSetId**: unknown
  * - **isCraftingReagent**: unknown
  * @see https://wow.gamepedia.com/API_GetItemInfo
+ * @tupleReturn
  */
 declare function GetItemInfo(itemIdentifier: string | number | WowItemLink): [string, WowItemLink, ITEM_QUALITY, number, number, string, string, number, WOW_INVENTORY_SLOT_ID, WowTexturePath, number, number, number, BIND_TYPE, number, number, boolean];
 
@@ -156,6 +159,7 @@ declare function GetItemInfo(itemIdentifier: string | number | WowItemLink): [st
  * @description Though it is not documented, this function apparently returns info available directly in client files. Because of that it returns less data, but have several advantages over GetItemInfo: it always return data, when GetItemInfo can return nil for valid, but not loaded items and it never initiates requests to server, that could be subject to throttling or forced disconnection.
  * @see https://wow.gamepedia.com/API_GetItemInfoInstant
  * @since 7.0.3
+ * @tupleReturn
  */
 declare function GetItemInfoInstant(itemIdentifier: string | number | WowItemLink): [number, string, string, WOW_INVENTORY_SLOT_ID, WowTexturePath, number, number];
 
@@ -168,6 +172,7 @@ declare function GetItemInfoInstant(itemIdentifier: string | number | WowItemLin
  *  - **blue**: The Blue component of the color (0 to 1, inclusive)
  *  - **hex**: The UI escape sequence for this color, without the leading "|c".
  * @see https://wow.gamepedia.com/API_GetItemQualityColor
+ * @tupleReturn
  */
 declare function GetItemQualityColor(quality: ITEM_QUALITY): [number, number, number, string];
 

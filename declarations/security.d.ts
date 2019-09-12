@@ -25,6 +25,7 @@ declare function forceinsecure(): void;
  * @param variableName string key to check the taint of. Numbers will be converted to a string; other types will throw an error
  * @returns isSecure, taint
  * @see https://wow.gamepedia.com/API_issecurevariable
+ * @tupleReturn
  */
 declare function issecurevariable(table?: Object, variableName?: string): [boolean, string];
 

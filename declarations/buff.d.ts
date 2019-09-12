@@ -44,6 +44,7 @@ declare function CancelItemTempEnchantment(weaponHand: WowBuffWeaponHandType): v
 /**
  * Returns information about the player's current temporary enchants, such as fishing lures or sharpening stones and weightstones produced by blacksmiths
  * @see https://wow.gamepedia.com/API_GetWeaponEnchantInfo
+ * @tupleReturn
  */
 declare function GetWeaponEnchantInfo(): [boolean, number, number, number, boolean, number, number, number];
 
@@ -53,6 +54,7 @@ declare function GetWeaponEnchantInfo(): [boolean, number, number, number, boole
  * @param index index (from 1 to 40)
  * @param filter list of filters, separated by spaces or pipes. "HELPFUL" by default
  * @see https://wow.gamepedia.com/API_UnitAura
+ * @tupleReturn
  */
 declare function UnitAura(unitId: WowUnitId, index: number, filter?: WowBuffFilterType & string): [string, WowTexturePath, number, WowDebuffType, number, number, WowUnitId, boolean, boolean, number, boolean, boolean, boolean, boolean, number];
 
@@ -62,6 +64,7 @@ declare function UnitAura(unitId: WowUnitId, index: number, filter?: WowBuffFilt
  * @param index index (from 1 to 40)
  * @param filter list of filters, separated by spaces or pipes ("|"). "HELPFUL" by default
  * @see https://wow.gamepedia.com/API_UnitBuff
+ * @tupleReturn
  */
 declare function UnitBuff(unitId: WowUnitId, index: number, filter?: WowBuffFilterType & string): [string, WowTexturePath, number, WowDebuffType, number, number, WowUnitId, boolean, boolean, number, boolean, boolean, boolean, number, number, number, number];
 
@@ -71,5 +74,6 @@ declare function UnitBuff(unitId: WowUnitId, index: number, filter?: WowBuffFilt
  * @param index index (from 1 to 40)
  * @param filter list of filters, separated by spaces or pipes ("|"). "HELPFUL" by default
  * @see https://wow.gamepedia.com/API_UnitBuff
+ * @tupleReturn
  */
 declare function UnitDebuff(unitId: WowUnitId, index: number, filter?: WowBuffFilterType & string): [string, WowTexturePath, number, WowDebuffType, number, number, WowUnitId, boolean, boolean, number, boolean, boolean, boolean, number, number, number, number];

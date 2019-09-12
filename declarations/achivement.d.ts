@@ -44,6 +44,7 @@ declare function GetAchievementCategory(achivementId: number): number;
  * 
  * @param achivementId ID of the achievement to retrieve information for
  * @see https://wow.gamepedia.com/API_GetAchievementComparisonInfo
+ * @tupleReturn
  */
 declare function GetAchievementComparisonInfo(achivementId: number): [boolean, number, number, number];
 
@@ -53,6 +54,7 @@ declare function GetAchievementComparisonInfo(achivementId: number): [boolean, n
  * @param achivementId Achievement ID the queried criteria belongs to
  * @param criteriaIndex Index of the criteria to query, ascending from 1 up to GetAchievementNumCriteria(achievementID).
  * @see https://wow.gamepedia.com/API_GetAchievementCriteriaInfo
+ * @tupleReturn
  */
 declare function GetAchievementCriteriaInfo(achivementId: number, criteriaIndex: number): [string, number, boolean, number, number, string, number, number, string, number, boolean];
 
@@ -71,6 +73,7 @@ declare function GetAchievementCriteriaInfoByID(achivementId: number, criteriaId
  * @param achivementId ID of the achievement to retrieve information for
  * @param index An offset into the achievement category, between 1 and GetCategoryNumAchievements(categoryID)
  * @see https://wow.gamepedia.com/API_GetAchievementInfo
+ * @tupleReturn
  */
 declare function GetAchievementInfo(achivementId: number, index: number): [number, string, number, boolean, number, number, number, string, number, number, string, boolean, boolean, string];
 declare function GetAchievementInfo(categoryId: number, index: number): [number, string, number, boolean, number, number, number, string, number, number, string, boolean, boolean, string];
@@ -96,6 +99,7 @@ declare function GetAchievementNumCriteria(achivementId: number): number;
  * 
  * @param categoryId The ID of the category to get the info for.
  * @see https://wow.gamepedia.com/API_GetCategoryInfo
+ * @tupleReturn
  */
 declare function GetCategoryInfo(categoryId: number): [string, number, number];
 
@@ -113,6 +117,7 @@ declare function GetCategoryList(): number[];
  * @param categoryId Achievement category ID, as returned by GetCategoryList.
  * @param includeAll If true-equivalent, include all achievements, otherwise, only includes those currently visible
  * @see https://wow.gamepedia.com/API_GetCategoryNumAchievements
+ * @tupleReturn
  */
 declare function GetCategoryNumAchievements(categoryId: number, includeAll?: boolean): [number, number, number];
 
@@ -156,6 +161,7 @@ declare function GetNumComparisonCompletedAchievements(achivementId: number): [n
  * Return the total number of Achievements, and number completed
  * 
  * @see https://wow.gamepedia.com/API_GetNumCompletedAchievements
+ * @tupleReturn
  */
 declare function GetNumCompletedAchievements(): [number, number];
 
@@ -208,6 +214,7 @@ declare function GetTotalAchievementPoints(): number;
  * @returns achievementId(s) of achievements you are currently tracking
  * @see https://wow.gamepedia.com/API_GetTrackedAchievements
  * @since 3.0.2
+ * @tupleReturn
  */
 declare function GetTrackedAchievements(): [number, number, number, number, number, number, number, number, number, number];
 
