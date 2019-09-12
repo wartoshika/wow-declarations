@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
 /// <reference path="global.d.ts" />
-/// <reference path="ui.d.ts" />
+/// <reference path="ui/ui.d.ts" />
 
 /**
  * Presses the specified FrameXML action button

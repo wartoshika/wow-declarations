@@ -1,3 +1,6 @@
+/// <reference path="ui.d.ts" />
+/// <reference path="../auction.d.ts" />
+
 declare interface GameTooltip {
 
     /**
@@ -268,7 +271,7 @@ declare interface GameTooltip {
      * @description This will set the owner for tooltip:IsOwned(frame). For instance, first call GameTooltip:SetOwner(UIParent). Then GameTooltip:IsOwned(UIParent) will return 1.
      * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetOwner
      */
-    SetOwner(owner: WowUiObject, anchor: WowAnchorPoint, offsetX?: number, offsetY?: number): void;
+    SetOwner(owner: WowUiObject, anchor: WowPoint, offsetX?: number, offsetY?: number): void;
 
     /**
      * Sets the amount of padding on the righthand side of the GameTooltip
