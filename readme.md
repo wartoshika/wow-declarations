@@ -1,5 +1,7 @@
 [![npm version](https://badge.fury.io/js/%40wartoshika%2Fwow-declarations.svg)](https://badge.fury.io/js/%40wartoshika%2Fwow-declarations)
 
+[![Build Status](https://travis-ci.org/wartoshika/wow-declarations.svg?branch=master)](https://travis-ci.org/wartoshika/wow-declarations)
+
 # Typescript declarations for the current live World of Warcraft LUA API
 
 **Supported transpilers for LUA targets**:
