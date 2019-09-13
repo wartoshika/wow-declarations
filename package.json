@@ -15,8 +15,13 @@
   "name": "@wartoshika/wow-declarations",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postversion": "git push github --follow-tags"
+    "postversion": "git push github --follow-tags",
+    "lint": "tslint -c tslint.json declarations/**/*.d.ts"
   },
   "types": "declarations/index.d.ts",
-  "version": "0.0.9"
+  "version": "0.0.9",
+  "devDependencies": {
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  }
 }
