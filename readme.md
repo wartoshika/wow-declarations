@@ -1,16 +1,19 @@
+[![npm version](https://badge.fury.io/js/%40wartoshika%2Fwow-declarations.svg)](https://badge.fury.io/js/%40wartoshika%2Fwow-declarations)
+
 # Typescript declarations for the current live World of Warcraft LUA API
 
-This repository has been created to use it with [qhun-transpiler](https://github.com/wartoshika/qhun-transpiler) to transpile Typescript into LUA. The declaration files should be added to your `tsconfig.json` type root section.
+**Supported transpilers for LUA targets**:
+- qhun-transpiler ([GitHub-Page](https://github.com/wartoshika/qhun-transpiler))
+- TypescriptToLua ([GitHub-Page](https://github.com/TypeScriptToLua/TypeScriptToLua)) - *Thanks to tstirrat*
 
-```json
+## Setup
+
+Please add the wow-declarations path to your `tsconfig.json` compiler options like below:
+
+```js
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "removeComments": false,
-        "preserveConstEnums": true,
-        "target": "esnext",
-        "moduleResolution": "node",
+        // ...
         "typeRoots": [
             "./node_modules/@types",
             "./node_modules/@wartoshika/wow-declarations"
@@ -18,3 +21,7 @@ This repository has been created to use it with [qhun-transpiler](https://github
     }
 }
 ```
+
+## Contribution
+
+If you want to contribute, please provide a pull request and ensure that you linted your changes with `npm run lint` or try to autofix the errors with `npm run lint:fix`. I appreciate your help!

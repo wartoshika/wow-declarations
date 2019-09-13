@@ -1,0 +1,18 @@
+language: node_js
+sudo: false
+
+os:
+  - linux
+
+node_js:
+- node
+
+install:
+  - npm install
+
+script:
+  - npm run lint
+
+cache:
+  directories:
+  - node_modules
