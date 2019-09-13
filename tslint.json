@@ -15,6 +15,9 @@
         "no-empty-interface": false,
         "arrow-parens": false,
         "interface-over-type-literal": false,
-        "no-reference": false
+        // This is a declaration only repository, references are ok!
+        "no-reference": false,
+        // blizzard named their object like C_BlackMarket. In order to support that, class-name must be false
+        "class-name":false
     }
 }

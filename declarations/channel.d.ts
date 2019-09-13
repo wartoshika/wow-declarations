@@ -6,7 +6,8 @@ declare type WowChannelLanguageId = 1 | 2 | 3 | 6 | 7 | 8 | 10 | 13 | 14 | 33 | 
 /**
  * Makes messages from a specified chat channel output in a specific chat frame
  * - A single channel may be configured to display in multiple chat windows/frames
- * - Chat output architecture has changed since release; calling this function alone is no longer sufficient to add a channel to a particular frame in the default UI. Use ChatFrame_AddChannel(chatFrame, "channelName") instead, like so
+ * - Chat output architecture has changed since release; calling this function alone is no longer sufficient to add a channel
+ * to a particular frame in the default UI. Use ChatFrame_AddChannel(chatFrame, "channelName") instead, like so
  * @param windowId index of the chat window/frame (ascending from 1) to add the channel to
  * @param channelName name of the chat channel to add to the frame
  * @see https://wow.gamepedia.com/API_AddChatWindowChannel
@@ -106,6 +107,7 @@ declare function EnumerateServerChannels(): [...string[]];
  * @see https://wow.gamepedia.com/API_GetChannelList
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetChannelList(): [number, string, boolean, number, string, boolean, number, string, boolean, number, string, boolean, number, string, boolean, number, string, boolean];
 
 /**
@@ -126,10 +128,12 @@ declare function GetChannelName(channelIdOrName: number | string): [number, stri
  * @see https://wow.gamepedia.com/API_GetChatWindowChannels
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetChatWindowChannels(frameId: number): [string, number, string, number, string, number, string, number, string, number, string, number, string, number];
 
 /**
- * Joins the channel with the specified name. A player can be in a maximum of 10 chat channels. In opposite to API_JoinTemporaryChannel the channel will be re-joined after relogging
+ * Joins the channel with the specified name. A player can be in a maximum of 10 chat channels. In opposite to API_JoinTemporaryChannel
+ * the channel will be re-joined after relogging
  * @param channelName The name of the channel to join
  * @param password The channel password, nil if none
  * @param frameId The chat frame ID number to add the channel to. Use Frame:GetID() to retrieve it for chat frame objects
@@ -142,7 +146,8 @@ declare function GetChatWindowChannels(frameId: number): [string, number, string
 declare function JoinChannelByName(channelName: string, password?: string, frameId?: number, hasVoice?: boolean): [number, string];
 
 /**
- * Joins the channel with the specified name. A player can be in a maximum of 10 chat channels. In opposite to API_JoinTemporaryChannel the channel will be re-joined after relogging
+ * Joins the channel with the specified name. A player can be in a maximum of 10 chat channels. In opposite to API_JoinTemporaryChannel
+ * the channel will be re-joined after relogging
  * @param channelName The name of the channel to join
  * @param password The channel password, nil if none
  * @param frameId The chat frame ID number to add the channel to. Use Frame:GetID() to retrieve it for chat frame objects
@@ -156,7 +161,8 @@ declare function JoinChannelByName(channelName: string, password?: string, frame
 declare function JoinPermanentChannel(channelName: string, password?: string, frameId?: number, hasVoice?: boolean): [number, string];
 
 /**
- * Joins the channel with the specified name. A player can be in a maximum of 10 chat channels. In opposite to API_JoinPermanentChannel the channel will be left at logout
+ * Joins the channel with the specified name. A player can be in a maximum of 10 chat channels. In opposite to API_JoinPermanentChannel
+ * the channel will be left at logout
  * @param channelName The name of the channel to join
  * @param password The channel password, nil if none
  * @param frameId The chat frame ID number to add the channel to. Use Frame:GetID() to retrieve it for chat frame objects
@@ -178,7 +184,8 @@ declare function LeaveChannelByName(channelName: string): void;
 
 /**
  * Lists members in the given channel to the chat window
- * @param channelName Case-insensitive channel name or channel number from which to list the members, e.g. "trade - city". If no argument is given, list all of the numbered channels you are a member of
+ * @param channelName Case-insensitive channel name or channel number from which to list the members, e.g. "trade - city". If no argument
+ * is given, list all of the numbered channels you are a member of
  * @see https://wow.gamepedia.com/API_ListChannelByName
  */
 declare function ListChannelByName(channelName?: string | number): WowUnknown;
@@ -193,17 +200,22 @@ declare function ListChannels(): void;
  * Blocks further messages from a specified chat channel from appearing in a specific chat frame
  * @param windowId index of the chat window/frame (ascending from 1) to remove the channel from
  * @param channelName name of the chat channel to remove from the frame
- * @description Chat output architecture has changed since release; calling this function alone is no longer sufficient to block a channel from a particular frame in the default UI. Use ChatFrame_RemoveChannel(chatFrame, "channelName") instead
+ * @description Chat output architecture has changed since release; calling this function alone is no longer sufficient to block a channel
+ * from a particular frame in the default UI. Use ChatFrame_RemoveChannel(chatFrame, "channelName") instead
  * @see https://wow.gamepedia.com/API_RemoveChatWindowChannel
  */
 declare function RemoveChatWindowChannel(windowId: number, channelName: string): void;
 
 /**
  * Sends a chat message
- * @param message The message to be sent, maximum length of 255 characters. (Not all characters in this string are allowed: See list of valid chat message characters)
+ * @param message The message to be sent, maximum length of 255 characters. (Not all characters in this string are allowed: See list of valid
+ * chat message characters)
  * @param chatType The type of chat message to be sent, "SAY", "PARTY", etc. See the list of chatTypeIds. If chatType is nil or omitted then "SAY" will be used
- * @param languageId The languageID used to translate the message. If languageID is nil or omitted the default language will be used: Orcish for the Horde, and Common for the Alliance, as returned by GetDefaultLanguage("player").
- * @param channelOrName The channel or player receiving the message for "CHANNEL"/"WHISPER" communication. If sending to a channel you must use the number (eg. "1"); obtain it using GetChannelName("channelName"). This field is required for the "CHANNEL"/"WHISPER" chat types and ignored for any other chat type
+ * @param languageId The languageID used to translate the message. If languageID is nil or omitted the default language will be used:
+ * Orcish for the Horde, and Common for the Alliance, as returned by GetDefaultLanguage("player").
+ * @param channelOrName The channel or player receiving the message for "CHANNEL"/"WHISPER" communication. If sending to a channel you must
+ * use the number (eg. "1"); obtain it using GetChannelName("channelName"). This field is required for the "CHANNEL"/"WHISPER" chat types and
+ * ignored for any other chat type
  * @see https://wow.gamepedia.com/API_SendChatMessage
  */
 declare function SendChatMessage(message: string, chatType?: WowChannelChatType, languageId?: WowChannelLanguageId, channelOrName?: string): void;

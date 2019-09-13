@@ -13,7 +13,8 @@ declare function AcceptResurrect(): void;
 
 /**
  * Accept the durability loss / resurrection sickness when being resurrected by the spirit healer
- * @description Name is misleading: you no longer lose XP when you use the spirit healer. You're really accepting 25% durability penalty and (if over level 10) resurrection sickness
+ * @description Name is misleading: you no longer lose XP when you use the spirit healer. You're really accepting 25% durability penalty
+ * and (if over level 10) resurrection sickness
  * @see https://wow.gamepedia.com/API_AcceptXPLoss
  */
 declare function AcceptXPLoss(): void;
@@ -45,7 +46,8 @@ declare function GetBindLocation(): string;
  * Retrieves the number of combo points gained by a player
  * @param unitId Either "player" or "vehicle".
  * @param target Normally "target", but can be any valid UnitId
- * @deprecated Combo Points for rogues are now shared across all targets and they are no longer lost when switching targets. GetComboPoints will return 0 if target is friendly or not found. Use UnitPower(unitId, 4) to get combo points without an enemy targeted
+ * @deprecated Combo Points for rogues are now shared across all targets and they are no longer lost when switching targets. GetComboPoints
+ * will return 0 if target is friendly or not found. Use UnitPower(unitId, 4) to get combo points without an enemy targeted
  * @see https://wow.gamepedia.com/API_GetComboPoints
  */
 declare function GetComboPoints(unitId: WowUnitId, target: WowUnitId): number;
@@ -58,7 +60,8 @@ declare function GetCurrentTitle(): number;
 
 /**
  * Gives information about the mirror bar. (Spirit release, exhaustion/fatigue, etc)
- * @param timerIndex timer index, from 1 to MIRRORTIMER_NUMTIMERS (3 as of 3.2). In general, the following correspondence holds: 1 = Fatigue, 2 = Breath, 3 = Feign Death
+ * @param timerIndex timer index, from 1 to MIRRORTIMER_NUMTIMERS (3 as of 3.2). In general, the following correspondence holds:
+ * 1 = Fatigue, 2 = Breath, 3 = Feign Death
  * @see https://wow.gamepedia.com/API_GetMirrorTimerInfo
  * @tupleReturn
  */
@@ -66,7 +69,8 @@ declare function GetMirrorTimerInfo(timerIndex: number): [string, number, number
 
 /**
  * Returns the current value of a mirror timer (fatigue, breath, feign death etc).
- * @param timerIndex the first return value from GetMirrorTimerInfo, identifying the timer queried. Valid values include "EXHAUSTION", "BREATH" and "FEIGNDEATH".
+ * @param timerIndex the first return value from GetMirrorTimerInfo, identifying the timer queried. Valid values include "EXHAUSTION", "BREATH"
+ * and "FEIGNDEATH".
  * @returns current value of the timer. If the timer is not active, 0 is returned
  * @see https://wow.gamepedia.com/API_GetMirrorTimerProgress
  */
@@ -139,7 +143,8 @@ declare function HasFullControl(): boolean;
 
 /**
  * Returns whether or not, and how, your character can self-resurrect
- * @returns the type of self-resurrect available to your character (known values are "Use Soulstone", "Reincarnate", and "Twisting Nether") or nil if none are available
+ * @returns the type of self-resurrect available to your character (known values are "Use Soulstone", "Reincarnate", and "Twisting Nether")
+ * or nil if none are available
  * @see https://wow.gamepedia.com/API_HasSoulstone
  */
 declare function HasSoulstone(): string | null;
@@ -190,7 +195,8 @@ declare function IsOutdoors(): boolean;
 /**
  * Returns whether the player's character is currently outside of the map
  * @returns 1 if the player's character is currently outside of the map, nil otherwise
- * @description Players may end up outside of a map's bounds (and therefore dead) both as a consequence of geometry errors and normal world design: for instance, falling off the Eye of the Storm, or being dropped off the top of Icecrown Citadel by the Lich King's val'kyrs
+ * @description Players may end up outside of a map's bounds (and therefore dead) both as a consequence of geometry errors and normal world
+ * design: for instance, falling off the Eye of the Storm, or being dropped off the top of Icecrown Citadel by the Lich King's val'kyrs
  * @see https://wow.gamepedia.com/API_IsOutOfBounds
  */
 declare function IsOutOfBounds(): boolean;
@@ -231,7 +237,8 @@ declare function RetrieveCorpse(): void;
 
 /**
  * Changes your character's displayed title
- * @param titleId ID of the title you want to set. The identifiers are global and therefore do not depend on which titles you have learned. Invalid or unlearned values clear your title. See TitleId for a list
+ * @param titleId ID of the title you want to set. The identifiers are global and therefore do not depend on which titles you have learned.
+ * Invalid or unlearned values clear your title. See TitleId for a list
  * @requires HARDWARE_EVENT
  * @see https://wow.gamepedia.com/API_SetCurrentTitle
  */

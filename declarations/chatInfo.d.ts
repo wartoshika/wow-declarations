@@ -30,7 +30,8 @@ interface C_ChatInfo {
      * @param prefix Message prefix, can be used as your addon identifier; at most 15 characters
      * @param text Text to send, at most 250 characters
      * @param type AddOn channel to send to. Valid types are "PARTY", "RAID", "GUILD", "BATTLEGROUND", "WHISPER", and "CHANNEL".
-     * @param target sed only for "WHISPER" and "CHANNEL" communications - the player to whisper to for "WHISPER" or the channel name to broadcast to for "CHANNEL"
+     * @param target sed only for "WHISPER" and "CHANNEL" communications - the player to whisper to for "WHISPER" or the channel name to
+     * broadcast to for "CHANNEL"
      * @since 2.1.0
      */
     SendAddonMessage(this: C_ChatInfo, prefix: string, text: string, type: "WHISPER" | "CHANNEL", target: string): void;

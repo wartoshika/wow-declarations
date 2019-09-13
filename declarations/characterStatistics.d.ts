@@ -76,7 +76,9 @@ declare function GetDodgeChance(): number;
  * - **arg1**: Expertise percentage for swings with your main hand weapon
  * - **arg2**: Expertise percentage for swings with your offhand weapon
  * - **arg3**: Expertise percentage for your ranged weapon
- * @description Expertise reduces the chance that the player's attacks are dodged or parried by an enemy. This function returns the amount of percentage points Experise reduces the dodge/parry chance by (e.g. a return value of 3.5 means a 3.5% reduction to both dodge and parry probabilities).
+ * @description Expertise reduces the chance that the player's attacks are dodged or parried by an enemy.
+ * This function returns the amount of percentage points Experise reduces the dodge/parry chance by (e.g. a return value of 3.5 means a
+ * 3.5% reduction to both dodge and parry probabilities).
  * @see https://wow.gamepedia.com/API_GetExpertise
  * @tupleReturn
  */
@@ -106,15 +108,19 @@ declare function GetManaRegen(): [number, number];
 /**
  * Returns the (raw) mastery of the player
  * @returns sum of player's base and rating bonus mastery
- * @description Mastery does not suffer diminishing returns, but the value returns by GetMastery is not, necessarily, your final Mastery value. Different classes, in different forms, can have a multiplier performed against the value returned by GetMastery. To find your true Mastery, and the multiplier factor used to calculate it, see GetMasteryEffect
+ * @description Mastery does not suffer diminishing returns, but the value returns by GetMastery is not, necessarily, your final Mastery value.
+ * Different classes, in different forms, can have a multiplier performed against the value returned by GetMastery. To find your true Mastery,
+ * and the multiplier factor used to calculate it, see GetMasteryEffect
  * @see https://wow.gamepedia.com/API_GetMastery
  */
 declare function GetMastery(): number;
 
 /**
  * Returns the effect of player's current Mastery
- * - **arg1**: Current effect of the player's mastery, typically a damage increase percentage, or a percentage chance to trigger some specialization-specific effect
- * - **arg2**: A spec-dependent coefficient multiplied onto the player's raw mastery effect (as returned by GetMastery) to yield the actual effect of the mastery
+ * - **arg1**: Current effect of the player's mastery, typically a damage increase percentage, or a percentage chance to trigger some
+ * specialization-specific effect
+ * - **arg2**: A spec-dependent coefficient multiplied onto the player's raw mastery effect (as returned by GetMastery) to yield the actual
+ * effect of the mastery
  * @see https://wow.gamepedia.com/API_GetMasteryEffect
  * @since 5.0.4
  * @tupleReturn
@@ -170,7 +176,8 @@ declare function GetPowerRegenForPowerType(powerType: WowUnitPowerType): WowUnkn
 
 /**
  * The players critical strike chance with the currently equipped range weapon as a floating point figure
- * @description If you are displaying this figure in a UI element and want it to update, hook to the UNIT_INVENTORY_CHANGED and SPELLS_CHANGED events as well as any other that effect equipment and buffs
+ * @description If you are displaying this figure in a UI element and want it to update, hook to the UNIT_INVENTORY_CHANGED and
+ * SPELLS_CHANGED events as well as any other that effect equipment and buffs
  * @see https://wow.gamepedia.com/API_GetRangedCritChance
  */
 declare function GetRangedCritChance(): number;

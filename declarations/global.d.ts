@@ -47,11 +47,6 @@ declare type ActionBarSlotId = SlotActionBarPage1 | SlotActionBarPage2 | SlotAct
  */
 declare type WowHyperlink = string;
 
-
-
-
-
-
 /**
  * TYPES THAT SHOULD BE STORED SEPERATLY!!!!
  */

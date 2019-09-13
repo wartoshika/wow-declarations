@@ -56,7 +56,7 @@ declare const WORLD_QUEST_ICONS_BY_PROFESSION: {
     185: "worldquest-icon-cooking",
     197: "worldquest-icon-tailoring",
     393: "worldquest-icon-skinning"
-}
+};
 
 declare const CHAT_FONT_HEIGHTS: {
     1: 12,
@@ -73,7 +73,7 @@ declare const MATERIAL_TEXT_COLOR_TABLE: {
     "Silver": [.12, .12, .12],
     "Bronze": [.18, .12, .06],
     "ParchmentLarge": [.141, 0, 0]
-}
+};
 
 declare const MATERIAL_TITLETEXT_COLOR_TABLE: {
     "Default": [0, 0, 0],
@@ -83,7 +83,7 @@ declare const MATERIAL_TITLETEXT_COLOR_TABLE: {
     "Silver": [.93, .82, 0],
     "Bronze": [.93, .82, 0],
     "ParchmentLarge": [.208, 0, 0]
-}
+};
 
 declare const CLASS_SORT_ORDER: [
     "WARRIOR", "DEATHKNIGHT", "PALADIN", "MONK", "PRIEST", "SHAMAN", "DRUID",
@@ -104,46 +104,46 @@ declare const LOOT_ROLL_TYPE_NEED = 1;
 declare const LOOT_ROLL_TYPE_GREED = 2;
 declare const LOOT_ROLL_TYPE_DISENCHANT = 3;
 
-declare const INVSLOT_AMMO = 0
-declare type INVSLOT_AMMO = 0
-declare const INVSLOT_HEAD = 1
-declare type INVSLOT_HEAD = 1
-declare const INVSLOT_NECK = 2
-declare type INVSLOT_NECK = 2
-declare const INVSLOT_SHOULDER = 3
-declare type INVSLOT_SHOULDER = 3
-declare const INVSLOT_BODY = 4
-declare type INVSLOT_BODY = 4
-declare const INVSLOT_CHEST = 5
-declare type INVSLOT_CHEST = 5
-declare const INVSLOT_WAIST = 6
-declare type INVSLOT_WAIST = 6
-declare const INVSLOT_LEGS = 7
-declare type INVSLOT_LEGS = 7
-declare const INVSLOT_FEET = 8
-declare type INVSLOT_FEET = 8
-declare const INVSLOT_WRIST = 9
-declare type INVSLOT_WRIST = 9
-declare const INVSLOT_HAND = 10
-declare type INVSLOT_HAND = 10
-declare const INVSLOT_FINGER1 = 11
-declare type INVSLOT_FINGER1 = 11
-declare const INVSLOT_FINGER2 = 12
-declare type INVSLOT_FINGER2 = 12
-declare const INVSLOT_TRINKET1 = 13
-declare type INVSLOT_TRINKET1 = 13
-declare const INVSLOT_TRINKET2 = 14
-declare type INVSLOT_TRINKET2 = 14
-declare const INVSLOT_BACK = 15
-declare type INVSLOT_BACK = 15
-declare const INVSLOT_MAINHAND = 16
-declare type INVSLOT_MAINHAND = 16
-declare const INVSLOT_OFFHAND = 17
-declare type INVSLOT_OFFHAND = 17
-declare const INVSLOT_RANGED = 18
-declare type INVSLOT_RANGED = 18
-declare const INVSLOT_TABARD = 19
-declare type INVSLOT_TABARD = 19
+declare const INVSLOT_AMMO = 0;
+declare type INVSLOT_AMMO = 0;
+declare const INVSLOT_HEAD = 1;
+declare type INVSLOT_HEAD = 1;
+declare const INVSLOT_NECK = 2;
+declare type INVSLOT_NECK = 2;
+declare const INVSLOT_SHOULDER = 3;
+declare type INVSLOT_SHOULDER = 3;
+declare const INVSLOT_BODY = 4;
+declare type INVSLOT_BODY = 4;
+declare const INVSLOT_CHEST = 5;
+declare type INVSLOT_CHEST = 5;
+declare const INVSLOT_WAIST = 6;
+declare type INVSLOT_WAIST = 6;
+declare const INVSLOT_LEGS = 7;
+declare type INVSLOT_LEGS = 7;
+declare const INVSLOT_FEET = 8;
+declare type INVSLOT_FEET = 8;
+declare const INVSLOT_WRIST = 9;
+declare type INVSLOT_WRIST = 9;
+declare const INVSLOT_HAND = 10;
+declare type INVSLOT_HAND = 10;
+declare const INVSLOT_FINGER1 = 11;
+declare type INVSLOT_FINGER1 = 11;
+declare const INVSLOT_FINGER2 = 12;
+declare type INVSLOT_FINGER2 = 12;
+declare const INVSLOT_TRINKET1 = 13;
+declare type INVSLOT_TRINKET1 = 13;
+declare const INVSLOT_TRINKET2 = 14;
+declare type INVSLOT_TRINKET2 = 14;
+declare const INVSLOT_BACK = 15;
+declare type INVSLOT_BACK = 15;
+declare const INVSLOT_MAINHAND = 16;
+declare type INVSLOT_MAINHAND = 16;
+declare const INVSLOT_OFFHAND = 17;
+declare type INVSLOT_OFFHAND = 17;
+declare const INVSLOT_RANGED = 18;
+declare type INVSLOT_RANGED = 18;
+declare const INVSLOT_TABARD = 19;
+declare type INVSLOT_TABARD = 19;
 
 declare type WowInventoryId = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST |
     INVSLOT_WAIST | INVSLOT_LEGS | INVSLOT_FEET | INVSLOT_WRIST | INVSLOT_HAND | INVSLOT_FINGER1 | INVSLOT_FINGER2 | INVSLOT_TRINKET1 |

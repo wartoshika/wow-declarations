@@ -75,8 +75,10 @@ declare function CollapseQuestHeader(questId: number): void;
 
 /**
  * Advances the quest completion dialog to the reward selection step
- * - Unlike the name would suggest, this does not finalize the completion of a quest. Instead it is called when you press the continue button, and is used to continue from the progress dialog to the completion dialog
- * - If you're interested in hooking the function called when completing a quest, check out QuestRewardCompleteButton_OnClick (in FrameXML\QuestFrame.lua) instead
+ * - Unlike the name would suggest, this does not finalize the completion of a quest. Instead it is called when you press the continue button,
+ * and is used to continue from the progress dialog to the completion dialog
+ * - If you're interested in hooking the function called when completing a quest, check out QuestRewardCompleteButton_OnClick
+ * (in FrameXML\QuestFrame.lua) instead
  * @see https://wow.gamepedia.com/API_CompleteQuest
  */
 declare function CompleteQuest(): void;
@@ -97,7 +99,8 @@ declare function DeclineQuest(): void;
 
 /**
  * Expands the quest header
- * - Expands the first quest header (questID = 1 is always yields a header if you have quests) if it was collapsed; if not, does nothing. Also fires a QUEST_LOG_UPDATE event so be careful when calling this while processing a QUEST_LOG_UPDATE event
+ * - Expands the first quest header (questID = 1 is always yields a header if you have quests) if it was collapsed; if not, does nothing.
+ * Also fires a QUEST_LOG_UPDATE event so be careful when calling this while processing a QUEST_LOG_UPDATE event
  * @param questId The index of the header you wish to expand. - 0 to expand all quest headers
  * @see https://wow.gamepedia.com/API_ExpandQuestHeader
  */
@@ -110,7 +113,8 @@ declare function GetAbandonQuestItems(): WowUnknown;
 
 /**
  * Returns the name of a quest that will be abandoned if AbandonQuest is called
- * - The FrameXML-provided quest log calls SetAbandonQuest whenever a quest entry is selected, so this function will usually return the name of the currently selected quest
+ * - The FrameXML-provided quest log calls SetAbandonQuest whenever a quest entry is selected, so this function will usually return the name of
+ * the currently selected quest
  * @returns Name of the quest that will be abandoned
  * @see https://wow.gamepedia.com/API_GetAbandonQuestName
  */

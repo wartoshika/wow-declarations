@@ -15,6 +15,7 @@ declare interface GameTooltip {
      * @param textRightBlue range 0 to 1 - blue color value for right string
      * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_AddDoubleLine
      */
+    // tslint:disable-next-line max-line-length
     AddDoubleLine(textLeft: string, textRight: string, textLeftRed: number, textLeftGreen: number, textLeftBlue: number, textRightRed: number, textRightGreen: number, textRightBlue: number): void;
 
     /**
@@ -93,14 +94,14 @@ declare interface GameTooltip {
 
     /**
      * Returns owner frame, anchor
-     * 
+     *
      * @tupleReturn
      */
     GetOwner(): [WowUiObject, WowPoint];
 
     /**
      * Returns unit name, unit id
-     * 
+     *
      * @tupleReturn
      */
     GetUnit(): [string, WowUnitId];
@@ -152,7 +153,8 @@ declare interface GameTooltip {
     SetBackpackToken(id: WowUnknown): WowUnknown;
 
     /**
-     * Sets the GameTooltip to contain text information about the specified item, as well as returning whether the item is "cooling down" and the cost to repair the item (which may be 0 (or nil?) if non-applicable).
+     * Sets the GameTooltip to contain text information about the specified item,
+     * as well as returning whether the item is "cooling down" and the cost to repair the item (which may be 0 (or nil?) if non-applicable).
      * @param bag the ID of the bag
      * @param slot the ID of the slot
      * @returns **hasCooldown, repairCost**
@@ -176,7 +178,8 @@ declare interface GameTooltip {
     SetCurrencyToken(tokenId: number): void;
 
     /**
-     * Displays the frame stack of the mouse cursor's current position on the tooltip. This is not intended to be used in typical addons, but is part of the Blizzard_DebugTools "builtin addon" inspired by DevTools
+     * Displays the frame stack of the mouse cursor's current position on the tooltip.
+     * This is not intended to be used in typical addons, but is part of the Blizzard_DebugTools "builtin addon" inspired by DevTools
      * @param showHidden If true, includes in the display those frames which are currently hidden
      * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetFrameStack
      */
@@ -264,11 +267,13 @@ declare interface GameTooltip {
 
     /**
      * Moves the game tooltip to a location based on the "owner" frame
-     * @param owner Owner frame, which defines the element where the tooltip is centered on. A pointer to the frame is required, not the frame name itself (use _G['MyFrame'] to get the pointer from the frame name)
+     * @param owner Owner frame, which defines the element where the tooltip is centered on.
+     * A pointer to the frame is required, not the frame name itself (use _G['MyFrame'] to get the pointer from the frame name)
      * @param anchor a string that describes the anchor point as it would be set via the SetPoint() function
      * @param offsetX offset horizontal
      * @param offsetY offset vertical
-     * @description This will set the owner for tooltip:IsOwned(frame). For instance, first call GameTooltip:SetOwner(UIParent). Then GameTooltip:IsOwned(UIParent) will return 1.
+     * @description This will set the owner for tooltip:IsOwned(frame). For instance, first call GameTooltip:SetOwner(UIParent).
+     * Then GameTooltip:IsOwned(UIParent) will return 1.
      * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetOwner
      */
     SetOwner(owner: WowUiObject, anchor: WowPoint, offsetX?: number, offsetY?: number): void;

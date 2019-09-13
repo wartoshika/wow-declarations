@@ -20,7 +20,9 @@ declare function CameraOrSelectOrMoveStop(stickyFlag?: boolean): void;
 /**
  * Zooms the camera into the viewplane
  * @param increment float increment
- * @description Zooms the camera into the viewplane by increment. The increment must be between 0.0 and 50 with 0.0 indicating no zoom relative to current view and 50 being maximum zoom. From a completely zoomed out position, an increment of 50 will result in a first person camera angle
+ * @description Zooms the camera into the viewplane by increment. The increment must be between 0.0 and 50 with 0.0 indicating no
+ * zoom relative to current view and 50 being maximum zoom. From a completely zoomed out position, an increment of 50 will result in
+ * a first person camera angle
  * @see https://wow.gamepedia.com/API_CameraZoomIn
  */
 declare function CameraZoomIn(increment: number): void;
@@ -28,7 +30,10 @@ declare function CameraZoomIn(increment: number): void;
 /**
  * Zooms the camera out of the viewplane
  * @param increment float increment
- * @description Zooms the camera out of the viewplane by increment. The increment must be between 0.0 and the max camera distance. As of patch 1.9.0 if the 'Interface Options > Advanced Options > Max Camera Distance' setting is set to Low, then the largest value for increment is 15. If this setting is set to High, then the largest value for increment is 30. You can test for the max camera distance by zooming in to first person and counting the number of times you can call this function with increment set to 1.0 and still zoom out
+ * @description Zooms the camera out of the viewplane by increment. The increment must be between 0.0 and the max camera distance.
+ * As of patch 1.9.0 if the 'Interface Options > Advanced Options > Max Camera Distance' setting is set to Low, then the largest
+ * value for increment is 15. If this setting is set to High, then the largest value for increment is 30. You can test for the max camera
+ * distance by zooming in to first person and counting the number of times you can call this function with increment set to 1.0 and still zoom out
  * @see https://wow.gamepedia.com/API_CameraZoomOut
  */
 declare function CameraZoomOut(increment: number): void;
@@ -44,7 +49,8 @@ declare function FlipCameraYaw(angle: number): void;
 /**
  * Gets the current zoom level of the camera
  * @returns float, the currently set zoom level
- * @description Doesn't take camera collisions with the environment into account and will return what the camera would be at. If the camera is in motion, the zoom level that is set that frame is used, not the zoom level that the camera is traveling to.
+ * @description Doesn't take camera collisions with the environment into account and will return what the camera would be at. If the
+ * camera is in motion, the zoom level that is set that frame is used, not the zoom level that the camera is traveling to.
  * @see https://wow.gamepedia.com/API_GetCameraZoom
  */
 declare function GetCameraZoom(): number;
@@ -74,7 +80,8 @@ declare function MouselookStop(): void;
  * - If speed is omitted, it is assumed to be 1.0.
  * - Negative numbers go the opposite way, a speed of 0.0 will stop it.
  * - This is not canceled by moving your character or interacting with the camera
- * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously. If you rotate both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
+ * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied
+ * simultaneously. If you rotate both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
  * @param speed Speed at which to begin rotating
  * @see https://wow.gamepedia.com/API_MoveViewDownStart
  */
@@ -92,7 +99,8 @@ declare function MoveViewDownStop(): void;
  * - If speed is omitted, it is assumed to be 1.0
  * - Negative numbers go the opposite way, a speed of 0.0 will stop it.
  * - This is not canceled by moving your character, but is canceled by using the mousewheel to zoom
- * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously. If you zoom both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
+ * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied
+ * simultaneously. If you zoom both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
  * @param speed Speed at which to begin zooming
  * @see https://wow.gamepedia.com/API_MoveViewInStart
  */
@@ -110,7 +118,8 @@ declare function MoveViewInStop(): void;
  * - If speed is omitted, it is assumed to be 1.0
  * - Negative numbers go the opposite way, a speed of 0.0 will stop it.
  * - This is not canceled by moving your character or interacting with the camera
- * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously. If you zoom both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
+ * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously.
+ * If you zoom both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
  * @param speed Speed at which to begin rotating
  * @see https://wow.gamepedia.com/API_MoveViewLeftStart
  */
@@ -128,7 +137,8 @@ declare function MoveViewLeftStop(): void;
  * - If speed is omitted, it is assumed to be 1.0
  * - Negative numbers go the opposite way, a speed of 0.0 will stop it
  * - This is not canceled by moving your character, but is canceled by using the mousewheel to zoom
- * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously. If you zoom both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
+ * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously.
+ * If you zoom both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
  * @param speed Speed at which to begin zooming
  * @see https://wow.gamepedia.com/API_MoveViewOutStart
  */
@@ -146,7 +156,8 @@ declare function MoveViewOutStop(): void;
  * - If speed is omitted, it is assumed to be 1.0.
  * - Negative numbers go the opposite way, a speed of 0.0 will stop it
  * - This is not canceled by moving your character or interacting with the camera
- * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously. If you rotate both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
+ * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously.
+ * If you rotate both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
  * @param speed Speed at which to begin rotating
  * @see https://wow.gamepedia.com/API_MoveViewRightStart
  */
@@ -164,7 +175,8 @@ declare function MoveViewRightStop(): void;
  * - If speed is omitted, it is assumed to be 1.0
  * - Negative numbers go the opposite way, a speed of 0.0 will stop it
  * - This is not canceled by moving your character or interacting with the camera
- * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously. If you rotate both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
+ * - Applying a negative speed is not the same as using the other function to go the opposite way, both vectors are applied simultaneously.
+ * If you rotate both ways equally, it will appear to stop, but the rotations are still being applied, though canceling each other
  * @param speed Speed at which to begin rotating
  * @see https://wow.gamepedia.com/API_MoveViewUpStart
  */

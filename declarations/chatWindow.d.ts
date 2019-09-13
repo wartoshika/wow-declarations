@@ -167,5 +167,5 @@ declare interface WowChatFrame {
      * add the given message to the frame
      * @param message the message to add
      */
-    AddMessage(message: string): void
+    AddMessage(message: string): void;
 }

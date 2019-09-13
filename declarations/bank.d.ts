@@ -3,7 +3,8 @@
 /**
  * Map a bank item button or bag to an inventory slot button for use in inventory functions
  * @param buttodId bank item/bag ID.
- * @param isBag 1 if buttonID is a bag, nil otherwise. Same result as ContainerIDToInventoryID, except this one only works for bank bags and is more awkward to use
+ * @param isBag 1 if buttonID is a bag, nil otherwise. Same result as ContainerIDToInventoryID, except this one only works for
+ * bank bags and is more awkward to use
  * @see https://wow.gamepedia.com/API_BankButtonIDToInvSlotID
  */
 declare function BankButtonIDToInvSlotID(buttodId: number, isBag: WowFlag): WOW_INVENTORY_SLOT_ID;

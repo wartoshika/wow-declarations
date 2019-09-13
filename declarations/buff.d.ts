@@ -56,6 +56,7 @@ declare function GetWeaponEnchantInfo(): [boolean, number, number, number, boole
  * @see https://wow.gamepedia.com/API_UnitAura
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function UnitAura(unitId: WowUnitId, index: number, filter?: WowBuffFilterType & string): [string, WowTexturePath, number, WowDebuffType, number, number, WowUnitId, boolean, boolean, number, boolean, boolean, boolean, boolean, number];
 
 /**
@@ -66,6 +67,7 @@ declare function UnitAura(unitId: WowUnitId, index: number, filter?: WowBuffFilt
  * @see https://wow.gamepedia.com/API_UnitBuff
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function UnitBuff(unitId: WowUnitId, index: number, filter?: WowBuffFilterType & string): [string, WowTexturePath, number, WowDebuffType, number, number, WowUnitId, boolean, boolean, number, boolean, boolean, boolean, number, number, number, number];
 
 /**
@@ -76,4 +78,5 @@ declare function UnitBuff(unitId: WowUnitId, index: number, filter?: WowBuffFilt
  * @see https://wow.gamepedia.com/API_UnitBuff
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function UnitDebuff(unitId: WowUnitId, index: number, filter?: WowBuffFilterType & string): [string, WowTexturePath, number, WowDebuffType, number, number, WowUnitId, boolean, boolean, number, boolean, boolean, boolean, number, number, number, number];

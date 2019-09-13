@@ -21,14 +21,14 @@ import "./buff";
 import "./calendar";
 import "./camera";
 import "./channel";
-import "./container";
-import "./currency";
 import "./character";
 import "./characterStatistics";
+import "./chatInfo";
+import "./chatWindow";
 import "./communication";
 import "./companion";
-import "./chatWindow";
-import "./chatInfo";
+import "./container";
+import "./currency";
 import "./cursor";
 // D
 import "./debug";
@@ -44,7 +44,7 @@ import "./quest";
 import "./security";
 import "./spell";
 import "./system";
+import "./ui/tooltip";
 // U
 import "./ui/ui";
-import "./ui/tooltip";
 import "./unit";

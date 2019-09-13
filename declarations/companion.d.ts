@@ -64,7 +64,8 @@ declare function PickupCompanion(type: WowCompanionType, companionIndex: number)
 
 /**
  * Summons a random non-combat pet companion
- * @description This function is part of the companions API that was deprecated for battle-pets with the introduction of the Pet Journal. Calling it will result in UI_ERROR_MESSAGE being fired
+ * @description This function is part of the companions API that was deprecated for battle-pets with the introduction of the Pet Journal.
+ * Calling it will result in UI_ERROR_MESSAGE being fired
  * @deprecated Use C_PetJournal.SummonRandomPet instead
  * @since 3.3.3
  * @see https://wow.gamepedia.com/API_SummonRandomCritter

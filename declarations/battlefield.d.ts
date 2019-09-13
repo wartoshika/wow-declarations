@@ -91,7 +91,8 @@ declare function GetBattlefieldScore(playerIndex: number): [string, number, numb
  * Get data from the custom battlefield scoreboard columns
  * @param playerIndex Player you want to grab the data for
  * @param columnIndex Column you want to grab the data from
- * @description Used to retrieve data from battleground specific scoreboard columns like flag captures in Warsong Gulch. If you want to make sure you have the most recent data you will have to call RequestBattlefieldScoreData and then wait for UPDATE_BATTLEFIELD_SCORE
+ * @description Used to retrieve data from battleground specific scoreboard columns like flag captures in Warsong Gulch.
+ * If you want to make sure you have the most recent data you will have to call RequestBattlefieldScoreData and then wait for UPDATE_BATTLEFIELD_SCORE
  * @see https://wow.gamepedia.com/API_GetBattlefieldStatData
  */
 declare function GetBattlefieldStatData(playerIndex: number, columnIndex: number): WowUnknown;
@@ -110,6 +111,7 @@ declare function GetBattlefieldStatInfo(columnIndex: number): [string, string, s
  * @see https://wow.gamepedia.com/API_GetBattlefieldStatus
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetBattlefieldStatus(battlefieldIndex: number): [WowBattlefieldStatusType, string, WowBattlefieldTeamSize, number, WowUnknown, WowBattlefieldType, WowUnknown, WowUnitRoleType];
 
 /**
@@ -121,7 +123,8 @@ declare function GetBattlefieldTimeWaited(battlegroundQueuePosition: number): nu
 
 /**
  * Get the winner of the battlefield
- * @returns Faction/team that has won the battlefield. Results are: nil if nobody has won, 0 for Horde, 1 for Alliance and 255 for a draw in a battleground, 0 for Green Team and 1 for Yellow in an arena
+ * @returns Faction/team that has won the battlefield. Results are: nil if nobody has won, 0 for Horde, 1 for Alliance and 255
+ * for a draw in a battleground, 0 for Green Team and 1 for Yellow in an arena
  * @see https://wow.gamepedia.com/API_GetBattlefieldWinner
  */
 declare function GetBattlefieldWinner(): WowBattlefieldWinType;
@@ -167,6 +170,7 @@ declare function GetNumWorldStateUI(): number;
  * @see https://wow.gamepedia.com/API_GetWorldStateUIInfo
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetWorldStateUIInfo(worldUiStateIndex: number): [number, WowBattlefieldUiStateType, boolean, string, string, string, string, string, string, number, number, number];
 
 /**
@@ -181,7 +185,8 @@ declare function JoinBattlefield(battlefieldIndex: number, asGroup?: boolean, is
 
 /**
  * Leaves the current battlefield
- * @description Leaves the current battlefield the player is inside, pre-2.0.1 this would only leave the battlefield if it had been won or lost this was changed in 2.0.1 to exit you from the battlefield regardless if it was finished or not and will give you deserter.
+ * @description Leaves the current battlefield the player is inside, pre-2.0.1 this would only leave the battlefield if it had been won or
+ * lost this was changed in 2.0.1 to exit you from the battlefield regardless if it was finished or not and will give you deserter.
  * @see https://wow.gamepedia.com/API_LeaveBattlefield
  */
 declare function LeaveBattlefield(): void;
@@ -197,7 +202,8 @@ declare function RequestBattlefieldScoreData(): void;
  * Requests information about the available instances of a particular battleground
  * @param instanceIndex Index of the battleground type to request instance information for; valid indices start from 1 and go up to GetNumBattlegroundTypes().
  * @event PVPQUEUE_ANYWHERE_SHOW
- * @description Calling JoinBattlefield after calling this function, but before PVPQUEUE_ANYWHERE_SHOW, will fail silently; you must wait for the instance list to become available before you can queue for an instance.
+ * @description Calling JoinBattlefield after calling this function, but before PVPQUEUE_ANYWHERE_SHOW, will fail silently; you must wait for
+ * the instance list to become available before you can queue for an instance.
  * @see https://wow.gamepedia.com/API_RequestBattlegroundInstanceInfo
  */
 declare function RequestBattlegroundInstanceInfo(instanceIndex: number): void;

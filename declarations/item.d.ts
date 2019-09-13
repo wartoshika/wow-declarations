@@ -40,10 +40,12 @@ declare type WowItemLink = WowHyperlink;
  * Equips an item, optionally into a specified slot
  * @param itemIdentifier itemId or "itemName" or "itemLink"
  * - **itemId**: The numeric ID of the item. ie. 12345
- * - **itemName**: The name of the item, ie "Worn Dagger". Partial names are valid inputs as well, ie "Worn". If several items with same piece of name exists, the first one found will be equipped
+ * - **itemName**: The name of the item, ie "Worn Dagger". Partial names are valid inputs as well, ie "Worn". If several items with same piece
+ * of name exists, the first one found will be equipped
  * - **itemLink**: The itemLink, when Shift-Clicking items
  * @param slot The inventory slot to put the item in, obtained via GetInventorySlotInfo().
- * @description When in combat this function now "picks up" the item instead of equipping it, similar to PickupInventoryItem. Out of combat, the function behaves as expected. This change was made to address the issue of rogues using "poison swapping" addons to increase their DPS
+ * @description When in combat this function now "picks up" the item instead of equipping it, similar to PickupInventoryItem. Out of combat, the
+ * function behaves as expected. This change was made to address the issue of rogues using "poison swapping" addons to increase their DPS
  * @see https://wow.gamepedia.com/API_EquipItemByName
  */
 declare function EquipItemByName(itemIdentifier: string | number | WowItemLink, slot?: WOW_INVENTORY_SLOT_ID): void;
@@ -128,12 +130,15 @@ declare function GetItemIcon(itemId: number): WowTexturePath;
  * - **itemName**: The localized name of the item
  * - **itemLink**: The localized item link of the item
  * - **itemRarity**: The quality of the item. The value is 0 to 7, which represents Poor to Heirloom. This appears to include gains from upgrades/bonuses
- * - **itemLevel**: The base item level of this item, not including item levels gained from upgrades. Use GetDetailedItemLevelInfo to get the actual current level of the item
+ * - **itemLevel**: The base item level of this item, not including item levels gained from upgrades. Use GetDetailedItemLevelInfo to get the
+ * actual current level of the item
  * - **itemMinLevel**: The minimum level required to use the item, 0 meaning no level requirement
  * - **itemType**: The localized type of the item: Armor, Weapon, Quest, Key, etc
  * - **itemSubType**: The localized sub-type of the item: Enchanting, Cloth, Sword, etc. See itemType
  * - **itemStackCount**: How many of the item per stack: 20 for Runecloth, 1 for weapon, 100 for Alterac Ram Hide, etc
- * - **itemEquipLocation**: The type of inventory equipment location in which the item may be equipped, or "" if it can't be equippable. The string returned is also the name of a global string variable e.g. if "INVTYPE_WEAPONMAINHAND" is returned, _G["INVTYPE_WEAPONMAINHAND"] will be the localized, displayable name of the location
+ * - **itemEquipLocation**: The type of inventory equipment location in which the item may be equipped, or "" if it can't be equippable. The
+ * string returned is also the name of a global string variable e.g. if "INVTYPE_WEAPONMAINHAND" is returned, _G["INVTYPE_WEAPONMAINHAND"] will
+ * be the localized, displayable name of the location
  * - **itemIcon**: The icon texture for the item
  * - **itemSellPrice**: The price, in copper, a vendor is willing to pay for this item, 0 for items that cannot be sold
  * - **itemClassId**: This is the numerical value that determines the string to display for 'itemType'
@@ -145,24 +150,30 @@ declare function GetItemIcon(itemId: number): WowTexturePath;
  * @see https://wow.gamepedia.com/API_GetItemInfo
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetItemInfo(itemIdentifier: string | number | WowItemLink): [string, WowItemLink, ITEM_QUALITY, number, number, string, string, number, WOW_INVENTORY_SLOT_ID, WowTexturePath, number, number, number, BIND_TYPE, number, number, boolean];
 
 /**
  * Returns instantly-available information about a specific item
  * @param itemIdentifier Number/String/String - Numeric ID of the item, name of the item, or itemLink of the item to query
- * @returns 
+ * @returns
  * - **itemId**: ID of the item
  * - **itemType**: The localized type of the item: Armor, Weapon, Quest, Key, etc
  * - **itemSubType**: The localized sub-type of the item: Enchanting, Cloth, Sword, etc. See itemType
- * - **itemEquipLocation**: The type of inventory equipment location in which the item may be equipped, or "" if it can't be equippable. The string returned is also the name of a global string variable e.g. if "INVTYPE_WEAPONMAINHAND" is returned, _G["INVTYPE_WEAPONMAINHAND"] will be the localized, displayable name of the location
+ * - **itemEquipLocation**: The type of inventory equipment location in which the item may be equipped, or "" if it can't be equippable. The
+ * string returned is also the name of a global string variable e.g. if "INVTYPE_WEAPONMAINHAND" is returned, _G["INVTYPE_WEAPONMAINHAND"] will be
+ * the localized, displayable name of the location
  * - **itemIcon**: The icon texture for the item
  * - **itemClassId**: This is the numerical value that determines the string to display for 'itemType'
  * - **itemSubClassId**: This is the numerical value that determines the string to display for 'itemSubType'
- * @description Though it is not documented, this function apparently returns info available directly in client files. Because of that it returns less data, but have several advantages over GetItemInfo: it always return data, when GetItemInfo can return nil for valid, but not loaded items and it never initiates requests to server, that could be subject to throttling or forced disconnection.
+ * @description Though it is not documented, this function apparently returns info available directly in client files. Because of that it returns
+ * less data, but have several advantages over GetItemInfo: it always return data, when GetItemInfo can return nil for valid, but not loaded items
+ * and it never initiates requests to server, that could be subject to throttling or forced disconnection.
  * @see https://wow.gamepedia.com/API_GetItemInfoInstant
  * @since 7.0.3
  * @tupleReturn
  */
+// tslint:disable-next-line max-line-length
 declare function GetItemInfoInstant(itemIdentifier: string | number | WowItemLink): [number, string, string, WOW_INVENTORY_SLOT_ID, WowTexturePath, number, number];
 
 /**
@@ -218,14 +229,16 @@ declare function GetQuestItemLink(type: WowQuestType, index: number): WowItemLin
  * Returns link to the quest item
  * @param type  "required", "reward" or "choice"
  * @param index Quest reward item index (starts with 1)
- * @returns The link to the quest item specified or nil, if the type and/or index is invalid, there is no active quest at the moment or if the server did not transmit the item information until the timeout (which can happen, if the item is not in the local item cache yet)
+ * @returns The link to the quest item specified or nil, if the type and/or index is invalid, there is no active quest at the moment or if the
+ * server did not transmit the item information until the timeout (which can happen, if the item is not in the local item cache yet)
  * @see https://wow.gamepedia.com/API_GetQuestLogItemLink
  */
 declare function GetQuestLogItemLink(type: WowQuestType, index: number): WowItemLink;
 
 /**
  * Returns a single value: chat-ready item link
- * @param tradeSlotIndex index value of the "player's" (your character) trade slots (starts at 1 and proceeds to 6. 7 may be used for the will-not-be-traded-slot.)
+ * @param tradeSlotIndex index value of the "player's" (your character) trade slots (starts at 1 and proceeds to 6. 7 may be used for the
+ * will-not-be-traded-slot.)
  * @returns a string that can be used to link items in the chat log
  * @see https://wow.gamepedia.com/API_GetTradePlayerItemLink
  */
@@ -233,7 +246,8 @@ declare function GetTradePlayerItemLink(tradeSlotIndex: number): WowItemLink;
 
 /**
  * Gets the link string for a trade skill item
- * @param skillId The Id specifying which trade skill's link to get. Trade Skill window must be open for this to work. Indexes start at 1 which is the general category of the tradeskill, if you have selected a sub-group of trade skills then 1 will be the name of that sub-group
+ * @param skillId The Id specifying which trade skill's link to get. Trade Skill window must be open for this to work. Indexes start at 1 which
+ * is the general category of the tradeskill, if you have selected a sub-group of trade skills then 1 will be the name of that sub-group
  * @see https://wow.gamepedia.com/API_GetTradeSkillItemLink
  */
 declare function GetTradeSkillItemLink(skillId: number): WowItemLink;
@@ -314,10 +328,13 @@ declare function ItemHasRange(itemIdentifier: string | number | WowItemLink): bo
 /**
  * Called to handle clicks on Blizzard hyperlinks in chat
  * @param link Link to Use, (eg 'item:3577:0:0:0:0:0:0:276308480' is a [Gold Bar], 'player:Kaso' is [Kaso]).
- * @param text The Text of the link, including Text Colour Infomation and itemlinks (eg The previous two examples : '|cff1eff00|Hitem:3577:0:0:0:0:0:0:276308480|h[Gold Bar]|h|r' '|Hplayer:Kaso|h[Kaso]|h'
+ * @param text The Text of the link, including Text Colour Infomation and itemlinks (eg The previous two examples
+ * : '|cff1eff00|Hitem:3577:0:0:0:0:0:0:276308480|h[Gold Bar]|h|r' '|Hplayer:Kaso|h[Kaso]|h'
  * @param button The button used to click the notes 'LeftButton' or 'RightButton' Apparently, See Notes
- * @description 
- *  - Do not insecurely hook this function to add your own link types; hook ChatFrame_OnHyperlinkShow(frame, link, text, button) instead. Hooking this function insecurely will end up tainting Blizzard's combat log, which will taint UIParent's update routines and result in "action has been blocked" messages
+ * @description
+ *  - Do not insecurely hook this function to add your own link types; hook ChatFrame_OnHyperlinkShow(frame, link, text, button) instead.
+ * Hooking this function insecurely will end up tainting Blizzard's combat log, which will taint UIParent's update routines and result in
+ * "action has been blocked" messages
  *  - This function is affected by Shift and Ctrl keys, and depends on what is being clicked, according to the below table
  * @see https://wow.gamepedia.com/API_SetItemRef
  */

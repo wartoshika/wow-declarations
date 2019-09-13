@@ -8,15 +8,18 @@ declare type WowEmoteToken = "AGREE" | "AMAZE" | "ANGRY" | "APOLOGIZE" | "APPLAU
     "GLARE" | "GLOAT" | "GOLFCAP" | "GREET" | "GRIN" | "GROAN" | "GROVEL" | "GROWL" | "GUFFAW" | "HAIL" | "HEALME" | "HELLO" | "HELPME" | "HUG" | "INCOMING" | "INSULT" | "INTRODUCE" |
     "JK" | "KNEEL" | "LAUGH" | "PRAISE" | "LAYDOWN" | "LICK" | "LISTEN" | "LOST" | "LOVE" | "MASSAGE" | "MOAN" | "MOCK" | "MOO" | "MOON" | "MOURN" | "NO" |
     "NOD" | "NOSEPICK" | "OOM" | "OPENFIRE" | "PANIC" | "PAT" | "PEER" | "SHOO" | "PITY" | "PLEAD" | "POINT" | "POKE" | "PONDER" | "POUNCE" |
-    "PRAY" | "PURR" | "PUZZLE" | "TALKQ" | "RAISE" | "RASP" | "READY" | "SHAKE" | "ROAR" | "ROFL" | "RUDE" | "SALUTE" | "SCARED" | "SCRATCH" | "SEXY" | "SHAKE" | "SHIMMY" |
-    "SHIVER" | "SHRUG" | "SHY" | "SIGH" | "JOKE" | "SLAP" | "SLEEP" | "STINK" | "SMILE" | "SMIRK" | "SNARL" | "SNICKER" | "SNIFF" | "SNUB" |
-    "SOOTHE" | "SPIT" | "STARE" | "STAND" | "SURPRISED" | "SURRENDER" | "TAP" | "TALK" | "TAUNT" | "TEASE" | "THANK" | "THIRSTY" | "TICKLE" |
-    "TIRED" | "TRAIN" | "VETO" | "VICTORY" | "VIOLIN" | "WAIT" | "WAVE" | "WELCOME" | "WHINE" | "WHISTLE" | "WINK" | "WORK" | "YAWN";
+    "PRAY" | "PURR" | "PUZZLE" | "TALKQ" | "RAISE" | "RASP" | "READY" | "SHAKE" | "ROAR" | "ROFL" | "RUDE" | "SALUTE" | "SCARED" |
+    "SCRATCH" | "SEXY" | "SHAKE" | "SHIMMY" | "SHIVER" | "SHRUG" | "SHY" | "SIGH" | "JOKE" | "SLAP" | "SLEEP" | "STINK" | "SMILE" |
+    "SMIRK" | "SNARL" | "SNICKER" | "SNIFF" | "SNUB" | "SOOTHE" | "SPIT" | "STARE" | "STAND" | "SURPRISED" | "SURRENDER" | "TAP" | "TALK" | "TAUNT" |
+    "TEASE" | "THANK" | "THIRSTY" | "TICKLE" | "TIRED" | "TRAIN" | "VETO" | "VICTORY" | "VIOLIN" | "WAIT" | "WAVE" | "WELCOME" | "WHINE" | "WHISTLE" | "WINK" | "WORK" | "YAWN";
 
 /**
- * Executes one of the emotes based on the given token, including vocal emotes and animations. The list of currently valid emotes is given in ChatFrame.lua, defined as one of the EMOTEx_TOKEN constants. x starts at 1 and goes up to ChatFrame.lua's local variable MAXEMOTEINDEX (which is 452 in WotLK 3.3.0).
+ * Executes one of the emotes based on the given token, including vocal emotes and animations. The list of currently valid emotes is
+ * given in ChatFrame.lua, defined as one of the EMOTEx_TOKEN constants. x starts at 1 and goes up to ChatFrame.lua's local variable
+ * MAXEMOTEINDEX (which is 452 in WotLK 3.3.0).
  * @param emote the token that describes which emote is being used. See Emotes Tokens
- * @param target  UnitId of who the emote will be performed on. If nil, then it performs the emote on your current target, or yourself if you don't have a target. If the specified target does not exist or is out of range, then it performs the emote on yourself.
+ * @param target  UnitId of who the emote will be performed on. If nil, then it performs the emote on your current target, or yourself
+ * if you don't have a target. If the specified target does not exist or is out of range, then it performs the emote on yourself.
  * @see https://wow.gamepedia.com/API_DoEmote
  */
 declare function DoEmote(emote: WowEmoteToken, target?: WowUnitId): void;

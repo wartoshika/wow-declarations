@@ -55,6 +55,11 @@ declare type WowEventOnAny = WowEventOnEvent | WowEventOnLoad | WowEventOnUpdate
     WowEventOnLeave | WowEventOnHide | WowEventOnShow | WowEventOnMouseDown | WowEventOnMouseUp | WowEventOnMouseWheel |
     WowEventOnValueChanged | WowEventOnTextChanged;
 
+declare type WowUiDropdownInfo = {
+    text: string,
+    func?: () => void,
+    checked: boolean
+};
 
 /**
  * ##################################
@@ -66,7 +71,7 @@ declare type WowEventOnAny = WowEventOnEvent | WowEventOnLoad | WowEventOnUpdate
 
 /**
  * set the width for the given dropdown frame
- * 
+ *
  * @param dropdown the dropdown frame
  * @param width the new width
  */
@@ -74,7 +79,7 @@ declare function UIDropDownMenu_SetWidth(dropdown: WowFrame, width: number): voi
 
 /**
  * set the text for the given dropdown frame
- * 
+ *
  * @param dropdown the dropdown frame
  * @param text the text to set
  */
@@ -82,17 +87,12 @@ declare function UIDropDownMenu_SetText(dropdown: WowFrame, text: string): void;
 
 /**
  * initialize the given dropdown frame
- * 
+ *
  * @param dropdown the dropdown frame
  * @param callback the initializer function
  */
-declare function UIDropDownMenu_Initialize(dropdown: WowFrame, callback: (_self: WowFrame, level: number, menuList: number) => void): void;
+declare function UIDropDownMenu_Initialize(dropdown: WowFrame, callback: (self: WowFrame, level: number, menuList: number) => void): void;
 
-declare type WowUiDropdownInfo = {
-    text: string,
-    func?: () => void,
-    checked: boolean
-};
 /**
  * create an info object for a dropdown element
  */
@@ -100,11 +100,10 @@ declare function UIDropDownMenu_CreateInfo(): WowUiDropdownInfo;
 
 /**
  * add the given info object to the current inizialized dropdown frame
- * 
+ *
  * @param info the info to add
  */
 declare function UIDropDownMenu_AddButton(info: WowUiDropdownInfo): void;
-
 
 /**
  * comma separated list of enabled flags
@@ -157,14 +156,14 @@ declare interface WowUiObject {
 
     /**
      * Determine if this object is of the specified type, or a subclass of that type.
-     * 
+     *
      * @param type the type to check for
      */
     IsObjectType(type: WowFrameType): boolean;
 
     /**
      * Set the object's alpha (opacity) value.
-     * 
+     *
      * @param alpha the new alpha value
      */
     SetAlpha(alpha: number): void;
@@ -179,9 +178,10 @@ declare interface WowFontInstance extends WowUiObject {
     /**
      * Returns detailed information on a font object.
      * @returns MultipleReturnValues:
-     *  fontName: Path to font file
-     *  fontHeight: Font height in pixels. Due to internal graphics engine workings, this will be ridiculously close to an integer number, but not quite ever fully.
-     *  fontFlags: See FontInstance:SetFont().
+     *  - **fontName**: Path to font file
+     *  - **fontHeight**: Font height in pixels. Due to internal graphics engine workings, this will be ridiculously close to an integer number,
+     *  but not quite ever fully.
+     *  - **fontFlags**: See FontInstance:SetFont().
      * @tupleReturn
      */
     GetFont(): [string, number, string];
@@ -199,7 +199,7 @@ declare interface WowFontInstance extends WowUiObject {
 
     /**
      * The function is used to set the font to use for displaying text.
-     * 
+     *
      * @param font path to the font file, relative to the WoW base directory.
      * @param size size in points.
      * @param flags any comma-delimited combination of "OUTLINE", "THICKOUTLINE" and "MONOCHROME".
@@ -208,21 +208,21 @@ declare interface WowFontInstance extends WowUiObject {
 
     /**
      * Sets horizontal text justification
-     * 
+     *
      * @param align the new align
      */
     SetJustifyH(align: WowHorizontalAlign): void;
 
     /**
      * Sets vertical text justification
-     * 
+     *
      * @param align the new align
      */
     SetJustifyV(align: WowVerticalAlign): void;
 
     /**
      * Sets the default text color.
-     * 
+     *
      * @param r red color
      * @param g green color
      * @param b blue color
@@ -232,7 +232,8 @@ declare interface WowFontInstance extends WowUiObject {
 }
 
 /**
- * This is an abstract object type which cannot actually be created. It gathers together a number of common methods which have identical behaviours across all widget types.
+ * This is an abstract object type which cannot actually be created.
+ * It gathers together a number of common methods which have identical behaviours across all widget types.
  * This object contains a collection of methods that are related to the size, location and visibility of a widget.
  * Note that it is not directly related to Frame:GetRegions() et al. See Region object information for details.
  */
@@ -297,39 +298,43 @@ declare interface WowRegion extends WowUiObject {
      * Sets an attachment point of an UI component.
      *
      * @param point Point of the object to adjust based on the anchor.
-     * @param relativeTo Name or reference to a Region to attach obj to. If not specified in the call's signature, defaults to obj's parent (or, if obj has no parent, the entire screen), or if specified in the signature and passed nil, defaults to the entire screen.
+     * @param relativeTo Name or reference to a Region to attach obj to. If not specified in the call's signature,
+     * defaults to obj's parent (or, if obj has no parent, the entire screen), or if specified in the signature and passed nil, defaults to the entire screen.
      * @param relativePoint point of the relativeTo Region to attach point of obj to. If not specified, defaults to the value of point.
-     * @param offsetX x-offset (negative values will move obj left, positive values will move obj right), defaults to 0 if not specified, if ofsy is not specified, or if both relativeTo and relativePoint are specified and nil.
-     * @param offsetY  y-offset (negative values will move obj down, positive values will move obj up), defaults to 0 if not specified, if ofsx is not specified, or if both relativeTo and relativePoint are specified and nil.
+     * @param offsetX x-offset (negative values will move obj left, positive values will move obj right), defaults to 0 if not specified,
+     * if ofsy is not specified, or if both relativeTo and relativePoint are specified and nil.
+     * @param offsetY  y-offset (negative values will move obj down, positive values will move obj up), defaults to 0 if not specified,
+     * if ofsx is not specified, or if both relativeTo and relativePoint are specified and nil.
      */
-    SetPoint(point: WowPoint, relativeTo: WowRegion | string, relativePoint: WowPoint, offsetX: number, offsetY: number): void
-    SetPoint(point: WowPoint): void
-    SetPoint(point: WowPoint, offsetX: number, offsetY: number): void
+    SetPoint(point: WowPoint, relativeTo: WowRegion | string, relativePoint: WowPoint, offsetX: number, offsetY: number): void;
+    SetPoint(point: WowPoint): void;
+    SetPoint(point: WowPoint, offsetX: number, offsetY: number): void;
     SetPoint(point: WowPoint, relativeTo: WowRegion | string, relativePoint: WowPoint): void;
 
     /**
      * Sets an object to be positioned and sized exactly the same as another object.
      */
-    SetAllPoints(): void;
-    SetAllPoints(relativeRegion: WowRegion | string): void;
+    SetAllPoints(relativeRegion?: WowRegion | string): void;
 
     /**
      * Sets the desired height of a frame-based object.
-     * 
-     * @param height The desired height to set the frame-based object to (use 0 to clear the desired height). Note that a frame whose height is determined based on its anchors will not use this height.
+     *
+     * @param height The desired height to set the frame-based object to (use 0 to clear the desired height).
+     * Note that a frame whose height is determined based on its anchors will not use this height.
      */
     SetHeight(height: number): void;
 
     /**
      * Sets the width of a frame-based object.
-     * 
-     * @param width The width to set the frame-based object to (use 0 to clear the desired width). Note that a frame whose width is determined based on its anchors will not use this width.
+     *
+     * @param width The width to set the frame-based object to (use 0 to clear the desired width).
+     * Note that a frame whose width is determined based on its anchors will not use this width.
      */
     SetWidth(width: number): void;
 
     /**
      * Set the size (width and height) of the object with one function
-     * 
+     *
      * @param width The new width
      * @param height The new height
      */
@@ -337,10 +342,10 @@ declare interface WowRegion extends WowUiObject {
 
     /**
      * Checks if mouse is over a given region.
-     * 
+     *
      * @return True if the mouse cursor is currently over the region (as modified by the offset arguments); false otherwise.
      */
-    IsMouseOver(): boolean
+    IsMouseOver(): boolean;
     IsMouseOver(top: number, bottom: number, left: number, right: number): boolean;
 
     /**
@@ -360,7 +365,8 @@ declare interface WowRegion extends WowUiObject {
 }
 
 /**
- * Another abstract type, for objects that represent only a rendering process onto the screen, rather than a full blown frame. (See LayeredRegion object information for details) 
+ * Another abstract type, for objects that represent only a rendering process onto the screen, rather than a full blown frame.
+ * (See LayeredRegion object information for details)
  */
 declare interface WowLayeredRegion extends WowRegion {
 
@@ -371,15 +377,16 @@ declare interface WowLayeredRegion extends WowRegion {
 
     /**
      * Sets the layer in which the LayeredRegion is drawn.
-     * 
+     *
      * @param layer coarse layer to draw the region in, e.g. "BACKGROUND" or "ARTWORK".
-     * @param sublevel Integer between -8 and 7 (inclusive), controls rendering order within the specified layer. Regions with lower sublevel values are drawn below those with higher ones.
+     * @param sublevel Integer between -8 and 7 (inclusive), controls rendering order within the specified layer.
+     * Regions with lower sublevel values are drawn below those with higher ones.
      */
     SetDrawLayer(layer: WowLayer, sublevel?: number): void;
 
     /**
      * Sets the color of an object.
-     * 
+     *
      * @param r The red color value to set the object to. The range is 0 to 1.
      * @param g The green color value to set the object to. The range is 0 to 1.
      * @param b The blue color value to set the object to. The range is 0 to 1.
@@ -395,40 +402,42 @@ declare interface WowTexture extends WowLayeredRegion {
 
     /**
      * Returns the texture string from any Texture object.
-     * 
+     *
      * @returns The path/filename without extension of the texture
      */
     GetTexture(): string;
 
     /**
      * Applies a counter-clockwise rotation to the texture.
-     * 
+     *
      * @param angle Rotation angle in radians. Positive values rotate the texture counter-clockwise.
      * @param cx Horizontal coordinate of the rotation "center" point, defaults to 0.5.
      * @param cy Vertical coordinate of the rotation "center" point, defaults to 0.5.
      */
-    SetRotation(angle: number, cx: number, cy: number): void
+    SetRotation(angle: number, cx: number, cy: number): void;
     SetRotation(angle: number): void;
 
     /**
      * Modifies the region of a texture drawn by the Texture widget.
      */
-    SetTextCoord(left: number, right: number, top: number, bottom: number): void
+    SetTextCoord(left: number, right: number, top: number, bottom: number): void;
     SetTextCoord(ULx: number, ULy: number, LLx: number, LLy: number, URx: number, URy: number, LRx: number, LRy: number): void;
 
     /**
      * Changes the texture of a Texture widget.
-     * 
+     *
      * @param file Path to a texture image. | ID number specifying a Blizzard texture file. Returned by various API functions.
-     * @param horizWrap Wrap behavior specifying what should appear when sampling pixels with an x coordinate outside the (0, 1) region of the texture coordinate space
-     * @param vertWrap Wrap behavior specifying what should appear when sampling pixels with a y coordinate outside the (0, 1) region of the texture coordinate space.
+     * @param horizWrap Wrap behavior specifying what should appear when sampling pixels with an x coordinate outside the (0, 1)
+     * region of the texture coordinate space
+     * @param vertWrap Wrap behavior specifying what should appear when sampling pixels with a y coordinate outside the (0, 1)
+     * region of the texture coordinate space.
      * @param filterMode Texture filtering mode to use
      */
     SetTexture(file: string | number, horizWrap?: WowWrap, vertWrap?: WowWrap, filterMode?: WowFilterMode): void;
 
     /**
      * Changes the color of a texture.
-     * 
+     *
      * @param r Red component.
      * @param g Green component.
      * @param b Blue component.
@@ -444,14 +453,15 @@ declare interface WowFontString extends WowFontInstance, WowLayeredRegion {
 
     /**
      * Returns the text from any FontString UI object.
-     * 
+     *
      * @returns The text of the FontString. Returns nil if the FontString is an empty string.
      */
     GetText(): string;
 
     /**
-     * Sets the text to be displayed in the fontstring. The text will have the color given to it via the fontinstance definition (or a FontString:SetTextColor call). You may however use escape sequences to modify the string's appearance.
-     * 
+     * Sets the text to be displayed in the fontstring. The text will have the color given to it via the fontinstance definition
+     * (or a FontString:SetTextColor call). You may however use escape sequences to modify the string's appearance.
+     *
      * @param text The text to set
      */
     SetText(text: string): void;
@@ -470,22 +480,21 @@ declare interface WowObjectHookScript<T extends WowUiObject> {
 
     /**
      * Securely post-hooks a script handler.
-     * 
+     *
      * @param event The handler to hook to, e.g. "OnShow". See Widget handlers.
      * @param handler The function to call; will be passed all arguments relevant for the hooked widget handler type. May not be nil.
      */
-    HookScript(event: WowEventOnAny, handler: (frame: T, ...args: any[]) => void): void
-    HookScript(event: "OnClick", handler: (frame: T, button: WowMouseButton, down: boolean) => void): void
-    HookScript(event: "OnEnter", handler: (frame: T, motion: WowUnknown) => void): void
-    HookScript(event: "OnEvent", handler: (frame: T, eventName: WowEventOnAny & WowEvent, ...args: any[]) => void): void
-    HookScript(event: "OnHide" | "OnShow" | "OnLoad", handler: (frame: T) => void): void
-    HookScript(event: "OnLeave", handler: (frame: T, motion: WowUnknown) => void): void
+    HookScript(event: WowEventOnAny, handler: (frame: T, ...args: any[]) => void): void;
+    HookScript(event: "OnClick", handler: (frame: T, button: WowMouseButton, down: boolean) => void): void;
+    HookScript(event: "OnEnter" | "OnLeave", handler: (frame: T, motion: WowUnknown) => void): void;
+    HookScript(event: "OnEvent", handler: (frame: T, eventName: WowEventOnAny & WowEvent, ...args: any[]) => void): void;
+    HookScript(event: "OnHide" | "OnShow" | "OnLoad", handler: (frame: T) => void): void;
     HookScript(event: "OnMouseDown" | "OnMouseUp", handler: (frame: T, button: WowMouseButton) => void): void;
     HookScript(event: "OnMouseWheel", handler: (frame: T, delta: WowMouseWheelDelta) => void): void;
     HookScript(event: "OnUpdate", handler: (frame: T, elapsed: number) => void): void;
     HookScript(event: "OnValueChanged", handler: (frame: T, changed: any) => void): void;
     HookScript(event: "OnTextChanged", handler: (frame: T, text: string) => void): void;
-    HookScript(event: WowEventOnAny, handler: undefined | null): void;
+    HookScript(event: WowEventOnAny, handler?: (frame: T, ...args: any[]) => void): void;
 }
 
 /**
@@ -495,23 +504,21 @@ declare interface WowObjectSetScript<T extends WowUiObject> {
 
     /**
      * Changes the specified widget script handler.
-     * 
+     *
      * @param event Name of the widget script handler to modify (OnShow, OnEvent, etc).
      * @param handler The function to call when handling the specified widget event, or nil to remove the handler.
      */
-    SetScript(event: WowEventOnAny, handler: (frame: T, ...args: any[]) => void): void
-    SetScript(event: "OnClick", handler: (frame: T, button: WowMouseButton, down: boolean) => void): void
-    SetScript(event: "OnEnter", handler: (frame: T, motion: WowUnknown) => void): void
-    SetScript(event: "OnEvent", handler: (frame: T, eventName: WowEventOnAny | WowEvent, ...args: any[]) => void): void
-    SetScript(event: "OnHide" | "OnShow" | "OnLoad", handler: (frame: T) => void): void
-    SetScript(event: "OnLeave", handler: (frame: T, motion: WowUnknown) => void): void
-    SetScript(event: "OnMouseDown", handler: (frame: T, button: WowMouseButton) => void): void;
-    SetScript(event: "OnMouseUp", handler: (frame: T, button: WowMouseButton) => void): void;
+    SetScript(event: WowEventOnAny, handler: (frame: T, ...args: any[]) => void): void;
+    SetScript(event: "OnClick", handler: (frame: T, button: WowMouseButton, down: boolean) => void): void;
+    SetScript(event: "OnEnter" | "OnLeave", handler: (frame: T, motion: WowUnknown) => void): void;
+    SetScript(event: "OnEvent", handler: (frame: T, eventName: WowEventOnAny | WowEvent, ...args: any[]) => void): void;
+    SetScript(event: "OnHide" | "OnShow" | "OnLoad", handler: (frame: T) => void): void;
+    SetScript(event: "OnMouseDown" | "OnMouseUp", handler: (frame: T, button: WowMouseButton) => void): void;
     SetScript(event: "OnMouseWheel", handler: (frame: T, delta: WowMouseWheelDelta) => void): void;
     SetScript(event: "OnUpdate", handler: (frame: T, elapsed: number) => void): void;
     SetScript(event: "OnValueChanged", handler: (frame: T, changed: any) => void): void;
     SetScript(event: "OnTextChanged", handler: (frame: T, isUserInput: boolean) => void): void;
-    SetScript(event: WowEventOnAny, handler: undefined | null): void;
+    SetScript(event: WowEventOnAny, handler?: (frame: T, ...args: any[]) => void): void;
 }
 
 declare interface WowBackdrop {
@@ -548,7 +555,7 @@ declare interface WowBackdrop {
         right: number;
         top: number;
         bottom: number;
-    }
+    };
 }
 
 /**
@@ -558,8 +565,9 @@ declare interface WowFrame extends WowRegion, WowObjectHookScript<WowFrame>, Wow
 
     /**
      * Creates a new FontString as a child of a frame.
-     * 
-     * @param name The name for a global variable that points to the newly created font string. If nil, the texture is anonymous and no global variable will be created.
+     *
+     * @param name The name for a global variable that points to the newly created font string.
+     * If nil, the texture is anonymous and no global variable will be created.
      * @param layer The layer the font should be drawn in, e.g. "ARTWORK".
      * @param inheritsFrom The name of a virtual font string, created in XML, to inherit from. if nil, the font string does not inherit any properties.
      */
@@ -567,31 +575,33 @@ declare interface WowFrame extends WowRegion, WowObjectHookScript<WowFrame>, Wow
 
     /**
      * Creates a Texture object within the specified widget.
-     * 
-     * @param name Name of the newly created texture; the function will create a global variable mapping this value to the created texture. If nil, the texture is anonymous and no global variable is created. 
+     *
+     * @param name Name of the newly created texture; the function will create a global variable mapping this value to the created texture.
+     * If nil, the texture is anonymous and no global variable is created.
      * @param layer The layer to the texture should be drawn in, e.g. "ARTWORK".
-     * @param inheritsFrom a comma-delimited list of names of virtual textures (created in XML) to inherit from; if nil, the texture does not inherit any properties.
+     * @param inheritsFrom a comma-delimited list of names of virtual textures (created in XML) to inherit from; if nil,
+     * the texture does not inherit any properties.
      * @param subLayer The order in which the texture should be drawn, within the same layer.
      */
     CreateTexture(name?: string, layer?: WowLayer, inheritsFrom?: string, subLayer?: number): WowTexture;
 
     /**
      * Allows this frame to receive keyboard input via OnKeyUp and OnKeyDown script handlers.
-     * 
+     *
      * @param enableFlag Whether to enable (true, default) or disable (false).
      */
     EnableKeyboard(enableFlag: boolean): void;
 
     /**
      * Allows a frame to receive mouse input via OnMouseDown, OnMouseUp or OnClick. The frame must be shown to receive mouse events.
-     * 
+     *
      * @param enableFlag Whether to enable (true, default) or disable (false).
      */
     EnableMouse(enableFlag: boolean): void;
 
     /**
      * Allows a frame to receive mouse wheel input.
-     * 
+     *
      * @param enableFlag Whether to enable (true, default) or disable (false).
      */
     EnableMouseWheel(enableFlag: boolean): void;
@@ -618,28 +628,28 @@ declare interface WowFrame extends WowRegion, WowObjectHookScript<WowFrame>, Wow
 
     /**
      * Registers which events the object would like to monitor.
-     * 
+     *
      * @param eventName The name of the event to register the object as monitoring.
      */
     RegisterEvent(eventName: WowEvent): void;
 
     /**
      * Sets the Frame Strata of the frame.
-     * 
+     *
      * @param frameStrata The Frame Strata the frame will be put in
      */
     SetFrameStrata(frameStrata: WowFrameStrata): void;
 
     /**
      * Specified a size scaling to be applied to the object (and its children).
-     * 
+     *
      * @param scale New scale applied to this object and its children; must be greater than 0, 1 indicates no additional scaling.
      */
     SetScale(scale: number): void;
 
     /**
      * set an attribute on the frame
-     * 
+     *
      * @param name the name of the attribute to set
      * @param value the value of the attribute
      */
@@ -647,7 +657,7 @@ declare interface WowFrame extends WowRegion, WowObjectHookScript<WowFrame>, Wow
 
     /**
      * Unregisters the widget from receiving OnEvent notifications for a particular event.
-     * 
+     *
      * @param eventName The name of the event the object wishes to no longer monitor. See Events.
      */
     UnregisterEvent(eventName: WowEvent): void;
@@ -703,14 +713,16 @@ declare interface WowFrame extends WowRegion, WowObjectHookScript<WowFrame>, Wow
 /**
  * a normal WowFrame but with all given E properties
  */
-declare type AdvancedWowFrame<F extends WowUiObject, E extends Object> = {
+declare type AdvancedWowFrame<F extends WowUiObject, E extends object> = {
 
     [P in keyof (E & F)]: (E & F)[P]
-}
+};
 
 /**
- * The InterfaceOptions framework requires an addon to supply its own configuration frame (panel). The supplied panel will be repositioned by FrameXML and displayed when the addon's configuration category is selected.
- * When the user presses the Okay, Cancel or Defaults buttons on the Interface Options frame, the panels will be notified by calling specific functions in the supplied frame table.
+ * The InterfaceOptions framework requires an addon to supply its own configuration frame (panel).
+ * The supplied panel will be repositioned by FrameXML and displayed when the addon's configuration category is selected.
+ * When the user presses the Okay, Cancel or Defaults buttons on the Interface Options frame, the panels will be notified by
+ * calling specific functions in the supplied frame table.
  */
 declare interface WowFrameInterfaceCategory extends WowFrame {
 
@@ -720,29 +732,30 @@ declare interface WowFrameInterfaceCategory extends WowFrame {
     name: string;
 
     /**
-     * the panel.name value of the parent configuration panel, used to display a hierarchical category tree. If the parent panel is not specified or does not exist, the panel is displayed as a top-level panel.
+     * the panel.name value of the parent configuration panel, used to display a hierarchical category tree.
+     * If the parent panel is not specified or does not exist, the panel is displayed as a top-level panel.
      */
     parent?: string;
 
     /**
      * called when the frame is initially displayed, and after requesting the default values to be restored.
      */
-    refresh?: Function;
+    refresh?: () => void;
 
     /**
      * called when the player presses the Okay button, indicating that settings should be saved.
      */
-    okay?: Function;
+    okay?: () => void;
 
     /**
      * called when the player presses the Cancel button, indicating that changes made should be discarded.
      */
-    cancel?: Function;
+    cancel?: () => void;
 
     /**
      * called when the player presses the Defaults button, indicating that default settings for the addon should be restored.
      */
-    default?: Function;
+    default?: () => void;
 }
 
 /**
@@ -778,7 +791,7 @@ declare interface WowSlider extends WowFrame {
 
     /**
      * set the minimun and maximum value of the slider
-     * 
+     *
      * @param min the min value
      * @param max the max value
      */
@@ -786,21 +799,21 @@ declare interface WowSlider extends WowFrame {
 
     /**
      * set the current value of the slider
-     * 
+     *
      * @param value the new value
      */
     SetValue(value: number): void;
 
     /**
      * set the new step value for the slider
-     * 
+     *
      * @param stepValue the new step value
      */
     SetValueStep(stepValue: number): void;
 
     /**
      * set the orientation of the slider
-     * 
+     *
      * @param orientation the orientation to set
      */
     SetOrientation(orientation: WowAlign): void;
@@ -822,7 +835,8 @@ declare interface WowEditBox extends WowFrame, WowFontInstance {
     GetCursorPosition(): number;
 
     /**
-     * This function reads text entered into the editBox, tries to convert it into a number, and returns corresponding numerical value, or 0 if text didn't look like a number.
+     * This function reads text entered into the editBox, tries to convert it into a number, and returns corresponding numerical value,
+     * or 0 if text didn't look like a number.
      */
     GetNumber(): number;
 
@@ -833,28 +847,28 @@ declare interface WowEditBox extends WowFrame, WowFontInstance {
 
     /**
      * Inserts text at the current cursor position.
-     * 
+     *
      * @param text text to insert at the current cursor position.
      */
     Insert(text: string): void;
 
     /**
      * Sets the position of the cursor in the edit box.
-     * 
+     *
      * @param position New editing cursor position; the cursor is set after position'th character of the string
      */
     SetCursorPosition(position: number): void;
 
     /**
      * Sets editBox's text to the specified string
-     * 
+     *
      * @param text the string you want to appear in the EditBox
      */
     SetText(text: string): void;
 
     /**
      * Sets whether the cursor should automatically focus on the EditBox when it is shown
-     * 
+     *
      * @param state Whether autofocus should be enabled
      */
     SetAutoFocus(state: boolean): void;
@@ -902,7 +916,7 @@ interface WowButton extends WowFrame {
 
     /**
      * Sets the Button's text to the specified string
-     * 
+     *
      * @param text The text that will be written on the Button
      */
     SetText(text: string): void;
@@ -910,22 +924,26 @@ interface WowButton extends WowFrame {
 
 /**
  * Creates a new UI frame.
- * 
+ *
  * @param frameType Type of the frame to be created (XML tag name): "Frame", "Button", etc. See UIOBJECT_Frame
- * @param frameName Name of the newly created frame. If nil, no frame name is assigned. The function will also set a global variable of this name to point to the newly created frame.
+ * @param frameName Name of the newly created frame. If nil, no frame name is assigned. The function will also set a global
+ * variable of this name to point to the newly created frame.
  * @param parentFrame The frame object that will be used as the created Frame's parent (cannot be a string!) Does not default to UIParent if given nil.
- * @param inheritsFrame a comma-delimited list of names of virtual frames to inherit from (the same as in XML). If nil, no frames will be inherited. These frames cannot be frames that were created using this function, they must be created using XML with virtual="true" in the tag.
+ * @param inheritsFrame a comma-delimited list of names of virtual frames to inherit from (the same as in XML). If nil,
+ * no frames will be inherited. These frames cannot be frames that were created using this function,
+ * they must be created using XML with virtual="true" in the tag.
  * @param id ID to assign to the frame. See API Frame SetID
  */
-declare function CreateFrame(frameType: WowFrameType, frameName?: string, parentFrame?: WowUiObject, inheritsFrame?: string, id?: number): WowUiObject
+declare function CreateFrame(frameType: WowFrameType, frameName?: string, parentFrame?: WowUiObject, inheritsFrame?: string, id?: number): WowUiObject;
 declare function CreateFrame(frameType: "Frame", frameName?: string, parentFrame?: WowUiObject, inheritsFrame?: string, id?: number): WowFrame;
 declare function CreateFrame(frameType: "Slider", frameName?: string, parentFrame?: WowUiObject, inheritsFrame?: string, id?: number): WowSlider;
 declare function CreateFrame(frameType: "EditBox", frameName?: string, parentFrame?: WowUiObject, inheritsFrame?: string, id?: number): WowEditBox;
 declare function CreateFrame(frameType: "Button", frameName?: string, parentFrame?: WowUiObject, inheritsFrame?: string, id?: number): WowButton;
 
 /**
- * Adds a configuration panel (with the fields described in #Panel fields below set) to the category list. The optional position argument (number) allows addons to insert top-level panels at arbitrary positions in the category list.
- * 
+ * Adds a configuration panel (with the fields described in #Panel fields below set) to the category list.
+ * The optional position argument (number) allows addons to insert top-level panels at arbitrary positions in the category list.
+ *
  * @param panel the panel to add
  */
 declare function InterfaceOptions_AddCategory(panel: WowFrameInterfaceCategory): void;

@@ -137,7 +137,9 @@ declare function GetCursorMoney(): number;
  * @returns **position**
  * - x coordinate unaffected by UI scale; 0 at the left edge of the screen.
  * - y coordinate unaffected by UI scale; 0 at the bottom edge of the screen.
- * @description Returns scale-independent coordinates similar to Cursor:GetCenter() if 'Cursor' was a valid frame not affected by scaling. Assuming UIParent spans the entire screen, you can convert these coordinates to UIParent offsets by dividing by its effective scale. The following snippet positions a small texture at the cursor's location.
+ * @description Returns scale-independent coordinates similar to Cursor:GetCenter() if 'Cursor' was a valid frame not affected by scaling.
+ * Assuming UIParent spans the entire screen, you can convert these coordinates to UIParent offsets by dividing by its effective scale.
+ * The following snippet positions a small texture at the cursor's location.
  * @see https://wow.gamepedia.com/API_GetCursorPosition
  * @tupleReturn
  */
@@ -150,7 +152,8 @@ declare function GetCursorPosition(): [number, number];
 declare function HideRepairCursor(): void;
 
 /**
- * Lets you know if your cursor is in repair mode. When your cursor is in repair mode, you can click on equipped items as well as items in your inventory to repair them
+ * Lets you know if your cursor is in repair mode. When your cursor is in repair mode, you can click on equipped items as well as items in your
+ * inventory to repair them
  * @see https://wow.gamepedia.com/API_InRepairMode
  */
 declare function InRepairMode(): boolean;
@@ -158,7 +161,9 @@ declare function InRepairMode(): boolean;
 /**
  * Pick up an action for drag-and-drop
  * @param actionSlot The action slot to pick the action up from
- * @description If the slot is empty, nothing happens, otherwise the action from the slot is placed on the cursor, and the slot is filled with whatever action was currently being drag-and-dropped (The slot is emptied if the cursor was empty). If you wish to empty the cursor without putting the item into another slot, try ClearCursor.
+ * @description If the slot is empty, nothing happens, otherwise the action from the slot is placed on the cursor, and the slot is filled with
+ * whatever action was currently being drag-and-dropped (The slot is emptied if the cursor was empty). If you wish to empty the cursor without
+ * putting the item into another slot, try ClearCursor.
  * @requires NO_COMBAT
  * @see https://wow.gamepedia.com/API_PickupAction
  */
@@ -167,20 +172,31 @@ declare function PickupAction(actionSlot: ActionBarSlotId): void;
 /**
  * Picks up the bag from the specified slot, placing it in the cursor
  * @param inventorySlot the slot containing the bag
- * @description Valid slot numbers are 20-23, numbered from left to right starting after the backpack. inventoryID ,the result of ContainerIDtoInventoryID(BagID), can help to compute the slot number and bag numbers can be viewed in the InventorySlotID page
+ * @description Valid slot numbers are 20-23, numbered from left to right starting after the backpack. inventoryID ,the result of
+ * ContainerIDtoInventoryID(BagID), can help to compute the slot number and bag numbers can be viewed in the InventorySlotID page
  * @see https://wow.gamepedia.com/API_PickupBagFromSlot
  */
 declare function PickupBagFromSlot(inventorySlot: WOW_INVENTORY_SLOT_WOW_CONTAINER): void;
 
 /**
- * Wildcard function usually called when a player left clicks on a slot in their bags. Functionality includes picking up the item from a specific bag slot, putting the item into a specific bag slot, and applying enchants (including poisons and sharpening stones) to the item in a specific bag slot, except if one of the Modifier Keys is pressed
+ * Wildcard function usually called when a player left clicks on a slot in their bags. Functionality includes picking up the item from a specific
+ * bag slot, putting the item into a specific bag slot, and applying enchants (including poisons and sharpening stones) to the item in a specific
+ * bag slot, except if one of the Modifier Keys is pressed
  * @param bagId id of the bag the slot is located in
  * @param slot slot inside the bag (top left slot is 1, slot to the right of it is 2)
  * @description The function behaves differently depending on what is currently on the cursor
  * - If the cursor currently has nothing, calling this will pick up an item from your backpack
- * - If the cursor currently contains an item (check with CursorHasItem()), calling this will place the item currently on the cursor into the specified bag slot. If there is already an item in that bag slot, the two items will be exchanged
- * - If the cursor is set to a spell (typically enchanting and poisons, check with SpellIsTargeting()), calling this specifies that you want to cast the spell on the item in that bag slot
- * - Trying to pickup the same item twice in the same "time tick" does not work (client seems to flag the item as "locked" and waits for the server to sync). This is only a problem if you might move a single item multiple times (i.e., if you are changing your character's equipped armor, you are not likely to move a single piece of armor more than once). If you might move an object multiple times in rapid succession, you can check the item's 'locked' flag by calling GetContainerItemInfo. If you want to do this, you should leverage OnUpdate to help you. Avoid constantly checking the lock status inside a tight loop. If you do, you risk getting into a race condition. Once the repeat loop starts running, the client will not get any communication from the server until it finishes. However, it will not finish until the server tells it that the item is unlocked. Here is some sample code that illustrates the problem
+ * - If the cursor currently contains an item (check with CursorHasItem()), calling this will place the item currently on the cursor into the
+ * specified bag slot. If there is already an item in that bag slot, the two items will be exchanged
+ * - If the cursor is set to a spell (typically enchanting and poisons, check with SpellIsTargeting()), calling this specifies that you want to
+ * cast the spell on the item in that bag slot
+ * - Trying to pickup the same item twice in the same "time tick" does not work (client seems to flag the item as "locked" and waits for the server
+ * to sync). This is only a problem if you might move a single item multiple times (i.e., if you are changing your character's equipped armor, you
+ * are not likely to move a single piece of armor more than once). If you might move an object multiple times in rapid succession, you can check the
+ * item's 'locked' flag by calling GetContainerItemInfo. If you want to do this, you should leverage OnUpdate to help you. Avoid constantly checking
+ * the lock status inside a tight loop. If you do, you risk getting into a race condition. Once the repeat loop starts running, the client will not
+ * get any communication from the server until it finishes. However, it will not finish until the server tells it that the item is unlocked.
+ * Here is some sample code that illustrates the problem
  * @see https://wow.gamepedia.com/API_PickupContainerItem
  */
 declare function PickupContainerItem(bagId: WOW_CONTAINER_ID, slot: number): void;
@@ -188,9 +204,10 @@ declare function PickupContainerItem(bagId: WOW_CONTAINER_ID, slot: number): voi
 /**
  * "Picks up" an item from the player's worn inventory. This appears to be a kind of catch-all "pick up/activate" function
  * @param inventorySlot the slot ID of the worn inventory slot
- * @description 
+ * @description
  * - If the cursor is empty, then it will attempt to pick up the item in the slotId
- * - If the cursor has an item, then it will attempt to equip the item to the slotId and place the previous slotId item (if any) where the item on cursor orginated
+ * - If the cursor has an item, then it will attempt to equip the item to the slotId and place the previous slotId item (if any) where the
+ * item on cursor orginated
  * - If the cursor is in repair or spell-casting mode, it will attempt the action on the slotId
  * - You can use GetInventorySlotInfo to get the slotId
  */
@@ -198,7 +215,7 @@ declare function PickupInventoryItem(inventorySlot: WOW_INVENTORY_SLOT_ID): void
 
 /**
  * Place the item on the cursor
- * @param itemIdentifier 
+ * @param itemIdentifier
  * - **itemId**: The numeric ID of the item. ie. 12345
  * - **itemString**: The full item ID in string format, e.g. "item:12345:0:0:0:0:0:0:0"
  * - **itemName**: The Name of the Item, ex: "Hearthstone"
@@ -218,7 +235,8 @@ declare function PickupMacro(macroNameOrId: number | string): void;
 /**
  * Places the specified merchant item on the cursor
  * @param merchantIndex The index of the item in the merchant's inventory
- * @description Interesting thing is this function can be used to drop an item to the merchant as well. This will happen if the cursor already holds an item from player's bag
+ * @description Interesting thing is this function can be used to drop an item to the merchant as well. This will happen if the cursor
+ * already holds an item from player's bag
  * @see https://wow.gamepedia.com/API_PickupMerchantItem
  */
 declare function PickupMerchantItem(merchantIndex: number): void;
@@ -226,7 +244,9 @@ declare function PickupMerchantItem(merchantIndex: number): void;
 /**
  * Pick up a pet action for drag-and-drop
  * @param petActionSlot The pet action slot to pick the action up from (1-10).
- * @description If the slot is empty, nothing happens, otherwise the action from the slot is placed on the cursor, and the slot is filled with whatever action was currently being drag-and-dropped (The slot is emptied if the cursor was empty). Be very careful about picking up the pet control actions (Attack/Follow/Stay/Aggressive/Defensive/Passive), because if you lose them, there's no way to get them back
+ * @description If the slot is empty, nothing happens, otherwise the action from the slot is placed on the cursor, and the slot is filled with
+ * whatever action was currently being drag-and-dropped (The slot is emptied if the cursor was empty). Be very careful about picking up the pet
+ * control actions (Attack/Follow/Stay/Aggressive/Defensive/Passive), because if you lose them, there's no way to get them back
  * @requires NO_COMBAT
  * @see https://wow.gamepedia.com/API_PickupPetAction
  */
@@ -269,29 +289,35 @@ declare function PickupTradeMoney(copper: number): void;
 declare function PlaceAction(actionSlot: number): void;
 
 /**
- * Places the item currently on the cursor into the player's backpack otherwise it has no effect. If there is already a partial stack of the item in the backpack, it will attempt to stack them together
+ * Places the item currently on the cursor into the player's backpack otherwise it has no effect. If there is already a partial stack of the
+ * item in the backpack, it will attempt to stack them together
  * @see https://wow.gamepedia.com/API_PutItemInBackpack
  */
 declare function PutItemInBackpack(): void;
 
 /**
- * Puts the item on the cursor into the specified bag slot on the main bar, if it's a bag. Otherwise, attempts to place the item inside the bag in that slot. Note that to place an item in the backpack, you must use PutItemInBackpack
- * @param slotId Inventory slot id containing the bag in which you wish to put the item. Values 20 to 23 correspond to the player's bag slots, right-to-left from the first bag after the backpack
+ * Puts the item on the cursor into the specified bag slot on the main bar, if it's a bag. Otherwise, attempts to place the item inside the bag
+ * in that slot. Note that to place an item in the backpack, you must use PutItemInBackpack
+ * @param slotId Inventory slot id containing the bag in which you wish to put the item. Values 20 to 23 correspond to the player's bag slots,
+ * right-to-left from the first bag after the backpack
  * @see https://wow.gamepedia.com/API_PutItemInBag
  */
 declare function PutItemInBag(slotId: number): void;
 
 /**
  * Resets mouse cursor
- * @description Function resets mouse cursor into its default shape, if it has been previously altered by SetCursor(cursor). Calling ResetCursor() is equivalent to calling SetCursor(nil)
+ * @description Function resets mouse cursor into its default shape, if it has been previously altered by SetCursor(cursor).
+ * Calling ResetCursor() is equivalent to calling SetCursor(nil)
  * @see https://wow.gamepedia.com/API_ResetCursor
  */
 declare function ResetCursor(): void;
 
 /**
  * Changes the current cursor graphic
- * @param cursor cursor to switch to; either a built-in cursor identifier (like "ATTACK_CURSOR"), path to a cursor texture (e.g. "Interface/Cursor/Taxi"), or nil to reset to a default cursor
- * @description If the cursor is hovering over WorldFrame, the SetCursor function will have no effect - cursor is locked to reflect what the player is currently pointing at. If called with an invalid argument, the cursor is replaced by a black square
+ * @param cursor cursor to switch to; either a built-in cursor identifier (like "ATTACK_CURSOR"), path to a cursor texture
+ * (e.g. "Interface/Cursor/Taxi"), or nil to reset to a default cursor
+ * @description If the cursor is hovering over WorldFrame, the SetCursor function will have no effect - cursor is locked to reflect what
+ * the player is currently pointing at. If called with an invalid argument, the cursor is replaced by a black square
  * @see https://wow.gamepedia.com/API_SetCursor
  */
 declare function SetCursor(cursor: string | WowTexturePath | null): boolean;
@@ -326,7 +352,9 @@ declare function ShowRepairCursor(): void;
  * @param bagId id of the bag the slot is located in
  * @param slot slot inside the bag (top left slot is 1, slot to the right of it is 2)
  * @param count Quantity to pick up
- * @description This function always puts the requested item(s) on the cursor (unlike PickupContainerItem() which can pick up items, place items, or cast spells on items based on what's already on the cursor). Passing a larger count than is in the requested bag and slot will pick up nothing
+ * @description This function always puts the requested item(s) on the cursor (unlike PickupContainerItem() which can pick up items,
+ * place items, or cast spells on items based on what's already on the cursor). Passing a larger count than is in the requested bag and slot
+ * will pick up nothing
  * @see https://wow.gamepedia.com/API_SplitContainerItem
  */
 declare function SplitContainerItem(bagId: WOW_CONTAINER_ID, slot: number, count: number): void;

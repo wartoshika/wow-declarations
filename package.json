@@ -16,7 +16,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postversion": "git push github --follow-tags",
-    "lint": "tslint -c tslint.json declarations/**/*.d.ts"
+    "lint": "tslint -c tslint.json declarations/**/*.d.ts",
+    "lint:fix": "tslint -c tslint.json --fix declarations/**/*.d.ts"
   },
   "types": "declarations/index.d.ts",
   "version": "0.0.9",

@@ -8,21 +8,24 @@ interface C_BlackMarket {
      * @see https://wow.gamepedia.com/API_C_BlackMarket.Close
      * @since 5.0.4
      */
-    Close(): void
+    Close(): void;
 
     /**
      * Returns information about a specific black market auction
      * @param marketId black market auction ID
-     * @description These functions will only return information when the black market UI is open (according to the server, i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since)
+     * @description These functions will only return information when the black market UI is open (according to the server,
+     * i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since)
      * @since 5.0.4
      * @see https://wow.gamepedia.com/API_C_BlackMarket.GetItemInfoByID
      * @tupleReturn
      */
+    // tslint:disable-next-line max-line-length
     GetItemInfoByID(marketId: number): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, WowItemLink, number];
 
     /**
      * Returns information about a specific black market auction
-     * @description These functions will only return information when the black market UI is open (according to the server, i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since)
+     * @description These functions will only return information when the black market UI is open (according to the server,
+     * i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since)
      * @since 5.0.4
      * @see https://wow.gamepedia.com/API_C_BlackMarket.GetItemInfoByID
      * @tupleReturn
@@ -32,11 +35,13 @@ interface C_BlackMarket {
     /**
      * Returns information about a specific black market auction
      * @param index black market auction index, ascending from 1 to C_BlackMarket.GetNumItems()
-     * @description These functions will only return information when the black market UI is open (according to the server, i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since)
+     * @description These functions will only return information when the black market UI is open (according to the server,
+     * i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since)
      * @since 5.0.4
      * @see https://wow.gamepedia.com/API_C_BlackMarket.GetItemInfoByID
      * @tupleReturn
      */
+    // tslint:disable-next-line max-line-length
     GetItemInfoByIndex(index: number): [string, WowTexturePath, number, string, number, string, string, number, number, number, boolean, number, number, WowItemLink, number];
 
     /**
@@ -60,7 +65,8 @@ interface C_BlackMarket {
     /**
      * Requests updated black market auction information from the server
      * @event BLACK_MARKET_ITEM_UPDATE
-     * @description The black market UI must be open according to the server (i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE has not fired since) in order for this function to have any effect
+     * @description The black market UI must be open according to the server (i.e. BLACK_MARKET_OPEN has fired, and BLACK_MARKET_CLOSE
+     * has not fired since) in order for this function to have any effect
      * @see https://wow.gamepedia.com/API_C_BlackMarket.RequestItems
      * @since 5.0.4
      */

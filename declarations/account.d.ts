@@ -17,4 +17,4 @@ declare function GetBillingTimeRested(): number;
 /**
  * Returns whether the player is using a trial (free-to-play) account
  */
-declare function IsTrialAccount(): boolean
+declare function IsTrialAccount(): boolean;

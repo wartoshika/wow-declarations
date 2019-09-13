@@ -52,7 +52,8 @@ declare type WowTypedEvents = {
 
     /**
      * Fired when the cooldown for an actionbar or inventory slot starts or stops. Also fires when you log into a new area
-     * - **arg1**: if the cooldown is starting, the mouse button used to click the button. Known values: "leftButton". if the cooldown is stopping or you are logging into a new zone, this is nil
+     * - **arg1**: if the cooldown is starting, the mouse button used to click the button. Known values: "leftButton". if the cooldown
+     * is stopping or you are logging into a new zone, this is nil
      * @see https://wow.gamepedia.com/ACTIONBAR_UPDATE_COOLDOWN
      */
     ACTIONBAR_UPDATE_COOLDOWN: [WowMouseButton | null];
@@ -65,7 +66,8 @@ declare type WowTypedEvents = {
     ACTIONBAR_UPDATE_STATE: [WowMouseButton | null];
 
     /**
-     * Fired when something in the actionbar or your inventory becomes usable (after eating or drinking a potion, or entering/leaving stealth; for example). This is affected by rage/mana/energy available, but not by range
+     * Fired when something in the actionbar or your inventory becomes usable (after eating or drinking a potion, or entering/leaving
+     * stealth; for example). This is affected by rage/mana/energy available, but not by range
      * @see https://wow.gamepedia.com/ACTIONBAR_UPDATE_USABLE
      */
     ACTIONBAR_UPDATE_USABLE: null;
@@ -347,7 +349,8 @@ declare type WowTypedEvents = {
     AUCTION_HOUSE_SHOW: null;
 
     /**
-     * This event is fired when the Auction list is updated. Note that this is not only the case, if the list is completely changed but also if it is sorted (i.e. SortAuctionItems() is called).
+     * This event is fired when the Auction list is updated. Note that this is not only the case, if the list is completely changed but also
+     * if it is sorted (i.e. SortAuctionItems() is called).
      * @see https://wow.gamepedia.com/AUCTION_ITEM_LIST_UPDATE
      */
     AUCTION_ITEM_LIST_UPDATE: null;
@@ -436,7 +439,10 @@ declare type WowTypedEvents = {
     BAG_SLOT_FLAGS_UPDATED: WowUnknown[];
 
     /**
-     * Fired when a bags inventory changes. Bag zero, the sixteen slot default backpack, may not fire on login. Upon login (or reloading the console) this event fires even for bank bags. When moving an item in your inventory, this fires multiple times: once each for the source and destination bag. If the bag involved is the default backpack, this event will also fire with a container ID of "-2" (twice if you are moving the item inside the same bag).
+     * Fired when a bags inventory changes. Bag zero, the sixteen slot default backpack, may not fire on login. Upon login (or reloading the console)
+     * this event fires even for bank bags. When moving an item in your inventory, this fires multiple times: once each for the source and destination
+     * bag. If the bag involved is the default backpack, this event will also fire with a container ID of "-2" (twice if you are moving the item inside
+     * the same bag).
      * - **arg1**: container ID
      * @see https://wow.gamepedia.com/BAG_UPDATE
      */
@@ -456,7 +462,8 @@ declare type WowTypedEvents = {
     BAG_UPDATE_DELAYED: null;
 
     /**
-     * Fired twice when the bank window is closed. Only at the first one of them the bank data is still available (GetNumBankSlots(), GetContainerWowItemLink(), ...)
+     * Fired twice when the bank window is closed. Only at the first one of them the bank data is still available (GetNumBankSlots(),
+     * GetContainerWowItemLink(), ...)
      * @see https://wow.gamepedia.com/BANKFRAME_CLOSED
      */
     BANKFRAME_CLOSED: null;
@@ -891,7 +898,8 @@ declare type WowTypedEvents = {
     CHALLENGE_MODE_START: WowUnknown[];
 
     /**
-     * Fired when number of players in a channel changes but only if this channel is visible in ChannelFrame (it mustn't be hidden by a collapsed category header)
+     * Fired when number of players in a channel changes but only if this channel is visible in ChannelFrame (it mustn't be hidden by a
+     * collapsed category header)
      * - **arg1**: channel id (item number in Blizzards ChannelFrame -> quod vide API GetChannelDisplayInfo)
      * - **arg2**: number of players in channel
      * @see https://wow.gamepedia.com/CHANNEL_COUNT_UPDATE
@@ -988,7 +996,8 @@ declare type WowTypedEvents = {
     CHAT_MSG_AFK: [string, string, number, WowGuid];
 
     /**
-     * Fired for battleground-event messages that are in blue by default because they are about Alliance actions, e.g. assaulting a graveyard or capture point, or picking up a flag
+     * Fired for battleground-event messages that are in blue by default because they are about Alliance actions, e.g. assaulting a
+     * graveyard or capture point, or picking up a flag
      * - **arg1**: Battleground Message (eg. "The Alliance has taken the Blacksmith!")
      * @see https://wow.gamepedia.com/CHAT_MSG_BG_SYSTEM_ALLIANCE
      */
@@ -1019,7 +1028,7 @@ declare type WowTypedEvents = {
 
     /**
      * Fired when the client receives a channel message
-     * 
+     *
      * - **arg1**: chat message
      * - **arg2**: author
      * - **arg3**: language
@@ -1037,7 +1046,7 @@ declare type WowTypedEvents = {
 
     /**
      * Fired when someone joins a chat channel you are in
-     * 
+     *
      * - **arg1**: seems to be empty
      * - **arg2**: Name of the player that joined
      * - **arg3**: seems to be empty again
@@ -1050,7 +1059,7 @@ declare type WowTypedEvents = {
 
     /**
      * Fired when a player leaves a channel that you are currently inside
-     * 
+     *
      * - **arg1**: Appears to be left blank
      * - **arg2**: Player name that left
      * - **arg3**: Channel name with number
@@ -1081,9 +1090,12 @@ declare type WowTypedEvents = {
     CHAT_MSG_CHANNEL_NOTICE: [WowChatJoinLeftType, WowUnknown, WowUnknown, string, WowUnknown, WowUnknown, number, number, string];
 
     /**
-     * Fired when something changes in the channel like moderation enabled, user is kicked, announcements changed and so on. CHAT_*_NOTICE in GlobalStrings.lua has a full list of available types
-     * - **arg1**: type ("ANNOUNCEMENTS_OFF", "ANNOUNCEMENTS_ON", "BANNED", "OWNER_CHANGED", "INVALID_NAME", "INVITE", "MODERATION_OFF", "MODERATION_ON", "MUTED", "NOT_MEMBER", "NOT_MODERATED", "SET_MODERATOR", "UNSET_MODERATOR" )
-     * - **arg2**: If arg5 has a value then this is the user affected ( eg: "Player Foo has been kicked by Bar" ), if arg5 has no value then it's the person who caused the event ( eg: "Channel Moderation has been enabled by Bar" )
+     * Fired when something changes in the channel like moderation enabled, user is kicked, announcements changed and so on. CHAT_*_NOTICE in
+     * GlobalStrings.lua has a full list of available types
+     * - **arg1**: type ("ANNOUNCEMENTS_OFF", "ANNOUNCEMENTS_ON", "BANNED", "OWNER_CHANGED", "INVALID_NAME", "INVITE", "MODERATION_OFF",
+     * "MODERATION_ON", "MUTED", "NOT_MEMBER", "NOT_MODERATED", "SET_MODERATOR", "UNSET_MODERATOR" )
+     * - **arg2**: If arg5 has a value then this is the user affected ( eg: "Player Foo has been kicked by Bar" ), if arg5 has no value then it's
+     * the person who caused the event ( eg: "Channel Moderation has been enabled by Bar" )
      * - **arg3**: Channel name with number
      * - **arg4**: Player that caused the event (eg "Player Foo has been kicked by Bar" )
      * @see https://wow.gamepedia.com/CHAT_MSG_CHANNEL_NOTICE_USER
@@ -1169,7 +1181,8 @@ declare type WowTypedEvents = {
     CHAT_MSG_GUILD_ITEM_LOOTED: WowUnknown[];
 
     /**
-     * Fired when you whisper a player that is ignoring you When testing this event the character name is sent twice as arg1 and arg2, Blizzard appears to use arg2 and ignores arg1.
+     * Fired when you whisper a player that is ignoring you When testing this event the character name is sent twice as arg1 and arg2,
+     * Blizzard appears to use arg2 and ignores arg1.
      * - **arg1**: Character name of who you tried to message
      * - **arg2**: Character name of who you tried to message
      * @see https://wow.gamepedia.com/CHAT_MSG_IGNORED
@@ -1187,7 +1200,9 @@ declare type WowTypedEvents = {
     CHAT_MSG_INSTANCE_CHAT_LEADER: WowUnknown[];
 
     /**
-     * Fired when loot text is sent to the chat window (someone selects need, greed, passes, rolls, receives). This also fires messages like "Person creates <item>" via tradeskills, and "Person receives <item>" via a trade window. Does not fire for receiving currency (use CHAT_MSG_CURRENCY for this).
+     * Fired when loot text is sent to the chat window (someone selects need, greed, passes, rolls, receives). This also fires messages like
+     * "Person creates <item>" via tradeskills, and "Person receives <item>" via a trade window. Does not fire for receiving currency
+     * (use CHAT_MSG_CURRENCY for this).
      * - **arg1**: chat message
      * - **arg2**: name of the player who received the loot
      * @see https://wow.gamepedia.com/CHAT_MSG_LOOT
@@ -1355,8 +1370,11 @@ declare type WowTypedEvents = {
     CHAT_MSG_SYSTEM: [string];
 
     /**
-     * Fired when a raid target icon is set. This is used by the chat filter, if the player is watching raid icons in chat output (in the Filters right-click menu, under Other, look for Target Icons).
-     * - **arg1**: The formatted message to be displayed in the chat window. arg1 is formatted from the global variable TARGET_ICON_SET, which by default in an English client is set to the string "|Hplayer:%s|h[%s]|h sets |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:0|t on %s."
+     * Fired when a raid target icon is set. This is used by the chat filter, if the player is watching raid icons in chat output
+     * (in the Filters right-click menu, under Other, look for Target Icons).
+     * - **arg1**: The formatted message to be displayed in the chat window. arg1 is formatted from the global variable TARGET_ICON_SET,
+     * which by default in an English client is set to the string "|Hplayer:%s|h[%s]|h sets |TInterface\\TargetingFrame\\UI-RaidTargetingIcon_%d:0|t
+     * on %s."
      * @see https://wow.gamepedia.com/CHAT_MSG_SYSTEM
      */
     CHAT_MSG_TARGETICONS: [string, ...WowUnknown[]];
@@ -1376,10 +1394,11 @@ declare type WowTypedEvents = {
 
     /**
      * Fired when a whisper is received from another player
-     * 
+     *
      * - **arg1**: Message received
      * - **arg2**: Author (e.g. "Arthas-Silvermoon")
-     * - **arg3**: Language (or nil if universal, like messages from GM) (always seems to be an empty string; argument may have been kicked because whispering in non-standard language doesn't seem to be possible [any more?])
+     * - **arg3**: Language (or nil if universal, like messages from GM) (always seems to be an empty string; argument may have been kicked
+     * because whispering in non-standard language doesn't seem to be possible [any more?])
      * - **arg6**: status (like "DND" or "GM")
      * - **arg7**: message id (for reporting spam purposes?) (default: 0)
      * - **arg8**: unknown (default: 0)
@@ -1446,19 +1465,22 @@ declare type WowTypedEvents = {
     CLOSE_TABARD_FRAME: null;
 
     /**
-     * Supposed to fire whenever the world map is closed/hidden, though it doesn't. A workaround for this is to use "WORLD_MAP_UPDATE" to set a global variable to use elsewhere with an OnUpdate function
+     * Supposed to fire whenever the world map is closed/hidden, though it doesn't. A workaround for this is to use "WORLD_MAP_UPDATE" to
+     * set a global variable to use elsewhere with an OnUpdate function
      * @see https://wow.gamepedia.com/CLOSE_WORLD_MAP
      */
     CLOSE_WORLD_MAP: null;
 
     /**
-     * COMBAT_LOG_EVENT and COMBAT_LOG_EVENT_UNFILTERED no longer have any payload. To retrieve the information previously carried in the payload, use CombatLogGetCurrentEventInfo(). The data structure is unchanged
+     * COMBAT_LOG_EVENT and COMBAT_LOG_EVENT_UNFILTERED no longer have any payload. To retrieve the information previously carried in the payload,
+     * use CombatLogGetCurrentEventInfo(). The data structure is unchanged
      * @see https://wow.gamepedia.com/COMBAT_LOG_EVENT
      */
     COMBAT_LOG_EVENT: null;
 
     /**
-     * COMBAT_LOG_EVENT and COMBAT_LOG_EVENT_UNFILTERED no longer have any payload. To retrieve the information previously carried in the payload, use CombatLogGetCurrentEventInfo(). The data structure is unchanged
+     * COMBAT_LOG_EVENT and COMBAT_LOG_EVENT_UNFILTERED no longer have any payload. To retrieve the information previously carried in the payload,
+     * use CombatLogGetCurrentEventInfo(). The data structure is unchanged
      * @see https://wow.gamepedia.com/COMBAT_LOG_EVENT_UNFILTERED
      */
     COMBAT_LOG_EVENT_UNFILTERED: null;
@@ -1469,16 +1491,22 @@ declare type WowTypedEvents = {
     COMBAT_RATING_UPDATE: WowUnknown[];
 
     /**
-     * Fired when the currently watched entity (as set by the CombatTextSetActiveUnit function) takes or avoids damage, receives heals, gains mana/energy/rage, etc. This event is used by Blizzard's floating combat text addon
+     * Fired when the currently watched entity (as set by the CombatTextSetActiveUnit function) takes or avoids damage, receives heals, gains
+     * mana/energy/rage, etc. This event is used by Blizzard's floating combat text addon
      * - **arg1**: Combat message type
-     * - **arg2**: For damage, power gain and honor gains, this is the amount taken/gained. For heals, this is the healer name. For auras, the aura name. For block/resist/absorb messages where arg3 is not nil (indicating a partial block/resist/absorb) this is the amount taken. For faction gain, this is the faction name. For the SPELL_ACTIVE message, the name of the spell (abilities like Overpower and Riposte becoming active will trigger this message).
-     * - **arg3**: For heals, the amount healed. For block/resist/absorb messages, this is the amount blocked/resisted/absorbed, or nil if all damage was avoided. For faction gain, the amount of reputation gained
+     * - **arg2**: For damage, power gain and honor gains, this is the amount taken/gained. For heals, this is the healer name. For auras, the
+     * aura name. For block/resist/absorb messages where arg3 is not nil (indicating a partial block/resist/absorb) this is the amount taken.
+     * For faction gain, this is the faction name. For the SPELL_ACTIVE message, the name of the spell (abilities like Overpower and Riposte
+     * becoming active will trigger this message).
+     * - **arg3**: For heals, the amount healed. For block/resist/absorb messages, this is the amount blocked/resisted/absorbed, or nil if all
+     * damage was avoided. For faction gain, the amount of reputation gained
      * @see https://wow.gamepedia.com/COMBAT_TEXT_UPDATE
      */
     COMBAT_TEXT_UPDATE: [WowCombatTextType, number | string, number | string];
 
     /**
-     * Fired when the character logs in and the server sends the greeting text. (Currently "Scammers are trying harder than ever to phish for your account information!...") This is not fired when reloading the UI
+     * Fired when the character logs in and the server sends the greeting text. (Currently "Scammers are trying harder than ever to phish for your
+     * account information!...") This is not fired when reloading the UI
      * @see https://wow.gamepedia.com/COMMENTATOR_ENTER_WORLD
      */
     COMMENTATOR_ENTER_WORLD: null;
@@ -1519,7 +1547,9 @@ declare type WowTypedEvents = {
     COMPANION_UNLEARNED: WowUnknown[];
 
     /**
-     * If the type is nil, the UI should update if it's visible, regardless of which type it's managing. If the type is non-nil, then it will be either "CRITTER" or "MOUNT" and that signifies that the active companion has changed and the UI should update if it's currently showing that type
+     * If the type is nil, the UI should update if it's visible, regardless of which type it's managing. If the type is non-nil, then it will be
+     * either "CRITTER" or "MOUNT" and that signifies that the active companion has changed and the UI should update if it's currently showing
+     * that type
      * @since 3.0.3
      * @see https://wow.gamepedia.com/COMPANION_UPDATE
      */
@@ -1559,7 +1589,9 @@ declare type WowTypedEvents = {
 
     /**
      * Fires when the user selects the "Yes, I do." confirmation prompt after speaking to a class trainer and choosing to unlearn their talents
-     * - **arg1**: Cost (260000 is equivalent to 26g). This value is then passed to different frames, depending on where the event is being handled, by calling the MoneyFrame_Update() function. In the case of this event, the cost of the transaction is displayed in a small static popup, and the user prompted for confirmation one final time
+     * - **arg1**: Cost (260000 is equivalent to 26g). This value is then passed to different frames, depending on where the event is
+     * being handled, by calling the MoneyFrame_Update() function. In the case of this event, the cost of the transaction is displayed in
+     * a small static popup, and the user prompted for confirmation one final time
      * @see https://wow.gamepedia.com/CONFIRM_TALENT_WIPE
      */
     CONFIRM_TALENT_WIPE: [number];
@@ -1644,14 +1676,17 @@ declare type WowTypedEvents = {
     CRITERIA_EARNED: WowUnknown[];
 
     /**
-     * Fired when the criteria for an achievement has changed. Fires several times at once, presumably for different levels of achievements and yet-unknown feats of strength, but this has yet to be confirmed and there may be another use for this Event
+     * Fired when the criteria for an achievement has changed. Fires several times at once, presumably for different levels of achievements
+     * and yet-unknown feats of strength, but this has yet to be confirmed and there may be another use for this Event
      * @see https://wow.gamepedia.com/CRITERIA_UPDATE
      */
     CRITERIA_UPDATE: null;
 
     /**
-     * Fired every time the UI need to draw the currencies list. So it fire on login, on every loading screen and on reloadui, this is usefull to be sure that currencies informations are available after login, even on a crowded server in the evening with a lot of addons loaded
-     * @description As of 5.0.5 this is no longer true. After some testing it seems currencies are available sooner than in Cataclysm, so when PLAYER_ENTERING_WORLD fire your can gather currencies informations
+     * Fired every time the UI need to draw the currencies list. So it fire on login, on every loading screen and on reloadui, this is usefull
+     * to be sure that currencies informations are available after login, even on a crowded server in the evening with a lot of addons loaded
+     * @description As of 5.0.5 this is no longer true. After some testing it seems currencies are available sooner than in Cataclysm, so when
+     * PLAYER_ENTERING_WORLD fire your can gather currencies informations
      * @see https://wow.gamepedia.com/CURRENCY_DISPLAY_UPDATE
      */
     CURRENCY_DISPLAY_UPDATE: null;
@@ -1663,7 +1698,8 @@ declare type WowTypedEvents = {
     CURRENT_SPELL_CAST_CHANGED: null;
 
     /**
-     * Fired when the player right-clicks terrain, and on mouseover before UPDATE_MOUSEOVER_UNIT and on mouseout after UPDATE_MOUSEOVER_UNIT. This excludes doodads, player characters, and NPCs that lack interaction
+     * Fired when the player right-clicks terrain, and on mouseover before UPDATE_MOUSEOVER_UNIT and on mouseout after UPDATE_MOUSEOVER_UNIT.
+     * This excludes doodads, player characters, and NPCs that lack interaction
      * @see https://wow.gamepedia.com/CURSOR_UPDATE
      */
     CURSOR_UPDATE: null;
@@ -1781,7 +1817,8 @@ declare type WowTypedEvents = {
      * - **arg1**: ID for the specific encounter that ended (Does not match the encounterIDs used in the Encounter Journal)
      * - **arg2**: Name of the encounter that ended
      * - **arg3**: ID representing the difficulty of the encounter (DifficultyID)
-     * - **arg4**: Group size for the encounter. For example, 5 for a Dungeon encounter, 20 for a Mythic raid. The number of raiders participating is reflected in "flex" raids
+     * - **arg4**: Group size for the encounter. For example, 5 for a Dungeon encounter, 20 for a Mythic raid. The number of raiders
+     * participating is reflected in "flex" raids
      * - **arg5**: 1 for a successful kill. 0 for a wipe
      * @see https://wow.gamepedia.com/ENCOUNTER_END
      */
@@ -1797,7 +1834,8 @@ declare type WowTypedEvents = {
      * - **arg1**: ID for the specific encounter started (Does not match the encounterIDs used in the Encounter Journal)
      * - **arg2**: Name of the encounter started
      * - **arg3**: ID representing the difficulty of the encounter (DifficultyID)
-     * - **arg4**: Group size for the encounter. For example, 5 for a Dungeon encounter, 20 for a Mythic raid. The number of raiders participating is reflected in "flex" raids
+     * - **arg4**: Group size for the encounter. For example, 5 for a Dungeon encounter, 20 for a Mythic raid. The number of raiders
+     * participating is reflected in "flex" raids
      * @see https://wow.gamepedia.com/ENCOUNTER_START
      */
     ENCOUNTER_START: [number, string, WowDifficulty, number];
@@ -2026,7 +2064,8 @@ declare type WowTypedEvents = {
     /**
      * Fired when player receives a bonus item reward for successful Garrison Missions
      * - **arg1**: Unique identifier for item
-     * @description Building a Salvage Yard in the Garrison provides a chance for successful missions to also yield a  [Crate of Salvage] or  [Big Crate of Salvage]. This event has a bug and fires twice when the player receives a crate
+     * @description Building a Salvage Yard in the Garrison provides a chance for successful missions to also yield a  [Crate of Salvage] or
+     * [Big Crate of Salvage]. This event has a bug and fires twice when the player receives a crate
      * @since 6.0.2
      * @see https://wow.gamepedia.com/GARRISON_MISSION_BONUS_ROLL_LOOT
      */
@@ -2037,7 +2076,9 @@ declare type WowTypedEvents = {
      * - **arg1**: Unique identifier for the mission
      * - **arg2**: True if the mission timer is finished and the mission can be completed
      * - **arg3**: True if mission was a success and the player will receive bonus rewards
-     * @description When a mission with multiple encounters fails, some may appear to have succeeded. This is an illusion; missions can only fail or succeed. Blizzard's Garrison Mission UI frame randomly selects encounters to show as failed to the player, preferring ones with uncountered mechanics
+     * @description When a mission with multiple encounters fails, some may appear to have succeeded. This is an illusion; missions can only
+     * fail or succeed. Blizzard's Garrison Mission UI frame randomly selects encounters to show as failed to the player, preferring ones with
+     * uncountered mechanics
      * @since 6.0.2
      * @see https://wow.gamepedia.com/GARRISON_MISSION_COMPLETE_RESPONSE
      */
@@ -2205,14 +2246,16 @@ declare type WowTypedEvents = {
     GARRISON_USE_PARTY_GARRISON_CHANGED: WowUnknown[];
 
     /**
-     * Fired when a GetItemInfo call causes the client to query the server for data about an item and that data has arrived. (May or may not fire for item data that is queried automatically by client when seen in world, auction house, chat link etc)
+     * Fired when a GetItemInfo call causes the client to query the server for data about an item and that data has arrived.
+     * (May or may not fire for item data that is queried automatically by client when seen in world, auction house, chat link etc)
      * - **arg1**: The Item ID of received item info
      * @see https://wow.gamepedia.com/GET_ITEM_INFO_RECEIVED
      */
     GET_ITEM_INFO_RECEIVED: [number];
 
     /**
-     * Fired when a glyph is added to a socket. Also fires for a socket when changing the talent group causes that socket to change from an empty to a used state
+     * Fired when a glyph is added to a socket. Also fires for a socket when changing the talent group causes that socket to change from an
+     * empty to a used state
      * @see https://wow.gamepedia.com/GLYPH_ADDED
      */
     GLYPH_ADDED: null;
@@ -2230,7 +2273,9 @@ declare type WowTypedEvents = {
     GLYPH_ENABLED: null;
 
     /**
-     * Fired when a glyph is removed from a socket. This can be done with either shift-right-clicking the socket, or by repalcing it with another glyph. If another glyph replaces this one, this is fired at the start of (before) the cast. Also fired when changing the active talent group changes a socket to empty
+     * Fired when a glyph is removed from a socket. This can be done with either shift-right-clicking the socket, or by repalcing it with another
+     * glyph. If another glyph replaces this one, this is fired at the start of (before) the cast. Also fired when changing the active talent group
+     * changes a socket to empty
      * @see https://wow.gamepedia.com/GLYPH_REMOVED
      */
     GLYPH_REMOVED: null;
@@ -2280,7 +2325,9 @@ declare type WowTypedEvents = {
 
     /**
      * Fired when you talk to an npc
-     * @description This event typically fires when you are given several choices, including choosing to sell item, select available and active quests, just talk about something, or bind to a location. Even when the the only available choices are quests, this event is often used instead of QUEST_GREETING
+     * @description This event typically fires when you are given several choices, including choosing to sell item, select available and active
+     * quests, just talk about something, or bind to a location. Even when the the only available choices are quests, this event is often used
+     * instead of QUEST_GREETING
      * @see https://wow.gamepedia.com/GOSSIP_SHOW
      */
     GOSSIP_SHOW: null;
@@ -2457,8 +2504,10 @@ declare type WowTypedEvents = {
     GUILD_REWARDS_LIST: WowUnknown[];
 
     /**
-     * Fired when the client's guild info cache has been updated after a call to GuildRoster() or after any data change in any of the guild's data, excluding the Guild Information window
-     * - **arg1**: nil if this event was triggered by the client cache being updated after a call to GuildRoster, 1 if there was a local change to Guild roster data
+     * Fired when the client's guild info cache has been updated after a call to GuildRoster() or after any data change in any of the guild's
+     * data, excluding the Guild Information window
+     * - **arg1**: nil if this event was triggered by the client cache being updated after a call to GuildRoster, 1 if there was a local change
+     * to Guild roster data
      * @see https://wow.gamepedia.com/GUILD_ROSTER_UPDATE
      */
     GUILD_ROSTER_UPDATE: [WowFlag | null];
@@ -2732,7 +2781,8 @@ declare type WowTypedEvents = {
     LEVEL_GRANT_PROPOSED: WowUnknown[];
 
     /**
-     * Fired when the player updates which faction the reputation bonus for the first Dungeon Finder and Scenario of the day should be applied towards. Use GetLFGBonusFactionID to retrieve the new value
+     * Fired when the player updates which faction the reputation bonus for the first Dungeon Finder and Scenario of the day should be applied
+     * towards. Use GetLFGBonusFactionID to retrieve the new value
      * @since 5.2.0
      * @see https://wow.gamepedia.com/LFG_BONUS_FACTION_ID_UPDATED
      */
@@ -2744,7 +2794,8 @@ declare type WowTypedEvents = {
     LFG_BOOT_PROPOSAL_UPDATE: WowUnknown[];
 
     /**
-     * Fired when a random dungeon (picked by the Dungeon Finder) is completed. This event causes a window similar to the achievement alert to appear, with the details of your Dungeon Finder rewards
+     * Fired when a random dungeon (picked by the Dungeon Finder) is completed. This event causes a window similar to the achievement alert to
+     * appear, with the details of your Dungeon Finder rewards
      * @see https://wow.gamepedia.com/LFG_COMPLETION_REWARD
      */
     LFG_COMPLETION_REWARD: null;
@@ -2922,7 +2973,8 @@ declare type WowTypedEvents = {
     LFG_ROLE_UPDATE: WowUnknown[];
 
     /**
-     * When fired prompts the LFG UI to update the list of available LFG categories and objectives (i.e. new quests, zones, instances available to LFG). See API GetLFGTypes
+     * When fired prompts the LFG UI to update the list of available LFG categories and objectives (i.e. new quests, zones, instances available
+     * to LFG). See API GetLFGTypes
      * @see https://wow.gamepedia.com/LFG_UPDATE
      */
     LFG_UPDATE: null;
@@ -3212,7 +3264,8 @@ declare type WowTypedEvents = {
     MINIMAP_PING: [WowUnitId, number, number];
 
     /**
-     * Fired when the player selects a different tracking type from the menu attached to the mini map. There seems to be no useful arguments as of the time of this writing
+     * Fired when the player selects a different tracking type from the menu attached to the mini map. There seems to be no useful arguments
+     * as of the time of this writing
      * - **arg1**: Mouse button used to click the tracking button (i.e. "LEFTBUTTON")
      * @since 2.3.0
      * @see https://wow.gamepedia.com/MINIMAP_UPDATE_TRACKING
@@ -3220,7 +3273,9 @@ declare type WowTypedEvents = {
     MINIMAP_UPDATE_TRACKING: [WowMouseButton];
 
     /**
-     * Fired when the minimap scaling factor is changed. This happens, generally, whenever the player moves indoors from outside, or vice versa. There are no arguments to this event. To test the player's location, compare the minimapZoom and minimapInsideZoom CVars with the current minimap zoom level (see GetZoom)
+     * Fired when the minimap scaling factor is changed. This happens, generally, whenever the player moves indoors from outside, or vice versa.
+     * There are no arguments to this event. To test the player's location, compare the minimapZoom and minimapInsideZoom CVars with the current
+     * minimap zoom level (see GetZoom)
      * @description This event does not relate to the + and - minimap zoom buttons
      * @see https://wow.gamepedia.com/MINIMAP_UPDATE_ZOOM
      */
@@ -3464,7 +3519,8 @@ declare type WowTypedEvents = {
     PETITION_CLOSED: null;
 
     /**
-     * Fired when you are shown a petition to create a guild or arena team. This can be due to someone offering you to sign it, or because of you clicking your own charter in your inventory. GetPetitionInfo() will tell you more
+     * Fired when you are shown a petition to create a guild or arena team. This can be due to someone offering you to sign it, or because of
+     * you clicking your own charter in your inventory. GetPetitionInfo() will tell you more
      * @see https://wow.gamepedia.com/PETITION_SHOW
      */
     PETITION_SHOW: null;
@@ -3560,14 +3616,16 @@ declare type WowTypedEvents = {
      * Fired when a pet battle ends, if the player successfully captured a battle pet
      * - **arg1**: fromPlayer
      * - **arg2**: activePetSlot
-     * @description This event does not fire when a trap successfully snares a pet during a battle. This event is meant to signify when a player snares a pet, wins the battle, and is able to add the pet to their Pet Journal
+     * @description This event does not fire when a trap successfully snares a pet during a battle. This event is meant to signify when a
+     * player snares a pet, wins the battle, and is able to add the pet to their Pet Journal
      * @see https://wow.gamepedia.com/PET_BATTLE_CAPTURED
      */
     PET_BATTLE_CAPTURED: [number, number];
 
     /**
      * Fired twice when the client exists a Pet Battle
-     * @description This event fires twice at the very end of a pet battle, instructing the client to transition back to normal character controls. The [petbattle] macro conditional evaluates to true during the first firing, and false during the second.
+     * @description This event fires twice at the very end of a pet battle, instructing the client to transition back to normal character controls.
+     * The [petbattle] macro conditional evaluates to true during the first firing, and false during the second.
      * @since 5.0.4
      */
     PET_BATTLE_CLOSE: null;
@@ -3719,7 +3777,9 @@ declare type WowTypedEvents = {
 
     /**
      * Fired when the pet journal is updated
-     * @description Fired whenever the information returned by C_PetJournal.GetPetInfoByIndex might have been updated, for instance by the user changing the pet journal filters. Also fired when the player learns, cages or releases a battle pet, even if that pet is currently filtered out of the displayed pet list. 
+     * @description Fired whenever the information returned by C_PetJournal.GetPetInfoByIndex might have been updated, for instance by the
+     * user changing the pet journal filters. Also fired when the player learns, cages or releases a battle pet, even if that pet is currently
+     * filtered out of the displayed pet list.
      * @see https://wow.gamepedia.com/PET_JOURNAL_LIST_UPDATE
      */
     PET_JOURNAL_LIST_UPDATE: null;
@@ -3804,14 +3864,17 @@ declare type WowTypedEvents = {
     PET_UI_UPDATE: WowUnknown[];
 
     /**
-     * This event only fires when bank bags slots are purchased. It no longer fires when bags in the slots are changed. Instead, when the bags are changed, PLAYERBANKSLOTS_CHANGED will fire, and arg1 will be NUM_BANKGENERIC_SLOTS + BagIndex
+     * This event only fires when bank bags slots are purchased. It no longer fires when bags in the slots are changed. Instead, when the
+     * bags are changed, PLAYERBANKSLOTS_CHANGED will fire, and arg1 will be NUM_BANKGENERIC_SLOTS + BagIndex
      * @see https://wow.gamepedia.com/PLAYERBANKBAGSLOTS_CHANGED
      */
     PLAYERBANKBAGSLOTS_CHANGED: null;
 
     /**
-     * Fired when the One of the slots in the player's 24 bank slots has changed, or when any of the equipped bank bags have changed. Does not fire when an item is added to or removed from a bank bag
-     * - **arg1**: When (arg1 <= NUM_BANKGENERIC_SLOTS), arg1 is the index of the generic bank slot that changed. When (arg1 > NUM_BANKGENERIC_SLOTS), (arg1 - NUM_BANKGENERIC_SLOTS) is the index of the equipped bank bag that changed
+     * Fired when the One of the slots in the player's 24 bank slots has changed, or when any of the equipped bank bags have changed. Does not
+     * fire when an item is added to or removed from a bank bag
+     * - **arg1**: When (arg1 <= NUM_BANKGENERIC_SLOTS), arg1 is the index of the generic bank slot that changed. When (arg1 > NUM_BANKGENERIC_SLOTS)
+     * , (arg1 - NUM_BANKGENERIC_SLOTS) is the index of the equipped bank bag that changed
      * @see https://wow.gamepedia.com/PLAYERBANKSLOTS_CHANGED
      */
     PLAYERBANKSLOTS_CHANGED: [number];
@@ -3883,14 +3946,18 @@ declare type WowTypedEvents = {
     /**
      * Fired when the player enters the world, enters/leaves an instance, or respawns at a graveyard. Also fires any other time the player sees a loading screen
      * To check if the player is entering an instance, check GetPlayerMapPosition to see if both X and Y are zero.
-     * 
-     * Correction on the above comment: When PLAYER_ENTERING_WORLD fires, you'll notice that WORLD_MAP_UPDATE fires just before it. My instincts tell that leaving an instance puts the player in void space momentarily. So for the case that you are entering AND leaving an instance, GetPlayerMapPosition always returns the coordinates [0,0] and hence there is no way to determine using the event PLAYER_ENTERING_WORLD if the player is entering an instance or not. When leaving an instance the following events fire (ignoring party/raid events).
-     * 
+     *
+     * Correction on the above comment: When PLAYER_ENTERING_WORLD fires, you'll notice that WORLD_MAP_UPDATE fires just before it. My instincts
+     * tell that leaving an instance puts the player in void space momentarily. So for the case that you are entering AND leaving an instance,
+     * GetPlayerMapPosition always returns the coordinates [0,0] and hence there is no way to determine using the event PLAYER_ENTERING_WORLD
+     * if the player is entering an instance or not. When leaving an instance the following events fire (ignoring party/raid events).
+     *
      * - WORLD_MAP_UPDATE
      * - PLAYER_ENTERING_WORLD
      * - WORLD_MAP_UPDATE <--- Player coordinates are non-zero here
-     * 
-     * Instances do have coordinates for units once the second WORLD_MAP_UPDATE event has fired. For the case of entering a battleground such as WSG, WORLD_MAP_UPDATE won't fire until you leave Silverwing Hold or Warsong Lumber Mill and you are outside.
+     *
+     * Instances do have coordinates for units once the second WORLD_MAP_UPDATE event has fired. For the case of entering a battleground such as
+     * WSG, WORLD_MAP_UPDATE won't fire until you leave Silverwing Hold or Warsong Lumber Mill and you are outside.
      * @see https://wow.gamepedia.com/PLAYER_ENTERING_WORLD
      */
     PLAYER_ENTERING_WORLD: null;
@@ -3954,7 +4021,8 @@ declare type WowTypedEvents = {
 
     /**
      * Fired when a player levels up.
-     * - **arg1**: New player level. Note that UnitLevel("player") will most likely return an incorrect value when called in this event handler or shortly after, so use this value
+     * - **arg1**: New player level. Note that UnitLevel("player") will most likely return an incorrect value when called in this event handler
+     * or shortly after, so use this value
      * - **arg2**: Hit points gained from leveling
      * - **arg3**: Mana points gained from leveling
      * - **arg4**: Talent points gained from leveling
@@ -4013,19 +4081,22 @@ declare type WowTypedEvents = {
     PLAYER_PVP_TALENT_UPDATE: WowUnknown[];
 
     /**
-     * Fired when the player tries to quit, as opposed to logout, while outside an inn. This event does not indicate that the "player has quit", but instead that the "player has the quitting option"
+     * Fired when the player tries to quit, as opposed to logout, while outside an inn. This event does not indicate that the "player has quit",
+     * but instead that the "player has the quitting option"
      * @see https://wow.gamepedia.com/PLAYER_QUITING
      */
     PLAYER_QUITING: null;
 
     /**
-     * Fired whenever you enter combat, as normal regen rates are disabled during combat. This means that either you are in the hate list of a NPC or that you've been taking part in a pvp action (either as attacker or victim).
+     * Fired whenever you enter combat, as normal regen rates are disabled during combat. This means that either you are in the hate list of a NPC
+     * or that you've been taking part in a pvp action (either as attacker or victim).
      * @see https://wow.gamepedia.com/PLAYER_REGEN_DISABLED
      */
     PLAYER_REGEN_DISABLED: null;
 
     /**
-     * Fired after ending combat, as regen rates return to normal. Useful for determining when a player has left combat. This occurs when you are not on the hate list of any NPC, or a few seconds after the latest pvp attack that you were involved with
+     * Fired after ending combat, as regen rates return to normal. Useful for determining when a player has left combat. This occurs when you are
+     * not on the hate list of any NPC, or a few seconds after the latest pvp attack that you were involved with
      * @see https://wow.gamepedia.com/PLAYER_REGEN_ENABLED
      */
     PLAYER_REGEN_ENABLED: null;
@@ -4063,7 +4134,8 @@ declare type WowTypedEvents = {
     PLAYER_STOPPED_MOVING: WowUnknown[];
 
     /**
-     * Fired when the player changes between dual talent specs, and possibly when learning or unlearning talents(?). The event is also fired when a player levels up, before PLAYER_LEVEL_UP is fired
+     * Fired when the player changes between dual talent specs, and possibly when learning or unlearning talents(?). The event is also fired when
+     * a player levels up, before PLAYER_LEVEL_UP is fired
      * @see https://wow.gamepedia.com/PLAYER_TALENT_UPDATE
      */
     PLAYER_TALENT_UPDATE: null;
@@ -4096,7 +4168,8 @@ declare type WowTypedEvents = {
      * - Accepting a resurrect from another player after releasing from a death
      * - Zoning into an instance where the player is dead
      * - When the player accept a resurrect from a Spirit Healer
-     * @description The player is alive when this event happens. Does not fire when the player is resurrected before releasing. PLAYER_ALIVE is triggered in that case
+     * @description The player is alive when this event happens. Does not fire when the player is resurrected before releasing. PLAYER_ALIVE
+     * is triggered in that case
      * @see https://wow.gamepedia.com/PLAYER_UNGHOST
      */
     PLAYER_UNGHOST: null;
@@ -4237,7 +4310,9 @@ declare type WowTypedEvents = {
     /**
      * Fires when a quest that can be auto-completed is completed
      * - **arg1**: quest ID of the quest the objectives of which the player has just completed
-     * @description Quests eligible for auto-completion do not need to be handed in to a specific NPC; instead, the player can complete the quest, receive the rewards, and remove it from their quest log anywhere in the world. Use ShowQuestComplete in conjunction with GetQuestLogIndexByID to display the quest completion dialog, allowing use of GetQuestReward after QUEST_COMPLETE has fired
+     * @description Quests eligible for auto-completion do not need to be handed in to a specific NPC; instead, the player can complete the quest,
+     * receive the rewards, and remove it from their quest log anywhere in the world. Use ShowQuestComplete in conjunction with GetQuestLogIndexByID
+     * to display the quest completion dialog, allowing use of GetQuestReward after QUEST_COMPLETE has fired
      * @since 4.0.1
      * @see https://wow.gamepedia.com/QUEST_AUTOCOMPLETE
      */
@@ -4259,7 +4334,8 @@ declare type WowTypedEvents = {
     QUEST_CHOICE_UPDATE: WowUnknown[];
 
     /**
-     * Fired after the player hits the "Continue" button in the quest-information page, before the "Complete Quest" button. In other words it fires when you are given the option to complete a quest, but just before you actually complete the quest (as stated above).
+     * Fired after the player hits the "Continue" button in the quest-information page, before the "Complete Quest" button. In other words it
+     * fires when you are given the option to complete a quest, but just before you actually complete the quest (as stated above).
      * @see https://wow.gamepedia.com/QUEST_COMPLETE
      */
     QUEST_COMPLETE: null;
@@ -4295,7 +4371,10 @@ declare type WowTypedEvents = {
     QUEST_LOG_CRITERIA_UPDATE: WowUnknown[];
 
     /**
-     * This event is fired very often. This includes, but is not limited to: viewing a quest for the first time in a session in the Quest Log; (once for each quest?) every time the player changes zones across an instance boundary; every time the player picks up a non-grey item; every time after the player completes a quest goal, such as killing a mob for a quest. It also fires whenever the player (or addon using the CollapseQuestHeader or ExpandQuestHeader() functions) collapses or expands any zone header in the quest log
+     * This event is fired very often. This includes, but is not limited to: viewing a quest for the first time in a session in the Quest Log;
+     * (once for each quest?) every time the player changes zones across an instance boundary; every time the player picks up a non-grey item;
+     * every time after the player completes a quest goal, such as killing a mob for a quest. It also fires whenever the player (or addon using
+     * the CollapseQuestHeader or ExpandQuestHeader() functions) collapses or expands any zone header in the quest log
      * @see https://wow.gamepedia.com/QUEST_LOG_UPDATE
      */
     QUEST_LOG_UPDATE: null;
@@ -4320,7 +4399,8 @@ declare type WowTypedEvents = {
     QUEST_REMOVED: [number];
 
     /**
-     * This event fires whenever the player turns in a quest, whether automatically with a Task-type quest (Bonus Objectives/World Quests), or by pressing the Complete button in a quest dialog window
+     * This event fires whenever the player turns in a quest, whether automatically with a Task-type quest (Bonus Objectives/World Quests), or by
+     * pressing the Complete button in a quest dialog window
      * - **arg1**: QuestID of the quest accepted
      * - **arg2**: Number of Experience point awarded, if any. Zero if character is max level
      * - **arg3**: Amount of Money awarded, if any. Amount in coppers
@@ -4340,7 +4420,8 @@ declare type WowTypedEvents = {
     QUEST_WATCH_OBJECTIVES_CHANGED: WowUnknown[];
 
     /**
-     * Fired just before a quest goal was completed. At this point the game client's quest data is not yet updated, but will be after a subsequent QUEST_LOG_UPDATE event
+     * Fired just before a quest goal was completed. At this point the game client's quest data is not yet updated, but will be after a subsequent
+     * QUEST_LOG_UPDATE event
      * - **arg1**: questIndex (not watch index)
      * @see https://wow.gamepedia.com/QUEST_WATCH_UPDATE
      */
@@ -4375,7 +4456,8 @@ declare type WowTypedEvents = {
     RAID_INSTANCE_WELCOME: [string, number];
 
     /**
-     * Fired whenever a raid is formed or disbanded, players are leaving or joining a raid (unsure if rejected join requests also fire the event), or when looting rules are changed (regardless of being in raid or party!)
+     * Fired whenever a raid is formed or disbanded, players are leaving or joining a raid (unsure if rejected join requests also fire the event),
+     * or when looting rules are changed (regardless of being in raid or party!)
      * @see https://wow.gamepedia.com/RAID_ROSTER_UPDATE
      */
     RAID_ROSTER_UPDATE: null;
@@ -4539,7 +4621,8 @@ declare type WowTypedEvents = {
     RUNE_TYPE_UPDATE: [string];
 
     /**
-     * Fired immediately after ADDON_LOADED if either its Account or Character SavedVariables file failed to load due to an out-of-memory error. See Saved Variables Loading for more details
+     * Fired immediately after ADDON_LOADED if either its Account or Character SavedVariables file failed to load due to an out-of-memory error.
+     * See Saved Variables Loading for more details
      * - **arg1**: name of the AddOn whose SavedVariables failed to load
      * @see https://wow.gamepedia.com/SAVED_VARIABLES_TOO_LARGE
      */
@@ -4712,7 +4795,9 @@ declare type WowTypedEvents = {
     SIMPLE_CHECKOUT_CLOSED: WowUnknown[];
 
     /**
-     * Fired when the content of the player's skill list changes. It only fires for major changes to the list, such as learning or unlearning a skill or raising one's level from Journeyman to Master. It doesn't fire for skill rank increases. Using 'RegisterUnitEvent' to register for this event does not appear to work
+     * Fired when the content of the player's skill list changes. It only fires for major changes to the list, such as learning or unlearning a
+     * skill or raising one's level from Journeyman to Master. It doesn't fire for skill rank increases. Using 'RegisterUnitEvent' to register for
+     * this event does not appear to work
      * @see https://wow.gamepedia.com/SKILL_LINES_CHANGED
      */
     SKILL_LINES_CHANGED: null;
@@ -4817,10 +4902,11 @@ declare type WowTypedEvents = {
 
     /**
      * Added in 4.0 for the Spell Alert overlay feature
-     * - **arg1**: spellID 
-     * - **arg2**: texture 
-     * - **arg3**: position, Possible values include simple points such as "CENTER" or "LEFT", or complex positions such as "RIGHT (FLIPPED)" or "TOP + BOTTOM (FLIPPED)", which are defined in a local table in SpellActivationOverlay.lua
-     * - **arg4**: scale 
+     * - **arg1**: spellID
+     * - **arg2**: texture
+     * - **arg3**: position, Possible values include simple points such as "CENTER" or "LEFT", or complex positions such as "RIGHT (FLIPPED)"
+     * or "TOP + BOTTOM (FLIPPED)", which are defined in a local table in SpellActivationOverlay.lua
+     * - **arg4**: scale
      * - **arg5**: red
      * - **arg6**: green
      * - **arg7**: blue
@@ -4829,10 +4915,13 @@ declare type WowTypedEvents = {
     SPELL_ACTIVATION_OVERLAY_SHOW: [number, WowTexturePath, string, number, number, number, number];
 
     /**
-     * Fires when a spell confirmation prompt might be presented to the player. After this event has fired, the client can respond with the functions AcceptSpellConfirmationPrompt and DeclineSpellConfirmationPrompt. Notably, the event does not guarantee that the player can actually cast the spell
+     * Fires when a spell confirmation prompt might be presented to the player. After this event has fired, the client can respond with the functions
+     * AcceptSpellConfirmationPrompt and DeclineSpellConfirmationPrompt. Notably, the event does not guarantee that the player can actually cast the
+     * spell
      * - **arg1**: Spell ID for the Confirmation Prompt Spell. These are very specific spells that only appear during this event
      * - **arg2**: The possible values for this are not entirely known, however, 1 does seem to be the confirmType when the prompt triggers a bonus roll
-     * - **arg3**: So far, I've only seen this value be a blank string of "". Presumably, it will contain text if text is needed, but with bonus rolls, it is not needed
+     * - **arg3**: So far, I've only seen this value be a blank string of "". Presumably, it will contain text if text is needed, but with bonus rolls,
+     * it is not needed
      * - **arg4**: This number is in seconds. Typically, it is 180 seconds
      * - **arg5**: The ID of the currency required if the prompt requires a currency (it does for bonus rolls)
      * @see https://wow.gamepedia.com/SPELL_CONFIRMATION_PROMPT
@@ -4840,7 +4929,8 @@ declare type WowTypedEvents = {
     SPELL_CONFIRMATION_PROMPT: [number, number, string, number, number];
 
     /**
-     * Fires when a spell confirmation prompt was not accepted via AcceptSpellConfirmationPrompt or declined via DeclineSpellConfirmationPrompt within the allotted time (usually 3 minutes).
+     * Fires when a spell confirmation prompt was not accepted via AcceptSpellConfirmationPrompt or declined via DeclineSpellConfirmationPrompt within
+     * the allotted time (usually 3 minutes).
      * @see https://wow.gamepedia.com/SPELL_CONFIRMATION_TIMEOUT
      */
     SPELL_CONFIRMATION_TIMEOUT: null;
@@ -4880,14 +4970,18 @@ declare type WowTypedEvents = {
     SPELL_UPDATE_ICON: WowUnknown[];
 
     /**
-     * This event is fired when a spell becomes useable or unusable. However the definition of useable and unusable is somewhat confusing. Firstly, range is not taken into account. Secondly if a spell requires a valid target and doesn't have one it gets marked as useable. If it requires mana or rage and there isn't enough then it gets marked as unusable. This results in the following behaviour:
+     * This event is fired when a spell becomes useable or unusable. However the definition of useable and unusable is somewhat confusing. Firstly,
+     * range is not taken into account. Secondly if a spell requires a valid target and doesn't have one it gets marked as useable. If it requires
+     * mana or rage and there isn't enough then it gets marked as unusable. This results in the following behaviour:
      * - Start) Feral druid in bear form out of combat, no target selected
      * - 1) Target enemy. Event is fired as some spells that require rage become marked as unusable. On the action bar the spell is marked in red as unusable.
      * - 2) Use Enrage to gain rage. Event is fired as we now have enough rage. On the action bar the spell is marked unusable as out of range.
      * - 3) Move into range. Event is not fired. On the action bar the spell is marked usable.
      * - 4) Rage runs out. Event is fired as we no longer have enough rage.
      * - 5) Remove target. Event is fired and spell is marked as useable on action bar.
-     * @description It appears that the definition of useable is a little inaccurate and relates more to how it is displayed on the action bar than whether you can use the spell. Also after being attacked the event started firing every two seconds and this continued until well after the attacker was dead. Targetting a fresh enemy seemed to stop it.
+     * @description It appears that the definition of useable is a little inaccurate and relates more to how it is displayed on the action bar than
+     * whether you can use the spell. Also after being attacked the event started firing every two seconds and this continued until well after the
+     * attacker was dead. Targetting a fresh enemy seemed to stop it.
      * @see https://wow.gamepedia.com/SPELL_UPDATE_USABLE
      */
     SPELL_UPDATE_USABLE: null;
@@ -5169,7 +5263,8 @@ declare type WowTypedEvents = {
     TRACKED_ACHIEVEMENT_UPDATE: [number, number, number, number];
 
     /**
-     * Fired when the status of the player and target accept buttons has changed. Target agree status only shown when he has done it first. By this, player and target agree status is only shown together (arg1 == 1 and arg2 == 1), when player agreed after target
+     * Fired when the status of the player and target accept buttons has changed. Target agree status only shown when he has done it first.
+     * By this, player and target agree status is only shown together (arg1 == 1 and arg2 == 1), when player agreed after target
      * - **arg1**: Player has agreed to the trade (1) or not (0)
      * - **arg2**: Target has agreed to the trade (1) or not (0)
      * @see https://wow.gamepedia.com/TRADE_ACCEPT_UPDATE
@@ -5194,7 +5289,8 @@ declare type WowTypedEvents = {
     TRADE_MONEY_CHANGED: null;
 
     /**
-     * Fired when an item in the target's trade window is changed (items added or removed from trade). First call not fired when start trading by dropping item on target
+     * Fired when an item in the target's trade window is changed (items added or removed from trade). First call not fired when start trading
+     * by dropping item on target
      * - **arg1**: index of the trade slot changed
      * @see https://wow.gamepedia.com/TRADE_PLAYER_ITEM_CHANGED
      */
@@ -5219,7 +5315,8 @@ declare type WowTypedEvents = {
     TRADE_REPLACE_ENCHANT: [WowUnknown, WowUnknown];
 
     /**
-     * It appears that this event was removed from the game. It was once used to ask you if you wanted to accept or reject a trade. It no longer triggers, not even when "Block Trades" is enabled. Fired when another player wishes to trade with you
+     * It appears that this event was removed from the game. It was once used to ask you if you wanted to accept or reject a trade. It no longer
+     * triggers, not even when "Block Trades" is enabled. Fired when another player wishes to trade with you
      * - **arg1**: player name
      * @see https://wow.gamepedia.com/TRADE_REQUEST
      */
@@ -5433,7 +5530,8 @@ declare type WowTypedEvents = {
     TWITTER_STATUS_UPDATE: WowUnknown[];
 
     /**
-     * Fired when the interface creates an error message. These are the red messages that show in the top middle of the screen. "Your inventory is full." is one example
+     * Fired when the interface creates an error message. These are the red messages that show in the top middle of the screen.
+     * "Your inventory is full." is one example
      * - **arg1**: message_string
      * - **arg2**: message_type, see GetGameMessageInfo
      * - **arg3**: message_string
@@ -5461,13 +5559,16 @@ declare type WowTypedEvents = {
     UI_SCALE_CHANGED: WowUnknown[];
 
     /**
-     * Fired when a unit's absorb amount changes (for example, when he gains/loses an absorb effect such as Power Word: Shield, or when he gains/loses some of his absorb via getting hit or through an ability).Will only fire for existing units, and not for targets of units (focustarget, targettarget, etc)
+     * Fired when a unit's absorb amount changes (for example, when he gains/loses an absorb effect such as Power Word: Shield, or when he
+     * gains/loses some of his absorb via getting hit or through an ability).Will only fire for existing units, and not for targets of units
+     * (focustarget, targettarget, etc)
      * @see  https://wow.gamepedia.com/UNIT_ABSORB_AMOUNT_CHANGED
      */
     UNIT_ABSORB_AMOUNT_CHANGED: null;
 
     /**
-     * Fired when a units attack is affected (such as the weapon being swung). First argument returned appears to be which unit this event applies to (for example, 'player')
+     * Fired when a units attack is affected (such as the weapon being swung). First argument returned appears to be which unit this event applies
+     * to (for example, 'player')
      * @see https://wow.gamepedia.com/UNIT_ATTACK
      */
     UNIT_ATTACK: null;
@@ -5576,7 +5677,10 @@ declare type WowTypedEvents = {
     UNIT_FLAGS: WowUnknown[];
 
     /**
-     * Fired whenever a units health is affected. This event may be sent more than once to represent the same change if the affected entity can be accessed through multiple UnitIDs. For example, two UNIT_HEALTH events will be sent for raid party members who are also in your party group. UNIT_HEALTH events are sent for raid and party members regardless of their distance from the character of the host. This makes UNIT_HEALTH extremely valuable to monitor party and raid members
+     * Fired whenever a units health is affected. This event may be sent more than once to represent the same change if the affected entity
+     * can be accessed through multiple UnitIDs. For example, two UNIT_HEALTH events will be sent for raid party members who are also in your party
+     * group. UNIT_HEALTH events are sent for raid and party members regardless of their distance from the character of the host. This makes
+     * UNIT_HEALTH extremely valuable to monitor party and raid members
      * - **arg1**: the UnitID of the unit whose health is affected
      * @see https://wow.gamepedia.com/UNIT_HEALTH
      */
@@ -5600,9 +5704,13 @@ declare type WowTypedEvents = {
     UNIT_HEAL_PREDICTION: WowUnknown[];
 
     /**
-     * Fired when the player equips or unequips an item. This can also be called if your target, mouseover or party member changes equipment (untested for hostile targets).
-     * - This event is also raised when a new item is placed in the player's containers, taking up a new slot. If the new item(s) are placed onto an existing stack or when two stacks already in the containers are merged, the event is not raised. When an item is moved inside the container or to the bank, the event is not raised. The event is raised when an existing stack is split inside the player's containers.
-     * - This event is also raised when a temporary enhancement (poison, lure, etc..) is applied to the player's weapon (untested for other units). It will again be raised when that enhancement is removed, including by manual cancellation or buff expiration.
+     * Fired when the player equips or unequips an item. This can also be called if your target, mouseover or party member changes equipment
+     * (untested for hostile targets).
+     * - This event is also raised when a new item is placed in the player's containers, taking up a new slot. If the new item(s) are placed onto
+     * an existing stack or when two stacks already in the containers are merged, the event is not raised. When an item is moved inside the container
+     * or to the bank, the event is not raised. The event is raised when an existing stack is split inside the player's containers.
+     * - This event is also raised when a temporary enhancement (poison, lure, etc..) is applied to the player's weapon (untested for other units).
+     * It will again be raised when that enhancement is removed, including by manual cancellation or buff expiration.
      * - If multiple slots are equipped/unequipped at once it only fires once now.
      * - This event is no longer triggered when changing zones or logging in. Inventory information is available when PLAYER_ENTERING_WORLD is triggered
      * ------
@@ -5827,10 +5935,13 @@ declare type WowTypedEvents = {
     UNIT_SPELLCAST_NOT_INTERRUPTIBLE: [WowUnitId, number, number];
 
     /**
-     * Fired when a unit attempts to cast a spell regardless of the success of the cast. Fired when a unit tries to cast an instant, non-instant, or channeling spell even if out of range or out of line-of-sight (unless the unit is attempting to cast a non-instant spell while already casting or attempting to cast a spell that is on cooldown).
+     * Fired when a unit attempts to cast a spell regardless of the success of the cast. Fired when a unit tries to cast an instant, non-instant,
+     * or channeling spell even if out of range or out of line-of-sight (unless the unit is attempting to cast a non-instant spell while already
+     * casting or attempting to cast a spell that is on cooldown).
      * - **arg1**: Unit casting the spell
      * - **arg2**: unused
-     * - **arg3**: Complex string similar to a GUID. For Flare this appeared: Cast-3-3783-1-7-1543-000197DD84. 1543 is the SpellID. Identification of the rest of that string is needed
+     * - **arg3**: Complex string similar to a GUID. For Flare this appeared: Cast-3-3783-1-7-1543-000197DD84. 1543 is the SpellID. Identification
+     * of the rest of that string is needed
      * - **arg4**: Varies. Occasionally the Spell ID, but not always. Occasionally the target, but not always
      * @since 2.0.1
      */
@@ -5876,7 +5987,8 @@ declare type WowTypedEvents = {
     UNIT_STATS: [string];
 
     /**
-     * Fired when the target of yourself, raid, and party members change: 'target', 'party1target', 'raid1target', etc.. Should also work for 'pet' and 'focus'. This event only fires when the triggering unit is within the player's visual range
+     * Fired when the target of yourself, raid, and party members change: 'target', 'party1target', 'raid1target', etc.. Should also work for
+     * 'pet' and 'focus'. This event only fires when the triggering unit is within the player's visual range
      * - **arg1**: unitId of the unit which changed targets
      * @see https://wow.gamepedia.com/UNIT_TARGET
      */
@@ -5888,7 +6000,8 @@ declare type WowTypedEvents = {
     UNIT_TARGETABLE_CHANGED: WowUnknown[];
 
     /**
-     * Fired when the client receives updated threat information from the server, if an available mob's threat list has changed at all (ie anybody in combat with it has done anything).
+     * Fired when the client receives updated threat information from the server, if an available mob's threat list has changed at all
+     * (ie anybody in combat with it has done anything).
      * - **arg1**: unitId of the mob whose threat list changed
      * @see https://wow.gamepedia.com/UNIT_THREAT_LIST_UPDATE
      */
@@ -5990,7 +6103,8 @@ declare type WowTypedEvents = {
     UPDATE_INSTANCE_INFO: null;
 
     /**
-     * Fires whenever an item's durability status becomes yellow (low) or red (broken). Signals that the durability frame needs to be updated. May also fire on any durability status change, even if that change doesn't require an update to the durability frame
+     * Fires whenever an item's durability status becomes yellow (low) or red (broken). Signals that the durability frame needs to be updated.
+     * May also fire on any durability status change, even if that change doesn't require an update to the durability frame
      * @see https://wow.gamepedia.com/UPDATE_INVENTORY_ALERTS
      */
     UPDATE_INVENTORY_ALERTS: null;
@@ -6135,9 +6249,13 @@ declare type WowTypedEvents = {
     USE_NO_REFUND_CONFIRM: WowUnknown[];
 
     /**
-     * Fired in response to the CVars, Keybindings and other associated "Blizzard" variables being loaded. Since key bindings and macros in particular may be stored on the server they event may be delayed a bit beyond the original loading sequence
-     * - Previously (prior to 3.0.1) this event was part of the loading sequence. Although it still occurs within the same general timeframe as the other events, it no longer has a guaranteed order that can be relied on. This may be problematic to addons that relied on the order of VARIABLES_LOADED, specifically that it would fire before PLAYER_ENTERING_WORLD
-     * - Addons should not use this event to check if their addon's saved variables have loaded. They can use ADDON_LOADED (testing for arg1 being the name of the addon) or another appropriate event to initialize, ensuring that the addon works when loaded on demand
+     * Fired in response to the CVars, Keybindings and other associated "Blizzard" variables being loaded. Since key bindings and macros in
+     * particular may be stored on the server they event may be delayed a bit beyond the original loading sequence
+     * - Previously (prior to 3.0.1) this event was part of the loading sequence. Although it still occurs within the same general timeframe
+     * as the other events, it no longer has a guaranteed order that can be relied on. This may be problematic to addons that relied on the order
+     * of VARIABLES_LOADED, specifically that it would fire before PLAYER_ENTERING_WORLD
+     * - Addons should not use this event to check if their addon's saved variables have loaded. They can use ADDON_LOADED (testing for arg1
+     * being the name of the addon) or another appropriate event to initialize, ensuring that the addon works when loaded on demand
      * @see https://wow.gamepedia.com/VARIABLES_LOADED
      */
     VARIABLES_LOADED: null;
@@ -6178,7 +6296,8 @@ declare type WowTypedEvents = {
 
     /**
      * Fire when a vignette (such as a skull icon or chest icon) is removed from your minimap
-     * - **arg1**: vignette instance ID of the vignette that is no longer visible to the player. You cannot retrieve additional information about this vignette when this event fires
+     * - **arg1**: vignette instance ID of the vignette that is no longer visible to the player. You cannot retrieve additional information
+     * about this vignette when this event fires
      * @since 5.4.0
      * @see https://wow.gamepedia.com/VIGNETTE_REMOVED
      */
@@ -6318,13 +6437,16 @@ declare type WowTypedEvents = {
     WEIGHTED_SPELL_UPDATED: WowUnknown[];
 
     /**
-     * Fired when the client receives the result of a SendWho() request from the server. use API SetWhoToUI to manipulate this functionality. This event is only triggered if the Who panel was open at the time the Who data was received (this includes the case where the Blizzard UI opens it automatically because the return data was too big to display in the chat frame).
+     * Fired when the client receives the result of a SendWho() request from the server. use API SetWhoToUI to manipulate this functionality.
+     * This event is only triggered if the Who panel was open at the time the Who data was received (this includes the case where the Blizzard
+     * UI opens it automatically because the return data was too big to display in the chat frame).
      * @see https://wow.gamepedia.com/WHO_LIST_UPDATE
      */
     WHO_LIST_UPDATE: null;
 
     /**
-     * Fired when the world map should be updated. When entering a battleground, this event won't fire until the zone is changed (i.e. in WSG when you walk outside of Warsong Lumber Mill or Silverwing Hold
+     * Fired when the world map should be updated. When entering a battleground, this event won't fire until the zone is changed (i.e. in
+     *  WSG when you walk outside of Warsong Lumber Mill or Silverwing Hold
      * @see https://wow.gamepedia.com/WORLD_MAP_UPDATE
      */
     WORLD_MAP_UPDATE: null;
@@ -6368,8 +6490,10 @@ declare type WowTypedEvents = {
     ZONE_CHANGED_INDOORS: null;
 
     /**
-     * Fired when the user enters a new zone or city. e.g. moving from Duskwood to Stranglethorn Vale or Durotar into Orgrimmar. In interface terms, this is anytime you get a new set of channels
-     * @description Note: When this event fires, the UI may still think you're in the zone you just left. Don't depend on GetRealZoneText() and similar functions to report the new zone in reaction to ZONE_CHANGED_NEW_AREA. (untested for similar events)
+     * Fired when the user enters a new zone or city. e.g. moving from Duskwood to Stranglethorn Vale or Durotar into Orgrimmar. In interface
+     * terms, this is anytime you get a new set of channels
+     * @description Note: When this event fires, the UI may still think you're in the zone you just left. Don't depend on GetRealZoneText()
+     * and similar functions to report the new zone in reaction to ZONE_CHANGED_NEW_AREA. (untested for similar events)
      * @see https://wow.gamepedia.com/ZONE_CHANGED_NEW_AREA
      */
     ZONE_CHANGED_NEW_AREA: null;
