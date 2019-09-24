@@ -290,6 +290,15 @@ declare interface WowRegion extends WowUiObject {
     GetHeight(): number;
 
     /**
+     * Returns information about the anchor point for a region.
+     *
+     * @see https://wow.gamepedia.com/API_Region_GetPoint
+     * @tupleReturn
+     * @returns point, relativeTo, relativePoint, xOfs, yOfs
+     */
+    GetPoint(index: number): [WowPoint, WowRegion, WowPoint, number, number];
+
+    /**
      * Set the parent UIObject
      */
     SetParent(parent: WowUiObject | null): void;
