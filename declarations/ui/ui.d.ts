@@ -296,7 +296,7 @@ declare interface WowRegion extends WowUiObject {
      * @tupleReturn
      * @returns point, relativeTo, relativePoint, xOfs, yOfs
      */
-    GetPoint(index: number): [WowPoint, WowRegion, WowPoint, number, number];
+    GetPoint(index?: number): [WowPoint, WowRegion, WowPoint, number, number];
 
     /**
      * Set the parent UIObject

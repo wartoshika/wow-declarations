@@ -93,3 +93,10 @@ declare function UnitHealth(unitId: WowUnitId): number;
  * @see https://wow.gamepedia.com/API_UnitHealthMax
  */
 declare function UnitHealthMax(unitId: WowUnitId): number;
+
+/**
+ * Returns 1 if the unit is a player in your party, nil otherwise
+ * @param unitId unitId who should be checked
+ * @see https://wow.gamepedia.com/API_UnitInParty
+ */
+declare function UnitInParty(unitId: WowUnitId): boolean;

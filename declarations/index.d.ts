@@ -25,6 +25,7 @@ import "./character";
 import "./characterStatistics";
 import "./chatInfo";
 import "./chatWindow";
+import "./class";
 import "./communication";
 import "./companion";
 import "./container";
@@ -36,6 +37,7 @@ import "./debug";
 import "./event";
 // G
 import "./gossip";
+import "./groups";
 // I
 import "./inventory";
 // Q
