@@ -6,14 +6,14 @@
  * @param command The console command to execute
  * @see https://wow.gamepedia.com/API_ConsoleExec
  */
-declare function ConsoleExec(command: string): WowUnknown;
+declare function ConsoleExec(command: string): WoWAPI.Unknown;
 
 /**
  * Attempts to detect the world of warcraft MMO mouse.
  *
  * @see https://wow.gamepedia.com/API_DetectWowMouse
  */
-declare function DetectWowMouse(): WowUnknown;
+declare function DetectWowMouse(): WoWAPI.Unknown;
 
 /**
  * Returns information about current client build

@@ -1,7 +1,9 @@
 /** @noSelfInFile */
 
-declare type WowFacialHairCustomizationGlobalType = "EARRINGS" | "FEATURES" | "HAIR" | "HORNS" | "MARKINGS" | "NORMAL" | "PIERCINGS" | "TUSKS";
-declare type WowFacialHairCustomizationType = "HORNS" | "NORMAL";
+declare namespace WoWAPI {
+    type FacialHairCustomizationGlobalType = "EARRINGS" | "FEATURES" | "HAIR" | "HORNS" | "MARKINGS" | "NORMAL" | "PIERCINGS" | "TUSKS";
+    type FacialHairCustomizationType = "HORNS" | "NORMAL";
+}
 
 /**
  * Purchases currently selected customizations from the barber shop
@@ -26,7 +28,7 @@ declare function CancelBarberShop(): void;
  * @see https://wow.gamepedia.com/API_GetBarberShopStyleInfo
  * @tupleReturn
  */
-declare function GetBarberShopStyleInfo(catId: number): [string, WowUnknown, WowUnknown, WowFlag];
+declare function GetBarberShopStyleInfo(catId: number): [string, WoWAPI.Unknown, WoWAPI.Unknown, WoWAPI.Flag];
 
 /**
  * Returns the total costs of the cosmetic changes
@@ -38,17 +40,17 @@ declare function GetBarberShopTotalCost(): number;
  * Returns the type of facial hair customization available to the character
  * @see https://wow.gamepedia.com/API_GetFacialHairCustomization
  */
-declare function GetFacialHairCustomization(): WowFacialHairCustomizationGlobalType;
+declare function GetFacialHairCustomization(): WoWAPI.FacialHairCustomizationGlobalType;
 
 /**
  * https://wow.gamepedia.com/API_GetHairCustomization
  * @see https://wow.gamepedia.com/API_GetHairCustomization
  */
-declare function GetHairCustomization(): WowFacialHairCustomizationType;
+declare function GetHairCustomization(): WoWAPI.FacialHairCustomizationType;
 
 /**
  * Alters style selection in a particular customization category
  * @param catId Ascending index of the customization category that should be changed to the next/previous style
  * @param reverse 1 if the selection should be changed to the previous style, nil if to the next
  */
-declare function SetNextBarberShopStyle(catId: number, reverse?: WowFlag): void;
+declare function SetNextBarberShopStyle(catId: number, reverse?: WoWAPI.Flag): void;

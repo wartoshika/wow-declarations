@@ -1,7 +1,10 @@
 /** @noSelfInFile */
 
-declare type WowChannelChatType = "SAY" | "EMOTE" | "YELL" | "PARTY" | "GUILD" | "OFFICER" | "RAID" | "RAID_WARNING" | "INSTANCE_CHAT" | "WHISPER" | "CHANNEL" | "AFK" | "DND";
-declare type WowChannelLanguageId = 1 | 2 | 3 | 6 | 7 | 8 | 10 | 13 | 14 | 33 | 35 | 40 | 43 | 44;
+declare namespace WoWAPI {
+    type ChannelChatType = "SAY" | "EMOTE" | "YELL" | "PARTY" | "GUILD" | "OFFICER" | "RAID" | "RAID_WARNING" | "INSTANCE_CHAT" | "WHISPER" | "CHANNEL" |
+                           "AFK" | "DND";
+    type ChannelLanguageId = 1 | 2 | 3 | 6 | 7 | 8 | 10 | 13 | 14 | 33 | 35 | 40 | 43 | 44;
+}
 
 /**
  * Makes messages from a specified chat channel output in a specific chat frame
@@ -188,7 +191,7 @@ declare function LeaveChannelByName(channelName: string): void;
  * is given, list all of the numbered channels you are a member of
  * @see https://wow.gamepedia.com/API_ListChannelByName
  */
-declare function ListChannelByName(channelName?: string | number): WowUnknown;
+declare function ListChannelByName(channelName?: string | number): WoWAPI.Unknown;
 
 /**
  * Lists all of the channels
@@ -218,7 +221,7 @@ declare function RemoveChatWindowChannel(windowId: number, channelName: string):
  * ignored for any other chat type
  * @see https://wow.gamepedia.com/API_SendChatMessage
  */
-declare function SendChatMessage(message: string, chatType?: WowChannelChatType, languageId?: WowChannelLanguageId, channelOrName?: string): void;
+declare function SendChatMessage(message: string, chatType?: WoWAPI.ChannelChatType, languageId?: WoWAPI.ChannelLanguageId, channelOrName?: string): void;
 
 /**
  * Sets the channel owner

@@ -38,7 +38,7 @@ declare function CloseGossip(): void;
  * @returns 1 if the client should display the gossip text for this NPC, nil if it is okay to skip directly to the only interaction option available
  * @see https://wow.gamepedia.com/API_ForceGossip
  */
-declare function ForceGossip(): WowFlag;
+declare function ForceGossip(): WoWAPI.Flag;
 
 /**
  * Get the list of active quests from an NPC.

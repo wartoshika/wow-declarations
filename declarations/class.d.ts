@@ -1,5 +1,7 @@
-declare type WOW_CLASSES = "WARRIOR" | "DEATHKNIGHT" | "PALADIN" | "MONK" | "PRIEST" | "SHAMAN" | "DRUID" |
-    "ROGUE" | "MAGE" | "WARLOCK" | "HUNTER" | "DEMONHUNTER";
+declare namespace WoWAPI {
+    type CLASSES = "WARRIOR" | "DEATHKNIGHT" | "PALADIN" | "MONK" | "PRIEST" | "SHAMAN" | "DRUID" |
+        "ROGUE" | "MAGE" | "WARLOCK" | "HUNTER" | "DEMONHUNTER";
+}
 
 /**
  * Returns the color value associated with a given class
@@ -10,4 +12,4 @@ declare type WOW_CLASSES = "WARRIOR" | "DEATHKNIGHT" | "PALADIN" | "MONK" | "PRI
  * @tupleReturn
  * @see https://wow.gamepedia.com/API_GetClassColor
  */
-declare function GetClassColor(englishClass: WOW_CLASSES): [number, number, number, string];
+declare function GetClassColor(englishClass: WoWAPI.CLASSES): [number, number, number, string];
