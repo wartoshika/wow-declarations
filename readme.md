@@ -7,8 +7,6 @@
 - qhun-transpiler ([GitHub-Page](https://github.com/wartoshika/qhun-transpiler))
 - TypescriptToLua ([GitHub-Page](https://github.com/TypeScriptToLua/TypeScriptToLua)) - *Thanks to tstirrat*
 
-## Installation
-
 ## Setup
 
 Installing this dependency via
@@ -41,7 +39,7 @@ Please add the wow-declarations path to your `tsconfig.json` compiler options li
 - Object declarations are now namespaced and can be imported into your file. (PR #10)
 - I strongly recommend using npm packages with a fix version number or referencing the version tag when installing this dependency. See [setup](#Setup).
 
-### **Sep. 11 2019 - v8.2.5-release.1**
+### **Oct. 5 2019 - v8.2.5-release.1**
 
 - Version numbers now indicates wich WoW Addon api version is supported (closes #9)
 
