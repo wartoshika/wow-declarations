@@ -1,17 +1,20 @@
 /** @noSelfInFile */
 
-declare type WowEmoteToken = "AGREE" | "AMAZE" | "ANGRY" | "APOLOGIZE" | "APPLAUD" | "ATTACKMYTARGET" | "BARK" | "BASHFUL" | "BECKON" |
-    "BEG" | "BURP" | "BITE" | "BLEED" | "BLINK" | "KISS" | "BLUSH" | "BOGGLE" | "BONK" | "BORED" | "BOUNCE" | "BOW" | "BRB" | "BYE" | "CACKLE" |
-    "CALM" | "SCRATCH" | "CHARGE" | "CHEER" | "EAT" | "CHICKEN" | "CHUCKLE" | "CLAP" | "COLD" | "COMFORT" | "COMMEND" | "CONFUSED" | "CONGRATULATE" |
-    "COUGH" | "COWER" | "CRACK" | "CRINGE" | "CRY" | "CUDDLE" | "CURIOUS" | "CURTSEY" | "DANCE" | "FROWN" | "BONK" | "THREATEN" | "DRINK" |
-    "DROOL" | "DUCK" | "EAT" | "TALKEX" | "EYE" | "FART" | "FIDGET" | "FLEE" | "FLEX" | "FLIRT" | "FLOP" | "FOLLOW" | "HUNGRY" | "GASP" | "GAZE" | "GIGGLE" | "HAPPY" |
-    "GLARE" | "GLOAT" | "GOLFCAP" | "GREET" | "GRIN" | "GROAN" | "GROVEL" | "GROWL" | "GUFFAW" | "HAIL" | "HEALME" | "HELLO" | "HELPME" | "HUG" | "INCOMING" | "INSULT" | "INTRODUCE" |
-    "JK" | "KNEEL" | "LAUGH" | "PRAISE" | "LAYDOWN" | "LICK" | "LISTEN" | "LOST" | "LOVE" | "MASSAGE" | "MOAN" | "MOCK" | "MOO" | "MOON" | "MOURN" | "NO" |
-    "NOD" | "NOSEPICK" | "OOM" | "OPENFIRE" | "PANIC" | "PAT" | "PEER" | "SHOO" | "PITY" | "PLEAD" | "POINT" | "POKE" | "PONDER" | "POUNCE" |
-    "PRAY" | "PURR" | "PUZZLE" | "TALKQ" | "RAISE" | "RASP" | "READY" | "SHAKE" | "ROAR" | "ROFL" | "RUDE" | "SALUTE" | "SCARED" |
-    "SCRATCH" | "SEXY" | "SHAKE" | "SHIMMY" | "SHIVER" | "SHRUG" | "SHY" | "SIGH" | "JOKE" | "SLAP" | "SLEEP" | "STINK" | "SMILE" |
-    "SMIRK" | "SNARL" | "SNICKER" | "SNIFF" | "SNUB" | "SOOTHE" | "SPIT" | "STARE" | "STAND" | "SURPRISED" | "SURRENDER" | "TAP" | "TALK" | "TAUNT" |
-    "TEASE" | "THANK" | "THIRSTY" | "TICKLE" | "TIRED" | "TRAIN" | "VETO" | "VICTORY" | "VIOLIN" | "WAIT" | "WAVE" | "WELCOME" | "WHINE" | "WHISTLE" | "WINK" | "WORK" | "YAWN";
+declare namespace WoWAPI {
+    type EmoteToken = "AGREE" | "AMAZE" | "ANGRY" | "APOLOGIZE" | "APPLAUD" | "ATTACKMYTARGET" | "BARK" | "BASHFUL" | "BECKON" |
+        "BEG" | "BURP" | "BITE" | "BLEED" | "BLINK" | "KISS" | "BLUSH" | "BOGGLE" | "BONK" | "BORED" | "BOUNCE" | "BOW" | "BRB" | "BYE" | "CACKLE" |
+        "CALM" | "SCRATCH" | "CHARGE" | "CHEER" | "EAT" | "CHICKEN" | "CHUCKLE" | "CLAP" | "COLD" | "COMFORT" | "COMMEND" | "CONFUSED" |
+        "CONGRATULATE" | "COUGH" | "COWER" | "CRACK" | "CRINGE" | "CRY" | "CUDDLE" | "CURIOUS" | "CURTSEY" | "DANCE" | "FROWN" | "BONK" |
+        "THREATEN" | "DRINK" | "DROOL" | "DUCK" | "EAT" | "TALKEX" | "EYE" | "FART" | "FIDGET" | "FLEE" | "FLEX" | "FLIRT" | "FLOP" | "FOLLOW" |
+        "HUNGRY" | "GASP" | "GAZE" | "GIGGLE" | "HAPPY" | "GLARE" | "GLOAT" | "GOLFCAP" | "GREET" | "GRIN" | "GROAN" | "GROVEL" | "GROWL" |
+        "GUFFAW" | "HAIL" | "HEALME" | "HELLO" | "HELPME" | "HUG" | "INCOMING" | "INSULT" | "INTRODUCE" | "JK" | "KNEEL" | "LAUGH" | "PRAISE" |
+        "LAYDOWN" | "LICK" | "LISTEN" | "LOST" | "LOVE" | "MASSAGE" | "MOAN" | "MOCK" | "MOO" | "MOON" | "MOURN" | "NO" | "NOD" | "NOSEPICK" |
+        "OOM" | "OPENFIRE" | "PANIC" | "PAT" | "PEER" | "SHOO" | "PITY" | "PLEAD" | "POINT" | "POKE" | "PONDER" | "POUNCE" | "PRAY" | "PURR" |
+        "PUZZLE" | "TALKQ" | "RAISE" | "RASP" | "READY" | "SHAKE" | "ROAR" | "ROFL" | "RUDE" | "SALUTE" | "SCARED" | "SCRATCH" | "SEXY" | "SHAKE" |
+        "SHIMMY" | "SHIVER" | "SHRUG" | "SHY" | "SIGH" | "JOKE" | "SLAP" | "SLEEP" | "STINK" | "SMILE" | "SMIRK" | "SNARL" | "SNICKER" | "SNIFF" |
+        "SNUB" | "SOOTHE" | "SPIT" | "STARE" | "STAND" | "SURPRISED" | "SURRENDER" | "TAP" | "TALK" | "TAUNT" | "TEASE" | "THANK" | "THIRSTY" |
+        "TICKLE" | "TIRED" | "TRAIN" | "VETO" | "VICTORY" | "VIOLIN" | "WAIT" | "WAVE" | "WELCOME" | "WHINE" | "WHISTLE" | "WINK" | "WORK" | "YAWN";
+}
 
 /**
  * Executes one of the emotes based on the given token, including vocal emotes and animations. The list of currently valid emotes is
@@ -22,7 +25,7 @@ declare type WowEmoteToken = "AGREE" | "AMAZE" | "ANGRY" | "APOLOGIZE" | "APPLAU
  * if you don't have a target. If the specified target does not exist or is out of range, then it performs the emote on yourself.
  * @see https://wow.gamepedia.com/API_DoEmote
  */
-declare function DoEmote(emote: WowEmoteToken, target?: WowUnitId): void;
+declare function DoEmote(emote: WoWAPI.EmoteToken, target?: WoWAPI.UnitId): void;
 
 /**
  * Returns the Language used by the indicated Player
@@ -30,7 +33,7 @@ declare function DoEmote(emote: WowEmoteToken, target?: WowUnitId): void;
  * @returns the default language of the indicated object, usually the faction's common language (i.e. "Common" and "Orcish").
  * @see https://wow.gamepedia.com/API_GetDefaultLanguage
  */
-declare function GetDefaultLanguage(unit: WowUnitId): string;
+declare function GetDefaultLanguage(unit: WoWAPI.UnitId): string;
 
 /**
  * Returns the language specified by the index that your character can speak
@@ -38,7 +41,7 @@ declare function GetDefaultLanguage(unit: WowUnitId): string;
  * @returns Returns the LanguageID
  * @see https://wow.gamepedia.com/API_GetLanguageByIndex
  */
-declare function GetLanguageByIndex(index: number): WowChannelLanguageId;
+declare function GetLanguageByIndex(index: number): WoWAPI.ChannelLanguageId;
 
 /**
  * Returns the number of languages your character can speak

@@ -27,7 +27,9 @@ declare const CR_MASTERY = 26;
 declare const CR_VERSATILITY_DAMAGE_DONE = 29;
 declare const CR_VERSATILITY_DAMAGE_TAKEN = 31;
 
-declare type WowCombatRatingIdentifyer = 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 23 | 24 | 25 | 26 | 29 | 31;
+declare namespace WoWAPI {
+    type CombatRatingIdentifier = 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 23 | 24 | 25 | 26 | 29 | 31;
+}
 
 /**
  * Returns attack power granted by particular amount of a particular stat
@@ -49,14 +51,14 @@ declare function GetBlockChance(): number;
  * @param combatRatingIdentifier A combat rating identifier from PaperDollFrame.lua
  * @see https://wow.gamepedia.com/API_GetCombatRating
  */
-declare function GetCombatRating(combatRatingIdentifier: WowCombatRatingIdentifyer): number;
+declare function GetCombatRating(combatRatingIdentifier: WoWAPI.CombatRatingIdentifier): number;
 
 /**
  * Returns the bonus, in percent (or other converted units, such as skill points), of a specific combat rating for the player
  * @param combatRatingIdentifier A combat rating identifier from PaperDollFrame.lua
  * @see https://wow.gamepedia.com/API_GetCombatRatingBonus
  */
-declare function GetCombatRatingBonus(combatRatingIdentifier: WowCombatRatingIdentifyer): number;
+declare function GetCombatRatingBonus(combatRatingIdentifier: WoWAPI.CombatRatingIdentifier): number;
 
 /**
  * Returns the player's critical hit chance
@@ -131,27 +133,27 @@ declare function GetMasteryEffect(): [number, number];
  * unknown
  * @param combatRatingIdentifier unknown
  */
-declare function GetMaxCombatRatingBonus(combatRatingIdentifier: WowCombatRatingIdentifyer): WowUnknown;
+declare function GetMaxCombatRatingBonus(combatRatingIdentifier: WoWAPI.CombatRatingIdentifier): WoWAPI.Unknown;
 
 /**
  * Returns player's Melee attack haste
  */
-declare function GetMeleeHaste(): WowUnknown;
+declare function GetMeleeHaste(): WoWAPI.Unknown;
 
 /**
  * unknown
  */
-declare function GetModResilienceDamageReduction(): WowUnknown;
+declare function GetModResilienceDamageReduction(): WoWAPI.Unknown;
 
 /**
  * unknown
  */
-declare function GetOverrideAPBySpellPower(): WowUnknown;
+declare function GetOverrideAPBySpellPower(): WoWAPI.Unknown;
 
 /**
  * unknown
  */
-declare function GetOverrideSpellPowerByAP(...args: WowUnknown[]): WowUnknown;
+declare function GetOverrideSpellPowerByAP(...args: WoWAPI.Unknown[]): WoWAPI.Unknown;
 
 /**
  * Player's parry chance in percentage
@@ -162,17 +164,17 @@ declare function GetParryChance(): number;
 /**
  * unknown
  */
-declare function GetPetMeleeHaste(): WowUnknown;
+declare function GetPetMeleeHaste(): WoWAPI.Unknown;
 
 /**
  * unknown
  */
-declare function GetPetSpellBonusDamage(): WowUnknown;
+declare function GetPetSpellBonusDamage(): WoWAPI.Unknown;
 
 /**
  * unknown
  */
-declare function GetPowerRegenForPowerType(powerType: WowUnitPowerType): WowUnknown;
+declare function GetPowerRegenForPowerType(powerType: WoWAPI.UnitPowerType): WoWAPI.Unknown;
 
 /**
  * The players critical strike chance with the currently equipped range weapon as a floating point figure
@@ -201,7 +203,7 @@ declare function GetShieldBlock(): number;
  * - 7 for Arcane
  * @see https://wow.gamepedia.com/API_GetSpellBonusDamage
  */
-declare function GetSpellBonusDamage(spellTreeId: WowSpellTreeId): number;
+declare function GetSpellBonusDamage(spellTreeId: WoWAPI.SpellTreeId): number;
 
 /**
  * Returns the raw bonus healing of the player
@@ -221,4 +223,4 @@ declare function GetSpellHitModifier(): number;
 /**
  * unknown
  */
-declare function GetSpellPenetration(): WowUnknown;
+declare function GetSpellPenetration(): WoWAPI.Unknown;

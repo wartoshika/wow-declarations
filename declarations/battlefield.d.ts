@@ -1,11 +1,13 @@
 /** @noSelfInFile */
 
-declare type WowBattlefieldStatusType = "queued" | "confirm" | "active" | "none" | "error";
-declare type WowBattlefieldTeamSize = 0 | 2 | 3 | 5;
-declare type WowBattlefieldType = "ARENA" | "BATTLEGROUND" | "WARGAME";
-declare type WowBattlefieldWinType = null | 0 | 1 | 255;
-declare type WowBattlefieldUiStateType = 0 | 1 | 2;
-declare type WowBattlefieldFaction = null | undefined | void | 0 | 1;
+declare namespace WoWAPI {
+    type BattlefieldStatusType = "queued" | "confirm" | "active" | "none" | "error";
+    type BattlefieldTeamSize = 0 | 2 | 3 | 5;
+    type BattlefieldType = "ARENA" | "BATTLEGROUND" | "WARGAME";
+    type BattlefieldWinType = null | 0 | 1 | 255;
+    type BattlefieldUiStateType = 0 | 1 | 2;
+    type BattlefieldFaction = null | undefined | void | 0 | 1;
+}
 
 /**
  * Acccept the area Spirit Healer's resurrection in battlegrounds
@@ -95,7 +97,7 @@ declare function GetBattlefieldScore(playerIndex: number): [string, number, numb
  * If you want to make sure you have the most recent data you will have to call RequestBattlefieldScoreData and then wait for UPDATE_BATTLEFIELD_SCORE
  * @see https://wow.gamepedia.com/API_GetBattlefieldStatData
  */
-declare function GetBattlefieldStatData(playerIndex: number, columnIndex: number): WowUnknown;
+declare function GetBattlefieldStatData(playerIndex: number, columnIndex: number): WoWAPI.Unknown;
 
 /**
  * Get list of battleground specific columns on the scoreboard
@@ -112,7 +114,7 @@ declare function GetBattlefieldStatInfo(columnIndex: number): [string, string, s
  * @tupleReturn
  */
 // tslint:disable-next-line max-line-length
-declare function GetBattlefieldStatus(battlefieldIndex: number): [WowBattlefieldStatusType, string, WowBattlefieldTeamSize, number, WowUnknown, WowBattlefieldType, WowUnknown, WowUnitRoleType];
+declare function GetBattlefieldStatus(battlefieldIndex: number): [WoWAPI.BattlefieldStatusType, string, WoWAPI.BattlefieldTeamSize, number, WoWAPI.Unknown, WoWAPI.BattlefieldType, WoWAPI.Unknown, WoWAPI.UnitRoleType];
 
 /**
  * Get time this player's been in the queue in milliseconds
@@ -127,7 +129,7 @@ declare function GetBattlefieldTimeWaited(battlegroundQueuePosition: number): nu
  * for a draw in a battleground, 0 for Green Team and 1 for Yellow in an arena
  * @see https://wow.gamepedia.com/API_GetBattlefieldWinner
  */
-declare function GetBattlefieldWinner(): WowBattlefieldWinType;
+declare function GetBattlefieldWinner(): WoWAPI.BattlefieldWinType;
 
 /**
  * Returns information about a battleground type
@@ -135,7 +137,7 @@ declare function GetBattlefieldWinner(): WowBattlefieldWinType;
  * @see https://wow.gamepedia.com/API_GetBattlegroundInfo
  * @tupleReturn
  */
-declare function GetBattlegroundInfo(battlegroundTypeIndex: number): [string, WowFlag, WowFlag, WowFlag, number, string];
+declare function GetBattlegroundInfo(battlegroundTypeIndex: number): [string, WoWAPI.Flag, WoWAPI.Flag, WoWAPI.Flag, number, string];
 
 /**
  * Returns the max number of battlefields you can queue for
@@ -149,7 +151,7 @@ declare function GetMaxBattlefieldID(): number;
  * Appears to return the number of scores in the battleground/field scoreboard
  * @see https://wow.gamepedia.com/API_GetNumBattlefieldScores
  */
-declare function GetNumBattlefieldScores(): WowUnknown;
+declare function GetNumBattlefieldScores(): WoWAPI.Unknown;
 
 /**
  * Appears to return the number of columns in the battleground/field scoreboard, other than the common ones (Killing Blows, Kills, Deaths, Bonus Honour):
@@ -171,7 +173,7 @@ declare function GetNumWorldStateUI(): number;
  * @tupleReturn
  */
 // tslint:disable-next-line max-line-length
-declare function GetWorldStateUIInfo(worldUiStateIndex: number): [number, WowBattlefieldUiStateType, boolean, string, string, string, string, string, string, number, number, number];
+declare function GetWorldStateUIInfo(worldUiStateIndex: number): [number, WoWAPI.BattlefieldUiStateType, boolean, string, string, string, string, string, string, number, number, number];
 
 /**
  * Queues the player, or the player's group, for a battlefield instance
@@ -213,4 +215,4 @@ declare function RequestBattlegroundInstanceInfo(instanceIndex: number): void;
  * @param faction nil = All, 0 = Horde, 1 = Alliance
  * @see https://wow.gamepedia.com/API_SetBattlefieldScoreFaction
  */
-declare function SetBattlefieldScoreFaction(faction?: WowBattlefieldFaction): void;
+declare function SetBattlefieldScoreFaction(faction?: WoWAPI.BattlefieldFaction): void;

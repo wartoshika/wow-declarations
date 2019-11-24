@@ -50,3 +50,6 @@ import "./ui/tooltip";
 // U
 import "./ui/ui";
 import "./unit";
+
+export = WoWAPI;
+export as namespace WoWAPI;

@@ -8,70 +8,85 @@ declare const AUTOCOMPLETE_FLAG_INTERACTED_WITH = 0x00000010;
 declare const AUTOCOMPLETE_FLAG_ONLINE = 0x00000020;
 declare const AUTOCOMPLETE_FLAG_ALL = 0xffffffff;
 
-declare type WowChatTypeInfoBody = { r: number, g: number, b: number, id: string, sticky: boolean };
+declare namespace WoWAPI {
+    type ChatTypeInfoBody = { r: number, g: number, b: number, id: string, sticky: boolean };
 
-declare type WowChatTypeInfo = {
-    SYSTEM: WowChatTypeInfoBody,
-    SAY: WowChatTypeInfoBody,
-    PARTY: WowChatTypeInfoBody,
-    RAID: WowChatTypeInfoBody,
-    GUILD: WowChatTypeInfoBody,
-    OFFICER: WowChatTypeInfoBody,
-    YELL: WowChatTypeInfoBody,
-    WHISPER: WowChatTypeInfoBody,
-    WHISPER_INFORM: WowChatTypeInfoBody,
-    REPLY: WowChatTypeInfoBody,
-    EMOTE: WowChatTypeInfoBody,
-    TEXT_EMOTE: WowChatTypeInfoBody,
-    MONSTER_SAY: WowChatTypeInfoBody,
-    MONSTER_PARTY: WowChatTypeInfoBody,
-    MONSTER_YELL: WowChatTypeInfoBody,
-    MONSTER_WHISPER: WowChatTypeInfoBody,
-    MONSTER_EMOTE: WowChatTypeInfoBody,
-    CHANNEL: WowChatTypeInfoBody,
-    CHANNEL_JOIN: WowChatTypeInfoBody,
-    CHANNEL_LEAVE: WowChatTypeInfoBody,
-    CHANNEL_LIST: WowChatTypeInfoBody,
-    CHANNEL_NOTICE: WowChatTypeInfoBody,
-    CHANNEL_NOTICE_USER: WowChatTypeInfoBody,
-    AFK: WowChatTypeInfoBody,
-    DND: WowChatTypeInfoBody,
-    IGNORED: WowChatTypeInfoBody,
-    SKILL: WowChatTypeInfoBody,
-    LOOT: WowChatTypeInfoBody,
-    MONEY: WowChatTypeInfoBody,
-    OPENING: WowChatTypeInfoBody,
-    TRADESKILLS: WowChatTypeInfoBody,
-    PET_INFO: WowChatTypeInfoBody,
-    COMBAT_MISC_INFO: WowChatTypeInfoBody,
-    COMBAT_XP_GAIN: WowChatTypeInfoBody,
-    COMBAT_HONOR_GAIN: WowChatTypeInfoBody,
-    COMBAT_FACTION_CHANGE: WowChatTypeInfoBody,
-    BG_SYSTEN_NEUTRAL: WowChatTypeInfoBody,
-    BG_SYSTEM_ALLIANCE: WowChatTypeInfoBody,
-    BG_SYSTEN_HORDE: WowChatTypeInfoBody,
-    RAID_LEADER: WowChatTypeInfoBody,
-    RAID_WARNING: WowChatTypeInfoBody,
-    RAID_BOSS_WHISPER: WowChatTypeInfoBody,
-    RAID_BOSS_EMOTE: WowChatTypeInfoBody,
-    FILTERED: WowChatTypeInfoBody,
-    BATTLEGROUND: WowChatTypeInfoBody,
-    BATTLEGROUND_LEADER: WowChatTypeInfoBody,
-    RESTRICTED: WowChatTypeInfoBody,
-    CHANNEL1: WowChatTypeInfoBody,
-    CHANNEL2: WowChatTypeInfoBody,
-    CHANNEL3: WowChatTypeInfoBody,
-    CHANNEL4: WowChatTypeInfoBody,
-    CHANNEL5: WowChatTypeInfoBody,
-    CHANNEL6: WowChatTypeInfoBody,
-    CHANNEL7: WowChatTypeInfoBody,
-    CHANNEL8: WowChatTypeInfoBody,
-    CHANNEL9: WowChatTypeInfoBody,
-    CHANNEL10: WowChatTypeInfoBody,
-    ACHIVEMENT: WowChatTypeInfoBody,
-    GUILD_ACHIVEMENT: WowChatTypeInfoBody
-};
-declare const WowChatTypeInfo: WowChatTypeInfo;
+    type ChatTypeInfo = {
+        SYSTEM: ChatTypeInfoBody,
+        SAY: ChatTypeInfoBody,
+        PARTY: ChatTypeInfoBody,
+        RAID: ChatTypeInfoBody,
+        GUILD: ChatTypeInfoBody,
+        OFFICER: ChatTypeInfoBody,
+        YELL: ChatTypeInfoBody,
+        WHISPER: ChatTypeInfoBody,
+        WHISPER_INFORM: ChatTypeInfoBody,
+        REPLY: ChatTypeInfoBody,
+        EMOTE: ChatTypeInfoBody,
+        TEXT_EMOTE: ChatTypeInfoBody,
+        MONSTER_SAY: ChatTypeInfoBody,
+        MONSTER_PARTY: ChatTypeInfoBody,
+        MONSTER_YELL: ChatTypeInfoBody,
+        MONSTER_WHISPER: ChatTypeInfoBody,
+        MONSTER_EMOTE: ChatTypeInfoBody,
+        CHANNEL: ChatTypeInfoBody,
+        CHANNEL_JOIN: ChatTypeInfoBody,
+        CHANNEL_LEAVE: ChatTypeInfoBody,
+        CHANNEL_LIST: ChatTypeInfoBody,
+        CHANNEL_NOTICE: ChatTypeInfoBody,
+        CHANNEL_NOTICE_USER: ChatTypeInfoBody,
+        AFK: ChatTypeInfoBody,
+        DND: ChatTypeInfoBody,
+        IGNORED: ChatTypeInfoBody,
+        SKILL: ChatTypeInfoBody,
+        LOOT: ChatTypeInfoBody,
+        MONEY: ChatTypeInfoBody,
+        OPENING: ChatTypeInfoBody,
+        TRADESKILLS: ChatTypeInfoBody,
+        PET_INFO: ChatTypeInfoBody,
+        COMBAT_MISC_INFO: ChatTypeInfoBody,
+        COMBAT_XP_GAIN: ChatTypeInfoBody,
+        COMBAT_HONOR_GAIN: ChatTypeInfoBody,
+        COMBAT_FACTION_CHANGE: ChatTypeInfoBody,
+        BG_SYSTEN_NEUTRAL: ChatTypeInfoBody,
+        BG_SYSTEM_ALLIANCE: ChatTypeInfoBody,
+        BG_SYSTEN_HORDE: ChatTypeInfoBody,
+        RAID_LEADER: ChatTypeInfoBody,
+        RAID_WARNING: ChatTypeInfoBody,
+        RAID_BOSS_WHISPER: ChatTypeInfoBody,
+        RAID_BOSS_EMOTE: ChatTypeInfoBody,
+        FILTERED: ChatTypeInfoBody,
+        BATTLEGROUND: ChatTypeInfoBody,
+        BATTLEGROUND_LEADER: ChatTypeInfoBody,
+        RESTRICTED: ChatTypeInfoBody,
+        CHANNEL1: ChatTypeInfoBody,
+        CHANNEL2: ChatTypeInfoBody,
+        CHANNEL3: ChatTypeInfoBody,
+        CHANNEL4: ChatTypeInfoBody,
+        CHANNEL5: ChatTypeInfoBody,
+        CHANNEL6: ChatTypeInfoBody,
+        CHANNEL7: ChatTypeInfoBody,
+        CHANNEL8: ChatTypeInfoBody,
+        CHANNEL9: ChatTypeInfoBody,
+        CHANNEL10: ChatTypeInfoBody,
+        ACHIVEMENT: ChatTypeInfoBody,
+        GUILD_ACHIVEMENT: ChatTypeInfoBody
+    };
+
+    /**
+     * the chat frame instance
+     */
+    interface ChatFrame {
+
+        /**
+         * add the given message to the frame
+         * @param message the message to add
+         */
+        AddMessage(message: string): void;
+    }
+}
+
+declare const ChatTypeInfo: WoWAPI.ChatTypeInfo;
 
 /**
  * Retrieves configuration information about a chat window
@@ -79,7 +94,7 @@ declare const WowChatTypeInfo: WowChatTypeInfo;
  * @see https://wow.gamepedia.com/API_GetChatWindowInfo
  * @tupleReturn
  */
-declare function GetChatWindowInfo(frameIndex: number): [string, number, number, number, number, WowFlag, WowFlag, number];
+declare function GetChatWindowInfo(frameIndex: number): [string, number, number, number, number, WoWAPI.Flag, WoWAPI.Flag, number];
 
 /**
  * Get the channels received by a chat window.
@@ -140,7 +155,7 @@ declare function GetAutoCompleteResults(text: string, include: number, exclude: 
  * @returns The numeric type index for that chat type, used as the ID number for coloring
  * @see https://wow.gamepedia.com/API_GetChatTypeIndex
  */
-declare function GetChatTypeIndex(typeCode: keyof WowChatTypeInfo): number;
+declare function GetChatTypeIndex(typeCode: keyof WoWAPI.ChatTypeInfo): number;
 
 /**
  * Toggles the chat logging and returns the current state
@@ -157,15 +172,3 @@ declare function LoggingChat(newState?: boolean): boolean;
  * @see https://wow.gamepedia.com/API_LoggingCombat
  */
 declare function LoggingCombat(newState?: boolean): boolean;
-
-/**
- * the chat frame instance
- */
-declare interface WowChatFrame {
-
-    /**
-     * add the given message to the frame
-     * @param message the message to add
-     */
-    AddMessage(message: string): void;
-}
