@@ -1,2 +1,4 @@
 tsconfig.json
 *.tgz
+.travis.yml
+tslint.json
