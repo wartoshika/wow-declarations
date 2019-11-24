@@ -1,7 +1,9 @@
 /** @noSelfInFile */
 
-declare type WowQuestType = "required" | "reward" | "choice";
-declare type WowQuestState = "OFFER" | "COMPLETE";
+declare namespace WoWAPI {
+    type QuestType = "required" | "reward" | "choice";
+    type QuestState = "OFFER" | "COMPLETE";
+}
 
 /**
  * Abandons the quest specified by SetAbandonQuest
@@ -32,7 +34,7 @@ declare function AcknowledgeAutoAcceptQuest(): void;
  * @param type popup type, one of "OFFER" or "COMPLETE"
  * @see https://wow.gamepedia.com/API_AddAutoQuestPopUp
  */
-declare function AddAutoQuestPopUp(questId: number, type: WowQuestState): void;
+declare function AddAutoQuestPopUp(questId: number, type: WoWAPI.QuestState): void;
 
 /**
  * Adds a quest to the list of quests being watched with an optional time to watch it
@@ -46,7 +48,7 @@ declare function AddQuestWatch(questIndex: number, watchTime: number): void;
  * Unknown
  * @param questId the quest id
  */
-declare function AddWorldQuestWatch(questId: number): WowUnknown;
+declare function AddWorldQuestWatch(questId: number): WoWAPI.Unknown;
 
 /**
  * Returns whether the player can abandon a specific quest
@@ -54,17 +56,17 @@ declare function AddWorldQuestWatch(questId: number): WowUnknown;
  * @returns 1 if the player is currently on the specified quest and can abandon it, nil otherwise
  * @see https://wow.gamepedia.com/API_CanAbandonQuest
  */
-declare function CanAbandonQuest(questId: number): WowFlag;
+declare function CanAbandonQuest(questId: number): WoWAPI.Flag;
 
 /**
  * Unknown
  */
-declare function ClearAutoAcceptQuestSound(): WowUnknown;
+declare function ClearAutoAcceptQuestSound(): WoWAPI.Unknown;
 
 /**
  * Closes the shown quest
  */
-declare function CloseQuest(): WowUnknown;
+declare function CloseQuest(): WoWAPI.Unknown;
 
 /**
  * Collapses the quest header
@@ -109,7 +111,7 @@ declare function ExpandQuestHeader(questId: number): void;
 /**
  * Unknown
  */
-declare function GetAbandonQuestItems(): WowUnknown;
+declare function GetAbandonQuestItems(): WoWAPI.Unknown;
 
 /**
  * Returns the name of a quest that will be abandoned if AbandonQuest is called

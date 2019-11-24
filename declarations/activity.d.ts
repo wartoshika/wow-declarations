@@ -92,7 +92,7 @@ declare function GetPVPTimer(): number;
  *
  * @see https://wow.gamepedia.com/API_GetSummonConfirmAreaName
  */
-declare function GetSummonConfirmAreaName(): WowUnknown;
+declare function GetSummonConfirmAreaName(): WoWAPI.Unknown;
 
 /**
  * Get the name of the unit which initiated the players summon
@@ -107,7 +107,7 @@ declare function GetSummonConfirmSummoner(): string;
  *
  * @see https://wow.gamepedia.com/API_GetSummonConfirmTimeLeft
  */
-declare function GetSummonConfirmTimeLeft(): WowUnknown;
+declare function GetSummonConfirmTimeLeft(): WoWAPI.Unknown;
 
 /**
  * Logs the player character out of the game.
@@ -143,7 +143,7 @@ declare function RandomRoll(low?: number, high?: number): void;
  * @param flag 0 or 1; 0 Toggles PVP off, 1 Toggles PVP on.
  * @see https://wow.gamepedia.com/API_SetPVP
  */
-declare function SetPVP(flag: WowFlag | null): void;
+declare function SetPVP(flag: WoWAPI.Flag | null): void;
 
 /**
  * The player sits, stands, or begins to descend (while swimming or flying)

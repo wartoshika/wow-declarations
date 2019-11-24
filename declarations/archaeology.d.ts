@@ -3,37 +3,40 @@
 /// <reference path="global.d.ts" />
 /// <reference path="ui/ui.d.ts" />
 
-declare type ARCHAELOLOGY_RARITY_COMMON = 0;
-declare type ARCHAELOLOGY_RARITY_RARE = 1;
-declare type ARCHAELOLOGY_RARITY = ARCHAELOLOGY_RARITY_COMMON | ARCHAELOLOGY_RARITY_RARE;
+declare namespace WoWAPI {
+    type ARCHAELOLOGY_RARITY_COMMON = 0;
+    type ARCHAELOLOGY_RARITY_RARE = 1;
+    type ARCHAELOLOGY_RARITY = ARCHAELOLOGY_RARITY_COMMON | ARCHAELOLOGY_RARITY_RARE;
 
-declare type ARCHAELOLOGY_BRANCH_DWARF = 1;
-declare type ARCHAELOLOGY_BRANCH_DRAENEI = 2;
-declare type ARCHAELOLOGY_BRANCH_FOSSIL = 3;
-declare type ARCHAELOLOGY_BRANCH_NIGHT_ELF = 4;
-declare type ARCHAELOLOGY_BRANCH_NERUBIAN = 5;
-declare type ARCHAELOLOGY_BRANCH_ORC = 6;
-declare type ARCHAELOLOGY_BRANCH_TOL_VIR = 7;
-declare type ARCHAELOLOGY_BRANCH_TROLL = 8;
-declare type ARCHAELOLOGY_BRANCH_VRYKUL = 27;
-declare type ARCHAELOLOGY_BRANCH_MANTID = 29;
-declare type ARCHAELOLOGY_BRANCH_PANDAREN = 229;
-declare type ARCHAELOLOGY_BRANCH_MOGU = 231;
-declare type ARCHAELOLOGY_BRANCH_ARAKKOA = 315;
-declare type ARCHAELOLOGY_BRANCH_DRAENOR_CLANS = 350;
-declare type ARCHAELOLOGY_BRANCH_OGRE = 382;
-declare type ARCHAELOLOGY_BRANCH_HIGHBORNE = 404;
-declare type ARCHAELOLOGY_BRANCH_HIGHMOUNTAIN_TAUREN = 406;
-declare type ARCHAELOLOGY_BRANCH_DEMONIC = 408;
+    type ARCHAELOLOGY_BRANCH_DWARF = 1;
+    type ARCHAELOLOGY_BRANCH_DRAENEI = 2;
+    type ARCHAELOLOGY_BRANCH_FOSSIL = 3;
+    type ARCHAELOLOGY_BRANCH_NIGHT_ELF = 4;
+    type ARCHAELOLOGY_BRANCH_NERUBIAN = 5;
+    type ARCHAELOLOGY_BRANCH_ORC = 6;
+    type ARCHAELOLOGY_BRANCH_TOL_VIR = 7;
+    type ARCHAELOLOGY_BRANCH_TROLL = 8;
+    type ARCHAELOLOGY_BRANCH_VRYKUL = 27;
+    type ARCHAELOLOGY_BRANCH_MANTID = 29;
+    type ARCHAELOLOGY_BRANCH_PANDAREN = 229;
+    type ARCHAELOLOGY_BRANCH_MOGU = 231;
+    type ARCHAELOLOGY_BRANCH_ARAKKOA = 315;
+    type ARCHAELOLOGY_BRANCH_DRAENOR_CLANS = 350;
+    type ARCHAELOLOGY_BRANCH_OGRE = 382;
+    type ARCHAELOLOGY_BRANCH_HIGHBORNE = 404;
+    type ARCHAELOLOGY_BRANCH_HIGHMOUNTAIN_TAUREN = 406;
+    type ARCHAELOLOGY_BRANCH_DEMONIC = 408;
 
-/**
- * all currently known branches
- */
-declare type ARCHAELOLOGY_BRANCH = ARCHAELOLOGY_BRANCH_DWARF | ARCHAELOLOGY_BRANCH_DRAENEI | ARCHAELOLOGY_BRANCH_FOSSIL |
-    ARCHAELOLOGY_BRANCH_NIGHT_ELF | ARCHAELOLOGY_BRANCH_NERUBIAN | ARCHAELOLOGY_BRANCH_ORC | ARCHAELOLOGY_BRANCH_TOL_VIR |
-    ARCHAELOLOGY_BRANCH_TROLL | ARCHAELOLOGY_BRANCH_VRYKUL | ARCHAELOLOGY_BRANCH_MANTID | ARCHAELOLOGY_BRANCH_PANDAREN |
-    ARCHAELOLOGY_BRANCH_MOGU | ARCHAELOLOGY_BRANCH_ARAKKOA | ARCHAELOLOGY_BRANCH_DRAENOR_CLANS | ARCHAELOLOGY_BRANCH_OGRE |
-    ARCHAELOLOGY_BRANCH_HIGHBORNE | ARCHAELOLOGY_BRANCH_HIGHMOUNTAIN_TAUREN | ARCHAELOLOGY_BRANCH_DEMONIC;
+    /**
+     * all currently known branches
+     */
+    type ARCHAELOLOGY_BRANCH = ARCHAELOLOGY_BRANCH_DWARF | ARCHAELOLOGY_BRANCH_DRAENEI | ARCHAELOLOGY_BRANCH_FOSSIL |
+        ARCHAELOLOGY_BRANCH_NIGHT_ELF | ARCHAELOLOGY_BRANCH_NERUBIAN | ARCHAELOLOGY_BRANCH_ORC | ARCHAELOLOGY_BRANCH_TOL_VIR |
+        ARCHAELOLOGY_BRANCH_TROLL | ARCHAELOLOGY_BRANCH_VRYKUL | ARCHAELOLOGY_BRANCH_MANTID | ARCHAELOLOGY_BRANCH_PANDAREN |
+        ARCHAELOLOGY_BRANCH_MOGU | ARCHAELOLOGY_BRANCH_ARAKKOA | ARCHAELOLOGY_BRANCH_DRAENOR_CLANS | ARCHAELOLOGY_BRANCH_OGRE |
+        ARCHAELOLOGY_BRANCH_HIGHBORNE | ARCHAELOLOGY_BRANCH_HIGHMOUNTAIN_TAUREN | ARCHAELOLOGY_BRANCH_DEMONIC;
+
+}
 
 /**
  * Returns how many digsites are in a zone like Azsuna or Elwynn Forest
@@ -51,7 +54,7 @@ declare function ArchaeologyMapUpdateAll(): number;
  * @see https://wow.gamepedia.com/API_ArchaeologyGetIconInfo
  * @since 4.0.0
  */
-declare function ArchaeologyGetIconInfo(index: WowUnknown): WowUnknown;
+declare function ArchaeologyGetIconInfo(index: WoWAPI.Unknown): WoWAPI.Unknown;
 
 /**
  * Returns 1 if item could be added to the selected artifact
@@ -60,7 +63,7 @@ declare function ArchaeologyGetIconInfo(index: WowUnknown): WowUnknown;
  * @see https://wow.gamepedia.com/API_CanItemBeSocketedToArtifact
  * @since 4.0.0
  */
-declare function CanItemBeSocketedToArtifact(itemId: number): WowFlag;
+declare function CanItemBeSocketedToArtifact(itemId: number): WoWAPI.Flag;
 
 /**
  * Returns whether the player is currently on a digsite
@@ -85,7 +88,7 @@ declare function CanSolveArtifact(): boolean;
  * @see https://wow.gamepedia.com/API_CloseResearch
  * @since 4.0.0
  */
-declare function CloseResearch(): WowUnknown;
+declare function CloseResearch(): WoWAPI.Unknown;
 
 /**
  * Returns the information for a specific race's active artifact
@@ -96,7 +99,8 @@ declare function CloseResearch(): WowUnknown;
  * @since 4.0.0
  * @tupleReturn
  */
-declare function GetActiveArtifactByRace(raceIndex: number): [string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath];
+// tslint:disable-next-line max-line-length
+declare function GetActiveArtifactByRace(raceIndex: number): [string, string, WoWAPI.ARCHAELOLOGY_RARITY, WoWAPI.TexturePath, string, number, WoWAPI.TexturePath];
 
 /**
  * Returns the localized name for Archaeology
@@ -116,7 +120,7 @@ declare function GetArchaeologyInfo(): string;
  * @since 4.0.0
  * @tupleReturn
  */
-declare function GetArchaeologyRaceInfo(raceIndex: number): [string, WowTexturePath, number, number, number, number];
+declare function GetArchaeologyRaceInfo(raceIndex: number): [string, WoWAPI.TexturePath, number, number, number, number];
 
 /**
  * Returns information about a branch of Archaeology
@@ -127,7 +131,7 @@ declare function GetArchaeologyRaceInfo(raceIndex: number): [string, WowTextureP
  * @since 5.4.0
  * @tupleReturn
  */
-declare function GetArchaeologyRaceInfoByID(branchId: ARCHAELOLOGY_BRANCH): [string, WowTexturePath, number, number, number, number];
+declare function GetArchaeologyRaceInfoByID(branchId: WoWAPI.ARCHAELOLOGY_BRANCH): [string, WoWAPI.TexturePath, number, number, number, number];
 
 /**
  * Returns the information for a specific race's artifact
@@ -140,7 +144,7 @@ declare function GetArchaeologyRaceInfoByID(branchId: ARCHAELOLOGY_BRANCH): [str
  * @tupleReturn
  */
 // tslint:disable-next-line max-line-length
-declare function GetArtifactInfoByRace(raceIndex: number, artifactIndex: number): [string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath, number, number];
+declare function GetArtifactInfoByRace(raceIndex: number, artifactIndex: number): [string, string, WoWAPI.ARCHAELOLOGY_RARITY, WoWAPI.TexturePath, string, number, WoWAPI.TexturePath, number, number];
 
 /**
  * Returns the number of Archaeology races in the game
@@ -169,7 +173,7 @@ declare function GetNumArtifactsByRace(raceIndex: number): number;
  * @since 4.0.0
  * @tupleReturn
  */
-declare function GetSelectedArtifactInfo(): [string, string, ARCHAELOLOGY_RARITY, WowTexturePath, string, number, WowTexturePath, number];
+declare function GetSelectedArtifactInfo(): [string, string, WoWAPI.ARCHAELOLOGY_RARITY, WoWAPI.TexturePath, string, number, WoWAPI.TexturePath, number];
 
 /**
  * Returns information about current used fragments for the selected artifact
@@ -188,7 +192,7 @@ declare function GetArtifactProgress(): [number, number, number];
  * @see https://wow.gamepedia.com/API_IsArtifactCompletionHistoryAvailable
  * @since 4.0.0
  */
-declare function IsArtifactCompletionHistoryAvailable(...args: WowUnknown[]): WowUnknown;
+declare function IsArtifactCompletionHistoryAvailable(...args: WoWAPI.Unknown[]): WoWAPI.Unknown;
 
 /**
  * Returns if there is a keystone in the artifact
@@ -197,7 +201,7 @@ declare function IsArtifactCompletionHistoryAvailable(...args: WowUnknown[]): Wo
  * @see https://wow.gamepedia.com/API_ItemAddedToArtifact
  * @since 4.0.0
  */
-declare function ItemAddedToArtifact(keystoneIndex: WowUnknown): WowUnknown;
+declare function ItemAddedToArtifact(keystoneIndex: WoWAPI.Unknown): WoWAPI.Unknown;
 
 /**
  * Set the artifact-pointer to raceIndex
@@ -241,4 +245,4 @@ declare function SocketItemToArtifact(): boolean;
  * @see https://wow.gamepedia.com/API_SolveArtifact
  * @since 4.0.0
  */
-declare function SolveArtifact(): WowUnknown;
+declare function SolveArtifact(): WoWAPI.Unknown;

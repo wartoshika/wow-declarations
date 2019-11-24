@@ -3,21 +3,25 @@
         "tslint:recommended"
     ],
     "rules": {
-        "trailing-comma": false,
         "array-type": false,
+        "arrow-parens": false,
+        // blizzard named their object like C_BlackMarket. In order to support that, class-name must be false
+        "class-name":false,
         "interface-name": false,
-        "object-literal-sort-keys": false,
+        "interface-over-type-literal": false,
         "max-line-length": [
             true,
             160
         ],
-        "radix": false,
         "no-empty-interface": false,
-        "arrow-parens": false,
-        "interface-over-type-literal": false,
+        "no-namespace": [
+            true,
+            "allow-declarations"
+        ],
         // This is a declaration only repository, references are ok!
         "no-reference": false,
-        // blizzard named their object like C_BlackMarket. In order to support that, class-name must be false
-        "class-name":false
+        "object-literal-sort-keys": false,
+        "radix": false,
+        "trailing-comma": false
     }
 }

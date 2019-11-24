@@ -194,7 +194,7 @@ declare function MoveViewUpStop(): void;
  * @protected
  * @deprecated
  */
-declare function PitchDownStart(...args: WowUnknown[]): void;
+declare function PitchDownStart(...args: WoWAPI.Unknown[]): void;
 
 /**
  * unknown
@@ -202,7 +202,7 @@ declare function PitchDownStart(...args: WowUnknown[]): void;
  * @protected
  * @deprecated
  */
-declare function PitchDownStop(...args: WowUnknown[]): void;
+declare function PitchDownStop(...args: WoWAPI.Unknown[]): void;
 
 /**
  * unknown
@@ -210,7 +210,7 @@ declare function PitchDownStop(...args: WowUnknown[]): void;
  * @protected
  * @deprecated
  */
-declare function PitchUpStart(...args: WowUnknown[]): void;
+declare function PitchUpStart(...args: WoWAPI.Unknown[]): void;
 
 /**
  * unknown
@@ -218,7 +218,7 @@ declare function PitchUpStart(...args: WowUnknown[]): void;
  * @protected
  * @deprecated
  */
-declare function PitchUpStop(...args: WowUnknown[]): void;
+declare function PitchUpStop(...args: WoWAPI.Unknown[]): void;
 
 /**
  * Cycles forward through the five predefined camera positions

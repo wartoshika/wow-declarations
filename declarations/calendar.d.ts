@@ -1,3 +1,5 @@
 /** @noSelfInFile */
 
-declare type WowCalendarEventType = "PLAYER" | "GUILD" | "ARENA" | "HOLIDAY" | "RAID_LOCKOUT";
+declare namespace WoWAPI {
+    type CalendarEventType = "PLAYER" | "GUILD" | "ARENA" | "HOLIDAY" | "RAID_LOCKOUT";
+}

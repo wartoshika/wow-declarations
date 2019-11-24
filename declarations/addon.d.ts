@@ -2,78 +2,80 @@
 
 /// <reference path="global.d.ts" />
 
-/**
- * Addon is banned by the client
- */
-declare type ADDON_LOAD_REASON_BANNED = "BANNED";
+declare namespace WoWAPI {
+    /**
+     * Addon is banned by the client
+     */
+    type ADDON_LOAD_REASON_BANNED = "BANNED";
 
-/**
- * The addon's file(s) are corrupt
- */
-declare type ADDON_LOAD_REASON_CORRUPT = "CORRUPT";
+    /**
+     * The addon's file(s) are corrupt
+     */
+    type ADDON_LOAD_REASON_CORRUPT = "CORRUPT";
 
-/**
- * Addon's dependency is banned by the client
- */
-declare type ADDON_LOAD_REASON_DEP_BANNED = "DEP_BANNED";
+    /**
+     * Addon's dependency is banned by the client
+     */
+    type ADDON_LOAD_REASON_DEP_BANNED = "DEP_BANNED";
 
-/**
- * The addon's dependency cannot load because its file(s) are corrupt
- */
-declare type ADDON_LOAD_REASON_DEP_CORRUPT = "DEP_CORRUPT";
+    /**
+     * The addon's dependency cannot load because its file(s) are corrupt
+     */
+    type ADDON_LOAD_REASON_DEP_CORRUPT = "DEP_CORRUPT";
 
-/**
- * The addon cannot load without its dependency enabled
- */
-declare type ADDON_LOAD_REASON_DEP_DISABLED = "DEP_DISABLED";
+    /**
+     * The addon cannot load without its dependency enabled
+     */
+    type ADDON_LOAD_REASON_DEP_DISABLED = "DEP_DISABLED";
 
-/**
- * The addon cannot load if its dependency cannot load
- */
-declare type ADDON_LOAD_REASON_DEP_INCOMPATIBLE = "DEP_INCOMPATIBLE";
+    /**
+     * The addon cannot load if its dependency cannot load
+     */
+    type ADDON_LOAD_REASON_DEP_INCOMPATIBLE = "DEP_INCOMPATIBLE";
 
-/**
- * The addon's dependency is physically not there
- */
-declare type ADDON_LOAD_REASON_DEP_MISSING = "DEP_MISSING";
+    /**
+     * The addon's dependency is physically not there
+     */
+    type ADDON_LOAD_REASON_DEP_MISSING = "DEP_MISSING";
 
-/**
- * The addon's dependency must be loadable on demand too
- */
-declare type ADDON_LOAD_REASON_DEP_NOT_DEMAND_LOADED = "DEP_NOT_DEMAND_LOADED";
+    /**
+     * The addon's dependency must be loadable on demand too
+     */
+    type ADDON_LOAD_REASON_DEP_NOT_DEMAND_LOADED = "DEP_NOT_DEMAND_LOADED";
 
-/**
- * Addon is disabled on the character select screen
- */
-declare type ADDON_LOAD_REASON_DISABLED = "DISABLED";
+    /**
+     * Addon is disabled on the character select screen
+     */
+    type ADDON_LOAD_REASON_DISABLED = "DISABLED";
 
-/**
- * The addon is too old.
- */
-declare type ADDON_LOAD_REASON_INCOMPATIBLE = "INCOMPATIBLE";
+    /**
+     * The addon is too old.
+     */
+    type ADDON_LOAD_REASON_INCOMPATIBLE = "INCOMPATIBLE";
 
-/**
- * The addon is physically not there
- */
-declare type ADDON_LOAD_REASON_MISSING = "MISSING";
+    /**
+     * The addon is physically not there
+     */
+    type ADDON_LOAD_REASON_MISSING = "MISSING";
 
-/**
- * As of 1.8 only addons marked as LoadOnDemand can be loaded via this function
- */
-declare type ADDON_LOAD_REASON_NOT_DEMAND_LOADED = "NOT_DEMAND_LOADED";
+    /**
+     * As of 1.8 only addons marked as LoadOnDemand can be loaded via this function
+     */
+    type ADDON_LOAD_REASON_NOT_DEMAND_LOADED = "NOT_DEMAND_LOADED";
 
-/**
- * Unknown, presumably the interface version in the .toc file is incorrect
- */
-declare type ADDON_LOAD_REASON_INTERFACE_VERSION = "INTERFACE_VERSION";
+    /**
+     * Unknown, presumably the interface version in the .toc file is incorrect
+     */
+    type ADDON_LOAD_REASON_INTERFACE_VERSION = "INTERFACE_VERSION";
 
-/**
- * all possible load error reasons
- */
-declare type ADDON_LOAD_REASON = ADDON_LOAD_REASON_BANNED | ADDON_LOAD_REASON_CORRUPT | ADDON_LOAD_REASON_DEP_BANNED | ADDON_LOAD_REASON_DEP_CORRUPT |
-    ADDON_LOAD_REASON_DEP_DISABLED | ADDON_LOAD_REASON_DEP_INCOMPATIBLE | ADDON_LOAD_REASON_DEP_MISSING | ADDON_LOAD_REASON_DEP_NOT_DEMAND_LOADED |
-    ADDON_LOAD_REASON_DISABLED | ADDON_LOAD_REASON_INCOMPATIBLE | ADDON_LOAD_REASON_MISSING | ADDON_LOAD_REASON_NOT_DEMAND_LOADED |
-    ADDON_LOAD_REASON_INTERFACE_VERSION;
+    /**
+     * all possible load error reasons
+     */
+    type ADDON_LOAD_REASON = ADDON_LOAD_REASON_BANNED | ADDON_LOAD_REASON_CORRUPT | ADDON_LOAD_REASON_DEP_BANNED | ADDON_LOAD_REASON_DEP_CORRUPT |
+        ADDON_LOAD_REASON_DEP_DISABLED | ADDON_LOAD_REASON_DEP_INCOMPATIBLE | ADDON_LOAD_REASON_DEP_MISSING |
+        ADDON_LOAD_REASON_DEP_NOT_DEMAND_LOADED | ADDON_LOAD_REASON_DISABLED | ADDON_LOAD_REASON_INCOMPATIBLE | ADDON_LOAD_REASON_MISSING |
+        ADDON_LOAD_REASON_NOT_DEMAND_LOADED | ADDON_LOAD_REASON_INTERFACE_VERSION;
+}
 
 /**
  * Disable an AddOn for subsequent sessions
@@ -132,7 +134,7 @@ declare function GetAddOnDependencies(indexOrName: number | string): [...string[
  * @param addonIndex Unknown
  * @see https://wow.gamepedia.com/API_GetAddOnEnableState
  */
-declare function GetAddOnEnableState(character: WowUnknown, addonIndex: WowUnknown): WowUnknown;
+declare function GetAddOnEnableState(character: WoWAPI.Unknown, addonIndex: WoWAPI.Unknown): WoWAPI.Unknown;
 
 /**
  * Get information about an AddOn
@@ -143,7 +145,7 @@ declare function GetAddOnEnableState(character: WowUnknown, addonIndex: WowUnkno
  * @see https://wow.gamepedia.com/API_GetAddOnInfo
  * @tupleReturn
  */
-declare function GetAddOnInfo(indexOrName: number | string): [string, string, string, boolean, ADDON_LOAD_REASON, string, boolean];
+declare function GetAddOnInfo(indexOrName: number | string): [string, string, string, boolean, WoWAPI.ADDON_LOAD_REASON, string, boolean];
 
 /**
  * get addon metadata from the toc file
@@ -181,7 +183,7 @@ declare function GetNumAddOns(): number;
  * @see https://wow.gamepedia.com/API_IsAddOnLoaded
  * @tupleReturn
  */
-declare function IsAddOnLoaded(indexOrName: number | string): [WowFlag, WowFlag];
+declare function IsAddOnLoaded(indexOrName: number | string): [WoWAPI.Flag, WoWAPI.Flag];
 
 /**
  * Determine if an AddOn is loaded on demand (via .toc file dependencies or LoadAddOn) rather than at startup
@@ -191,7 +193,7 @@ declare function IsAddOnLoaded(indexOrName: number | string): [WowFlag, WowFlag]
  * @returns Indicates if the AddOn is loaded on demand, 1 if it is, nil if it is loaded on startup
  * @see https://wow.gamepedia.com/API_IsAddOnLoadOnDemand
  */
-declare function IsAddOnLoadOnDemand(indexOrName: number | string): WowFlag;
+declare function IsAddOnLoadOnDemand(indexOrName: number | string): WoWAPI.Flag;
 
 /**
  * Request the loading of an On-Demand AddOn
@@ -202,4 +204,4 @@ declare function IsAddOnLoadOnDemand(indexOrName: number | string): WowFlag;
  * @see https://wow.gamepedia.com/API_LoadAddOn
  * @tupleReturn
  */
-declare function LoadAddOn(indexOrName: number | string): [WowFlag, ADDON_LOAD_REASON];
+declare function LoadAddOn(indexOrName: number | string): [WoWAPI.Flag, WoWAPI.ADDON_LOAD_REASON];
