@@ -329,9 +329,31 @@ declare namespace WoWAPI {
         ARTIFACT_XP_UPDATE: null;
 
         /**
-         * unknown
+         * @see https://wow.gamepedia.com/AUCTION_CANCELED
          */
-        AUCTION_BIDDER_LIST_UPDATE: Unknown[];
+        AUCTION_CANCELED: [number];
+
+        /**
+         * unknown
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_AUCTION_CREATED
+         */
+        AUCTION_HOUSE_AUCTION_CREATED: [number];
+
+        /**
+         * unknown
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_BROWSE_FAILURE
+         */
+        AUCTION_HOUSE_BROWSE_FAILURE: null;
+
+        /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_BROWSE_RESULTS_ADDED
+         */
+        AUCTION_HOUSE_BROWSE_RESULTS_ADDED: Unknown[];
+
+        /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_BROWSE_RESULTS_UPDATED
+         */
+        AUCTION_HOUSE_BROWSE_RESULTS_UPDATED: null;
 
         /**
          * This event is fired when the auction interface is closed. It appears to fire twice, but the reason is unknown
@@ -346,17 +368,55 @@ declare namespace WoWAPI {
         AUCTION_HOUSE_DISABLED: null;
 
         /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_FAVORITES_UPDATED
+         */
+        AUCTION_HOUSE_FAVORITES_UPDATED: null;
+
+        /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_NEW_BID_RECEIVED
+         */
+        AUCTION_HOUSE_NEW_BID_RECEIVED: [number];
+
+        /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_NEW_RESULTS_RECEIVED
+         */
+        AUCTION_HOUSE_NEW_RESULTS_RECEIVED: Unknown[];
+
+        /**
          * This event is fired when the auction interface is first displayed. This is generally done by right-clicking an auctioneer in a major city
          * @see https://wow.gamepedia.com/AUCTION_HOUSE_SHOW
          */
         AUCTION_HOUSE_SHOW: null;
 
         /**
-         * This event is fired when the Auction list is updated. Note that this is not only the case, if the list is completely changed but also
-         * if it is sorted (i.e. SortAuctionItems() is called).
-         * @see https://wow.gamepedia.com/AUCTION_ITEM_LIST_UPDATE
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_MESSAGE_DROPPED
          */
-        AUCTION_ITEM_LIST_UPDATE: null;
+        AUCTION_HOUSE_THROTTLED_MESSAGE_DROPPED: null;
+
+        /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_MESSAGE_QUEUED
+         */
+        AUCTION_HOUSE_THROTTLED_MESSAGE_QUEUED: null;
+
+        /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_MESSAGE_RESPONSE_RECEIVED
+         */
+        AUCTION_HOUSE_THROTTLED_MESSAGE_RESPONSE_RECEIVED: null;
+
+        /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_MESSAGE_SENT
+         */
+        AUCTION_HOUSE_THROTTLED_MESSAGE_SENT: null;
+
+        /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_SPECIFIC_SEARCH_READY
+         */
+        AUCTION_HOUSE_THROTTLED_SPECIFIC_SEARCH_READY: null;
+
+        /**
+         * @see https://wow.gamepedia.com/AUCTION_HOUSE_THROTTLED_SYSTEM_READY
+         */
+        AUCTION_HOUSE_THROTTLED_SYSTEM_READY: null;
 
         /**
          * Fired when listing of multiple stacks fails (or is aborted?).
@@ -378,11 +438,6 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/AUCTION_MULTISELL_UPDATE
          */
         AUCTION_MULTISELL_UPDATE: [number, number];
-
-        /**
-         * unknown
-         */
-        AUCTION_OWNED_LIST_UPDATE: Unknown[];
 
         /**
          * unknown
@@ -597,6 +652,16 @@ declare namespace WoWAPI {
          * unknown
          */
         BATTLE_PET_CURSOR_CLEAR: Unknown[];
+
+        /**
+         * @see https://wow.gamepedia.com/BIDS_UPDATED
+         */
+        BIDS_UPDATED: null;
+
+        /**
+         * @see https://wow.gamepedia.com/BID_ADDED
+         */
+        BID_ADDED: [number];
 
         /**
          * unknown
@@ -1517,6 +1582,11 @@ declare namespace WoWAPI {
         COMMENTATOR_ENTER_WORLD: null;
 
         /**
+         * @see https://wow.gamepedia.com/COMMENTATOR_IMMEDIATE_FOV_UPDATE
+         */
+        COMMENTATOR_IMMEDIATE_FOV_UPDATE: [number];
+
+        /**
          * unknown
          */
         COMMENTATOR_MAP_UPDATE: Unknown[];
@@ -1535,6 +1605,45 @@ declare namespace WoWAPI {
          * unknown
          */
         COMMENTATOR_PLAYER_UPDATE: Unknown[];
+
+        /**
+         * @see https://wow.gamepedia.com/COMMODITY_PRICE_UNAVAILABLE
+         */
+        COMMODITY_PRICE_UNAVAILABLE: null;
+
+        /**
+         * - **arg1**: Updated unit price
+         * - **arg2**: Updated total price
+         * @see https://wow.gamepedia.com/COMMODITY_PRICE_UPDATED
+         */
+        COMMODITY_PRICE_UPDATED: [number, number];
+
+        /**
+         * - **arg1**: Item ID
+         * - **arg2**: Quantity
+         * @see https://wow.gamepedia.com/COMMODITY_PURCHASED
+         */
+        COMMODITY_PURCHASED: [number, number];
+
+        /**
+         * @see https://wow.gamepedia.com/COMMODITY_PURCHASE_FAILED
+         */
+        COMMODITY_PURCHASE_FAILED: null;
+
+        /**
+         * @see https://wow.gamepedia.com/COMMODITY_PURCHASE_SUCCEEDED
+         */
+        COMMODITY_PURCHASE_SUCCEEDED: null;
+
+        /**
+         * @see https://wow.gamepedia.com/COMMODITY_SEARCH_RESULTS_ADDED
+         */
+        COMMODITY_SEARCH_RESULTS_ADDED: [number];
+
+        /**
+         * @see https://wow.gamepedia.com/COMMODITY_SEARCH_RESULTS_UPDATED
+         */
+        COMMODITY_SEARCH_RESULTS_UPDATED: [number];
 
         /**
          * unknown
@@ -1917,6 +2026,11 @@ declare namespace WoWAPI {
         EXPERIMENTAL_CVAR_CONFIRMATION_NEEDED: Unknown[];
 
         /**
+         * @see https://wow.gamepedia.com/EXTRA_BROWSE_INFO_RECEIVED
+         */
+        EXTRA_BROWSE_INFO_RECEIVED: [number];
+
+        /**
          * unknown
          */
         FORBIDDEN_NAME_PLATE_CREATED: Unknown[];
@@ -2259,6 +2373,20 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/GET_ITEM_INFO_RECEIVED
          */
         GET_ITEM_INFO_RECEIVED: [number];
+
+        /**
+         * Fires whenever you press a mouse button.
+         * - **arg1**: The mouse button pressed
+         * @see https://wow.gamepedia.com/GLOBAL_MOUSE_DOWN
+         */
+        GLOBAL_MOUSE_DOWN: [MouseButton];
+
+        /**
+         * Fires whenever a mouse button gets released.
+         * - **arg1**: The mouse button pressed
+         * @see https://wow.gamepedia.com/GLOBAL_MOUSE_DOWN
+         */
+        GLOBAL_MOUSE_UP: [MouseButton];
 
         /**
          * Fired when a glyph is added to a socket. Also fires for a socket when changing the talent group causes that socket to change from an
@@ -2643,6 +2771,26 @@ declare namespace WoWAPI {
         INVENTORY_SEARCH_UPDATE: null;
 
         /**
+         * @see https://wow.gamepedia.com/ITEM_INTERACTION_CLOSE
+         */
+        ITEM_INTERACTION_CLOSE: null;
+
+        /**
+         * @see https://wow.gamepedia.com/ITEM_INTERACTION_ITEM_SELECTION_UPDATED
+         */
+        ITEM_INTERACTION_ITEM_SELECTION_UPDATED: Unknown[];
+
+        /** 
+         * @see https://wow.gamepedia.com/ITEM_INTERACTION_OPEN
+         */
+        ITEM_INTERACTION_OPEN: null;
+
+        /**
+         * @see https://wow.gamepedia.com/ITEM_KEY_ITEM_INFO_RECEIVED
+         */
+        ITEM_KEY_ITEM_INFO_RECEIVED: [number];
+
+        /**
          * Fires when an item gets "locked" in the inventory or a container
          * - **arg1**: Bag of item
          * - **arg2**: Slot of item
@@ -2663,6 +2811,11 @@ declare namespace WoWAPI {
         ITEM_LOCK_CHANGED: [CONTAINER_ID | INVENTORY_SLOT_ID, INVENTORY_SLOT_ID?];
 
         /**
+         * @see https://wow.gamepedia.com/ITEM_PURCHASED
+         */
+        ITEM_PURCHASED: [number];
+
+        /**
          * Fired when an item is pushed onto the "inventory-stack". For instance when you manufacture something with your trade skills or picks something up
          * - **arg1**: the bag that has received the new item
          * - **arg2**: the path to the item's icon
@@ -2674,6 +2827,16 @@ declare namespace WoWAPI {
          * unknown
          */
         ITEM_RESTORATION_BUTTON_STATUS: Unknown[];
+
+        /**
+         * @see https://wow.gamepedia.com/ITEM_SEARCH_RESULTS_ADDED
+         */
+        ITEM_SEARCH_RESULTS_ADDED: Unknown[];
+
+        /**
+         * @see https://wow.gamepedia.com/ITEM_SEARCH_RESULTS_UPDATED
+         */
+        ITEM_SEARCH_RESULTS_UPDATED: Unknown[];
 
         /**
          * Fired when an items text begins displaying
@@ -3382,13 +3545,6 @@ declare namespace WoWAPI {
         NEUTRAL_FACTION_SELECT_RESULT: Unknown[];
 
         /**
-         * Fired when a user drags an item into the Auction Item box on the Auctions tab of the auction house window
-         * @description You can retrieve information about the item for which an auction is being considered using GetAuctionSellItemInfo
-         * @see https://wow.gamepedia.com/NEW_AUCTION_UPDATE
-         */
-        NEW_AUCTION_UPDATE: null;
-
-        /**
          * unknown
          */
         NEW_MOUNT_ADDED: Unknown[];
@@ -3452,6 +3608,11 @@ declare namespace WoWAPI {
          * Fired when interacting with an NPC allowing guild tabard customization
          */
         OPEN_TABARD_FRAME: null;
+
+        /**
+         * @see https://wow.gamepedia.com/OWNED_AUCTIONS_UPDATED
+         */
+        OWNED_AUCTIONS_UPDATED: null;
 
         /**
          * unknown
@@ -4550,6 +4711,11 @@ declare namespace WoWAPI {
          */
         REPLACE_ENCHANT: Unknown[];
 
+        /** 
+         * @see https://wow.gamepedia.com/REPLICATE_ITEM_LIST_UPDATE
+         */
+        REPLICATE_ITEM_LIST_UPDATE: null;
+
         /**
          * unknown
          */
@@ -5233,6 +5399,11 @@ declare namespace WoWAPI {
          * unknown
          */
         TOKEN_REDEEM_RESULT: Unknown[];
+
+        /**
+         * @see https://wow.gamepedia.com/TOKEN_SELL_CONFIRMED
+         */
+        TOKEN_SELL_CONFIRMED: null;
 
         /**
          * unknown
@@ -6452,6 +6623,16 @@ declare namespace WoWAPI {
          * @see https://wow.gamepedia.com/WHO_LIST_UPDATE
          */
         WHO_LIST_UPDATE: null;
+
+        /**
+         * @see https://wow.gamepedia.com/WORLD_MAP_CLOSE
+         */
+        WORLD_MAP_CLOSE: null;
+
+        /**
+         * @see https://wow.gamepedia.com/WORLD_MAP_OPEN
+         */
+        WORLD_MAP_OPEN: [number];
 
         /**
          * Fired when the world map should be updated. When entering a battleground, this event won't fire until the zone is changed (i.e. in
