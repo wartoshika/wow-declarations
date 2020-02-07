@@ -223,9 +223,9 @@ declare namespace WoWAPI {
 
         /**
          * Shows an ItemKey in a tooltip.
-         * @param itemID 
-         * @param itemLevel 
-         * @param itemSuffix 
+         * @param itemID
+         * @param itemLevel
+         * @param itemSuffix
          */
         SetItemKey(itemID: number, itemLevel: number, itemSuffix: number): void;
 

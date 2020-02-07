@@ -39,15 +39,16 @@ declare namespace WoWAPI {
     type ItemLink = Hyperlink;
 
     interface CorruptionEffectInfo {
-        name: string,
-        description: string,
-        minCorruption: number
+        name: string;
+        description: string;
+        minCorruption: number;
     }
 
     interface ItemLocationMixin {
         bagID: number | null;
         slotIndex: number | null;
         equipmentSlotIndex: number | null;
+        IsValid: boolean;
 
         Clear(): void;
         GetBagAndSlot(): [number | null, number | null];
@@ -56,7 +57,6 @@ declare namespace WoWAPI {
         IsEquipmentSlot(): boolean;
         IsBagAndSlot(): boolean;
         HasAnyLocation(): boolean;
-        IsValid: boolean;
         IsEqualToBagAndSlot(otherBagID: number, otherSlotIndex: number): boolean;
         IsEqualToEquipmentSlot(otherEquipmentSlotIndex: number): boolean;
         IsEqualTo(otherItemLocation: ItemLocationMixin): boolean;
@@ -66,20 +66,20 @@ declare namespace WoWAPI {
      * Output table for the AuctionHouse system.
      */
     interface ItemKey {
-        itemID: number,
-        itemLevel: number,
-        itemSuffix: number,
-        battlePetSpeciesID: number,
+        itemID: number;
+        itemLevel: number;
+        itemSuffix: number;
+        battlePetSpeciesID: number;
     }
 
     interface ItemKeyInfo {
-        itemName: string,
-        battlePetLink: string | null,
-        quality: ITEM_QUALITY,
-        iconFileID: number, // FileID
-        isPet: boolean,
-        isCommodity: boolean,
-        isEquipment: boolean,
+        itemName: string;
+        battlePetLink: string | null;
+        quality: ITEM_QUALITY;
+        iconFileID: number; // FileID
+        isPet: boolean;
+        isCommodity: boolean;
+        isEquipment: boolean;
     }
 
     interface C_AzeriteItem {
@@ -89,8 +89,8 @@ declare namespace WoWAPI {
         FindActiveAzeriteItem(): ItemLocationMixin;
 
         /**
-         * 
-         * @param azeriteItemLocation 
+         *
+         * @param azeriteItemLocation
          * @returns
          * - **xp**
          * - **totalLevelXP**
@@ -99,15 +99,15 @@ declare namespace WoWAPI {
         GetAzeriteItemXPInfo(azeriteItemLocation: ItemLocationMixin): [number, number];
 
         /**
-         * 
-         * @param azeriteItemLocation 
+         *
+         * @param azeriteItemLocation
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetPowerLevel
          */
         GetPowerLevel(azeriteItemLocation: ItemLocationMixin): number;
 
         /**
-         * 
-         * @param azeriteItemLocation 
+         *
+         * @param azeriteItemLocation
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetUnlimitedPowerLevel
          */
         GetUnlimitedPowerLevel(azeriteItemLocation: ItemLocationMixin): number;
@@ -118,8 +118,8 @@ declare namespace WoWAPI {
         HasActiveAzeriteItem(): boolean;
 
         /**
-         * 
-         * @param itemLocation 
+         *
+         * @param itemLocation
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItem
          */
         IsAzeriteItem(itemLocation: ItemLocationMixin): boolean;
@@ -130,8 +130,8 @@ declare namespace WoWAPI {
         IsAzeriteItemAtMaxLevel(): boolean;
 
         /**
-         * 
-         * @param itemInfo 
+         *
+         * @param itemInfo
          * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItemByID
          */
         IsAzeriteItemByID(itemInfo: string): boolean;
@@ -396,7 +396,7 @@ declare function IsUsableItem(itemIdentifier: string | number | WoWAPI.ItemLink)
 declare function IsConsumableItem(itemIdentifier: string | number | WoWAPI.ItemLink): WoWAPI.Flag;
 
 /**
- * 
+ *
  * @param itemIdentifier An item ID (number), item link or item name (string) to query
  * @see https://wow.gamepedia.com/API_IsCorruptedItem
  */

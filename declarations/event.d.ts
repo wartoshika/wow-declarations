@@ -2780,7 +2780,7 @@ declare namespace WoWAPI {
          */
         ITEM_INTERACTION_ITEM_SELECTION_UPDATED: Unknown[];
 
-        /** 
+        /**
          * @see https://wow.gamepedia.com/ITEM_INTERACTION_OPEN
          */
         ITEM_INTERACTION_OPEN: null;
@@ -4711,7 +4711,7 @@ declare namespace WoWAPI {
          */
         REPLACE_ENCHANT: Unknown[];
 
-        /** 
+        /**
          * @see https://wow.gamepedia.com/REPLICATE_ITEM_LIST_UPDATE
          */
         REPLICATE_ITEM_LIST_UPDATE: null;

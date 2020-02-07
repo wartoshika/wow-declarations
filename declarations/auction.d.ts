@@ -67,7 +67,8 @@ declare namespace WoWAPI {
     type AUCTION_HOUSE_FILTER_CATEGORY_UNCATEGORIZED = 0;
     type AUCTION_HOUSE_FILTER_CATEGORY_EQUIPMENT = 1;
     type AUCTION_HOUSE_FILTER_CATEGORY_RARITY = 2;
-    type AUCTION_HOUSE_FILTER_CATEGORY = AUCTION_HOUSE_FILTER_CATEGORY_UNCATEGORIZED | AUCTION_HOUSE_FILTER_CATEGORY_EQUIPMENT | AUCTION_HOUSE_FILTER_CATEGORY_RARITY;
+    type AUCTION_HOUSE_FILTER_CATEGORY = AUCTION_HOUSE_FILTER_CATEGORY_UNCATEGORIZED |
+        AUCTION_HOUSE_FILTER_CATEGORY_EQUIPMENT | AUCTION_HOUSE_FILTER_CATEGORY_RARITY;
 
     type AUCTION_HOUSE_FILTER_UNCOLLECTED_ONLY = 0;
     type AUCTION_HOUSE_FILTER_USABLE_ONLY = 1;
@@ -99,127 +100,127 @@ declare namespace WoWAPI {
     type AUCTION_HOUSE_SORT_ORDER_BUYOUT = 4;
     type AUCTION_HOUSE_SORT_ORDER = AUCTION_HOUSE_SORT_ORDER_PRICE | AUCTION_HOUSE_SORT_ORDER_NAME | AUCTION_HOUSE_SORT_ORDER_LEVEL |
         AUCTION_HOUSE_SORT_ORDER_BID | AUCTION_HOUSE_SORT_ORDER_BUYOUT;
-    
+
     type ITEM_COMMODITY_STATUS_UNKNOWN = 0;
     type ITEM_COMMODITY_STATUS_ITEM = 1;
     type ITEM_COMMODITY_STATUS_COMMODITY = 2;
     type ITEM_COMMODITY_STATUS = ITEM_COMMODITY_STATUS_UNKNOWN | ITEM_COMMODITY_STATUS_ITEM | ITEM_COMMODITY_STATUS_COMMODITY;
-    
+
     interface AuctionHouseBrowseQuery {
-        searchString: string,
-        sorts: AuctionHouseSortType[],
-        minLevel?: number,
-        maxLevel?: number,
-        filters?: AUCTION_HOUSE_FILTER[],
+        searchString: string;
+        sorts: AuctionHouseSortType[];
+        minLevel?: number;
+        maxLevel?: number;
+        filters?: AUCTION_HOUSE_FILTER[];
         itemClassFilters?: AuctionHouseItemClassFilter[];
     }
 
     interface AuctionHouseFilterGroup {
-        category: AUCTION_HOUSE_FILTER_CATEGORY,
-        filters: AUCTION_HOUSE_FILTER[],
+        category: AUCTION_HOUSE_FILTER_CATEGORY;
+        filters: AUCTION_HOUSE_FILTER[];
     }
 
     interface AuctionHouseItemClassFilter {
-        classID: number,
-        subClassID?: number,
-        inventoryType?: number,
+        classID: number;
+        subClassID?: number;
+        inventoryType?: number;
     }
 
     interface AuctionHouseSortType {
-        sortOrder: AUCTION_HOUSE_SORT_ORDER,
-        reverseSort: boolean,
+        sortOrder: AUCTION_HOUSE_SORT_ORDER;
+        reverseSort: boolean;
     }
 
     interface BidInfo {
-        auctionID: number,
-        itemKey: ItemKey,
-        itemLink?: ItemLink,
-        timeLeft: AUCTION_TIMELEFT,
-        bidAmount?: number,
-        buyoutAmount?: number,
-        bidder?: string,
+        auctionID: number;
+        itemKey: ItemKey;
+        itemLink?: ItemLink;
+        timeLeft: AUCTION_TIMELEFT;
+        bidAmount?: number;
+        buyoutAmount?: number;
+        bidder?: string;
     }
 
     interface BrowseResultInfo {
-        itemKey: ItemKey,
-        appearanceLink?: string,
-        totalQuantity: number,
-        minPrice: number,
-        containsOwnerItem: boolean,
+        itemKey: ItemKey;
+        appearanceLink?: string;
+        totalQuantity: number;
+        minPrice: number;
+        containsOwnerItem: boolean;
     }
 
     interface CommoditySearchResultInfo {
-        itemID: number,
-        quantity: number,
-        unitPrice: number,
-        auctionID: number,
-        owners: string[],
-        timeLeftSeconds?: number,
-        numOwnerItems: number,
-        containsOwnerItem: boolean,
-        containsAccountItem: boolean,
+        itemID: number;
+        quantity: number;
+        unitPrice: number;
+        auctionID: number;
+        owners: string[];
+        timeLeftSeconds?: number;
+        numOwnerItems: number;
+        containsOwnerItem: boolean;
+        containsAccountItem: boolean;
     }
 
     interface ItemSearchResultInfo {
-        itemKey: ItemKey,
-        owners: string[],
-        timeLeft: AUCTION_TIMELEFT,
-        auctionID: number,
-        quantity: number,
-        itemLink: ItemLink,
-        containsOwnerItem: boolean,
-        containsAccountItem: boolean,
-        containsSocketedItem: boolean,
-        bidder?: string,
-        minBid?: number,
-        bidAmount?: number,
-        buyoutAmount?: number,
-        timeLeftSeconds?: number,
+        itemKey: ItemKey;
+        owners: string[];
+        timeLeft: AUCTION_TIMELEFT;
+        auctionID: number;
+        quantity: number;
+        itemLink: ItemLink;
+        containsOwnerItem: boolean;
+        containsAccountItem: boolean;
+        containsSocketedItem: boolean;
+        bidder?: string;
+        minBid?: number;
+        bidAmount?: number;
+        buyoutAmount?: number;
+        timeLeftSeconds?: number;
     }
 
     interface OwnedAutionInfo {
-        auctionID: number,
-        itemKey: ItemKey,
-        itemLink: ItemLink,
-        status: AUCTION_SALE_STATUS,
-        quantity: number,
-        timeLeftSeconds?: number,
-        timeLeft: AUCTION_TIMELEFT,
-        bidAmount?: number | null,
-        buyoutAmount?: number,
-        bidder?: string,
+        auctionID: number;
+        itemKey: ItemKey;
+        itemLink: ItemLink;
+        status: AUCTION_SALE_STATUS;
+        quantity: number;
+        timeLeftSeconds?: number;
+        timeLeft: AUCTION_TIMELEFT;
+        bidAmount?: number | null;
+        buyoutAmount?: number;
+        bidder?: string;
     }
 
     interface C_AuctionHouse {
 
         /**
-         * 
-         * @param itemId 
-         * @param duration 
-         * @param quantity 
+         *
+         * @param itemId
+         * @param duration
+         * @param quantity
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CalculateCommodityDeposit
          */
         CalculateCommodityDeposit(itemId: number, duration: AUCTION_RUNTIME, quantity: number): number | null;
-    
+
         /**
-         * 
-         * @param table 
-         * @param duration 
-         * @param quantity 
+         *
+         * @param table
+         * @param duration
+         * @param quantity
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CalculateItemDeposit
          */
         CalculateItemDeposit(table: ItemLocationMixin, duration: AUCTION_RUNTIME, quantity: number): number | null;
 
         /**
-         * 
-         * @param ownedAuctionId 
+         *
+         * @param ownedAuctionId
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CanCancelAuction
          */
         CanCancelAuction(ownedAuctionId: number): boolean;
 
         /**
-         * 
-         * @param ownedAuctionId 
+         *
+         * @param ownedAuctionId
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.CancelAuction
          */
         CancelAuction(ownedAuctionId: number): void;
@@ -240,9 +241,9 @@ declare namespace WoWAPI {
         CloseAuctionHouse(): void;
 
         /**
-         * 
-         * @param itemId 
-         * @param quantity 
+         *
+         * @param itemId
+         * @param quantity
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.ConfirmCommoditiesPurchase
          */
         ConfirmCommoditiesPurchase(itemId: number, quantity: number): void;
@@ -253,29 +254,29 @@ declare namespace WoWAPI {
         FavoritesAreAvailable(): boolean;
 
         /**
-         * 
-         * @param classId 
+         *
+         * @param classId
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetAuctionItemSubClasses
          */
         GetAuctionItemSubClasses(classId: number): number[];
 
         /**
-         * 
-         * @param item 
+         *
+         * @param item
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetAvailablePostCount
          */
         GetAvailablePostCount(item: ItemLocationMixin): number;
 
         /**
-         * 
-         * @param bidIndex 
+         *
+         * @param bidIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetBidInfo
          */
         GetBidInfo(bidIndex: number): BidInfo | null;
 
         /**
-         * 
-         * @param bidTypeIndex 
+         *
+         * @param bidTypeIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetBidType
          */
         GetBidType(bidTypeIndex: number): ItemKey | null;
@@ -286,30 +287,30 @@ declare namespace WoWAPI {
         GetBrowseResults(): BrowseResultInfo[];
 
         /**
-         * 
-         * @param ownedAuctionID 
+         *
+         * @param ownedAuctionID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetCancelCost
          */
         GetCancelCost(ownedAuctionId: number): number;
 
         /**
-         * 
-         * @param itemId 
-         * @param commoditySearchIndex 
+         *
+         * @param itemId
+         * @param commoditySearchIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetCommoditySearchResultInfo
          */
         GetCommoditySearchResultInfo(itemId: number, commoditySearchIndex: number): CommoditySearchResultInfo | null;
-    
+
         /**
-         * 
-         * @param itemID 
+         *
+         * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetCommoditySearchResultsQuantity
          */
         GetCommoditySearchResultsQuantity(itemID: number): number;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetExtraBrowseInfo
          */
         GetExtraBrowseInfo(itemKey: ItemKey): number;
@@ -320,38 +321,38 @@ declare namespace WoWAPI {
         GetFilterGroups(): AuctionHouseFilterGroup[];
 
         /**
-         * 
-         * @param item 
+         *
+         * @param item
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemCommodityStatus
          */
         GetItemCommodityStatus(item: ItemLocationMixin): ITEM_COMMODITY_STATUS;
 
         /**
-         * 
-         * @param item 
+         *
+         * @param item
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemKeyFromItem
          */
         GetItemKeyFromItem(item: ItemLocationMixin): ItemKey;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @param restrictQualityToFilter
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemKeyInfo
          */
         GetItemKeyInfo(itemKey: ItemKey, restrictQualityToFilter?: boolean): ItemKeyInfo | null;
 
         /**
-         * 
-         * @param itemKey 
-         * @param itemSearchResultIndex 
+         *
+         * @param itemKey
+         * @param itemSearchResultIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemSearchResultInfo
          */
         GetItemSearchResultInfo(itemKey: ItemKey, itemSearchResultIndex: number): ItemSearchResultInfo | null;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetItemSearchResultsQuantity
          */
         GetItemSearchResultsQuantity(itemKey: ItemKey): number;
@@ -367,22 +368,22 @@ declare namespace WoWAPI {
         GetMaxBidItemBuyout(): number | null;
 
         /**
-         * 
-         * @param itemID 
+         *
+         * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxCommoditySearchResultPrice
          */
         GetMaxCommoditySearchResultPrice(itemID: number): number | null;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxItemSearchResultBid
          */
         GetMaxItemSearchResultBid(itemKey: ItemKey): number | null;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetMaxItemSearchResultBuyout
          */
         GetMaxItemSearchResultBuyout(itemKey: ItemKey): number | null;
@@ -408,15 +409,15 @@ declare namespace WoWAPI {
         GetNumBids(): number;
 
         /**
-         * 
-         * @param itemID 
+         *
+         * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetNumCommoditySearchResults
          */
         GetNumCommoditySearchResults(itemID: number): number;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetNumItemSearchResults
          */
         GetNumItemSearchResults(itemKey: ItemKey): number;
@@ -437,15 +438,15 @@ declare namespace WoWAPI {
         GetNumReplicateItems(): number;
 
         /**
-         * 
-         * @param ownedAuctionIndex 
+         *
+         * @param ownedAuctionIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetOwnedAuctionInfo
          */
         GetOwnedAuctionInfo(ownedAuctionIndex: number): OwnedAutionInfo | null;
 
         /**
-         * 
-         * @param ownedAuctionTypeIndex 
+         *
+         * @param ownedAuctionTypeIndex
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetOwnedAuctionType
          */
         GetOwnedAuctionType(ownedAuctionTypeIndex: number): ItemKey | null;
@@ -456,9 +457,9 @@ declare namespace WoWAPI {
         GetQuoteDurationRemaining(): number;
 
         /**
-         * 
-         * @param index 
-         * @returns 
+         *
+         * @param index
+         * @returns
          * - **creatureID**
          * - **displayID**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetReplicateItemBattlePetInfo
@@ -466,8 +467,8 @@ declare namespace WoWAPI {
         GetReplicateItemBattlePetInfo(index: number): [number, number];
 
         /**
-         * 
-         * @param index 
+         *
+         * @param index
          * @returns
          * - **name**
          * - **texture**
@@ -489,25 +490,26 @@ declare namespace WoWAPI {
          * - **hasAllInfo**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetReplicateItemInfo
          */
-        GetReplicateItemInfo(index: number): [string | null, number | null, number, number, boolean | null, number, string | null, number, number, number, number, string | null, string | null, string | null, string | null, number, number, boolean | null];
+        GetReplicateItemInfo(index: number): [string | null, number | null, number, number, boolean | null, number, string | null, number, number, number,
+            number, string | null, string | null, string | null, string | null, number, number, boolean | null];
 
         /**
-         * 
-         * @param index 
+         *
+         * @param index
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetReplicateItemLink
          */
         GetReplicateItemLink(index: number): string | null;
 
         /**
-         * 
-         * @param index 
+         *
+         * @param index
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.GetReplicateItemTimeLeft
          */
         GetReplicateItemTimeLeft(index: number): number;
 
         /**
-         * 
-         * @param timeLeftBand 
+         *
+         * @param timeLeftBand
          * @returns
          * - **timeLeftMinSeconds**
          * - **timeLeftMaxSeconds**
@@ -531,15 +533,15 @@ declare namespace WoWAPI {
         HasFullBrowseResults(): boolean;
 
         /**
-         * 
-         * @param itemID 
+         *
+         * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasFullCommoditySearchResults
          */
         HasFullCommoditySearchResults(itemID: number): boolean;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasFullItemSearchResults
          */
         HasFullItemSearchResults(itemKey: ItemKey): boolean;
@@ -555,98 +557,98 @@ declare namespace WoWAPI {
         HasMaxFavorites(): boolean;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.HasSearchResults
          */
         HasSearchResults(itemKey: ItemKey): boolean;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.IsFavoriteItem
          */
         IsFavoriteItem(itemKey: ItemKey): boolean;
 
         /**
-         * 
-         * @param item 
-         * @param displayError 
+         *
+         * @param item
+         * @param displayError
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.IsSellItemValid
          */
         IsSellItemValid(item: ItemLocationMixin, displayError?: boolean): boolean;
 
         /**
-         * 
-         * @param specificSearch 
+         *
+         * @param specificSearch
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.IsThrottledMessageSystemReady
          */
         IsThrottledMessageSystemReady(specificSearch?: boolean): boolean;
 
         /**
-         * 
-         * @param itemID 
-         * @param itemLevel 
-         * @param itemSuffix 
-         * @param battlePetSpeciesID 
+         *
+         * @param itemID
+         * @param itemLevel
+         * @param itemSuffix
+         * @param battlePetSpeciesID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.MakeItemKey
          */
         MakeItemKey(itemID: number, itemLevel?: number, itemSuffix?: number, battlePetSpeciesID?: number): ItemKey;
 
         /**
-         * 
-         * @param auctionID 
-         * @param bidAmount 
+         *
+         * @param auctionID
+         * @param bidAmount
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.PlaceBid
          */
         PlaceBid(auctionID: number, bidAmount: number): void;
 
         /**
-         * 
-         * @param item 
-         * @param duration 
-         * @param quantity 
-         * @param unitPrice 
+         *
+         * @param item
+         * @param duration
+         * @param quantity
+         * @param unitPrice
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.PostCommodity
          */
         PostCommodity(item: ItemLocationMixin, duration: AUCTION_RUNTIME, quantity: number, unitPrice: number): void;
 
         /**
-         * 
-         * @param item 
-         * @param duration 
-         * @param quantity 
-         * @param bid 
-         * @param buyout 
+         *
+         * @param item
+         * @param duration
+         * @param quantity
+         * @param bid
+         * @param buyout
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.PostItem
          */
         PostItem(item: ItemLocationMixin, duration: AUCTION_RUNTIME, quantity: number, bid?: number, buyout?: number): void;
 
         /**
-         * 
-         * @param sorts 
-         * @param auctionIDs 
+         *
+         * @param sorts
+         * @param auctionIDs
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.QueryBids
          */
         QueryBids(sorts: AuctionHouseSortType[], auctionIDs: number[]): void;
 
         /**
-         * 
-         * @param sorts 
+         *
+         * @param sorts
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.QueryOwnedAuctions
          */
         QueryOwnedAuctions(sorts: AuctionHouseSortType[]): void;
 
         /**
-         * 
-         * @param itemID 
+         *
+         * @param itemID
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.RefreshCommoditySearchResults
          */
         RefreshCommoditySearchResults(itemID: number): void;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.RefreshItemSearchResults
          */
         RefreshItemSearchResults(itemKey: ItemKey): void;
@@ -662,73 +664,73 @@ declare namespace WoWAPI {
         RequestMoreBrowseResults(): void;
 
         /**
-         * 
-         * @param itemID 
+         *
+         * @param itemID
          * @returns **hasFullResults**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.RequestMoreCommoditySearchResults
          */
         RequestMoreCommoditySearchResults(itemID: number): boolean;
 
         /**
-         * 
-         * @param itemKey 
+         *
+         * @param itemKey
          * @returns **hasFullResults**
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.RequestMoreItemSearchResults
          */
         RequestMoreItemSearchResults(itemKey: ItemKey): boolean;
 
         /**
-         * 
-         * @param sorts 
+         *
+         * @param sorts
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SearchForFavorites
          */
         SearchForFavorites(sorts: AuctionHouseSortType[]): void;
 
         /**
-         * 
-         * @param itemKeys 
-         * @param sorts 
+         *
+         * @param itemKeys
+         * @param sorts
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SearchForItemKeys
          */
         SearchForItemKeys(itemKeys: ItemKey[], sorts: AuctionHouseSortType[]): void;
 
         /**
-         * 
-         * @param query 
+         *
+         * @param query
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SendBrowseQuery
          */
         SendBrowseQuery(query: AuctionHouseBrowseQuery): void;
 
         /**
-         * 
-         * @param itemKey 
-         * @param sorts 
-         * @param separateOwnerItems 
+         *
+         * @param itemKey
+         * @param sorts
+         * @param separateOwnerItems
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SendSearchQuery
          */
         SendSearchQuery(itemKey: ItemKey, sorts: AuctionHouseSortType[], separateOwnerItems: boolean): void;
 
         /**
-         * 
-         * @param itemKey 
-         * @param sorts 
-         * @param separateOwnerItems 
+         *
+         * @param itemKey
+         * @param sorts
+         * @param separateOwnerItems
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SendSellSearchQuery
          */
         SendSellSearchQuery(itemKey: ItemKey, sorts: AuctionHouseSortType[], separateOwnerItems: boolean): void;
 
         /**
-         * 
-         * @param itemKey 
-         * @param setFavorite 
+         *
+         * @param itemKey
+         * @param setFavorite
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.SetFavoriteItem
          */
         SetFavoriteItem(itemKey: ItemKey, setFavorite: boolean): void;
 
         /**
-         * 
-         * @param itemID 
-         * @param quantity 
+         *
+         * @param itemID
+         * @param quantity
          * @see https://wow.gamepedia.com/API_C_AuctionHouse.StartCommoditiesPurchase
          */
         StartCommoditiesPurchase(itemID: number, quantity: number): void;
