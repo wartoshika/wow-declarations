@@ -75,7 +75,64 @@ declare namespace WoWAPI {
         isCommodity: boolean,
         isEquipment: boolean,
     }
+
+    interface C_AzeriteItem {
+        /**
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.FindActiveAzeriteItem
+         */
+        FindActiveAzeriteItem(): ItemLocationMixin;
+
+        /**
+         * 
+         * @param azeriteItemLocation 
+         * @returns
+         * - **xp**
+         * - **totalLevelXP**
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetAzeriteItemXPInfo
+         */
+        GetAzeriteItemXPInfo(azeriteItemLocation: ItemLocationMixin): [number, number];
+
+        /**
+         * 
+         * @param azeriteItemLocation 
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetPowerLevel
+         */
+        GetPowerLevel(azeriteItemLocation: ItemLocationMixin): number;
+
+        /**
+         * 
+         * @param azeriteItemLocation 
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetUnlimitedPowerLevel
+         */
+        GetUnlimitedPowerLevel(azeriteItemLocation: ItemLocationMixin): number;
+
+        /**
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.HasActiveAzeriteItem
+         */
+        HasActiveAzeriteItem(): boolean;
+
+        /**
+         * 
+         * @param itemLocation 
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItem
+         */
+        IsAzeriteItem(itemLocation: ItemLocationMixin): boolean;
+
+        /**
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItemAtMaxLevel
+         */
+        IsAzeriteItemAtMaxLevel(): boolean;
+
+        /**
+         * 
+         * @param itemInfo 
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItemByID
+         */
+        IsAzeriteItemByID(itemInfo: string): boolean;
+    }
 }
+
+declare const C_AzeriteItem: WoWAPI.C_AzeriteItem;
 
 /**
  * Equips an item, optionally into a specified slot
