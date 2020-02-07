@@ -12,12 +12,13 @@ declare namespace WoWAPI {
     type ITEM_QUALITY_LEGENDARY = 5;
     type ITEM_QUALITY_ARTIFACT = 6;
     type ITEM_QUALITY_HEIRLOOM = 7;
+    type ITEM_QUALITY_WOW_TOKEN = 8;
 
     /**
      * all currently known item qualities
      */
     type ITEM_QUALITY = ITEM_QUALITY_GENERIC | ITEM_QUALITY_POOR | ITEM_QUALITY_COMMON | ITEM_QUALITY_UNCOMMON |
-        ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_ARTIFACT | ITEM_QUALITY_HEIRLOOM;
+        ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_ARTIFACT | ITEM_QUALITY_HEIRLOOM | ITEM_QUALITY_WOW_TOKEN;
 
     type BIND_TYPE_NONE = 0;
     type BIND_TYPE_PICKUP = 1;
@@ -36,6 +37,44 @@ declare namespace WoWAPI {
      * a clickable ingame item link
      */
     type ItemLink = Hyperlink;
+
+    interface ItemLocationMixin {
+        bagID: number | null;
+        slotIndex: number | null;
+        equipmentSlotIndex: number | null;
+
+        Clear(): void;
+        GetBagAndSlot(): [number | null, number | null];
+        SetEquipmentSlot(equipmentSlotIndex: number | null): void;
+        GetEquipmentSlot(): number | null;
+        IsEquipmentSlot(): boolean;
+        IsBagAndSlot(): boolean;
+        HasAnyLocation(): boolean;
+        IsValid: boolean;
+        IsEqualToBagAndSlot(otherBagID: number, otherSlotIndex: number): boolean;
+        IsEqualToEquipmentSlot(otherEquipmentSlotIndex: number): boolean;
+        IsEqualTo(otherItemLocation: ItemLocationMixin): boolean;
+    }
+
+    /**
+     * Output table for the AuctionHouse system.
+     */
+    interface ItemKey {
+        itemID: number,
+        itemLevel: number,
+        itemSuffix: number,
+        battlePetSpeciesID: number,
+    }
+
+    interface ItemKeyInfo {
+        itemName: string,
+        battlePetLink: string | null,
+        quality: ITEM_QUALITY,
+        iconFileID: number, // FileID
+        isPet: boolean,
+        isCommodity: boolean,
+        isEquipment: boolean,
+    }
 }
 
 /**
