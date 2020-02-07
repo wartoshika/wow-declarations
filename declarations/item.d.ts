@@ -53,15 +53,6 @@ declare namespace WoWAPI {
 declare function EquipItemByName(itemIdentifier: string | number | WoWAPI.ItemLink, slot?: WoWAPI.INVENTORY_SLOT_ID): void;
 
 /**
- * Retrieves the itemLink of one item in the current retrieved list of items from the Auction House
- * @param type the type to query
- * @param index The index of the item in the list to retrieve info from (normally 1-50, inclusive)
- * @returns The itemLink for the specified item or nil, if type and/or index is invalid
- * @see https://wow.gamepedia.com/API_GetAuctionItemLink
- */
-declare function GetAuctionItemLink(type: WoWAPI.AUCTION_TYPE, index: number): WoWAPI.ItemLink | null;
-
-/**
  * Returns a link of the object located in the specified slot of a specified bag.
  * @param bagId Bag index (bagID). Valid indices are integers -2 through 11. 0 is the backpack
  * @param slotIndex Slot index within the specified bag, ascending from 1. Slot 1 is typically the leftmost topmost slot
