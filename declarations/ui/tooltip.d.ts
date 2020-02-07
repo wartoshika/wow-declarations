@@ -135,19 +135,6 @@ declare namespace WoWAPI {
         SetAuctionCompareItem(type: AUCTION_TYPE, index: number, offset: number): Unknown;
 
         /**
-         * Shows the tooltip for the specified auction item
-         * @param type unknown
-         * @param index unknown
-         */
-        SetAuctionItem(type: AUCTION_TYPE, index: number): Unknown;
-
-        /**
-         * Sets the GameTooltip to the item that is in the sell frame of the auction window
-         * @see http://wowwiki.wikia.com/wiki/API_GameTooltip_SetAuctionSellItem
-         */
-        SetAuctionSellItem(): void;
-
-        /**
          * unknown
          * @param id unknown
          */
@@ -233,6 +220,14 @@ declare namespace WoWAPI {
          * @tupleReturn
          */
         SetInventoryItem(unit: UnitId, slot: number, nameOnly?: Unknown): [boolean, boolean, number];
+
+        /**
+         * Shows an ItemKey in a tooltip.
+         * @param itemID 
+         * @param itemLevel 
+         * @param itemSuffix 
+         */
+        SetItemKey(itemID: number, itemLevel: number, itemSuffix: number): void;
 
         /**
          * Sets the GameTooltip to show a loot item
