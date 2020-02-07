@@ -38,6 +38,12 @@ declare namespace WoWAPI {
      */
     type ItemLink = Hyperlink;
 
+    interface CorruptionEffectInfo {
+        name: string,
+        description: string,
+        minCorruption: number
+    }
+
     interface ItemLocationMixin {
         bagID: number | null;
         slotIndex: number | null;
@@ -156,6 +162,20 @@ declare function EquipItemByName(itemIdentifier: string | number | WoWAPI.ItemLi
  * @see https://wow.gamepedia.com/API_GetContainerItemLink
  */
 declare function GetContainerItemLink(bagId: WoWAPI.CONTAINER_ID, slotIndex: number): WoWAPI.ItemLink | null;
+
+/**
+ * Tracks the extent to which a player is wearing items touched by N'Zoth's influence.
+ * @returns the amount of corruption independent of any resistances
+ * @see https://wow.gamepedia.com/API_GetCorruption
+ */
+declare function GetCorruption(): number;
+
+/**
+ * Tracks how much the player has offset their exposure to dangers that result from wearing items touched by N'Zoth's influence.
+ * @returns Amount of corruption resistance, independent of how much corruption is actually present
+ * @see https://wow.gamepedia.com/API_GetCorruptionResistance
+ */
+declare function GetCorruptionResistance(): number;
 
 /**
  * Returns detailed item level information about a given item
@@ -306,6 +326,11 @@ declare function GetItemStats(itemLink: WoWAPI.ItemLink, statTable?: {}): { [ind
 declare function GetMerchantItemLink(merchantIndex: number): WoWAPI.ItemLink;
 
 /**
+ * @see https://wow.gamepedia.com/API_GetNegativeCorruptionEffectInfo
+ */
+declare function GetNegativeCorruptionEffectInfo(): WoWAPI.CorruptionEffectInfo[];
+
+/**
  * Returns link to the quest item
  * @param type "required", "reward" or "choice"
  * @param index Quest reward item index
@@ -369,6 +394,13 @@ declare function IsUsableItem(itemIdentifier: string | number | WoWAPI.ItemLink)
  * @see https://wow.gamepedia.com/API_IsConsumableItem
  */
 declare function IsConsumableItem(itemIdentifier: string | number | WoWAPI.ItemLink): WoWAPI.Flag;
+
+/**
+ * 
+ * @param itemIdentifier An item ID (number), item link or item name (string) to query
+ * @see https://wow.gamepedia.com/API_IsCorruptedItem
+ */
+declare function IsCorruptedItem(itemIdentifier: string | number | WoWAPI.ItemLink): boolean;
 
 /**
  * unknown
