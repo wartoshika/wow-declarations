@@ -12,12 +12,13 @@ declare namespace WoWAPI {
     type ITEM_QUALITY_LEGENDARY = 5;
     type ITEM_QUALITY_ARTIFACT = 6;
     type ITEM_QUALITY_HEIRLOOM = 7;
+    type ITEM_QUALITY_WOW_TOKEN = 8;
 
     /**
      * all currently known item qualities
      */
     type ITEM_QUALITY = ITEM_QUALITY_GENERIC | ITEM_QUALITY_POOR | ITEM_QUALITY_COMMON | ITEM_QUALITY_UNCOMMON |
-        ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_ARTIFACT | ITEM_QUALITY_HEIRLOOM;
+        ITEM_QUALITY_RARE | ITEM_QUALITY_EPIC | ITEM_QUALITY_LEGENDARY | ITEM_QUALITY_ARTIFACT | ITEM_QUALITY_HEIRLOOM | ITEM_QUALITY_WOW_TOKEN;
 
     type BIND_TYPE_NONE = 0;
     type BIND_TYPE_PICKUP = 1;
@@ -36,7 +37,108 @@ declare namespace WoWAPI {
      * a clickable ingame item link
      */
     type ItemLink = Hyperlink;
+
+    interface CorruptionEffectInfo {
+        name: string;
+        description: string;
+        minCorruption: number;
+    }
+
+    interface ItemLocationMixin {
+        bagID: number | null;
+        slotIndex: number | null;
+        equipmentSlotIndex: number | null;
+        IsValid: boolean;
+
+        Clear(): void;
+        GetBagAndSlot(): [number | null, number | null];
+        SetEquipmentSlot(equipmentSlotIndex: number | null): void;
+        GetEquipmentSlot(): number | null;
+        IsEquipmentSlot(): boolean;
+        IsBagAndSlot(): boolean;
+        HasAnyLocation(): boolean;
+        IsEqualToBagAndSlot(otherBagID: number, otherSlotIndex: number): boolean;
+        IsEqualToEquipmentSlot(otherEquipmentSlotIndex: number): boolean;
+        IsEqualTo(otherItemLocation: ItemLocationMixin): boolean;
+    }
+
+    /**
+     * Output table for the AuctionHouse system.
+     */
+    interface ItemKey {
+        itemID: number;
+        itemLevel: number;
+        itemSuffix: number;
+        battlePetSpeciesID: number;
+    }
+
+    interface ItemKeyInfo {
+        itemName: string;
+        battlePetLink: string | null;
+        quality: ITEM_QUALITY;
+        iconFileID: number; // FileID
+        isPet: boolean;
+        isCommodity: boolean;
+        isEquipment: boolean;
+    }
+
+    interface C_AzeriteItem {
+        /**
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.FindActiveAzeriteItem
+         */
+        FindActiveAzeriteItem(): ItemLocationMixin;
+
+        /**
+         *
+         * @param azeriteItemLocation
+         * @returns
+         * - **xp**
+         * - **totalLevelXP**
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetAzeriteItemXPInfo
+         */
+        GetAzeriteItemXPInfo(azeriteItemLocation: ItemLocationMixin): [number, number];
+
+        /**
+         *
+         * @param azeriteItemLocation
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetPowerLevel
+         */
+        GetPowerLevel(azeriteItemLocation: ItemLocationMixin): number;
+
+        /**
+         *
+         * @param azeriteItemLocation
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.GetUnlimitedPowerLevel
+         */
+        GetUnlimitedPowerLevel(azeriteItemLocation: ItemLocationMixin): number;
+
+        /**
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.HasActiveAzeriteItem
+         */
+        HasActiveAzeriteItem(): boolean;
+
+        /**
+         *
+         * @param itemLocation
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItem
+         */
+        IsAzeriteItem(itemLocation: ItemLocationMixin): boolean;
+
+        /**
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItemAtMaxLevel
+         */
+        IsAzeriteItemAtMaxLevel(): boolean;
+
+        /**
+         *
+         * @param itemInfo
+         * @see https://wow.gamepedia.com/API_C_AzeriteItem.IsAzeriteItemByID
+         */
+        IsAzeriteItemByID(itemInfo: string): boolean;
+    }
 }
+
+declare const C_AzeriteItem: WoWAPI.C_AzeriteItem;
 
 /**
  * Equips an item, optionally into a specified slot
@@ -53,15 +155,6 @@ declare namespace WoWAPI {
 declare function EquipItemByName(itemIdentifier: string | number | WoWAPI.ItemLink, slot?: WoWAPI.INVENTORY_SLOT_ID): void;
 
 /**
- * Retrieves the itemLink of one item in the current retrieved list of items from the Auction House
- * @param type the type to query
- * @param index The index of the item in the list to retrieve info from (normally 1-50, inclusive)
- * @returns The itemLink for the specified item or nil, if type and/or index is invalid
- * @see https://wow.gamepedia.com/API_GetAuctionItemLink
- */
-declare function GetAuctionItemLink(type: WoWAPI.AUCTION_TYPE, index: number): WoWAPI.ItemLink | null;
-
-/**
  * Returns a link of the object located in the specified slot of a specified bag.
  * @param bagId Bag index (bagID). Valid indices are integers -2 through 11. 0 is the backpack
  * @param slotIndex Slot index within the specified bag, ascending from 1. Slot 1 is typically the leftmost topmost slot
@@ -69,6 +162,20 @@ declare function GetAuctionItemLink(type: WoWAPI.AUCTION_TYPE, index: number): W
  * @see https://wow.gamepedia.com/API_GetContainerItemLink
  */
 declare function GetContainerItemLink(bagId: WoWAPI.CONTAINER_ID, slotIndex: number): WoWAPI.ItemLink | null;
+
+/**
+ * Tracks the extent to which a player is wearing items touched by N'Zoth's influence.
+ * @returns the amount of corruption independent of any resistances
+ * @see https://wow.gamepedia.com/API_GetCorruption
+ */
+declare function GetCorruption(): number;
+
+/**
+ * Tracks how much the player has offset their exposure to dangers that result from wearing items touched by N'Zoth's influence.
+ * @returns Amount of corruption resistance, independent of how much corruption is actually present
+ * @see https://wow.gamepedia.com/API_GetCorruptionResistance
+ */
+declare function GetCorruptionResistance(): number;
 
 /**
  * Returns detailed item level information about a given item
@@ -219,6 +326,11 @@ declare function GetItemStats(itemLink: WoWAPI.ItemLink, statTable?: {}): { [ind
 declare function GetMerchantItemLink(merchantIndex: number): WoWAPI.ItemLink;
 
 /**
+ * @see https://wow.gamepedia.com/API_GetNegativeCorruptionEffectInfo
+ */
+declare function GetNegativeCorruptionEffectInfo(): WoWAPI.CorruptionEffectInfo[];
+
+/**
  * Returns link to the quest item
  * @param type "required", "reward" or "choice"
  * @param index Quest reward item index
@@ -282,6 +394,13 @@ declare function IsUsableItem(itemIdentifier: string | number | WoWAPI.ItemLink)
  * @see https://wow.gamepedia.com/API_IsConsumableItem
  */
 declare function IsConsumableItem(itemIdentifier: string | number | WoWAPI.ItemLink): WoWAPI.Flag;
+
+/**
+ *
+ * @param itemIdentifier An item ID (number), item link or item name (string) to query
+ * @see https://wow.gamepedia.com/API_IsCorruptedItem
+ */
+declare function IsCorruptedItem(itemIdentifier: string | number | WoWAPI.ItemLink): boolean;
 
 /**
  * unknown
