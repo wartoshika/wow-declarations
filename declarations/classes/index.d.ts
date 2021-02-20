@@ -4,6 +4,8 @@ import "./C_CovenantCallings";
 import "./C_CovenantPreview";
 import "./C_Covenants";
 import "./C_CovenantSanctumUI";
+import "./C_Item";
+import "./C_LegendaryCrafting";
+import "./C_Soulbinds";
 import "./C_Spell";
 import "./C_SpellBook";
-

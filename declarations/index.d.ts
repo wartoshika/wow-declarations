@@ -42,14 +42,16 @@ import "./gossip";
 import "./groups";
 // I
 import "./inventory";
+import "./item";
+import "./itemLocation";
 // Q
 import "./quest";
 // S
 import "./security";
 import "./spell";
 import "./system";
-import "./ui/tooltip";
 // U
+import "./ui/tooltip";
 import "./ui/ui";
 import "./unit";
 

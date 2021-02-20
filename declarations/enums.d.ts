@@ -35,4 +35,29 @@ declare namespace Enum {
         Ardenweald = 3,
         Maldraxxus = 4,
     }
+
+    enum RuneforgePowerFilter {
+        All = 0,
+        Available = 1,
+        Unavailable = 2
+    }
+
+    enum SoulbindConduitType {
+        Finesse = 0,
+        Potency = 1,
+        Endurance = 2,
+        Flex = 3,
+    }
+
+    enum SoulbindNodeState {
+        Unavailable  = 0,
+        Unselected = 1,
+        Selectable = 2,
+        Selected = 3,
+    }
+
+    enum SoulbindConduitTransactionType {
+        Install = 0,
+        Uninstall = 1
+    }
 }
