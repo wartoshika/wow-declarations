@@ -35,6 +35,7 @@ import "./cursor";
 // D
 import "./debug";
 // E
+import "./encounterJournal";
 import "./enums";
 import "./event";
 // G

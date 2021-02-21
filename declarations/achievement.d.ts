@@ -34,6 +34,17 @@ declare function AreAccountAchievementsHidden(): boolean;
 declare function CanShowAchievementUI(): boolean;
 
 /**
+ * Remove the unit being compared
+ * @see https://wow.gamepedia.com/API_ClearAchievementComparisonUnit
+ */
+declare function ClearAchievementComparisonUnit(): void;
+
+/**
+ * @see https://wow.gamepedia.com/API_ClearAchievementSearchString
+ */
+declare function ClearAchievementSearchString(): WoWAPI.Unknown;
+
+/**
  * Returns the category number the requested achievement belongs to
  *
  * @param achivementId ID of the achievement to retrieve information for
