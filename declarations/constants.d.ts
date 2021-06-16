@@ -165,4 +165,10 @@ declare namespace WoWAPI {
     type InventoryId = INVSLOT_AMMO | INVSLOT_HEAD | INVSLOT_NECK | INVSLOT_SHOULDER | INVSLOT_BODY | INVSLOT_CHEST |
         INVSLOT_WAIST | INVSLOT_LEGS | INVSLOT_FEET | INVSLOT_WRIST | INVSLOT_HAND | INVSLOT_FINGER1 | INVSLOT_FINGER2 | INVSLOT_TRINKET1 |
         INVSLOT_TRINKET2 | INVSLOT_BACK | INVSLOT_MAINHAND | INVSLOT_OFFHAND | INVSLOT_RANGED | INVSLOT_TABARD;
+
+    /**
+     * Global object used to register and assign handler functions to for slash commands.
+     * @see https://wowpedia.fandom.com/wiki/Creating_a_slash_command
+     */
+    const SlashCmdList: { [key: string]: (this: void, msg: string, editBox: EditBox) => void };
 }
