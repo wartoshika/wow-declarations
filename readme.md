@@ -39,6 +39,27 @@ Please add the wow-declarations path to your `tsconfig.json` compiler options li
 
 ## Changes
 
+### **June 16 2021 - v9.0.5-release.1**
+
+- Merging PR #16 wich adds SlashCmdList
+- Added a bunch of Shadowland related features
+- Added declarations of common global tables like
+   - C_Item
+   - C_AdventureJournal 
+   - C_EncounterJournal 
+   - C_Loot
+   - C_LegendaryCrafting
+   - C_Soulbinds
+   - C_CovenantCallings
+   - C_AchivementInfo 
+   - C_RaidLocks 
+   - C_ItemInteraction 
+   - C_ItemUpgrade 
+   - C_Map 
+   - C_NewItems
+- Added common "mixin" functions like
+   - ItemLocation
+
 ### **Sat. 08 2020 - v8.3.0-release.1**
 
 - Merging PR #11 wich add/remove functions that are present in the WoW API release 8.3.
