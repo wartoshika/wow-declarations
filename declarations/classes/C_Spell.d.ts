@@ -9,7 +9,7 @@ declare namespace C_Spell {
      * @see https://wow.gamepedia.com/API_C_Spell.GetMawPowerBorderAtlasBySpellID
      * @since 9.0.2 (2020-11-17)
      */
-    function GetMawPowerBorderAtlasBySpellID(spellId: number): AtlasID;
+    function GetMawPowerBorderAtlasBySpellID(spellId: number): WoWAPI.AtlasID;
 
     /**
      * Needs summary
