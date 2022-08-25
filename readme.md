@@ -39,6 +39,10 @@ Please add the wow-declarations path to your `tsconfig.json` compiler options li
 
 ## Changes
 
+### **August 25 2022 - v9.0.5-release.2**
+
+- Merging PR #18 (Cannot find name 'AtlasID')
+
 ### **June 16 2021 - v9.0.5-release.1**
 
 - Merging PR #16 wich adds SlashCmdList
